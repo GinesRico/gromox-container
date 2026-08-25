@@ -178,16 +178,9 @@ services:
       - gromox_config:/etc/gromox
       - gromox_letsencrypt:/etc/letsencrypt
     ports:
-      - "25:2525"    # SMTP
-      - "80:8080"    # HTTP / Letsencrypt challenges
-      - "443:8443"   # HTTPS / Grommunio Web
-      - "465:2465"   # SMTPS
-      - "993:2993"   # IMAPS
-      - "110:2110"   # POP3
-      - "143:2143"   # IMAP
-      - "587:2587"   # SMTP Submission
-      - "995:2995"   # POP3S
-      - "8443:9443"  # Grommunio Admin / HTTPS alternative
+      - "192.168.0.161:8088:8080"   # HTTP interno / LAN
+      - "192.168.0.161:8443:8443"   # HTTPS / Grommunio Web interno
+      - "192.168.0.161:9444:9443"   # Grommunio Admin interno
     dns:
       - 127.0.0.11
       - 8.8.8.8
@@ -208,6 +201,43 @@ services:
         condition: service_healthy
       archive-db:
         condition: service_healthy
+      smtp-relay:
+        condition: service_started
+
+  smtp-relay:
+    build:
+      context: ./smtp-relay
+    container_name: grommunio-smtp-relay
+    restart: unless-stopped
+    env_file:
+      - smtp-relay.env
+    dns:
+      - 127.0.0.11
+      - 8.8.8.8
+    networks:
+      grommunio:
+        aliases:
+          - smtp-relay
+
+  fetchmail:
+    image: alpine:3.20
+    container_name: grommunio-fetchmail
+    command: >
+      sh -c "apk add --no-cache fetchmail ca-certificates &&
+             cp /config/fetchmailrc /tmp/fetchmailrc &&
+             chmod 600 /tmp/fetchmailrc &&
+             fetchmail -f /tmp/fetchmailrc --nodetach --verbose"
+    volumes:
+      - ./fetchmail/fetchmailrc:/config/fetchmailrc:ro
+    depends_on:
+      gromox-core:
+        condition: service_started
+    dns:
+      - 127.0.0.11
+      - 8.8.8.8
+    networks:
+      grommunio:
+    restart: unless-stopped
 
   gromox-archive:
     build:

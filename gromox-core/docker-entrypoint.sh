@@ -72,6 +72,21 @@ if [ -f /etc/postfix/master.cf ]; then
   sed -i 's/^smtps\(\s\+\)inet/2465\1inet/' /etc/postfix/master.cf
 fi
 
+# Keep local delivery to Gromox separate from outbound mail. The dedicated
+# smtp-relay container handles STARTTLS/auth with the external provider.
+postconf -e "myhostname = correo.local"
+postconf -e "myorigin = ${DOMAIN:-arvera.es}"
+postconf -e "relay_domains ="
+postconf -e "relayhost = [smtp-relay]:25"
+postconf -e "default_transport = smtp"
+postconf -e "relay_transport = smtp"
+postconf -e "transport_maps ="
+postconf -e "virtual_transport = smtp:[127.0.0.1]:24"
+postconf -e "smtp_tls_security_level = may"
+postconf -e "smtp_tls_wrappermode = no"
+postconf -X sender_dependent_relayhost_maps 2>/dev/null || true
+postconf -X smtp_sender_dependent_authentication 2>/dev/null || true
+
 # Remap gromox imap/pop3 ports
 if [ -f /etc/gromox/imap.cfg ]; then
   sed -i 's/^listen_ssl_port\s*=\s*993/listen_ssl_port=2993/' /etc/gromox/imap.cfg
@@ -109,6 +124,28 @@ DEPLOY
   # 8080, so free it only while a renewal actually runs: the pre/post hooks
   # fire only when at least one certificate is due.
   echo "0 */12 * * * root certbot renew --quiet --standalone --http-01-port 8080 --pre-hook 'supervisorctl stop nginx' --deploy-hook /usr/local/bin/grommunio-cert-deploy --post-hook 'supervisorctl start nginx'" > /etc/cron.d/certbot-renew
+fi
+
+# /run is tmpfs-like runtime state in containers; recreate socket directories on every start.
+mkdir -p /run/php-fpm /run/gromox /run/uwsgi /run/grommunio /run/grommunio-admin-api
+chown gromox:gromox /run/gromox 2>/dev/null || true
+chown nginx:nginx /run/php-fpm /run/uwsgi /run/grommunio /run/grommunio-admin-api 2>/dev/null || true
+chmod 0775 /run/php-fpm /run/gromox /run/uwsgi /run/grommunio /run/grommunio-admin-api
+
+# Recreate generated nginx SSL include when persistent volumes skip setup.
+mkdir -p /etc/grommunio-admin-common /etc/grommunio-common/nginx
+cp -f /home/config/certificate.conf /etc/grommunio-common/nginx/ssl_certificate.conf
+ln -sf /etc/grommunio-common/nginx/ssl_certificate.conf /etc/grommunio-admin-common/nginx-ssl.conf
+
+# Public folders read/unread mode:
+# 1 = per user, 0 = shared state for all users.
+: "${PUBLIC_FOLDERS_READ_PER_USER:=0}"
+mkdir -p /etc/gromox
+touch /etc/gromox/exmdb_provider.cfg
+if grep -q "^exmdb_pf_read_per_user" /etc/gromox/exmdb_provider.cfg; then
+  sed -i "s/^exmdb_pf_read_per_user.*/exmdb_pf_read_per_user=${PUBLIC_FOLDERS_READ_PER_USER}/" /etc/gromox/exmdb_provider.cfg
+else
+  printf "\nexmdb_pf_read_per_user=%s\n" "${PUBLIC_FOLDERS_READ_PER_USER}" >> /etc/gromox/exmdb_provider.cfg
 fi
 
 exec /usr/local/bin/supervisord -n -c /etc/supervisord.conf

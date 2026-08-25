@@ -1,0 +1,36 @@
+set daemon 60
+set syslog
+set no bouncemail
+set no spambounce
+
+poll imap.serviciodecorreo.es protocol IMAP port 993
+  user "grico@arvera.es" with password "CAMBIAR_ESTA_PASSWORD"
+  is "grico@arvera.es" here
+  ssl
+  keep
+  fetchall
+  smtphost gromox-core/2525
+
+poll imap.serviciodecorreo.es protocol IMAP port 993
+  user "info@arvera.es" with password "CAMBIAR_ESTA_PASSWORD"
+  is "info@arvera.es" here
+  ssl
+  keep
+  fetchall
+  smtphost gromox-core/2525
+
+poll imap.serviciodecorreo.es protocol IMAP port 993
+  user "admin@arvera.es" with password "CAMBIAR_ESTA_PASSWORD"
+  is "admin@arvera.es" here
+  ssl
+  keep
+  fetchall
+  smtphost gromox-core/2525
+
+poll imap.serviciodecorreo.es protocol IMAP port 993
+  user "castellano@arvera.es" with password "CAMBIAR_ESTA_PASSWORD"
+  is "castellano@arvera.es" here
+  ssl
+  keep
+  fetchall
+  smtphost gromox-core/2525
