@@ -31,6 +31,13 @@ for i in $(seq 1 30); do
   sleep 2
 done
 
+# Admin API config can live outside the one-time setup path depending on image
+# upgrades and mounted volumes. Regenerate it on every start so the API never
+# falls back to offline DB mode after a rebuild.
+mkdir -p /etc/grommunio-admin-api/conf.d
+. /home/common/helpers
+generate_admin_db_conf "/etc/grommunio-admin-api/conf.d/database.yaml"
+
 # Run DB initialization (once)
 if [ ! -f "${MARKER_DIR}/db_done" ]; then
   /home/scripts/db.sh
@@ -147,5 +154,24 @@ if grep -q "^exmdb_pf_read_per_user" /etc/gromox/exmdb_provider.cfg; then
 else
   printf "\nexmdb_pf_read_per_user=%s\n" "${PUBLIC_FOLDERS_READ_PER_USER}" >> /etc/gromox/exmdb_provider.cfg
 fi
+
+# Let users with store-owner rights manage rules for shared mailboxes from
+# grommunio-web Settings > Rules.
+if [ -f /etc/grommunio-web/config.php ] && ! grep -q "ENABLE_SHARED_RULES" /etc/grommunio-web/config.php; then
+  printf "\ndefine(\"ENABLE_SHARED_RULES\", true);\n" >> /etc/grommunio-web/config.php
+elif [ -f /etc/grommunio-web/config.php ]; then
+  sed -i 's/define("ENABLE_SHARED_RULES".*/define("ENABLE_SHARED_RULES", true);/' /etc/grommunio-web/config.php
+fi
+if [ -f /etc/grommunio-web/config.php ] && ! grep -q "ALWAYS_ENABLED_PLUGINS_LIST" /etc/grommunio-web/config.php; then
+  printf "\ndefine(\"ALWAYS_ENABLED_PLUGINS_LIST\", \"passwd;mdm;runrulesnow\");\n" >> /etc/grommunio-web/config.php
+elif [ -f /etc/grommunio-web/config.php ]; then
+  current_plugins="$(grep 'define("ALWAYS_ENABLED_PLUGINS_LIST"' /etc/grommunio-web/config.php | sed -E 's/.*"([^"]*)".*/\1/' | tail -n 1)"
+  case ";${current_plugins};" in
+    *";runrulesnow;"*) ;;
+    *) sed -i "s/define(\"ALWAYS_ENABLED_PLUGINS_LIST\".*/define(\"ALWAYS_ENABLED_PLUGINS_LIST\", \"${current_plugins};runrulesnow\");/" /etc/grommunio-web/config.php ;;
+  esac
+fi
+rm -f /var/lib/grommunio-web/tmp/session/*.plugin 2>/dev/null || true
+chmod -R a+rX /usr/share/grommunio-web/plugins/runrulesnow 2>/dev/null || true
 
 exec /usr/local/bin/supervisord -n -c /etc/supervisord.conf

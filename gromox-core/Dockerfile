@@ -64,6 +64,8 @@ RUN    groupadd 'wheel' &&                         \
 COPY gromox-core/scripts /home/scripts
 COPY gromox-core/common /home/common
 COPY gromox-core/config /home/config
+COPY grommunio-web-plugins /usr/share/grommunio-web/plugins
+RUN chmod -R a+rX /usr/share/grommunio-web/plugins/runrulesnow
 
 RUN chmod +x /home/scripts/db.sh
 
@@ -71,7 +73,7 @@ COPY gromox-core/entrypoint.sh /home/entrypoint.sh
 RUN chmod +x /home/entrypoint.sh
 
 COPY gromox-core/docker-entrypoint.sh /home/docker-entrypoint.sh
-RUN chmod +x /home/docker-entrypoint.sh
+RUN sed -i 's/\r$//' /home/docker-entrypoint.sh && chmod +x /home/docker-entrypoint.sh
 
 COPY gromox-core/supervisord.conf /etc/supervisord.conf
 COPY gromox-core/supervisor.d /etc/supervisor.d

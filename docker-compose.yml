@@ -226,9 +226,13 @@ services:
       sh -c "apk add --no-cache fetchmail ca-certificates &&
              cp /config/fetchmailrc /tmp/fetchmailrc &&
              chmod 600 /tmp/fetchmailrc &&
-             fetchmail -f /tmp/fetchmailrc --nodetach --verbose"
+             mkdir -p /state &&
+             touch /state/fetchids &&
+             chmod 600 /state/fetchids &&
+             fetchmail -f /tmp/fetchmailrc --idfile /state/fetchids --nodetach"
     volumes:
       - ./fetchmail/fetchmailrc:/config/fetchmailrc:ro
+      - ./fetchmail/state:/state
     depends_on:
       gromox-core:
         condition: service_started

@@ -1,0 +1,53 @@
+{
+  "total_rules": 1788,
+  "migrable_rules": 1770,
+  "review_rules": 18,
+  "actions": {
+    "Move to folder": 1779,
+    "Delete": 4,
+    "Copy to folder": 3,
+    "Reply": 1,
+    "Mark read": 1
+  },
+  "accounts": {
+    "Mail/pop.serviciodecorreo-1.es": 942,
+    "Mail/pop.serviciodecorreo.es": 577,
+    "Mail/mail.gira.net": 255,
+    "Mail/outlook.office365-1.com": 9,
+    "Mail/Local Folders": 3,
+    "ImapMail/imap.serviciodecorreo.es": 1,
+    "Mail/outlook.office365.com": 1
+  },
+  "top_targets": {
+    "/IPM_SUBTREE/TOP RECAMBIOS": 48,
+    "/IPM_SUBTREE/EXCLUSIVAS BCN": 32,
+    "/IPM_SUBTREE/CONTINENTAL CORREAS": 32,
+    "/IPM_SUBTREE/FILTROS CARTES": 31,
+    "/IPM_SUBTREE/FRIG AIR": 31,
+    "/IPM_SUBTREE/NEX TYRES": 26,
+    "/IPM_SUBTREE/MECAFILTER": 24,
+    "/IPM_SUBTREE/FARE": 24,
+    "/IPM_SUBTREE/EACLIMA": 24,
+    "/IPM_SUBTREE/ROYSE": 18,
+    "/IPM_SUBTREE/EXIDE": 17,
+    "/IPM_SUBTREE/BLISTEIN - SWAG": 17,
+    "/IPM_SUBTREE/CECAUTO": 17,
+    "/IPM_SUBTREE/OPTIMAL": 17,
+    "/IPM_SUBTREE/BREMBO": 17,
+    "/IPM_SUBTREE/ESTANFI": 16,
+    "/IPM_SUBTREE/REPRESENTACIONES HERNANDEZ": 16,
+    "/IPM_SUBTREE/MEAT-DORIA": 16,
+    "/IPM_SUBTREE/SESAME": 16,
+    "/IPM_SUBTREE/MULTIRECAMBIOS HM": 16,
+    "/IPM_SUBTREE/ABSOAL": 16,
+    "/IPM_SUBTREE/CEAPI": 16,
+    "/IPM_SUBTREE/VALEO": 16,
+    "/IPM_SUBTREE/NER-TOR": 16,
+    "/IPM_SUBTREE/PEMEBLA": 16,
+    "/IPM_SUBTREE/IPARLUX": 16,
+    "/IPM_SUBTREE/NRF": 16,
+    "/IPM_SUBTREE/NEUMATICOS ANDRES": 16,
+    "/IPM_SUBTREE/GIRA": 16,
+    "/IPM_SUBTREE/AUTOMECANICA ALBOX TURISMO": 16
+  }
+}
