@@ -8,6 +8,9 @@
 FROM opensuse/leap:16.0
 
 ARG GROMMUNIO_REPO=openSUSE_Leap_16.0
+ARG ARVERA_USE_GROMMUNIO_WEB_FORK=0
+ARG ARVERA_GROMMUNIO_WEB_REPO=https://github.com/GinesRico/grommunio-web.git
+ARG ARVERA_GROMMUNIO_WEB_REF=arvera-operator-users
 
 RUN zypper -n install -y \
         iptables   \
@@ -57,6 +60,18 @@ RUN    zypper -n install -y python313-certbot python313-certbot-nginx glibc-gcon
 RUN zypper -n install -y python313-pip && \
     pip3.13 install --no-cache-dir supervisor
 
+# Optional Arvera webmail fork overlay. Disabled by default so the image keeps
+# using the packaged grommunio-web unless explicitly requested at build time.
+RUN if [ "${ARVERA_USE_GROMMUNIO_WEB_FORK}" = "1" ]; then \
+      zypper --non-interactive install -y git nodejs npm make gettext-tools && \
+      git clone --depth 1 --branch "${ARVERA_GROMMUNIO_WEB_REF}" "${ARVERA_GROMMUNIO_WEB_REPO}" /tmp/arvera-grommunio-web && \
+      cd /tmp/arvera-grommunio-web && \
+      npm ci && \
+      make deploy && \
+      cp -a deploy/. /usr/share/grommunio-web/ && \
+      rm -rf /tmp/arvera-grommunio-web; \
+    fi
+
 # Create default user if needed
 RUN    groupadd 'wheel' &&                         \
     useradd -m -s /bin/bash -G wheel admin && echo "admin:admin" | chpasswd
@@ -64,8 +79,11 @@ RUN    groupadd 'wheel' &&                         \
 COPY gromox-core/scripts /home/scripts
 COPY gromox-core/common /home/common
 COPY gromox-core/config /home/config
-COPY grommunio-web-plugins /usr/share/grommunio-web/plugins
-RUN chmod -R a+rX /usr/share/grommunio-web/plugins/runrulesnow
+COPY grommunio-web-plugins /tmp/arvera-grommunio-web-plugins
+RUN if [ "${ARVERA_USE_GROMMUNIO_WEB_FORK}" != "1" ]; then \
+      cp -a /tmp/arvera-grommunio-web-plugins/. /usr/share/grommunio-web/plugins/; \
+    fi && \
+    chmod -R a+rX /usr/share/grommunio-web/plugins/runrulesnow 2>/dev/null || true
 
 RUN chmod +x /home/scripts/db.sh
 

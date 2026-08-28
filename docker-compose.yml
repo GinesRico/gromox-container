@@ -164,6 +164,10 @@ services:
     build:
       context: ./
       dockerfile: ./gromox-core/Dockerfile
+      args:
+        ARVERA_USE_GROMMUNIO_WEB_FORK: ${ARVERA_USE_GROMMUNIO_WEB_FORK:-0}
+        ARVERA_GROMMUNIO_WEB_REPO: ${ARVERA_GROMMUNIO_WEB_REPO:-https://github.com/GinesRico/grommunio-web.git}
+        ARVERA_GROMMUNIO_WEB_REF: ${ARVERA_GROMMUNIO_WEB_REF:-arvera-operator-users}
     restart: on-failure
     volumes:
       - opensuse_data:/data
