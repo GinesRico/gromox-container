@@ -171,6 +171,9 @@ services:
         ARVERA_USE_ADMIN_API_FORK: ${ARVERA_USE_ADMIN_API_FORK:-1}
         ARVERA_ADMIN_API_REPO: ${ARVERA_ADMIN_API_REPO:-https://github.com/GinesRico/admin-api.git}
         ARVERA_ADMIN_API_REF: ${ARVERA_ADMIN_API_REF:-arvera-operator-users}
+        ARVERA_USE_ADMIN_WEB_FORK: ${ARVERA_USE_ADMIN_WEB_FORK:-1}
+        ARVERA_ADMIN_WEB_REPO: ${ARVERA_ADMIN_WEB_REPO:-https://github.com/GinesRico/admin-web.git}
+        ARVERA_ADMIN_WEB_REF: ${ARVERA_ADMIN_WEB_REF:-arvera-operator-users}
     restart: on-failure
     volumes:
       - opensuse_data:/data

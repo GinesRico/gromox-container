@@ -423,6 +423,27 @@ if [[ $ENABLE_KEYCLOAK = true ]] ; then
 else
   rm -f /etc/gromox/keycloak.json /etc/gromox/oidc-import.json
 fi
+
+
+# ----------------------------------------------------------------------
+# Ensure grommunio Admin API database configuration exists
+# ----------------------------------------------------------------------
+
+mkdir -p /etc/grommunio-admin-api/conf.d
+
+cat > /etc/grommunio-admin-api/conf.d/database.yaml <<EOF
+DB:
+  user: '${MYSQL_USER}'
+  pass: '${MYSQL_PASS}'
+  database: '${MYSQL_DB}'
+  host: '${MYSQL_HOST}'
+EOF
+
+chown -R grommunio:grommunio /etc/grommunio-admin-api/conf.d
+chmod 750 /etc/grommunio-admin-api/conf.d
+chmod 640 /etc/grommunio-admin-api/conf.d/database.yaml
+
+
 setup_done
 
 exit 0
