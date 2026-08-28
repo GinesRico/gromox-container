@@ -245,8 +245,9 @@ RUN if [ "${ARVERA_USE_ADMIN_WEB_FORK}" = "1" ]; then \
         "${ARVERA_ADMIN_WEB_REPO}" \
         /tmp/arvera-admin-web && \
       cd /tmp/arvera-admin-web && \
-      npm install --legacy-peer-deps && \
-      npm run build && \
+      corepack enable && \
+      corepack yarn install --frozen-lockfile --network-timeout 600000 && \
+      DISABLE_ESLINT_PLUGIN=true corepack yarn build && \
       ADMIN_WEB_DIR="/usr/share/grommunio-admin-web" && \
       test -d "${ADMIN_WEB_DIR}" && \
       rm -rf "${ADMIN_WEB_DIR:?}"/* && \
