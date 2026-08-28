@@ -11,6 +11,9 @@ ARG GROMMUNIO_REPO=openSUSE_Leap_16.0
 ARG ARVERA_USE_GROMMUNIO_WEB_FORK=0
 ARG ARVERA_GROMMUNIO_WEB_REPO=https://github.com/GinesRico/grommunio-web.git
 ARG ARVERA_GROMMUNIO_WEB_REF=arvera-operator-users
+ARG ARVERA_USE_ADMIN_API_FORK=0
+ARG ARVERA_ADMIN_API_REPO=https://github.com/GinesRico/admin-api.git
+ARG ARVERA_ADMIN_API_REF=arvera-operator-users
 
 RUN zypper -n install -y \
         iptables   \
@@ -70,6 +73,31 @@ RUN if [ "${ARVERA_USE_GROMMUNIO_WEB_FORK}" = "1" ]; then \
       make deploy && \
       cp -a deploy/. /usr/share/grommunio-web/ && \
       rm -rf /tmp/arvera-grommunio-web; \
+    fi
+
+# Optional Arvera admin-api fork overlay. The packaged service, uwsgi config and
+# runtime state stay in place; only the application source is replaced.
+RUN if [ "${ARVERA_USE_ADMIN_API_FORK}" = "1" ]; then \
+      zypper --non-interactive install -y git && \
+      git clone --depth 1 --branch "${ARVERA_ADMIN_API_REF}" "${ARVERA_ADMIN_API_REPO}" /tmp/arvera-admin-api && \
+      rm -rf /usr/share/grommunio-admin-api/api \
+             /usr/share/grommunio-admin-api/cli \
+             /usr/share/grommunio-admin-api/endpoints \
+             /usr/share/grommunio-admin-api/orm \
+             /usr/share/grommunio-admin-api/res \
+             /usr/share/grommunio-admin-api/services \
+             /usr/share/grommunio-admin-api/tools && \
+      cp -a /tmp/arvera-admin-api/api \
+            /tmp/arvera-admin-api/cli \
+            /tmp/arvera-admin-api/endpoints \
+            /tmp/arvera-admin-api/orm \
+            /tmp/arvera-admin-api/res \
+            /tmp/arvera-admin-api/services \
+            /tmp/arvera-admin-api/tools \
+            /usr/share/grommunio-admin-api/ && \
+      cp -a /tmp/arvera-admin-api/main.py /usr/share/grommunio-admin-api/main.py && \
+      cp -a /tmp/arvera-admin-api/data/api-config.ini /usr/share/grommunio-admin-api/api-config.ini && \
+      rm -rf /tmp/arvera-admin-api; \
     fi
 
 # Create default user if needed
