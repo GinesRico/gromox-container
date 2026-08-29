@@ -26,10 +26,10 @@ ARG ARVERA_ADMIN_WEB_REF=arvera-operator-users
 # Base packages
 # ----------------------------------------------------------------------
 
+# The default Leap image can point repo-oss at a stale CDN endpoint. Use the
+# official HTTPS mirror while keeping checksum verification enabled.
 RUN zypper clean --all && \
     rm -rf /var/cache/zypp/* /var/tmp/zypp.* && \
-    # The default Leap image can point repo-oss at a stale CDN endpoint.
-    # Use the official HTTPS mirror while keeping checksum verification on. \
     sed -i \
       -e 's#http://cdn.opensuse.org#https://download.opensuse.org#g' \
       -e 's#https://cdn.opensuse.org#https://download.opensuse.org#g' \
