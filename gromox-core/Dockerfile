@@ -28,6 +28,12 @@ ARG ARVERA_ADMIN_WEB_REF=arvera-operator-users
 
 RUN zypper clean --all && \
     rm -rf /var/cache/zypp/* /var/tmp/zypp.* && \
+    # The default Leap image can point repo-oss at a stale CDN endpoint.
+    # Use the official HTTPS mirror while keeping checksum verification on. \
+    sed -i \
+      -e 's#http://cdn.opensuse.org#https://download.opensuse.org#g' \
+      -e 's#https://cdn.opensuse.org#https://download.opensuse.org#g' \
+      /etc/zypp/repos.d/*.repo && \
     for attempt in 1 2 3 4 5; do \
       zypper --gpg-auto-import-keys --non-interactive refresh -f && break; \
       echo "Repository refresh attempt ${attempt} failed; retrying..."; \
