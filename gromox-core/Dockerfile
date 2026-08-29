@@ -31,6 +31,9 @@ ARG ARVERA_ADMIN_WEB_REF=arvera-operator-users
 RUN zypper clean --all && \
     rm -rf /var/cache/zypp/* /var/tmp/zypp.* && \
     zypper -n modifyservice --disable openSUSE || true; \
+    zypper -n ar -f \
+      https://download.opensuse.org/download/distribution/leap/16.0/repo/oss/x86_64/ \
+      repo-oss-direct || true; \
     sed -i \
       -e 's#http://cdn.opensuse.org#https://download.opensuse.org#g' \
       -e 's#https://cdn.opensuse.org#https://download.opensuse.org#g' \
