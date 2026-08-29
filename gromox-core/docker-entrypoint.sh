@@ -50,6 +50,14 @@ if [ ! -f "${MARKER_DIR}/entry_done" ]; then
   touch "${MARKER_DIR}/entry_done"
 fi
 
+# The configuration above is initialized only once, but this environment
+# mapping must also be restored when the persistent marker already exists.
+for fpm_conf in /etc/php8/fpm/php-fpm.d/gromox.conf /etc/php7/fpm/php-fpm.d/gromox.conf; do
+  if [ -f "$fpm_conf" ] && ! grep -q '^env\[GROMMUNIO_SHARED_ONLY_STORES\]' "$fpm_conf"; then
+    printf '\n; Shared-only mailbox allowlist for the webmail PHP process.\nenv[GROMMUNIO_SHARED_ONLY_STORES] = $GROMMUNIO_SHARED_ONLY_STORES\n' >> "$fpm_conf"
+  fi
+done
+
 # ── Port remapping ─────────────────────────────────────────────────
 # Remap nginx to listen on high ports (>1024) so no privileges needed.
 # The actual listen directives are in the included files under /usr/share/.
