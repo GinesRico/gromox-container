@@ -21,6 +21,10 @@ ARG ARVERA_USE_ADMIN_WEB_FORK=0
 ARG ARVERA_ADMIN_WEB_REPO=https://github.com/GinesRico/admin-web.git
 ARG ARVERA_ADMIN_WEB_REF=arvera-operator-users
 
+ARG ARVERA_USE_GROMOX_FORK=0
+ARG ARVERA_GROMOX_REPO=https://github.com/GinesRico/gromox.git
+ARG ARVERA_GROMOX_REF=arvera-shared-only-mapi
+
 
 # ----------------------------------------------------------------------
 # Base packages
@@ -154,6 +158,23 @@ RUN zypper --non-interactive install -y \
           jq \
           redis; \
     }
+
+
+# ----------------------------------------------------------------------
+# Optional Arvera Gromox fork
+# ----------------------------------------------------------------------
+
+RUN if [ "${ARVERA_USE_GROMOX_FORK}" = "1" ]; then \
+      zypper --non-interactive install -y git gcc-c++ make autoconf automake libtool pkg-config && \
+      zypper --non-interactive si -d gromox && \
+      git clone --depth 1 --branch "${ARVERA_GROMOX_REF}" \
+        "${ARVERA_GROMOX_REPO}" /tmp/arvera-gromox && \
+      cd /tmp/arvera-gromox && \
+      ./qconf && \
+      make -j"$(nproc)" && \
+      make install && \
+      rm -rf /tmp/arvera-gromox; \
+    fi
 
 
 # ----------------------------------------------------------------------
