@@ -30,9 +30,11 @@ ARG ARVERA_ADMIN_WEB_REF=arvera-operator-users
 # official HTTPS mirror while keeping checksum verification enabled.
 RUN zypper clean --all && \
     rm -rf /var/cache/zypp/* /var/tmp/zypp.* && \
+    zypper -n modifyservice --disable openSUSE || true; \
     sed -i \
       -e 's#http://cdn.opensuse.org#https://download.opensuse.org#g' \
       -e 's#https://cdn.opensuse.org#https://download.opensuse.org#g' \
+      -e 's#https://download.opensuse.org/distribution/#https://download.opensuse.org/download/distribution/#g' \
       /etc/zypp/repos.d/*.repo && \
     for attempt in 1 2 3 4 5; do \
       zypper --gpg-auto-import-keys --non-interactive refresh -f && break; \
