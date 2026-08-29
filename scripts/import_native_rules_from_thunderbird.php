@@ -140,6 +140,42 @@ function publicFolderPathAliases(string $path): array {
     return array_values(array_unique($aliases));
 }
 
+function publicFolderPathKey(string $path): string {
+    $path = '/' . trim(preg_replace('#/+#', '/', $path), '/');
+    return strtolower($path);
+}
+
+function collectPublicFolderEntryIds($folder, string $basePath, array &$out, $publicStore): void {
+    $table = mapi_folder_gethierarchytable($folder);
+    $rows = mapi_table_queryallrows($table, [PR_ENTRYID, PR_DISPLAY_NAME]);
+    foreach ($rows as $row) {
+        $name = $row[PR_DISPLAY_NAME] ?? '';
+        if ($name === '' || !isset($row[PR_ENTRYID])) {
+            continue;
+        }
+
+        $path = ($basePath === '/IPM_SUBTREE' && $name === 'IPM_SUBTREE')
+            ? '/IPM_SUBTREE'
+            : $basePath . '/' . $name;
+        $out[publicFolderPathKey($path)] = strtolower(bin2hex($row[PR_ENTRYID]));
+
+        $child = mapi_msgstore_openentry($publicStore, $row[PR_ENTRYID]);
+        if ($child) {
+            collectPublicFolderEntryIds($child, $path, $out, $publicStore);
+        }
+    }
+}
+
+function findPublicFolderEntryId(array $publicFolders, string $path): string {
+    foreach (publicFolderPathAliases($path) as $candidatePath) {
+        $key = publicFolderPathKey($candidatePath);
+        if (isset($publicFolders[$key])) {
+            return $publicFolders[$key];
+        }
+    }
+    return '';
+}
+
 function publicFolderFidHex(string $path, string $domain): string {
     $cmd = 'gromox-export -u ' . escapeshellarg('@' . $domain) . ' -t -r ' . escapeshellarg($path) . ' 2>&1 | head -c 8192';
     $output = shell_exec($cmd);
@@ -199,6 +235,11 @@ $storeEntryIdHex = bin2hex($storeProps[PR_ENTRYID]);
 $publicStore = $GLOBALS['mapisession']->getPublicMessageStore();
 $publicStoreProps = mapi_getprops($publicStore, [PR_ENTRYID]);
 $publicStoreEntryIdHex = bin2hex($publicStoreProps[PR_ENTRYID]);
+$publicRoot = mapi_msgstore_openentry($publicStore);
+$publicFolders = [];
+if ($publicRoot) {
+    collectPublicFolderEntryIds($publicRoot, '/IPM_SUBTREE', $publicFolders, $publicStore);
+}
 
 $module = new RulesModule(1, []);
 $existing = $module->getRules($store)['item'] ?? [];
@@ -225,6 +266,8 @@ $stats = [
     'skipped_owner' => 0,
     'skipped_unsupported' => 0,
     'skipped_missing_folder' => 0,
+    'public_folders_seen' => count($publicFolders),
+    'public_template_found' => $publicFolderEntryIdTemplate !== '',
 ];
 
 foreach ($allRules as $rule) {
@@ -261,20 +304,25 @@ foreach ($allRules as $rule) {
     }
 
     $publicFolderPath = $rule['public_folder'] ?? '';
-    $resolvedPublicFolderPath = '';
-    $folderFidHex = '';
-    foreach (publicFolderPathAliases($publicFolderPath) as $candidatePath) {
-        $folderFidHex = publicFolderFidHex($candidatePath, $ownerDomain);
-        if ($folderFidHex !== '') {
-            $resolvedPublicFolderPath = $candidatePath;
-            break;
-        }
-    }
+    $folderEntryIdHex = findPublicFolderEntryId($publicFolders, $publicFolderPath);
+    $resolvedPublicFolderPath = $folderEntryIdHex !== '' ? $publicFolderPath : '';
     $folderName = publicFolderNameFromPath($resolvedPublicFolderPath !== '' ? $resolvedPublicFolderPath : $publicFolderPath);
-    $folderEntryIdHex = folderEntryIdFromTemplate($publicFolderEntryIdTemplate, $folderFidHex);
+
+    if ($folderEntryIdHex === '' && $publicFolderEntryIdTemplate !== '') {
+        $folderFidHex = '';
+        foreach (publicFolderPathAliases($publicFolderPath) as $candidatePath) {
+            $folderFidHex = publicFolderFidHex($candidatePath, $ownerDomain);
+            if ($folderFidHex !== '') {
+                $resolvedPublicFolderPath = $candidatePath;
+                break;
+            }
+        }
+        $folderEntryIdHex = folderEntryIdFromTemplate($publicFolderEntryIdTemplate, $folderFidHex);
+    }
+
     if ($folderEntryIdHex === '') {
         $stats['skipped_missing_folder']++;
-        fwrite(STDERR, "WARN carpeta publica no encontrada o sin plantilla: {$folderName} ({$publicFolderPath}) para regla " . ($rule['id'] ?? '?') . "\n");
+        fwrite(STDERR, "WARN carpeta publica no encontrada: {$folderName} ({$publicFolderPath}) para regla " . ($rule['id'] ?? '?') . "\n");
         continue;
     }
 
