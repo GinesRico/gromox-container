@@ -26,7 +26,14 @@ ARG ARVERA_ADMIN_WEB_REF=arvera-operator-users
 # Base packages
 # ----------------------------------------------------------------------
 
-RUN zypper -n install -y \
+RUN zypper clean --all && \
+    rm -rf /var/cache/zypp/* /var/tmp/zypp.* && \
+    for attempt in 1 2 3 4 5; do \
+      zypper --gpg-auto-import-keys --non-interactive refresh -f && break; \
+      echo "Repository refresh attempt ${attempt} failed; retrying..."; \
+      sleep 5; \
+    done && \
+    zypper -n install -y \
         iptables \
         iproute2 \
         kmod \
