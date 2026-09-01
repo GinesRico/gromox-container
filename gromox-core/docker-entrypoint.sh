@@ -51,22 +51,22 @@ if [ ! -f "${MARKER_DIR}/entry_done" ]; then
 fi
 
 # The configuration above is initialized only once, but this environment
-# mapping must also be restored when the persistent marker already exists.
+# operator mapping must also be restored when the persistent marker already exists.
 for fpm_conf in /etc/php8/fpm/php-fpm.d/gromox.conf /etc/php7/fpm/php-fpm.d/gromox.conf; do
-  if [ -f "$fpm_conf" ] && [ -n "${GROMMUNIO_SHARED_ONLY_STORES:-}" ]; then
+  if [ -f "$fpm_conf" ] && [ -n "${GROMMUNIO_OPERATOR_MAILBOXES:-}" ]; then
     # PHP-FPM does not reliably expand an environment variable in pool
     # configuration. Write the already-resolved JSON value instead.
-    sed -i '/^env\[GROMMUNIO_SHARED_ONLY_STORES\]/d' "$fpm_conf"
-    printf '\n; Shared-only mailbox allowlist for the webmail PHP process.\nenv[GROMMUNIO_SHARED_ONLY_STORES] = %s\n' "$GROMMUNIO_SHARED_ONLY_STORES" >> "$fpm_conf"
+    sed -i '/^env\[GROMMUNIO_OPERATOR_MAILBOXES\]/d' "$fpm_conf"
+    printf '\n; Operator mailbox configuration for the webmail PHP process.\nenv[GROMMUNIO_OPERATOR_MAILBOXES] = %s\n' "$GROMMUNIO_OPERATOR_MAILBOXES" >> "$fpm_conf"
   fi
 done
 
 # Keep a file fallback because PHP-FPM pool environment handling differs
 # between distributions and may hide Docker-provided variables from workers.
-if [ -n "${GROMMUNIO_SHARED_ONLY_STORES:-}" ]; then
+if [ -n "${GROMMUNIO_OPERATOR_MAILBOXES:-}" ]; then
   mkdir -p /etc/grommunio
-  printf '%s\n' "$GROMMUNIO_SHARED_ONLY_STORES" > /etc/grommunio/shared-only-stores.json
-  chmod 0640 /etc/grommunio/shared-only-stores.json
+  printf '%s\n' "$GROMMUNIO_OPERATOR_MAILBOXES" > /etc/grommunio/operator-mailboxes.json
+  chmod 0640 /etc/grommunio/operator-mailboxes.json
 fi
 
 # ── Port remapping ─────────────────────────────────────────────────
