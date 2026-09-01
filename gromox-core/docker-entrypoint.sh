@@ -61,6 +61,14 @@ for fpm_conf in /etc/php8/fpm/php-fpm.d/gromox.conf /etc/php7/fpm/php-fpm.d/grom
   fi
 done
 
+# Keep a file fallback because PHP-FPM pool environment handling differs
+# between distributions and may hide Docker-provided variables from workers.
+if [ -n "${GROMMUNIO_SHARED_ONLY_STORES:-}" ]; then
+  mkdir -p /etc/grommunio
+  printf '%s\n' "$GROMMUNIO_SHARED_ONLY_STORES" > /etc/grommunio/shared-only-stores.json
+  chmod 0640 /etc/grommunio/shared-only-stores.json
+fi
+
 # ── Port remapping ─────────────────────────────────────────────────
 # Remap nginx to listen on high ports (>1024) so no privileges needed.
 # The actual listen directives are in the included files under /usr/share/.
