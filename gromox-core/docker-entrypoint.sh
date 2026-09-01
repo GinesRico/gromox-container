@@ -53,8 +53,11 @@ fi
 # The configuration above is initialized only once, but this environment
 # mapping must also be restored when the persistent marker already exists.
 for fpm_conf in /etc/php8/fpm/php-fpm.d/gromox.conf /etc/php7/fpm/php-fpm.d/gromox.conf; do
-  if [ -f "$fpm_conf" ] && ! grep -q '^env\[GROMMUNIO_SHARED_ONLY_STORES\]' "$fpm_conf"; then
-    printf '\n; Shared-only mailbox allowlist for the webmail PHP process.\nenv[GROMMUNIO_SHARED_ONLY_STORES] = $GROMMUNIO_SHARED_ONLY_STORES\n' >> "$fpm_conf"
+  if [ -f "$fpm_conf" ] && [ -n "${GROMMUNIO_SHARED_ONLY_STORES:-}" ]; then
+    # PHP-FPM does not reliably expand an environment variable in pool
+    # configuration. Write the already-resolved JSON value instead.
+    sed -i '/^env\[GROMMUNIO_SHARED_ONLY_STORES\]/d' "$fpm_conf"
+    printf '\n; Shared-only mailbox allowlist for the webmail PHP process.\nenv[GROMMUNIO_SHARED_ONLY_STORES] = %s\n' "$GROMMUNIO_SHARED_ONLY_STORES" >> "$fpm_conf"
   fi
 done
 
