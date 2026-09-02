@@ -177,7 +177,7 @@ RUN if [ "${ARVERA_USE_GROMOX_FORK}" = "1" ]; then \
       mkdir -p /opt/vendor/gromox && \
       tar -xzf /tmp/gromox.tar.gz -C /opt/vendor/gromox && \
       cd /opt/vendor/gromox && \
-      ./qconf && \
+      sh qconf && \
       make -j"$(nproc)" && \
       make install; \
     fi
