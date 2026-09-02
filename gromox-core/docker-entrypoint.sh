@@ -66,7 +66,9 @@ done
 if [ -n "${GROMMUNIO_OPERATOR_MAILBOXES:-}" ]; then
   mkdir -p /etc/grommunio
   printf '%s\n' "$GROMMUNIO_OPERATOR_MAILBOXES" > /etc/grommunio/operator-mailboxes.json
-  chmod 0640 /etc/grommunio/operator-mailboxes.json
+  # PHP-FPM workers may run as an unprivileged uid and must be able to read
+  # this non-secret allowlist when pool environment variables are filtered.
+  chmod 0644 /etc/grommunio/operator-mailboxes.json
 fi
 
 # ── Port remapping ─────────────────────────────────────────────────
