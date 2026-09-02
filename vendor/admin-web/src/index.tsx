@@ -1,0 +1,38 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from "react-router-dom";
+import { StyledEngineProvider } from '@mui/material/styles';
+import './index.css';
+import './switch.css';
+import { store } from './store';
+import './i18n';
+import './config';
+import ToggleColorMode from './components/ToggleColorMode';
+import ReactDOM from "react-dom/client";
+import makeLoadableComponent from './lazy';
+
+
+// Async loading support.
+const LoadableApp = makeLoadableComponent(() => import('./App'));
+
+// Derive the router basename from the document's <base href>, so the app
+// works correctly no matter which subpath it is deployed under.
+// Falls back to "/" if no <base> tag is present.
+const basePathname = new URL(document.baseURI).pathname;
+const basename = basePathname.endsWith('/') ? basePathname.slice(0, -1) : basePathname;
+
+const container = document.getElementById('root') || document.createElement("div");
+const root = ReactDOM.createRoot(container);
+root.render(<Provider store={store}>
+  <StyledEngineProvider injectFirst>
+    <ToggleColorMode>
+      <BrowserRouter basename={basename}>
+        <LoadableApp />
+      </BrowserRouter>
+    </ToggleColorMode>
+  </StyledEngineProvider>
+</Provider>);
+

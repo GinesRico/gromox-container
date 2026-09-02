@@ -1,0 +1,13 @@
+{
+	"display-name": "OpenMail",
+	"primary-color": "#1265dc",
+	"primary-color:hover": "#0d55bd",
+	"mainbar-text-color": "#ffffff",
+	"selection-color": "#dceafe",
+	"selection-text-color": "#0f172a",
+	"focus-color": "#1265dc",
+	"icons-primary-color": "#1265dc",
+	"icons-secondary-color": "#0f172a",
+	"logo-large": "login.png",
+	"logo-small": "logo-small.png"
+}

@@ -1,0 +1,108 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import {
+  FOLDER_DATA_ADD,
+  FOLDER_DATA_DELETE,
+  OWNERS_DATA_RECEIVED,
+  FOLDERS_TREE_RECEIVED,
+  URLParams,
+} from './types';
+import { folderDetails, addFolder, editFolder, deleteFolder, owners, addOwner,
+  putFolderPermissions, deleteOwner, folderTree } from '../api';
+import { defaultDetailsHandler, defaultListHandler, defaultListHandler2, defaultPatchHandler } from './handlers';
+import { NewFolder, NewFolderOwner, UpdateFolder } from '@/types/folders';
+import { Dispatch } from 'redux';
+import { BaseUser } from '@/types/users';
+import { ApiError } from '@/types/common';
+
+
+export function fetchFolderTree(domainID: number, params?: URLParams) {
+  return defaultListHandler(folderTree, FOLDERS_TREE_RECEIVED, domainID, params);
+}
+
+export function fetchFolderDetails(domainID: number, folderID: string) {
+  return defaultDetailsHandler(folderDetails, domainID, folderID);
+}
+
+export function addFolderData(domainID: number, folder: NewFolder, owners: BaseUser[]) {
+  return async (dispatch: Dispatch) => {
+    try {
+      const folderData = await addFolder(domainID, folder);
+      dispatch({ type: FOLDER_DATA_ADD, data: folderData, parentID: folder.parentID });
+      for(let i = 0; i < owners.length; i++) {
+        await addOwner(domainID, folderData.folderid, { username: owners[i].username });
+      }
+    } catch(error) {
+      console.error(error);
+      const message = (error as ApiError).message;
+      return Promise.reject(message);
+    }
+  };
+}
+
+export function editFolderData(domainID: number, folder: UpdateFolder) {
+  return defaultPatchHandler(editFolder, domainID, folder);
+}
+
+export function deleteFolderData(domainID: number, folderID: string, params: { clear: boolean }) {
+  return async (dispatch: Dispatch) => {
+    try {
+      const resp = await deleteFolder(domainID, folderID, params);
+      if(resp?.taskID) return resp;
+      dispatch({ type: FOLDER_DATA_DELETE, id: folderID });
+    } catch(error) {
+      console.error(error);
+      const message = (error as ApiError).message;
+      return Promise.reject(message);
+    }
+  };
+}
+
+export function fetchOwnersData(domainID: number, folderID: string, params?: URLParams) {
+  return defaultListHandler2(owners, OWNERS_DATA_RECEIVED, domainID, folderID, params);
+}
+
+export function addOwnerData(domainID: number, folderID: string, ownersData: NewFolderOwner[]) {
+  return async (dispatch: Dispatch) => {
+    try {
+      for(let i = 0; i < ownersData.length; i++) {
+        await addOwner(domainID, folderID, { username: ownersData[i].username });
+      }
+      const response = await owners(domainID, folderID, { limit: 1000000, level: 0 });
+      dispatch({ type: OWNERS_DATA_RECEIVED, data: response });
+    } catch(error) {
+      console.error(error);
+      const message = (error as ApiError).message;
+      return Promise.reject(message);
+    }
+  };
+}
+
+export function setFolderPermissions(domainID: number, folderID: string, memberID: number, permissions: number) {
+  return async (dispatch: Dispatch) => {
+    try {
+      await putFolderPermissions(domainID, folderID, memberID, permissions);
+      const response = await owners(domainID, folderID, { limit: 1000000, level: 0 });
+      dispatch({ type: OWNERS_DATA_RECEIVED, data: response });
+    } catch(error) {
+      console.error(error);
+      const message = (error as ApiError).message;
+      return Promise.reject(message);
+    }
+  };
+}
+
+export function deleteOwnerData(domainID: number, folderID: string, memberID: number) {
+  return async (dispatch: Dispatch) => {
+    try {
+      await deleteOwner(domainID, folderID, memberID);
+      const response = await owners(domainID, folderID, { limit: 1000000, level: 0 });
+      dispatch({ type: OWNERS_DATA_RECEIVED, data: response });
+    } catch(error) {
+      console.error(error);
+      const message = (error as ApiError).message;
+      return Promise.reject(message);
+    }
+  };
+}

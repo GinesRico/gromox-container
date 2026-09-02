@@ -1,0 +1,94 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React, { ReactNode } from 'react';
+import { Autocomplete, TextField, TextFieldVariants } from '@mui/material';
+import { getAutocompleteOptions } from '../utils';
+import { useTranslation } from 'react-i18next';
+import { ChangeEvent } from '@/types/common';
+import { ContactListItem, USER_STATUS } from '../types/users';
+
+
+type MagnitudeAutocompleteProps<T> = {
+  className?: string;
+  value: T | T[] | null;
+  filterAttribute?: keyof T;
+  onChange: (_: any, newVal: any) => void; // Annoying af typing
+  options: T[];
+  label?: string;
+  getOptionLabel?: (option: T | string) => string;
+  inputValue?: string;
+  onInputChange?: (e: ChangeEvent) => void;
+  freeSolo?: boolean;
+  multiple?: boolean;
+  calculateMagnitude?: boolean;
+  placeholder?: string;
+  renderOption?: (props: any, option: any) => ReactNode;
+  autoFocus?: boolean;
+  autoSelect?: boolean;
+  variant?: TextFieldVariants;
+  fullWidth?: boolean;
+  disabled?: boolean;
+  getOptionDisabled?: (option: T) => boolean;
+  isOptionEqualToValue?: (option: T, value: T) => boolean;
+  disableCloseOnSelect?: boolean;
+  getOptionKey?: (option: any) => string | number;
+  helperText?: string;
+}
+
+function MagnitudeAutocomplete<T>(props: MagnitudeAutocompleteProps<T>) {
+  const { className, value, filterAttribute, onChange, options, label, getOptionLabel,
+    inputValue, onInputChange, freeSolo, multiple, calculateMagnitude, placeholder, renderOption,
+    autoFocus, autoSelect, variant, fullWidth, disabled, getOptionDisabled, isOptionEqualToValue,
+    disableCloseOnSelect, getOptionKey, helperText } = props;
+  const { t } = useTranslation();
+  const magnitude = calculateMagnitude === false ? 0 : Math.round(Math.log10(options.length) - 2);
+
+  return <Autocomplete
+    className={className}
+    inputValue={inputValue}
+    value={value || null}
+    onChange={onChange}
+    options={options || []}
+    getOptionLabel={getOptionLabel || ((o: T | string) => {
+      if(o instanceof String || !filterAttribute) {
+        return (o as string) || '';
+      }
+      // Contact
+      if(filterAttribute === "username" && (o as ContactListItem).status === USER_STATUS.CONTACT) {
+        const properties = (o as ContactListItem).properties || {};
+        return properties["smtpaddress"] as string || properties["displayname"] as string || "";
+      }
+      
+      return (o as T)[filterAttribute as keyof T] as string || '';
+    })}
+    filterOptions={getAutocompleteOptions<T>(filterAttribute, magnitude)}
+    noOptionsText={inputValue && inputValue.length < magnitude ?
+      t('Filter more precisely') + '...' : t('No options')}
+    renderInput={(params) => (
+      <TextField
+        {...params}
+        label={label || ''}
+        placeholder={placeholder}
+        autoFocus={autoFocus}
+        onChange={onInputChange}
+        variant={variant || 'outlined'}
+        helperText={helperText}
+      />
+    )}
+    renderOption={renderOption}
+    getOptionKey={getOptionKey}
+    freeSolo={freeSolo || false}
+    multiple={multiple || false}
+    autoSelect={autoSelect}
+    fullWidth={fullWidth || false}
+    autoHighlight
+    disabled={disabled || false}
+    getOptionDisabled={getOptionDisabled}
+    isOptionEqualToValue={isOptionEqualToValue}
+    disableCloseOnSelect={disableCloseOnSelect || multiple || false}
+  />;
+}
+
+
+export default MagnitudeAutocomplete;

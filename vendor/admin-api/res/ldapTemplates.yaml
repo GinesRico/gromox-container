@@ -1,0 +1,61 @@
+common:
+  telephoneNumber: businesstelephonenumber
+  otherTelephone: business2telephonenumber
+  otherFacsimileTelephoneNumber: businessfaxnumber
+  mobile: mobiletelephonenumber
+  homePhone: hometelephonenumber
+  otherHomePhone: home2telephonenumber
+  facsimileTelephoneNumber: primaryfaxnumber
+  pager: pagertelephonenumber
+  description: comment
+  physicalDeliveryOfficeName: officelocation
+  givenName: givenname
+  sn: surname
+  l: locality
+  title: title
+  initials: initials
+  preferredLanguage: language
+  employeeNumber: organizationalidnumber
+  postalAddress: postaladdress
+  company: companyname
+  co: country
+  st: stateorprovince
+  streetAddress: streetaddress
+  postalCode: postalcode
+  postOfficeBox: postofficebox
+  assistant: assistant
+  wWWHomePage: businesshomepage
+  displayname: displayname
+  ou: addressbookorganizationalunitname
+  mail: smtpaddress
+ActiveDirectory:
+  _altname: sAMAccountName
+  department: departmentname
+  extensionAttribute1: addressbookextensionattribute1
+  extensionAttribute2: addressbookextensionattribute2
+  extensionAttribute3: addressbookextensionattribute3
+  extensionAttribute4: addressbookextensionattribute4
+  extensionAttribute5: addressbookextensionattribute5
+  extensionAttribute6: addressbookextensionattribute6
+  extensionAttribute7: addressbookextensionattribute7
+  extensionAttribute8: addressbookextensionattribute8
+  extensionAttribute9: addressbookextensionattribute9
+  extensionAttribute10: addressbookextensionattribute10
+  extensionAttribute11: addressbookextensionattribute11
+  extensionAttribute12: addressbookextensionattribute12
+  extensionAttribute13: addressbookextensionattribute13
+  extensionAttribute14: addressbookextensionattribute14
+  extensionAttribute15: addressbookextensionattribute15
+  mDBOverHardQuotaLimit: storagequotalimit
+  mDBOverQuotaLimit: prohibitsendquota
+  msExchRecipientDisplayType: displaytypeex
+OpenLDAP:
+  _altname: uid
+  departmentNumber: departmentname
+Univention:
+  _altname: uid
+  departmentNumber: departmentname
+389ds:
+  _altname: uid
+  departmentNumber: departmentname
+  c: country

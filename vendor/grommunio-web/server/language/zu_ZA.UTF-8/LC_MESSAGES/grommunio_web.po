@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: zu_ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "Uwazi olusemthethweni"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} isaziso esengeziwe"
+msgstr[1] "{0} izaziso ezengeziwe"
+
+msgid "Show less"
+msgstr "Bonisa okuncane"
+
+msgid "Undo and redo"
+msgstr "Ukuhlehlisa nokuphinda"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Vumela ukuhlehlisa nokuphinda izenzo zemilayezo"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Ukuhlehlisa (Ctrl+Z) nokuphinda (Ctrl+Y) izenzo ezinjengokususa, ukuhambisa noma ukufaka ifulegi emilayezweni. Ukurekhoda lezi zenzo kwengeza umthwalo omncane, ngakho lesi sici sivaliwe ngokuzenzakalelayo."
+
+msgid "Undo"
+msgstr "Hlehlisa"
+
+msgid "Redo"
+msgstr "Phinda wenze"
+
+msgid "Undo: {0}"
+msgstr "Hlehlisa: {0}"
+
+msgid "Redo: {0}"
+msgstr "Phinda wenze: {0}"
+
+msgid "Nothing to undo"
+msgstr "Akukho okungahlehliswa"
+
+msgid "Undo the last action"
+msgstr "Hlehlisa isenzo sokugcina"
+
+msgid "Redo the last undone action"
+msgstr "Phinda wenze isenzo sokugcina esihlehlisiwe"
+
+msgid "Undo failed"
+msgstr "Ukuhlehlisa kuhlulekile"
+
+msgid "Redo failed"
+msgstr "Ukuphinda kuhlulekile"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Akukwazekanga ukuhlehlisa {0}. Kungenzeka ukuthi le nto ihanjisiwe, yashintshwa noma yasuswa phakathi naleso sikhathi."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Akukwazekanga ukuphinda {0}. Kungenzeka ukuthi le nto ihanjisiwe, yashintshwa noma yasuswa phakathi naleso sikhathi."
+
+msgid "Delete {0}"
+msgstr "Susa {0}"
+
+msgid "Delete {0} items"
+msgstr "Susa izinto ezingu-{0}"
+
+msgid "Move {0} to {1}"
+msgstr "Hambisa {0} ku-{1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Hambisa izinto ezingu-{0} ku-{1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopisha {0} ku-{1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopisha izinto ezingu-{0} ku-{1}"
+
+msgid "Create {0}"
+msgstr "Dala {0}"
+
+msgid "Change flag"
+msgstr "Shintsha ifulegi"
+
+msgid "Change categories"
+msgstr "Shintsha izigaba"
+
+msgid "Change appointment time"
+msgstr "Shintsha isikhathi se-aphoyintimenti"
+
+msgid "another folder"
+msgstr "enye ifolda"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: izinto ezingu-{1}"
+
+msgid "New mail from {0}"
+msgstr "Iposi elisha elivela ku-{0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "Umlayezo omusha ongu-{0} kufolda {1}"
+msgstr[1] "Imilayezo emisha engu-{0} kufolda {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "Umlayezo omusha ongu-{0} kufolda {1} ka-{2}"
+msgstr[1] "Imilayezo emisha engu-{0} kufolda {1} ka-{2}"
+
+msgid "In folder {0}"
+msgstr "Kufolda {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "Kufolda {0} ka-{1}"
+
+msgid "New Mail Notifications"
+msgstr "Izaziso zeposi elisha"
+
+msgid "Only my own mailbox"
+msgstr "Ibhokisi leposi lami kuphela"
+
+msgid "Only the folders I choose"
+msgstr "Amafolda engiwakhethayo kuphela"
+
+msgid "Unknown folder"
+msgstr "Ifolda engaziwa"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Awekho amafolda akhethiwe, akukho saziso seposi elisha esiboniswayo."

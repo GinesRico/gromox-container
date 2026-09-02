@@ -1,0 +1,292 @@
+grommunio Web
+
+Copyright (C) 2020 - 2026 grommunio GmbH
+
+This program is free software: you can redistribute it and/or modify it under 
+the terms of the GNU Affero General Public License as published by the Free 
+Software Foundation, either version 3 of the License, or (at your option) any 
+later version.  
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY 
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along 
+with this program. If not, see http://www.gnu.org/licenses/.
+
+===============================================================================
+grommunio Web contains the following components:
+
+grommunio Web
+Copyright (C) 2020 - 2026 grommunio GmbH
+Copyright (C) 2016        Kopano and its licensors
+Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors
+
+grommunio Web Desktop Notifications Plugin
+Copyright (C) 2020 - 2026 grommunio GmbH
+Copyright (C) 2016        Kopano and its licensors
+Copyright (C) 2013        Saket Patel
+
+grommunio Web Meet Plugin
+Copyright (C) 2020 - 2026 grommunio GmbH
+Copyright (C) 2020        Siedl Networks
+Copyright (C) 2017        Kopano and its licensors
+
+grommunio Web Password Plugin
+Copyright (C) 2020 - 2026 grommunio GmbH
+Copyright (C) 2017        Kopano and its licensors
+Copyright (C) 2013 - 2017 Saket Patel
+
+grommunio Web Mobile Device Management Plugin
+Copyright (C) 2020 - 2026 grommunio GmbH
+Copyright (C) 2016        Kopano and its licensors
+Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors
+
+grommunio Web Chat Plugin
+Copyright (C) 2020 - 2026 grommunio GmbH
+Copyright (C) 2017        Kopano and its licensors
+
+grommunio Web Maps Plugin
+Copyright (C) 2020 - 2026 grommunio GmbH
+Copyright (C) 2016        Kopano and its licensors
+Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors
+
+grommunio Web Files & Backend Plugin
+Copyright (C) 2020 - 2026 grommunio GmbH
+Copyright (C) 2016        Kopano and its licensors
+Copyright (C) 2016        Zarafa B.V. and its licensors
+
+grommunio Web Intranet Plugin
+Copyright (C) 2020 - 2026 grommunio GmbH
+Copyright (C) 2017        Kopano and its licensors
+
+This program is free software: you can redistribute it and/or modify it under 
+the terms of the GNU Affero General Public License as published by the Free 
+Software Foundation, either version 3 of the License, or (at your option) any 
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY 
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along 
+with this program. If not, see http://www.gnu.org/licenses/.
+
+===============================================================================
+Ext JS
+Copyright (C) 2011 - 2013 Sencha Inc
+
+Ext JS is free software: you can redistribute it and/or modify it under the 
+terms of the GNU General Public License version 3.0 as published by the Free 
+Software Foundation.
+
+https://www.gnu.org/copyleft/gpl.html
+
+===============================================================================
+Ext.ux.form.Metaform
+
+Copyright (C) 2008 Ing. Jozef Sakáloša.
+Ext.ux.form.MetaForm is licensed under the terms of the Open Source LGPL 3.0 
+license. Commercial use is permitted to the extent that the code/component(s) 
+do NOT become part of another Open Source or Commercially licensed development
+library or toolkit without explicit permission. 
+http://www.gnu.org/licenses/lgpl.html
+
+===============================================================================
+Phpfastcache
+
+Copyright (c) 2023 Phpfastcache & its Extensions
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the Software), to deal in the 
+Software without restriction, including without limitation the rights to use, 
+copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the 
+Software, and to permit persons to whom the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+SOFTWARE.
+
+===============================================================================
+Sabre-dav
+Copyright (C) 2007-2016 fruux GmbH (https://fruux.com/).
+Sabre-dav is licensed under the BSD3 license.
+
+Redistribution and use in source and binary forms, with or without 
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this 
+list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice, 
+this list of conditions and the following disclaimer in the documentation 
+and/or other materials provided with the distribution.
+* Neither the name of SabreDAV nor the names of its contributors may be used 
+to endorse or promote products derived from this software without specific 
+prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR 
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON 
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+===============================================================================
+Printer rendering
+Copyright (C) 2010 Ed Spencer
+
+Permission is hereby granted, free of charge, to any person obtaining a copyof 
+this software and associated documentation files (the "Software"), to dealing 
+the Software without restriction, including without limitation the rightsto 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software isfurnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included inall 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+ORIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY,FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO 
+EVENT SHALL THEAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR 
+OTHERLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+
+===============================================================================
+TinyMCE
+Copyright (c) 2024, Ephox Corporation DBA Tiny Technologies, Inc.
+
+TinyMCE is free software: you can redistribute it and/or modify it under the 
+terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+TinyMCE is distributed in the hope that it will be useful, but WITHOUT ANY 
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+https://www.gnu.org/licenses/
+
+===============================================================================
+Tokenizer
+Copyright (c) 2015-2024 Dr. Ralf S. Engelschall (http://engelschall.com/)
+
+
+Permission is hereby granted, free of charge, to any person obtaining a copyof 
+this software and associated documentation files (the "Software"), to dealing 
+the Software without restriction, including without limitation the rightsto 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software isfurnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included inall 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+ORIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY,FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO 
+EVENT SHALL THEAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR 
+OTHERLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+
+===============================================================================
+DOMPurify
+Copyright 2024 Dr.-Ing. Mario Heiderich, Cure53
+
+Licensed under the Apache License, version 2.0.
+
+===============================================================================
+ViewerJS
+Copyright (C) 2015 viewerjs.org
+
+===============================================================================
+Leaflet
+
+Copyright (C) 2010-2024 Vladimir Agafonkin
+Copyright (C) 2010-2011 CloudMade
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+===============================================================================
+
+Leaflet.GeoSearch
+
+Copyright (c) 2010-2016 Stephan Meijer
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+<p>THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+===============================================================================
+PDF.js
+Copyright (C) Mozilla and individual contributors
+
+Licensed under the Apache License, version 2.0.
+
+===============================================================================
+docx-preview
+Copyright (C) Volodymyr Baydalka
+
+Licensed under the Apache License, version 2.0.
+
+===============================================================================
+JSZip
+Copyright (C) 2009-2016 Stuart Knightley and contributors
+
+Licensed under the MIT license.
+
+===============================================================================
+SheetJS
+Copyright (C) 2012-present SheetJS LLC
+
+Licensed under the Apache License, version 2.0.
+
+===============================================================================

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.1</version>
+		<name>maps</name>
+		<title>Maps Plugin</title>
+		<author>grommunio GmbH</author>
+		<authorURL>https://www.grommunio.com</authorURL>
+		<description>Shows contact addresses on openstreetmap</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.maps.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/maps.js</clientfile>
+					<clientfile load="debug">js/maps-debug.js</clientfile>
+					<clientfile load="source">js/MapsPlugin.js</clientfile>
+					<clientfile load="source">js/MapsTab.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>

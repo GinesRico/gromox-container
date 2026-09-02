@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "Informații de ordin juridic"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "încă {0} notificare"
+msgstr[1] "încă {0} notificări"
+
+msgid "Show less"
+msgstr "Afișează mai puțin"
+
+msgid "Undo and redo"
+msgstr "Anulare și refacere"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Activează anularea și refacerea acțiunilor asupra mesajelor"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Anularea (Ctrl+Z) și refacerea (Ctrl+Y) unor acțiuni precum ștergerea, mutarea sau semnalizarea mesajelor. Înregistrarea acestor acțiuni adaugă un mic consum suplimentar, de aceea funcția este dezactivată în mod implicit."
+
+msgid "Undo"
+msgstr "Anulare"
+
+msgid "Redo"
+msgstr "Refacere"
+
+msgid "Undo: {0}"
+msgstr "Anulare: {0}"
+
+msgid "Redo: {0}"
+msgstr "Refacere: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nimic de anulat"
+
+msgid "Undo the last action"
+msgstr "Anulează ultima acțiune"
+
+msgid "Redo the last undone action"
+msgstr "Reface ultima acțiune anulată"
+
+msgid "Undo failed"
+msgstr "Anularea a eșuat"
+
+msgid "Redo failed"
+msgstr "Refacerea a eșuat"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nu s-a putut anula {0}. Este posibil ca elementul să fi fost mutat, modificat sau șters între timp."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nu s-a putut reface {0}. Este posibil ca elementul să fi fost mutat, modificat sau șters între timp."
+
+msgid "Delete {0}"
+msgstr "Ștergere {0}"
+
+msgid "Delete {0} items"
+msgstr "Ștergere elemente ({0})"
+
+msgid "Move {0} to {1}"
+msgstr "Mutare {0} în {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Mutare elemente ({0}) în {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Copiere {0} în {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Copiere elemente ({0}) în {1}"
+
+msgid "Create {0}"
+msgstr "Creare {0}"
+
+msgid "Change flag"
+msgstr "Modificare semnalizare"
+
+msgid "Change categories"
+msgstr "Modificare categorii"
+
+msgid "Change appointment time"
+msgstr "Modificare oră rezervare"
+
+msgid "another folder"
+msgstr "alt folder"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: elemente ({1})"
+
+msgid "New mail from {0}"
+msgstr "Mesaj nou de la {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} mesaj nou în folderul {1}"
+msgstr[1] "{0} mesaje noi în folderul {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} mesaj nou în folderul {1} al utilizatorului {2}"
+msgstr[1] "{0} mesaje noi în folderul {1} al utilizatorului {2}"
+
+msgid "In folder {0}"
+msgstr "În folderul {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "În folderul {0} al utilizatorului {1}"
+
+msgid "New Mail Notifications"
+msgstr "Notificări pentru mesaje noi"
+
+msgid "Only my own mailbox"
+msgstr "Doar propria mea căsuță poștală"
+
+msgid "Only the folders I choose"
+msgstr "Doar folderele pe care le aleg"
+
+msgid "Unknown folder"
+msgstr "Folder necunoscut"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Niciun folder selectat, nu va fi afișată nicio notificare de mesaj nou."

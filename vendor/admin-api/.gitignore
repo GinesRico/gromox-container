@@ -1,0 +1,11 @@
+Pipfile.lock
+
+build
+.spyproject
+.venv
+
+/conf.d/*.yaml
+/res/*.pem
+
+__pycache__
+

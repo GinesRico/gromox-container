@@ -1,0 +1,235 @@
+import { URLParams } from "@/actions/types";
+import { PartialWithRequired } from "./common";
+import { SyncPolicy } from "./sync";
+
+
+// User status and type have become entangled.
+// Naming of the variable does not even apply to the enum name anymore.
+// TODO: Reassess and rename
+export enum USER_STATUS {
+  NORMAL = 0,
+  DEACTIVATED = 1,
+  DELETED = 3,
+  SHARED = 4,
+  CONTACT = 5,
+}
+export enum USER_TYPE {
+  ALL = -1,
+  USER = 0,
+  GROUP = 1,
+  ROOM = 7,
+  EQUIPMENT = 8,
+}
+
+export type BaseUser = {
+  ID: number;
+  username: string;
+}
+
+export type UserProperties = {
+  displayname: string;
+  initials: string;
+  nickname: string;
+  title: string;
+  companyname: string;
+  locality: string;
+  departmentname: string
+  stateorprovince: string;
+  officelocation: string;
+  postalcode: string;
+  assistant: string;
+
+  smtpaddress: string;
+  surname: string;
+  assocmessagesizeextended: number;
+  attributehidden_gromox: number;
+  businesstelephonenumber: string;
+  creationtime: string;
+  displaytypeex: number;
+  givenname: string;
+  internetarticlenumber: number;
+  messagesizeextended: number;
+  normalmessagesizeextended: number;
+  outofofficestate: number;
+  scheduleinfodisallowrecurringappts: boolean;
+  scheduleinfodisallowoverlappingappts: boolean;
+  scheduleinfoautoacceptappointments: boolean;
+  streetaddress: string;
+
+  country: string;
+  hometelephonenumber: string;
+  business2telephonenumber: string;
+  primarytelephonenumber: string;
+  home2telephonenumber: string;
+  primaryfaxnumber: string;
+  mobiletelephonenumber: string;
+  assistanttelephonenumber: string;
+  pagertelephonenumber: string;
+  comment: string;
+
+  // This should probably be removed
+  storagequotalimit: number | null,
+  prohibitreceivequota: number | null,
+  prohibitsendquota: number | null,
+}
+
+export type Altname = {
+  altname: string;
+  magic?: number;
+}
+
+export type Forward = {
+  destination: string;
+  forwardType?: number;
+}
+
+export type User = BaseUser & {
+  aliases: string[];
+  altnames: Altname[];
+  changePassword: boolean;
+  chat: boolean;
+  chatAdmin: boolean;
+  domainID: number;
+  fetchmail: FetchmailConfig[];
+  forward: Forward | null;
+  homeserver: number | null;
+  lang: string;
+  ldapID: string | null;
+  orgID: number;
+  pop3_imap: boolean;
+  privArchive: boolean;
+  privChat: boolean;
+  privDav: boolean;
+  privEas: boolean;
+  privFiles: boolean;
+  privVideo: boolean;
+  privWeb: boolean;
+  properties: Partial<UserProperties>;
+  publicAddress: boolean;
+  roles: number[];
+  smtp: boolean;
+  status: number;
+  syncPolicy: Partial<SyncPolicy>;
+  defaultPolicy: Partial<SyncPolicy>;
+};
+
+export type UserListItem = Pick<User, 'ID' | 'domainID' | 'ldapID' | 'properties' | 'status' | 'username'>
+
+export type NewUser = Pick<User,
+  'chat' |
+  'homeserver' |
+  'lang' |
+  'chat' |
+  'properties' |
+  'status' |
+  'username'
+> & { password?: string; noMaildir?: boolean };
+
+export type UpdateUser = PartialWithRequired<User, "ID">;
+
+type LdapUserType = "user" | "contact" | "group";
+export type LdapUser = {
+  ID: string;
+  email: string;
+  error: string | null;
+  name: string;
+  type: LdapUserType;
+}
+
+export type OrphanedUser = BaseUser & {
+  status: number;
+  displayname: string;
+  smtpaddress?: string;
+  username?: string;
+}
+
+export type ContactListItem = {
+  ID: number;
+  domainID: number;
+  ldapID: string;
+  username: string;
+  status: number;
+  properties: Partial<UserProperties>;
+}
+
+export type NewContact = {
+  status: number;
+  properties: Partial<UserProperties>;
+}
+
+export type DeleteUserParams = {
+  deleteFiles: boolean;
+  deleteChatUser: boolean;
+}
+
+export type DeleteOrphanedUsersParams = {
+  userID?: number;
+  deleteFiles: boolean;
+}
+
+export type OofSettings = {
+  state: 0 | 1;
+  externalAudience: 0 | 1 | 2;
+  startTime?: string | null;
+  endTime?: string | null;
+  internalSubject: string;
+  internalReply: string;
+  externalSubject: string;
+  externalReply: string;
+  tab: number;
+  snackbar: string;
+};
+
+export type Owner = {
+  displayName: string;
+  memberID: number;
+  permissions: number;
+  username: string;
+}
+
+type Protocol = "POP3" | "IMAP" | "POP2" | "ETRN" | "AUTO";
+type AuthType = "password" | "kerberos_v5" | "kerberos" | "kerberos_v4" | "gssapi" |
+    "cram-md5" | "otp" | "ntlm" | "msn" | "ssh" | "any";
+
+export type FetchmailConfig = {
+  ID?: number;
+  active: boolean;
+  srcServer: string;
+  srcUser: string;
+  srcPassword: string;
+  srcAuth: AuthType;
+  srcFolder: string;
+  fetchall: boolean;
+  keep: boolean;
+  protocol: Protocol;
+  useSSL: boolean;
+  sslCertCheck: boolean;
+  sslCertPath: string | null;
+  sslFingerprint?: string | null;
+  extraOptions: string | null;
+};
+
+export type NewFetchmailConfig = Omit<FetchmailConfig, "ID">;
+
+export type FetchUserParams = {
+  filterProp?: string;
+  status?: number[] | number;
+  orgID?: number,
+  [x: string]: unknown;
+} & URLParams;
+
+export type UserFolderPermission = {
+  name: string;
+  rightsName: string;
+  rights: number;
+}
+
+export type AddUserFolderPermission = {
+  username: string;
+  permissions: number;
+  recursive: boolean;
+}
+
+export type EditUserFolderPermission = Omit<AddUserFolderPermission, "username">;
+
+export type DeleteUserFolderPermission = Omit<AddUserFolderPermission, "permissions">;

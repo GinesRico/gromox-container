@@ -1,0 +1,8273 @@
+# grommunio Web Hebrew (Israel) translation.
+# Copyright (C) 2021
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web Hebrew (Israel)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2017-10-03 22:09+0200\n"
+"Last-Translator: import\n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 2.4\n"
+
+msgid "Color palette"
+msgstr "פלטת צבעים"
+
+msgid "Calendar"
+msgstr "לוח שנה"
+
+msgid "Previous Month"
+msgstr "החודש הקודם"
+
+msgid "Next Month"
+msgstr "החודש הבא"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr "Wk"
+
+msgid "Now"
+msgstr "עַכשָׁיו"
+
+msgid "Value must be between 0% to 100%"
+msgstr "הערך חייב להיות בין 0% ל-100%"
+
+msgid "Number must be higher than zero"
+msgstr "המספר חייב להיות גבוה מאפס"
+
+msgid "More options"
+msgstr "אפשרויות נוספות"
+
+msgid "Input"
+msgstr "קלט"
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] "{0}בייט"
+msgstr[1] "{0}בתים"
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] "{0}KB"
+msgstr[1] "{0}KB"
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] "{0}MB"
+msgstr[1] "{0}MB"
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] "{0}GB"
+msgstr[1] "{0}GB"
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] "{0}TB"
+msgstr[1] "{0}TB"
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "דקה{0}"
+msgstr[1] "{0}דקות"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "שעה{0}"
+msgstr[1] "{0}שעות"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "יום{0}"
+msgstr[1] "{0}ימים"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "שבוע{0}"
+msgstr[1] "{0}שבועות"
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr "השועל החום הזריז קופץ מעל הכלב העצלן"
+
+msgid "Sunday"
+msgstr "יום ראשון"
+
+msgid "Monday"
+msgstr "יום שני"
+
+msgid "Tuesday"
+msgstr "יום שלישי"
+
+msgid "Wednesday"
+msgstr "יום רביעי"
+
+msgid "Thursday"
+msgstr "יום חמישי"
+
+msgid "Friday"
+msgstr "יום שישי"
+
+msgid "Saturday"
+msgstr "יום שבת"
+
+msgid "Sun"
+msgstr "שֶׁמֶש"
+
+msgid "Mon"
+msgstr "יום שני"
+
+msgid "Tue"
+msgstr "ג'"
+
+msgid "Wed"
+msgstr "לְהִתְחַתֵן"
+
+msgid "Thu"
+msgstr "יום ה'"
+
+msgid "Fri"
+msgstr "שישי"
+
+msgid "Sat"
+msgstr "שבת"
+
+msgid "January"
+msgstr "ינואר"
+
+msgid "February"
+msgstr "פברואר"
+
+msgid "March"
+msgstr "מרץ"
+
+msgid "April"
+msgstr "אפריל"
+
+msgid "May"
+msgstr "מאי"
+
+msgid "June"
+msgstr "יוני"
+
+msgid "July"
+msgstr "יולי"
+
+msgid "August"
+msgstr "אוגוסט"
+
+msgid "September"
+msgstr "ספטמבר"
+
+msgid "October"
+msgstr "אוקטובר"
+
+msgid "November"
+msgstr "נובמבר"
+
+msgid "December"
+msgstr "דצמבר"
+
+msgid "Page {A} of {0}"
+msgstr "עמוד {A} מתוך {0}"
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr "מציג הודעות {0} - {1} מ {2}"
+
+msgid "No messages to display"
+msgstr "אין הודעות להצגה"
+
+msgid "First Page"
+msgstr "עמוד ראשון"
+
+msgid "Previous Page"
+msgstr "עמוד קודם"
+
+msgid "Next Page"
+msgstr "עמוד הבא"
+
+msgid "Last Page"
+msgstr "עמוד אחרון"
+
+msgid "Refresh"
+msgstr "רענן"
+
+msgid "Today"
+msgstr "היום"
+
+msgid "OK"
+msgstr "בְּסֵדֶר"
+
+msgid "Cancel"
+msgstr "ביטול"
+
+msgid "{0} (Spacebar)"
+msgstr "{0} (רווח)"
+
+msgid "This date is before the minimum date"
+msgstr "תאריך זה קודם לתאריך המינימלי"
+
+msgid "This date is after the maximum date"
+msgstr "תאריך זה מאוחר יותר מהתאריך המקסמילי"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr "d/m/Y"
+
+msgid "Disabled"
+msgstr "מושבת"
+
+msgid "Next Month (Control+Right)"
+msgstr "חודש הבא (control+ימינה)"
+
+msgid "Previous Month (Control+Left)"
+msgstr "חודש הקודם (control+שמאלה)"
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr "בחר חודש (control+ למעלה/למטה כדי לעבור שנים)"
+
+msgid "Sort Ascending"
+msgstr "מיין לפי סדר עולה"
+
+msgid "Sort Descending"
+msgstr "מיין לפי סדר יורד"
+
+msgid "Columns"
+msgstr "טורים"
+
+msgid "Group By This Field"
+msgstr "קבץ לפי שדה זה"
+
+msgid "Show in Groups"
+msgstr "הצג בקבוצות"
+
+msgid "(None)"
+msgstr "(אף אחד)"
+
+msgid "Ok"
+msgstr "אישור"
+
+msgid "Yes"
+msgstr "כן"
+
+msgid "No"
+msgstr "לא"
+
+msgid "Loading"
+msgstr "טְעִינָה"
+
+msgid "The value in this field is invalid"
+msgstr "הערך בשדה זה לא תקף"
+
+msgid "The minimum length for this field is {0}"
+msgstr "האורך המינימלי בשדה זה הוא {0}"
+
+msgid "The maximum length for this field is {0}"
+msgstr "האורך המקסימלי בשדה זה הוא {0}"
+
+msgid "This field is required"
+msgstr "יש למלא שדה זה"
+
+msgid "The minimum value for this field is {0}"
+msgstr "הערך המינימלי לשדה זה הוא {0}"
+
+msgid "The maximum value for this field is {0}"
+msgstr "הערך המקסימלי לשדה זה הוא {0}"
+
+msgid "{0} is not a valid number"
+msgstr "{0} אינו מספר תקף"
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr "התאריך בשדה זה חייב להיות מאוחר מ או שווה ל {0}"
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr "התאריך בשדה זה חייב להיות מוקדם מ או שווה ל {0}"
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr "{0} אינו תאריך תקף - התאריך חייב להיות מתבנית {1}"
+
+msgid "You must select at least one item in this group"
+msgstr "עליך לבחור לפחות פריט אחד מקבוצה זו"
+
+msgid "You must select one item in this group"
+msgstr "עליך לבחור פריט אחד מקבוצה זו"
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr "הזמן בשדה זה חייב להיות מאוחר מ או שווה ל {0}"
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr "הזמן בשדה זה חייב להיות מוקדם מ או שווה ל {0}"
+
+msgid "{0} is not a valid time"
+msgstr "{0} אינו זמן תקף"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr "G:i"
+
+msgid "Name"
+msgstr "שם"
+
+msgid "Value"
+msgstr "ערך"
+
+msgid "true"
+msgstr "נכון"
+
+msgid "false"
+msgstr "לא נכון"
+
+msgid "This field should be an e-mail address in the format \"user@example.com\""
+msgstr "שדה זה צריך להיות כתובת דואר אלקטרוני ב \"user@example.com\" בפורמט"
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr "שדה זה צריך להיות כתובת אתר בפורמט \"{0}\""
+
+msgid "This field should only contain letters and _"
+msgstr "בתחום זה יש להשתמש רק באותיות ו _"
+
+msgid "This field should only contain letters, numbers and _"
+msgstr "שדה זה צריך להכיל רק אותיות, מספרים ו _"
+
+msgid "Email Addresses"
+msgstr "כתובות אימייל"
+
+msgid "Email addresses"
+msgstr "כתובות אימייל"
+
+msgid "Email Address"
+msgstr "כתובת דואר אלקטרוני"
+
+msgid "Group details"
+msgstr "פרטי קבוצה"
+
+msgid "General"
+msgstr "כללי"
+
+msgid "Display Name"
+msgstr "שם תצוגה"
+
+msgid "Alias"
+msgstr "שם נוסף"
+
+msgid "Notes"
+msgstr "פתקים"
+
+msgid "Members"
+msgstr "חברים"
+
+msgid "Account"
+msgstr "חשבון"
+
+msgid "Member Of"
+msgstr "חבר ב"
+
+msgid "Group Membership"
+msgstr "קבוצת חברות"
+
+msgid "Address Book"
+msgstr "ספר כתובות"
+
+msgid "User details"
+msgstr "פרטי משתמש"
+
+msgid "First name"
+msgstr "שֵׁם פְּרַטִי"
+
+msgid "Last name"
+msgstr "שֵׁם מִשׁפָּחָה"
+
+msgid "Initials"
+msgstr "ראשי תיבות"
+
+msgid "Display"
+msgstr "שם תצוגה"
+
+msgid "Address"
+msgstr "כתובת"
+
+msgid "Street"
+msgstr "רחוב"
+
+msgid "City"
+msgstr "עיר"
+
+msgid "State"
+msgstr "מדינה"
+
+msgid "Zip Code"
+msgstr "מיקוד "
+
+msgid "Country"
+msgstr "מדינה"
+
+msgid "Professional"
+msgstr "מִקצוֹעִי"
+
+msgid "Title"
+msgstr "כותרת"
+
+msgid "Company"
+msgstr "חברה"
+
+msgid "Department"
+msgstr "מחלקה"
+
+msgid "Office"
+msgstr "משרד"
+
+msgid "Assistant"
+msgstr "עוזר"
+
+msgid "Phone"
+msgstr "טלפון"
+
+msgid "Organization"
+msgstr "ארגון"
+
+msgid "Manager"
+msgstr "מנהל"
+
+msgid "Direct reports"
+msgstr "דיווחים ישירים"
+
+msgid "Phone numbers"
+msgstr "מספרי טלפון"
+
+msgid "Business"
+msgstr "עסק"
+
+msgid "Business 2"
+msgstr "טלפון בעסק 2"
+
+msgid "Fax"
+msgstr "פקס"
+
+msgid "Home"
+msgstr "בית"
+
+msgid "Home 2"
+msgstr "טלפון בבית 2"
+
+msgid "Mobile"
+msgstr "נייד"
+
+msgid "Pager"
+msgstr "איתורית"
+
+msgid "No user selected"
+msgstr "לא נבחר משתמש"
+
+msgid "You must select one or more users."
+msgstr "עליך לבחור משתמש אחד או יותר."
+
+msgid "You must select a user."
+msgstr "הנך חייב לבחור משתמש"
+
+msgid "Select"
+msgstr "בחר"
+
+msgid "Show Details"
+msgstr "הצג פרטים"
+
+msgid "Copy contact"
+msgstr "העתק איש קשר"
+
+msgid "Copy contacts"
+msgstr "העתק אנשי קשר"
+
+msgid "Address book"
+msgstr "פנקס כתובות"
+
+msgid "Showing only the first {0} names. Use search to find more specific results."
+msgstr "מוצגים רק {0} השמות הראשונים. השתמש בחיפוש כדי למצוא תוצאות ספציפיות יותר."
+
+msgid "Use the search bar to get results"
+msgstr "השתמש בסרגל החיפוש כדי לקבל תוצאות"
+
+msgid "There are no items to show in this list"
+msgstr "אין פריטים להצגה ברשימה זו"
+
+msgid "Show Names from the"
+msgstr "הצג שמות מה"
+
+msgid "Search…"
+msgstr "לְחַפֵּשׂ…"
+
+msgid "Sort by: Icon"
+msgstr "מיין לפי: סמל"
+
+msgid "Sort by: Name"
+msgstr "מיין לפי: שם"
+
+msgid "Sort by: Display Name"
+msgstr "מיין לפי: שם תצוגה"
+
+msgid "File as"
+msgstr "תייק כ"
+
+msgid "Sort by: File As"
+msgstr "מיין לפי: קובץ בשם"
+
+msgid "First Name"
+msgstr "שֵׁם פְּרַטִי"
+
+msgid "Sort by: First Name"
+msgstr "מיין לפי: שם פרטי"
+
+msgid "Last Name"
+msgstr "שֵׁם מִשׁפָּחָה"
+
+msgid "Sort by: Last Name"
+msgstr "מיין לפי: שם משפחה"
+
+msgid "Sort by: Email Address"
+msgstr "מיין לפי: כתובת אימייל"
+
+msgid "Job Title"
+msgstr "הגדרת התפקיד"
+
+msgid "Sort by: Job Title"
+msgstr "מיין לפי: כותרת תפקיד"
+
+msgid "Company Name"
+msgstr "שם החברה"
+
+msgid "Sort by: Company Name"
+msgstr "מיין לפי: שם חברה"
+
+msgid "Sort by: Department"
+msgstr "מיין לפי: מחלקה"
+
+msgid "Office Phone"
+msgstr "טלפון במשרד"
+
+msgid "Sort by: Office Phone"
+msgstr "מיין לפי: טלפון משרדי"
+
+msgid "Sort by: Mobile"
+msgstr "מיין לפי: נייד"
+
+msgid "Home Phone"
+msgstr "טלפון בבית"
+
+msgid "Sort by: Home Phone"
+msgstr "מיין לפי: טלפון ביתי"
+
+msgid "Sort by: Pager"
+msgstr "מיין לפי: ביפר"
+
+msgid "Location"
+msgstr "מיקום"
+
+msgid "Sort by: Location"
+msgstr "מיין לפי: מיקום"
+
+msgid "Sort by: Fax"
+msgstr "מיין לפי: פקס"
+
+msgid "Print single item"
+msgstr "הדפס פריט בודד"
+
+msgid "Print selected item"
+msgstr "הדפס את הפריט הנבחר"
+
+msgid "Print"
+msgstr "הדפס"
+
+msgid "No item selected"
+msgstr "לא נבחר פריט"
+
+msgid "No preview"
+msgstr "ללא תצוגה"
+
+msgid "Right preview"
+msgstr "תצוגה מימין"
+
+msgid "Bottom preview"
+msgstr "תצוגה מלמטה"
+
+msgid "Any date"
+msgstr "כל תאריך"
+
+msgid "Past week"
+msgstr "שבוע שעבר"
+
+msgid "Past 2 weeks"
+msgstr "השבועיים האחרונים"
+
+msgid "Past month"
+msgstr "החודש האחרון"
+
+msgid "Past 6 month"
+msgstr "6 החודשים האחרונים"
+
+msgid "Past year"
+msgstr "שנה שעברה"
+
+msgid "Custom date"
+msgstr "תאריך מותאם אישית"
+
+msgid "Add to favorites"
+msgstr "הוסף למועדפים"
+
+msgid "Add"
+msgstr "הוסף"
+
+msgid "Empty folder name"
+msgstr "שם התיקייה ריקה"
+
+msgid "You must specify a name."
+msgstr "עליך לציין שם."
+
+msgid "Add a folder to favorites based on search query"
+msgstr "הוסף תיקיה למועדפים על סמך שאילתת חיפוש"
+
+msgid "Folder name"
+msgstr "שם התיקיה"
+
+msgid "Select Category"
+msgstr "בחר קטגוריה"
+
+msgid "Apply"
+msgstr "לִפְנוֹת"
+
+msgid "All folders are selected"
+msgstr "כל התיקיות נבחרות"
+
+msgid "Reply"
+msgstr "השב"
+
+msgid "Reply All"
+msgstr "השב לכולם"
+
+msgid "Forward"
+msgstr "העבר"
+
+msgid "Edit as New"
+msgstr "ערוך כחדש"
+
+msgid "Folders"
+msgstr "תיקיות"
+
+msgid "Include subfolders"
+msgstr "כלול תיקיות משנה"
+
+msgid "Show…"
+msgstr "לְהַצִיג…"
+
+msgid "Mails"
+msgstr "מיילים"
+
+msgid "Appointments"
+msgstr "פגישות"
+
+msgid "Contacts"
+msgstr "אנשי קשר"
+
+msgid "Tasks"
+msgstr "משימות"
+
+msgid "Filter…"
+msgstr "לְסַנֵן…"
+
+msgid "Unread"
+msgstr "לא נקרא"
+
+msgid "Attachments"
+msgstr "קבצים מצורפים"
+
+msgid "Date"
+msgstr "תַאֲרִיך"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "From"
+msgstr "מאת"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "To"
+msgstr "אל"
+
+msgid "Filter category…"
+msgstr "קטגוריית סינון..."
+
+msgid "Add Category"
+msgstr "הוסף קטגוריה"
+
+msgid "Sender"
+msgstr "שולח"
+
+msgid "Recipients"
+msgstr "נמענים"
+
+msgid "Subject"
+msgstr "נושא"
+
+msgid "Body & Attachments"
+msgstr "גוף וקבצים מצורפים"
+
+msgid "Favorites"
+msgstr "מועדפים"
+
+msgid "Select Folder"
+msgstr "בחר תיקייה"
+
+msgid "Delete search folder"
+msgstr "מחק תיקיית חיפוש"
+
+msgid "Sort by: Date"
+msgstr "מיין לפי: תאריך"
+
+msgid "Search results"
+msgstr "תוצאות חיפוש"
+
+msgid "Loading Search results"
+msgstr "טוען תוצאות חיפוש"
+
+msgid "Sorting tip"
+msgstr "טיפ למיון"
+
+msgid "You can sort by date if you narrow down your search results. Enable filters or adjust your input."
+msgstr "ניתן למיין לפי תאריך אם תצמצם את תוצאות החיפוש. הפעל מסננים או התאם את הקריטריונים."
+
+msgid "Did you mean"
+msgstr "האם התכוונת"
+
+msgid "With"
+msgstr "עִם"
+
+msgid "To"
+msgstr "אל"
+
+msgid "No date"
+msgstr "אין תאריך"
+
+msgid "Forward Meeting Request"
+msgstr "העברת בקשת פגישה"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "בקשת פגישה הועברה"
+
+msgid "The meeting organizer will be notified that you forwarded this meeting request."
+msgstr "מארגן הפגישה יקבל הודעה שהעברת את בקשת הפגישה הזו."
+
+msgid "Error"
+msgstr "שגיאה"
+
+msgid "Could not accept proposal as this meeting is not available in calendar; It may have been moved or deleted."
+msgstr "לא ניתן היה לקבל את ההצעה מכיוון שהפגישה אינה מופיעה בלוח השנה; ייתכן שהיא הועברה או נמחקה."
+
+msgid "Could not view proposal as this meeting is not available in calendar; It may have been moved or deleted."
+msgstr "לא ניתן היה להציג את ההצעה מכיוון שהפגישה אינה מופיעה בלוח השנה; ייתכן שהיא הועברה או נמחקה."
+
+msgid "Required"
+msgstr "דרוש"
+
+msgid "Optional"
+msgstr "אופציונלי"
+
+msgid "Resource"
+msgstr "משאב"
+
+msgid "Could not open store."
+msgstr "לא ניתן לפתוח את מאגר האחסון."
+
+msgid "Could not open default calendar folder."
+msgstr "לא ניתן לפתוח את תיקיית ברירת המחדל של לוח השנה"
+
+msgid "workday"
+msgstr "יום עבודה"
+
+msgid "day"
+msgstr "יום"
+
+msgid "days"
+msgstr "ימים"
+
+msgid "week"
+msgstr "שבוע"
+
+msgid "weeks"
+msgstr "שבועות"
+
+msgid " on "
+msgstr "עַל"
+
+msgid "month"
+msgstr "חודש"
+
+msgid "months"
+msgstr "חודשים"
+
+msgid "year"
+msgstr "שנה"
+
+msgid "years"
+msgstr "שנים"
+
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr "מופיע כל {0} החל {1} מ {2} עד {3}."
+
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr "מופיע כל {0}{1} החל {2} מ {3} עד {4}"
+
+msgid "Occurs every {0} effective {1}."
+msgstr "מופיע כל {0} החל מ{1}"
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr "מופיע כל {0}{1} החל מ{2}."
+
+msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "מתרחש כל{0}יעיל{1}עבור התרחשות{2}מ{3}ל{4}."
+msgstr[1] "מתרחש בכל{0}יעיל{1}עבור מופעי{2}מ-{3}עד{4}."
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
+msgstr[0] "מתרחש כל{0}{1}יעיל{2}עבור התרחשות{3}מ{4}עד{5}."
+msgstr[1] "מתרחש בכל{0}{1}יעיל{2}עבור מופעי{3}{4}עד{5}."
+
+msgid "Occurs every {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
+msgstr[0] "מתרחש בכל{0}יעיל{1}עבור התרחשות{2}."
+msgstr[1] "מתרחש בכל{0}יעיל{1}עבור התרחשויות{2}."
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
+msgstr[0] "מתרחש בכל{0}{1}יעיל{2}עבור התרחשות{3}."
+msgstr[1] "מתרחש בכל{0}{1}יעיל{2}עבור התרחשויות{3}."
+
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr "מופיע כל {0} החל מ{1} עד {2} בין {3} ל {4}."
+
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr "מופיע כל {0}{1} החל מ{2} עד {3} בין {4} ל {5}."
+
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr "מופיע כל {0} החל מ{1} עד {2}."
+
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr "מופיע כל {0}{1} החל מ{2} עד {3}."
+
+msgid "New Meeting Time Proposed"
+msgstr "זמן חדש לפגישה הוצע"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y {0}"
+msgstr "l jS F Y{0}"
+
+msgid "Fwd"
+msgstr "הועבר"
+
+msgid "and "
+msgstr "ו"
+
+msgid "Sort by: Attachment"
+msgstr "מיין לפי: קבצים מצורפים"
+
+msgid "Sort by: Recurring"
+msgstr "מיין לפי: חוזר"
+
+msgid "Sort by: Subject"
+msgstr "מיין לפי: נושא"
+
+msgid "Start Date"
+msgstr "תאריך התחלה"
+
+msgid "Sort by: Start Date"
+msgstr "מיין לפי: תאריך התחלה"
+
+msgid "End Date"
+msgstr "תאריך סיום"
+
+msgid "Sort by: End Date"
+msgstr "מיין לפי: תאריך סיום"
+
+msgid "Organizer"
+msgstr "מארגן"
+
+msgid "Where"
+msgstr "היכן"
+
+msgid "Required Attendee"
+msgstr "משתתף דרוש"
+
+msgid "Optional Attendee"
+msgstr "משתתף אופציונלי"
+
+msgid "Show Time As"
+msgstr "Show Time As"
+
+msgid "Recurrence pattern"
+msgstr "תבנית מופע חוזר"
+
+msgid "All Day Event"
+msgstr "אירוע של יום שלם"
+
+msgid "Add Shared Calendar"
+msgstr "הוסף יומן משותף"
+
+msgid "Remove From Calendar"
+msgstr "הסר מלוח השנה"
+
+msgid "No Response Required"
+msgstr "אין צורך בתגובה"
+
+msgid "Accept"
+msgstr "קבל"
+
+msgid "Accept Meeting Request"
+msgstr "קבל את בקשת הפגישה"
+
+msgid "Tentative"
+msgstr "זמני"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "קבל בהיסוס את בקשת הפגישה"
+
+msgid "Decline"
+msgstr "סרב"
+
+msgid "Decline Meeting Request"
+msgstr "סרב לבקשת הפגישה"
+
+msgid "Propose New Time"
+msgstr "הצע זמן חדש"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "הצע זמן חדש לבקשת הפגישה"
+
+msgid "View All Proposals"
+msgstr "הצג את כל ההצעות"
+
+msgid "Accept Proposal"
+msgstr "קבל הצעה"
+
+msgid "Accept Proposed Time"
+msgstr "קבל את הצעת הזמן"
+
+msgid "View in calendar"
+msgstr "הצג בלוח שנה"
+
+msgid "Day"
+msgstr "יום"
+
+msgid "Workweek"
+msgstr "שבוע עבודה"
+
+msgid "Week"
+msgstr "שבוע"
+
+msgid "Month"
+msgstr "חודש"
+
+msgid "List"
+msgstr "רשימה"
+
+msgid "Appointment"
+msgstr "פגישה"
+
+msgid "Meeting request"
+msgstr "בקשת פגישה"
+
+msgid "Print selected appointment"
+msgstr "הדפס את הפגישה שנבחרה"
+
+msgid "No appointment selected"
+msgstr "לא נבחר פגישה"
+
+msgid "Print overview"
+msgstr "הדפס סקירה כללית"
+
+msgid "Create Appointment"
+msgstr "צור פגישה"
+
+msgid "Create in other calendar"
+msgstr "צור בלוח שנה אחר"
+
+msgid "The selected calendar has \"read-only\" permissions. Instead you can create an item in your own calendar."
+msgstr "ליומן שנבחר יש הרשאות \"לקריאה בלבד\". במקום זאת, תוכל ליצור פריט ביומן שלך."
+
+msgid "What would you like?"
+msgstr "מה היית רוצה?"
+
+msgid "Own calendar"
+msgstr "לוח שנה משלו"
+
+msgid "F Y"
+msgstr "F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "ל"
+
+msgid "All text fields"
+msgstr "כל שדות הטקסט"
+
+msgid "Body"
+msgstr "גוף ההודעה"
+
+msgid "Subject or Sender"
+msgstr "נושא או שולח"
+
+msgid "To or cc"
+msgstr "שדה אל או שדה עותק נוסף"
+
+msgid "Meeting"
+msgstr "פגישה"
+
+#, fuzzy
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr "תוכננו משאבים"
+
+msgid "Send update"
+msgstr "שלח עדכון"
+
+msgid "Do you want to send an update to all recipients?"
+msgstr "האם ברצונך לשלוח עדכון לכל הנמענים?"
+
+msgid "Send update to attendees"
+msgstr "שלח עדכון למשתתפים"
+
+msgid "You have made changes to the list of attendees. What would you like to do?"
+msgstr "ביצעת שינויים ברשימת המשתתפים. מה ברצונך לעשות?"
+
+msgid "Send updates to only added or deleted attendees."
+msgstr "שלח עדכונים רק למשתתפים שנוספו או נמחקו."
+
+msgid "Send updates to all attendees."
+msgstr "שלח עדכונים לכל המשתתפים."
+
+msgid "Busy attendees"
+msgstr "משתתפים עסוקים"
+
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr "אחד או יותר מהמשתתפים עסוקים. האם אתה בטוח להזמין?"
+
+msgid "Scheduling"
+msgstr "מכניס ללוח הזמנים"
+
+msgid "Tracking"
+msgstr "במעקב"
+
+#, fuzzy
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr "לא ניתן היה להגיע לכל הנמענים"
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr "{0} מששתפים קיבלו, {1} קיבלו בהיסוס, {2} סירבו"
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees proposed a new time for this meeting. Click the Scheduling tab for details."
+msgstr "{0} משתתפים הציעו זמן חדש לפגישה זו. לחץ על לשונית לוח הזמנים לפרטים"
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr "הצעת זמן חדש לפגישה זו {0}"
+
+#, fuzzy
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr "הצעת זמן חדש לפגישה זו {0}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr "התקבל ב {0}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr "מקובל על ידי{0}ב-{1}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr "התקבל בהיסוס ב {0}"
+
+#, fuzzy
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr "התקבל בהיסוס ב {0}"
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr "פגישה זו מתרחשת בעבר"
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr "אנא הגב"
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr "לא התקבלה תגבוה עבור פגישה זו."
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr "הפגישה בוטלה."
+
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr "לא נשלחו הזמנות לפגישה זו."
+
+msgctxt "calendar.dialog"
+msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer"
+msgstr "שימו לב: כל שינוי שתבצעו יוחלף כאשר מארגן הפגישה יעדכן את בקשת הפגישה"
+
+msgid "Create in"
+msgstr "צור ב"
+
+msgid "Time"
+msgstr "זמן"
+
+msgid "until"
+msgstr "עַד"
+
+msgid "Recurrence"
+msgstr "מופע חוזר"
+
+msgid "Reminder"
+msgstr "תזכורת"
+
+msgid "Show as"
+msgstr "הראה כ"
+
+msgid "Warning"
+msgstr "אַזהָרָה"
+
+msgid "Attachments cannot be modified for a single occurrence"
+msgstr "לא ניתן לשנות קבצים מצורפים עבור אירוע בודד"
+
+msgid "Type your message here…"
+msgstr "הקלד את הודעתך כאן..."
+
+msgid "Update location"
+msgstr "עדכן מיקום"
+
+msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr "האם ברצונך לעדכן את המיקום \"{0}\" עם המיקום החדש \"{1}\"?"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y {0}"
+msgstr "jS F Y{0}"
+
+msgid "None"
+msgstr "אף אחד"
+
+msgid "Send"
+msgstr "לִשְׁלוֹחַ"
+
+msgid "Save"
+msgstr "שמור"
+
+msgid "Close"
+msgstr "סגור"
+
+msgid "Delete"
+msgstr "מחק"
+
+msgid "Add attachment"
+msgstr "הוסף קובץ מצורף"
+
+msgid "Reply to the meeting organizer"
+msgstr "השב למארגן הפגישה"
+
+msgid "Reply to all attendees"
+msgstr "השב לכל המשתתפים"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "העבר את בקשת הפגישה לנמענים נוספים"
+
+msgid "Check names"
+msgstr "בדוק שמות"
+
+msgid "Addressbook"
+msgstr "ספר כתובות"
+
+msgid "Open addressbook"
+msgstr "פתח את ספר הכתובות"
+
+msgid "Invite attendees"
+msgstr "הזמן משתתפים"
+
+msgid "Cancel invitation"
+msgstr "בטל הזמנה"
+
+msgid "High priority"
+msgstr "עדיפות גובהה"
+
+msgid "Mark this appointment as high priority"
+msgstr "סמן פגישה זו בעדיפות גבוהה"
+
+msgid "Low priority"
+msgstr "עדיפות נמוכה"
+
+msgid "Mark this appointment as low priority"
+msgstr "סמן פגישה זו בעדיפות נמוכה"
+
+msgid "Categories"
+msgstr "קטגוריות"
+
+msgid "Open the categories dialog"
+msgstr "פתח את תיבת דו שיח קטגוריות"
+
+msgid "Private"
+msgstr "פרטי"
+
+msgid "Mark this appointment as private"
+msgstr "סמן פגישה זו כפרטית"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "השתמש באפשרות \"השב לכולם\" כדי להשיב לכל המשתתפים בפגישה שלך."
+
+msgid "Re"
+msgstr "השב"
+
+msgid "Message Options"
+msgstr "אפשרויות הודעה"
+
+msgid "Proposed Date and Time"
+msgstr "תאריך וזמן הוצעו"
+
+msgid "Duration"
+msgstr "משך הזמן"
+
+msgid "Proposed By"
+msgstr "הוצעו על ידי"
+
+msgid "Current Meeting Time"
+msgstr "זמן פגישה נוכחי"
+
+msgid "Show only working hours"
+msgstr "הראה רק את שעות העבודה"
+
+msgid "Start time"
+msgstr "זמן התחלה"
+
+msgid "End time"
+msgstr "זמן סיום"
+
+msgid "Comment"
+msgstr "הערה"
+
+msgid "Send Meeting Request Cancellation"
+msgstr "שלח ביטול בקשת פגישה"
+
+msgid "This meeting will be cancelled. Do you want to include comments with your cancellation?"
+msgstr "הפגישה תבוטל. האם ברצונך לצרף הערות לביטול?"
+
+msgid "Edit the cancellation before Sending."
+msgstr "ערוך את הביטול לפני השליחה."
+
+msgid "Cancellation message"
+msgstr "הודעת ביטול"
+
+msgid "Send the cancellation now."
+msgstr "שלח את הביטול עכשיו."
+
+msgid "Send Meeting Request Confirmation"
+msgstr "שלח אישור בקשת פגישה"
+
+#, fuzzy
+msgid "This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?"
+msgstr "פגישה זו התקבלה ותועבר ללוח השנה שלך. האם אתה רוצה לכלול הערות עם התגובה שלך?"
+
+#, fuzzy
+msgid "This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?"
+msgstr "פגשיה זו התקבלה בהיסוס ומועברת ללוח השנה שלך. האם אתה רוצה לכלול הערות עם התגובה שלך?"
+
+#, fuzzy
+msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
+msgstr "פגישה זו סורבה ותועבר לתיקית \"פריטים שנמחקו\". האם אתה רוצה לכלול הערות עם התגובה שלך?"
+
+msgid "Edit the response before sending"
+msgstr "ערוך את התגובה לפני השליחה"
+
+msgid "Response message"
+msgstr "הודעת תגובה"
+
+msgid "Send the response now."
+msgstr "שלח את התגובה כעת."
+
+msgid "Don't send a response."
+msgstr "אל תשלח תגובה."
+
+msgid "The following responses for this meeting have been received"
+msgstr "התגובות הבאות לפגישה זו התקבלו"
+
+msgid "Attendance"
+msgstr "נוכחות"
+
+msgid "Response"
+msgstr "תגובה"
+
+msgid "New appointment"
+msgstr "מינוי חדש"
+
+msgid "Creating an item"
+msgstr "יצירת פריט"
+
+msgid "New meeting request"
+msgstr "בקשת פגישה חדשה"
+
+msgid "Switch calendar range back and forth"
+msgstr "החלף טווח לוח שנה קדימה ואחורה"
+
+msgid "Copy selected item"
+msgstr "העתק את הפריט שנבחר"
+
+msgid "Paste selected item"
+msgstr "הדבק את הפריט שנבחר"
+
+msgid "An overview of"
+msgstr "סקירה כללית של"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "התחלה"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "סוֹף"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+msgid "Printed by"
+msgstr "נדפס על ידי"
+
+msgid "at"
+msgstr "בְּ-"
+
+msgid "of"
+msgstr "שֶׁל"
+
+msgid "Location: "
+msgstr "מִקוּם:"
+
+msgid "j M {0}"
+msgstr "j M{0}"
+
+msgid "l jS M Y {0}"
+msgstr "l jS M Y{0}"
+
+msgid "All day: "
+msgstr "כל היום:"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "l jS F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr "l jS F"
+
+msgid "Organiser"
+msgstr "מְאַרגֵן"
+
+msgid "Meeting status"
+msgstr "סטטוס פגישה"
+
+msgid "Required Attendees"
+msgstr "משתתפים נדרשים"
+
+msgid "Optional Attendees"
+msgstr "משתתפים אופציונליים"
+
+msgid "Resources"
+msgstr "אֶמְצָעִי"
+
+msgid "Sensitivity"
+msgstr "רגישות"
+
+msgid "Importance"
+msgstr "חשיבות"
+
+msgid "M j"
+msgstr "מ י"
+
+msgid "j"
+msgstr "י"
+
+msgid "General calendar settings"
+msgstr "הגדרות לוח שנה כלליות"
+
+msgid "First day of the week"
+msgstr "היום הראשון בשבוע"
+
+msgid "Start of workday"
+msgstr "תחילת יום עבודה"
+
+msgid "End of workday"
+msgstr "סוף יום עבודה"
+
+msgid "Calendar resolution"
+msgstr "רזולוציית לוח שנה"
+
+msgid "Default appointment duration {A} minutes"
+msgstr "משך הפגישה המוגדר כברירת מחדל {A} דקות"
+
+msgid "Duration must be between 1 and 120 minutes."
+msgstr "משך הזמן חייב להיות בין 1 ל-120 דקות."
+
+msgid "Default status for all day appointment"
+msgstr "סטטוס ברירת מחדל עבור פגישה במשך כל היום"
+
+msgid "Working days"
+msgstr "ימי עבודה"
+
+msgid "Show busy dates as bold in the date picker"
+msgstr "הצג תאריכים עמוסים כמודגשים בבוחר התאריכים"
+
+msgid "Side-by-side mode"
+msgstr "מצב זה לצד זה"
+
+msgid "Overlay mode"
+msgstr "מצב שכבת-על"
+
+msgid "Calendar view settings"
+msgstr "הגדרות תצוגת לוח שנה"
+
+msgid "View multiple calendars in"
+msgstr "הצג מספר יומנים ב"
+
+msgid "Reminder settings"
+msgstr "הגדרות תזכורת"
+
+msgid "Enable reminder for new appointments"
+msgstr "אפשר תזכורת עבור פגישות חדשות"
+
+msgid "Default reminder time"
+msgstr "זמן תזכורת ברירת מחדל"
+
+msgid "Default all-day appointment reminder time"
+msgstr "מועד ברירת מחדל לתזכורת פגישות במשך כל היום"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr "jS"
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] "נבחר פריט {0}"
+msgstr[1] "נבחר פריט {1}"
+
+msgid "New Appointment"
+msgstr "פגישה חדשה"
+
+msgid "New Meeting Request"
+msgstr "בקשה לפגישה חדשה"
+
+msgid "Open"
+msgstr "פתח"
+
+msgid "Copy/Move"
+msgstr "העתק/העבר"
+
+msgid "Send to…"
+msgstr "שלח אל…"
+
+msgid "Export as"
+msgstr "ייצא בשם"
+
+msgid "Occurrence"
+msgstr "הִתרַחֲשׁוּת"
+
+msgid "Series"
+msgstr "סִדרָה"
+
+msgid "Appointment not found"
+msgstr "הפגישה לא נמצאה"
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr "פגישה זו הועברה או נמחקה, האם ברצונך להמשיך?"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "השתמש באפשרות \"השב לכולם\" כדי להשיב לכל המשתתפים בפגישה שלך."
+
+msgid "Options"
+msgstr "אפשרויות"
+
+msgid "Icon"
+msgstr "סמל"
+
+msgid "All Day"
+msgstr "כל היום"
+
+msgid "Sort by: All Day"
+msgstr "מיין לפי: כל היום"
+
+msgid "Recurring"
+msgstr "מַחזוֹרִי"
+
+msgid "Sort by: Duration"
+msgstr "מיין לפי: משך"
+
+msgid "Meeting Status"
+msgstr "מצב הפגישה"
+
+msgid "Sort by: Meeting Status"
+msgstr "מיין לפי: סטטוס פגישה"
+
+msgid "Sort by: Show as"
+msgstr "מיין לפי: הצג בשם"
+
+msgid "Sort by: Categories"
+msgstr "מיין לפי: קטגוריות"
+
+msgid "Created On"
+msgstr "נוצר ב"
+
+msgid "Sort by: Created On"
+msgstr "מיין לפי: נוצר בתאריך"
+
+msgid "Due By"
+msgstr "תאריך יעד"
+
+msgid "Sort by: Due By"
+msgstr "מיין לפי: Due By"
+
+msgid "Label"
+msgstr "תוית"
+
+msgid "Sort by: Label"
+msgstr "מיין לפי: תווית"
+
+msgid "Sort by: Organizer"
+msgstr "מיין לפי: מארגן"
+
+msgid "Sort by: Required Attendee"
+msgstr "מיין לפי: משתתף נדרש"
+
+msgid "Sort by: Optional Attendee"
+msgstr "מיין לפי: משתתף אופציונלי"
+
+msgid "Sort by: Resources"
+msgstr "מיין לפי: משאבים"
+
+msgid "Recurring Start Date"
+msgstr "תאריך התחלה חוזר"
+
+msgid "Sort by: Recurring Start Date"
+msgstr "מיין לפי: תאריך התחלה חוזר"
+
+msgid "Recurring End Date"
+msgstr "תאריך סיום חוזר"
+
+msgid "Sort by: Recurring End Date"
+msgstr "מיין לפי: תאריך סיום חוזר"
+
+msgid "Recurring Pattern"
+msgstr "תבנית מופע חוזר"
+
+msgid "Sort by: Recurring Pattern"
+msgstr "מיין לפי: דפוס חוזר"
+
+msgid "Sort by: Reminder"
+msgstr "מיין לפי: תזכורת"
+
+msgid "Sort by: Sensitivity"
+msgstr "מיין לפי: רגישות"
+
+msgid "Sort by: Importance"
+msgstr "מיין לפי: חשיבות"
+
+msgid "Appointments list"
+msgstr "רשימת פגישות"
+
+msgid "Loading appointments"
+msgstr "טוען פגישות"
+
+msgid "Attendees"
+msgstr "משתתפים"
+
+msgid "Optional attendees"
+msgstr "משתתפים אופציונליים"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F {0}"
+msgstr "jS F{0}"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "jS F Y"
+
+msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "אין לך הרשאות מספיקות כדי להעביר ולהעתיק פריט זה. בקש מבעל התיקייה להעניק לך הרשאות או פנה למנהל המערכת שלך."
+
+msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "אין לך הרשאות מספיקות כדי להעתיק פריט זה. בקש מבעל התיקייה להעניק לך הרשאות או פנה למנהל המערכת שלך."
+
+msgid "Insufficient privileges"
+msgstr "אין מספיק הרשאות"
+
+msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
+msgstr "העתקת פגישה זו תבטל את הגדרתה כפרטית. האם אתה בטוח שברצונך להמשיך?"
+
+msgid "Private item"
+msgstr "פריט פרטי"
+
+msgid "Copy"
+msgstr "העתק"
+
+msgid "Moving this appointment will unset it as private. Are you sure you want to continue?"
+msgstr "העברת פגישה זו תבטל את הגדרתה כפרטית. האם אתה בטוח שברצונך להמשיך?"
+
+msgid "Move"
+msgstr "העבר"
+
+msgid "Update recipients"
+msgstr "עדכן את הנמענים"
+
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr "שעת הפגישה השתנתה. מה היית רוצה לעשות?"
+
+msgid "Save changes and send an update to all recipients"
+msgstr "שמור שינויים ושלח עדכון לכל הנמענים"
+
+msgid "Open meeting request with changes"
+msgstr "בקשת פגישה פתוחה עם שינויים"
+
+msgid "Previous"
+msgstr "קודם"
+
+msgid "Next"
+msgstr "הבא"
+
+msgid "grommunio Web"
+msgstr "הווב אפ של זראפה"
+
+msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
+msgstr "שימו לב: כל שינוי שתבצעו יוחלף כאשר מארגן הפגישה יעדכן את בקשת הפגישה. האם ברצונכם להעביר את הפגישה?"
+
+msgid "Don't move"
+msgstr "אל תזוז"
+
+msgid "F j"
+msgstr "F j"
+
+msgid "Switch to day view to see all appointments"
+msgstr "עבור לתצוגת יום כדי לראות את כל הפגישות"
+
+msgid "Show all appointments"
+msgstr "הצג את כל הפגישות"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr "הוצע"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr "מתי"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr "מיקום"
+
+msgid "No additional response required"
+msgstr "אין צורך בתגובה נוספת"
+
+msgid "Your calendar has been updated automatically. This meeting request will now be deleted."
+msgstr "לוח השנה שלך עודכן אוטומטית. בקשת פגישה זו תמחק עכשיו."
+
+msgid "New appointment subject"
+msgstr "נושא פגישה חדשה"
+
+msgid "Loading appointments…"
+msgstr "טוען פגישות..."
+
+msgid "Please select a calendar via widget settings"
+msgstr "אנא בחר לוח שנה באמצעות הגדרות ווידג'ט"
+
+msgid "Number of days"
+msgstr "מספר ימים"
+
+msgid "day(s)"
+msgstr "ימים"
+
+msgid "{0}"
+msgstr "{0}"
+
+msgid "Upcoming Appointments"
+msgstr "פגישות קרובות"
+
+msgid "Appointments of {0}"
+msgstr "מינויים של{0}"
+
+msgid "Appointments of {0} - {1}"
+msgstr "מינויים של{0}-{1}"
+
+msgid "No appointments"
+msgstr "אין פגישות"
+
+msgid "Exception"
+msgstr "חריגה"
+
+msgid "Today {0} - {1}"
+msgstr "היום{0}-{1}"
+
+msgid "Today (all day)"
+msgstr "היום (כל היום)"
+
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+msgid "{0} - {1}"
+msgstr "{0}-{1}"
+
+msgid "d/m/y {0}"
+msgstr "d/m/y{0}"
+
+msgid "{0} - {1} (all day)"
+msgstr "{0}-{1}(כל היום)"
+
+msgid "d/m/y"
+msgstr "d/m/y"
+
+msgid "Select one…"
+msgstr "בחר אחד…"
+
+msgid "Unnamed folder"
+msgstr "תיקייה ללא שם"
+
+msgid "Discard"
+msgstr "לְהַשְׁלִיך"
+
+msgid "Quick Appointment"
+msgstr "פגישה מהירה"
+
+msgid "Printing of multiple items has not been implemented."
+msgstr "הדפסה של מספר פריטים לא יושמה."
+
+msgid "Printing of this item is not yet available"
+msgstr "הדפסת פריט זה אינה זמינה עדיין"
+
+msgid "Item type: "
+msgstr "סוג פריט:"
+
+msgid "Printing of this view is not yet available"
+msgstr "הדפסת תצוגה זו אינה זמינה עדיין"
+
+msgid "Recurring Message"
+msgstr "מופע חוזר של הודעה"
+
+msgid "This is a recurring message. Do you want to open only this occurrence or the series?"
+msgstr "זוהי הודעה חוזרת. האם ברצונך לפתוח רק את ההודעה הזו או את הסדרה?"
+
+msgid "Recurring Appointment"
+msgstr "מופע חוזר של פגישה"
+
+msgid "This is a recurring appointment. Do you want to open only this occurrence or the series?"
+msgstr "זהו אירוע חוזר. האם ברצונך לפתוח רק את האירוע הספציפי הזה או את הסדרה כולה?"
+
+msgid "Recurring Meeting Request"
+msgstr "מופע חוזר של בקשת פגישה"
+
+msgid "This is a recurring meeting request. Do you want to open only this occurrence or the series?"
+msgstr "זוהי בקשה לפגישה חוזרת. האם ברצונך לפתוח רק את המפגש הספציפי הזה או את הסדרה כולה?"
+
+msgid "Recurring Task Request"
+msgstr "מופע חוזר של בקשת משימה"
+
+msgid "This is a recurring task request. Do you want to open only this occurrence or the series?"
+msgstr "זוהי בקשה למשימה חוזרת. האם ברצונך לפתוח רק את המופע הזה או את הסדרה?"
+
+msgid "Open this occurrence"
+msgstr "פתח את ההתרחשות הזו"
+
+msgid "Open the series"
+msgstr "פתח את הסדרה"
+
+msgid "Paste Recurring {0}"
+msgstr "הדבק{0}חוזר"
+
+msgid "This is a recurring {0}. Do you want to paste only this occurrence or the series?"
+msgstr "זהו {0} חוזר. האם ברצונך להדביק רק את המופע הזה או את הסדרה?"
+
+msgid "message"
+msgstr "הוֹדָעָה"
+
+msgid "meeting request"
+msgstr "בקשה לפגישה"
+
+msgid "appointment"
+msgstr "פְּגִישָׁה"
+
+msgid "Paste this occurrence only"
+msgstr "הדבק מופע זה בלבד"
+
+msgid "Paste the series…"
+msgstr "הדבק את הסדרה..."
+
+msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
+msgstr "זוהי הודעה חוזרת. האם ברצונך למחוק רק את ההודעה הזו או את הסדרה כולה?"
+
+msgid "This is a recurring appointment. Do you want to delete only this occurrence or the series?"
+msgstr "זהו אירוע חוזר. האם ברצונך למחוק רק את האירוע הספציפי הזה או את הסדרה כולה?"
+
+msgid "This is a recurring meeting request. Do you want to delete only this occurrence or the series?"
+msgstr "זוהי בקשה לפגישה חוזרת. האם ברצונך למחוק רק את המופע הזה או את הסדרה כולה?"
+
+msgid "This is a recurring task request. Do you want to delete only this occurrence or the series?"
+msgstr "זוהי בקשה למשימה חוזרת. האם ברצונך למחוק רק את המופע הזה או את הסדרה כולה?"
+
+msgid "Delete this occurrence"
+msgstr "מחק אירוע זה"
+
+msgid "Delete the series"
+msgstr "מחק את הסדרה"
+
+msgid "Confirm Delete"
+msgstr "אשר מחיקה"
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr "פגישת \"{0}\" זו כבר התקבלה."
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr "לא הגבת לבקשת הפגישה \"{0}\"."
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr "מחק ושלח תגובה למארגן הפגישה"
+
+msgid "Delete without sending"
+msgstr "מחק בלי לשלוח"
+
+msgid "Insufficient permissions"
+msgstr "הרשאות לא מספיקות"
+
+msgid "You have insufficient privileges to delete items in this folder."
+msgstr "אין לך הרשאות מספיקות כדי למחוק פריטים בתיקייה זו."
+
+msgid "Notify recipients"
+msgstr "הודע לנמענים"
+
+msgid "A cancellation message will be sent to all recipients, do you wish to continue?"
+msgstr "הודעת ביטול תשלח לכל הנמענים , האם ברצונך להמשיך?"
+
+msgid "Notify sender"
+msgstr "הודע לשולח"
+
+msgid "{0} has requested a notification be sent when message \"{1}\" is deleted without having been read. Do you want to send a receipt?"
+msgstr "{0} ביקש לשלוח התראה כאשר ההודעה \"{1}\" נמחקת מבלי שקרא אותה. האם ברצונך לשלוח אישור?"
+
+msgid "Delete Incomplete Task"
+msgstr "מחק משימה לא הושלמה"
+
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr "המשימה \"{0}\" לא הושלמה. מה אתה רוצה לעשות?"
+
+msgid "Decline and delete"
+msgstr "דחה ומחק"
+
+msgid "Mark complete and delete"
+msgstr "סמן כשלם ומחק"
+
+msgid "Following recipients are already exists"
+msgstr "הנמענים הבאים כבר קיימים"
+
+msgid "Duplicate recipients"
+msgstr "שכפל נמענים"
+
+msgid "Duplicate recipient"
+msgstr "שכפול נמען"
+
+msgid "Recipient already exists."
+msgstr "הנמען כבר קיים."
+
+#, fuzzy
+msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
+msgstr "שולח ההודעה ביקש להיות מיודע כשאר אתה קורא את ההודעה. האם ברצונך ליידע את השולח?"
+
+msgid "Import"
+msgstr "יְבוּא"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr "פריטים יובאו בהצלחה אל{0}"
+
+msgid "Failed to import item(s) to {0}"
+msgstr "ייבוא ​​הפריטים ל-{0}נכשל"
+
+msgid "Import error"
+msgstr "שגיאת ייבוא"
+
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr "לא ניתן לייבא את \"{0}\". הקובץ אינו חוקי"
+
+msgid "You have insufficient privileges to move these items. Would you like to copy instead?"
+msgstr "אין לך הרשאות מספיקות להעברת פריטים אלה. האם ברצונך להעתיק אותם במקום זאת?"
+
+msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
+msgstr "אין לך הרשאות מספיקות כדי להעביר פריט זה. האם ברצונך להעתיק אותו במקום זאת?"
+
+msgid "Cc"
+msgstr "עותק נוסף"
+
+msgid "Bcc"
+msgstr "עותק סודי"
+
+msgid "From"
+msgstr "מאת"
+
+msgid "Insert item"
+msgstr "הכנס פריט"
+
+msgid "Insert as"
+msgstr "הכנס כ"
+
+msgid "Text only"
+msgstr "טקסט בלבד"
+
+msgid "Attachment"
+msgstr "הִתקַשְׁרוּת"
+
+msgid "Attach Item"
+msgstr "צרף פריט"
+
+msgid "No message selected"
+msgstr "לא נבחרה הודעה"
+
+msgid "Import to"
+msgstr "יבוא אל"
+
+msgid "New folder"
+msgstr "תיקייה חדשה"
+
+msgid "Download as ZIP"
+msgstr "הורד כ-ZIP"
+
+msgid "Continue"
+msgstr "לְהַמשִׁיך"
+
+msgid "These attachments have an unsupported file type and can not be added to the ZIP file:"
+msgstr "לסוגים אלה של קבצים אין תמיכה ולכן לא ניתן להוסיף אותם לקובץ ה-ZIP:"
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr "האם תרצה להמשיך בהורדה מבלי להוסיף קבצים אלה?"
+
+msgid "Always continue download of ZIP files without adding unsupported file types."
+msgstr "המשך תמיד בהורדת קבצי ZIP מבלי להוסיף סוגי קבצים שאינם נתמכים."
+
+msgid "File upload"
+msgstr "העלאת קובץ"
+
+msgid "Attach item"
+msgstr "צרף פריט"
+
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
+msgid "Download"
+msgstr "הורד"
+
+msgid "Download all as ZIP"
+msgstr "הורד הכל כ-ZIP"
+
+msgid "Import to folder"
+msgstr "ייבא לתיקיה"
+
+msgid "In order to use the vCard import feature, upgrade your Gromox to version 0 or higher."
+msgstr "כדי להשתמש בתכונת ייבוא vCard, שדרג את Gromox לגרסה 0 או לגרסה מתקדמת יותר."
+
+msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
+msgstr "כדי להשתמש בתכונת הייבוא של ICS / VCS, שדרג את Gromox לגרסה 0 או לגרסה מתקדמת יותר."
+
+msgid "Attachment error"
+msgstr "שגיאת קובץ מצורף"
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr "לא ניתן ליצור ZIP, הגודל המרבי המותר הוא 30 MB."
+
+msgid "Unable to download"
+msgstr "לא ניתן להוריד"
+
+msgid "Picture format is not supported. "
+msgstr "פורמט תמונה אינו נתמך."
+
+msgid "Supported format for contact pictures are"
+msgstr "פורמט נתמך עבור תמונות אנשי קשר הם"
+
+msgid "Attachment Error"
+msgstr "שגיאת קובץ מצורף"
+
+msgid "Manage Categories"
+msgstr "נהל קטגוריות"
+
+msgid "New"
+msgstr "חדש"
+
+msgid "Rename category"
+msgstr "שינוי שם קטגוריה"
+
+msgid "Delete category"
+msgstr "מחק קטגוריה"
+
+msgid "Quick access"
+msgstr "גישה מהירה"
+
+msgid "Delete Category"
+msgstr "מחק קטגוריה"
+
+msgid "Are you sure you want to delete the category \"{0}\"? Other items keep this category, but lose the assigned color."
+msgstr "האם אתה בטוח שברצונך למחוק את הקטגוריה \"{0}\"? פריטים אחרים ישמרו על קטגוריה זו, אך יאבדו את הצבע שהוקצה לה."
+
+msgid "Rename Category"
+msgstr "שנה את שם הקטגוריה"
+
+msgid "A category named \""
+msgstr "קטגוריה בשם \""
+
+msgid "Create New Category"
+msgstr "צור קטגוריה חדשה"
+
+msgid "Category name"
+msgstr "שם הקטגוריה"
+
+msgid "Pin to quick access"
+msgstr "הצמד לגישה מהירה"
+
+msgid "Create"
+msgstr "לִיצוֹר"
+
+msgid "You must apply the changes you have made to the categories before you can create this category."
+msgstr "עליך להחיל את השינויים שביצעת בקטגוריות לפני שתוכל ליצור קטגוריה זו."
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "כבר יש לך קטגוריה בשם '{0}'. אנא השתמש בשם אחר."
+
+msgid "You already have a category named '{0}' in your pending changes. Please use another name."
+msgstr "יש לך כבר קטגוריה בשם '{0}' בשינויים הממתינים. אנא השתמש בשם אחר."
+
+msgid "Rename"
+msgstr "שנה שם"
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr "זו הפעם הראשונה שאתה משתמש בקטגוריית \"{0}\"."
+
+msgid "Do you want to rename it?"
+msgstr "האם אתה רוצה לשנות את שמו?"
+
+msgid "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and \"{2}\" categories?"
+msgstr "הקטגוריה \"{0}\" כבר קיימת. האם ברצונך למזג את הקטגוריות \"{1}\" ו-\"{2}\"?"
+
+msgid "Merge"
+msgstr "לְמַזֵג"
+
+msgid "Remove"
+msgstr "הסר"
+
+msgid "Check Names"
+msgstr "בדוק שמות"
+
+msgid "Select an address to use"
+msgstr "בחר כתובת לשימוש"
+
+msgid "Email"
+msgstr "דואר אלקטורני"
+
+msgid "More than one '{0}' found."
+msgstr "נמצאו יותר מ-{0}אחד."
+
+msgid "Alert"
+msgstr "אזהרה"
+
+msgid "Please select a recipient"
+msgstr "אנא בחר מען"
+
+msgid "Mail and Post"
+msgstr "דואר והודעות"
+
+msgid "Contact"
+msgstr "איש קשר"
+
+msgid "Journal"
+msgstr "יומן"
+
+msgid "Note"
+msgstr "פתק"
+
+msgid "Task"
+msgstr "משימה"
+
+msgid "Inbox"
+msgstr "תיבת דואר נכנס"
+
+msgid "Entire Inbox"
+msgstr "כל תיבת הדואר הנכנס"
+
+msgid "Owner"
+msgstr "בעלים"
+
+msgid "Secretary"
+msgstr "מַזכִּיר"
+
+msgid "Only read"
+msgstr "רק לקרוא"
+
+msgid "Delegate Permissions"
+msgstr "האצל הרשאות"
+
+msgid "This delegate has the following permissions"
+msgstr "לנציג הזה יש את ההרשאות הבאות"
+
+msgid "Delegate can see my private items."
+msgstr "הנציג יכול לראות את הפריטים הפרטיים שלי."
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr "הנציג מקבל עותקים של הודעות הקשורות לפגישה שנשלחו אלי."
+
+msgid "Other"
+msgstr "אחר"
+
+msgid "No delegates configured"
+msgstr "לא הוגדרו נציגים"
+
+msgid "Loading delegates"
+msgstr "טוען נציגים"
+
+msgid "Please select a delegate."
+msgstr "אנא בחר נציג."
+
+msgid "Delegates can send items on your behalf."
+msgstr "נציגים יכולים לשלוח פריטים בשמך."
+
+msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
+msgstr "אם ברצונך להגדיר רק הרשאות לתיקיות, לחץ לחיצה ימנית על תיקייה כדי לפתוח את תפריט ההקשר ולחץ על \"שתף תיקייה…\""
+
+msgid "Permission"
+msgstr "רְשׁוּת"
+
+msgid "Duplicate delegate"
+msgstr "נציג כפול"
+
+msgid "Delegate already exists in the list."
+msgstr "הנציג כבר קיים ברשימה."
+
+msgid "Copy/Move Folder"
+msgstr "העתק/העבר תיקיה"
+
+msgid "Copy/Move Messages"
+msgstr "העתק/העבר הודעות"
+
+msgid "Destination folder"
+msgstr "תיקיית יעד"
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] "הודעה {0} נבחרה."
+msgstr[1] "{0} הודעות נבחרו."
+
+msgid "Folder '{0}' selected."
+msgstr "תיקיית '{0}' נבחרה."
+
+msgid "The selected items cannot be moved into this folder because it holds a different type of content."
+msgstr ""
+
+msgid "The selected items cannot be copied into this folder because it holds a different type of content."
+msgstr ""
+
+msgid "Incompatible folder"
+msgstr ""
+
+msgid "Unable to perform action"
+msgstr "לא ניתן לבצע את הפעולה"
+
+msgid "The selected items are no longer available."
+msgstr "הפריטים שנבחרו אינם זמינים עוד."
+
+msgid "You have insufficient privileges to move this folder. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "אין לך הרשאות מספיקות להעברת תיקייה זו. בקש מבעל התיקייה להעניק לך הרשאות או פנה למנהל המערכת שלך."
+
+msgid "You have insufficient privileges to copy this folder. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "אין לך הרשאות מספיקות כדי להעתיק תיקייה זו. בקש מבעל התיקייה להעניק לך הרשאות או פנה למנהל המערכת."
+
+msgid "You have insufficient privileges to move following items."
+msgstr "אין לך הרשאות מספיקות כדי להעביר את הפריטים הבאים."
+
+msgid "Subject:"
+msgstr "נוֹשֵׂא:"
+
+msgid "Would you like to copy instead?"
+msgstr "האם תרצה להעתיק במקום זאת?"
+
+msgid "Do not show this message again."
+msgstr "אל תציג הודעה זו שוב."
+
+msgid "Properties"
+msgstr "מאפיינים"
+
+msgid "Object ID"
+msgstr "מזהה אובייקט"
+
+msgid "ICS"
+msgstr "ICS"
+
+msgid "Set custom flag"
+msgstr "הגדר דגל מותאם אישית"
+
+msgid "Start date"
+msgstr "תאריך התחלה"
+
+msgid "End date"
+msgstr "תאריך סיום"
+
+msgid "Tomorrow"
+msgstr "מָחָר"
+
+msgid "This week"
+msgstr "השבוע"
+
+msgid "Next week"
+msgstr "בשבוע הבא"
+
+msgid "Custom"
+msgstr "מִנְהָג"
+
+msgid "Set reminder"
+msgstr "הגדר תזכורת"
+
+msgid "Complete"
+msgstr "הושלם"
+
+msgid "today"
+msgstr "הַיוֹם"
+
+msgid "tomorrow"
+msgstr "מָחָר"
+
+msgid "this week"
+msgstr "השבוע"
+
+msgid "next week"
+msgstr "בשבוע הבא"
+
+msgid "Dropped file type is not supported"
+msgstr "סוג הקובץ שהועלה אינו נתמך"
+
+msgid "Edit recipient"
+msgstr "ערוך נמען"
+
+msgid "Copy email address"
+msgstr "העתק כתובת אימייל"
+
+msgid "Set as required"
+msgstr "הגדר כנדרש"
+
+msgid "Set as optional"
+msgstr "הגדר כאופציונלי"
+
+msgid "Set as resource"
+msgstr "הגדר כמשאב"
+
+msgid "Select attendees"
+msgstr "בחר משתתפים"
+
+msgid "Suggested Times"
+msgstr "זמן שהוצע"
+
+msgid "Busy"
+msgstr "עסוק"
+
+msgid "Out of Office"
+msgstr "מחוץ למשרד"
+
+msgid "No Information"
+msgstr "אין מידע"
+
+msgid "Show non-working hours"
+msgstr "הצג שעות שלא עובדים בהן"
+
+msgid "Hide non-working hours"
+msgstr "הסתר שעות שלא עובדים בהן"
+
+msgid "No freebusy information available for this date"
+msgstr "אין מידע זמין אודות עסוק/פנוי בתאריך זה"
+
+msgid "No suggestions available"
+msgstr "אין הצעות זמינות"
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr "מעבר בין הקשרים שונים, למשל. תיבת דואר נכנס, לוח שנה וכו'."
+
+msgid "Basic navigation"
+msgstr "ניווט בסיסי"
+
+msgid "Switch between different views"
+msgstr "מעבר בין תצוגות שונות"
+
+msgid "New item"
+msgstr "פריט חדש"
+
+msgid "All views"
+msgstr "כל הצפיות"
+
+msgid "Close tab"
+msgstr "סגור כרטיסייה"
+
+msgid "Print item"
+msgstr "הדפס פריט"
+
+msgid "Items"
+msgstr "פריטים"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "שמור פריט, למשל. דואר, יצירת קשר וכו'."
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "שלח פריט למשל. דואר, בקשה לפגישה וכו'."
+
+msgid "Select all items"
+msgstr "בחר את כל הפריטים"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "הרחב את הבחירה לפריט הראשון ברשימה"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "הרחב את הבחירה לפריט האחרון ברשימה"
+
+msgid "Open selected item"
+msgstr "פתח את הפריט שנבחר"
+
+msgid "Open dialog to categorize selected item"
+msgstr "פתח תיבת דו-שיח כדי לסווג את הפריט שנבחר"
+
+msgid "Print list"
+msgstr "הדפס רשימה"
+
+msgid "Open copy/move dialog"
+msgstr "פתח תיבת דו-שיח של העתקה/העברה"
+
+msgid "Delete selected item"
+msgstr "מחק את הפריט שנבחר"
+
+msgid "Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored."
+msgstr "מחק את הפריט הנבחר מבלי להעביר אותו לתיקיית 'פריטים שנמחקו'. ניתן לשחזר את הפריט שנמחק."
+
+msgid "Add/Edit Cc recipient"
+msgstr "הוסף/ערוך נמען עותק"
+
+msgid "Resolving recipient"
+msgstr "זיהוי הנמען"
+
+msgid "Disable for new mail"
+msgstr "השבת עבור דואר חדש"
+
+msgid "Enable for new mail"
+msgstr "הפעל עבור דואר חדש"
+
+msgid "Disable for replies"
+msgstr "השבת לקבלת תשובות"
+
+msgid "Enable for replies"
+msgstr "אפשר לקבל תשובות"
+
+msgid "No Cc recipient configured"
+msgstr "לא הוגדר נמען עותק"
+
+msgid "Loading Cc recipients"
+msgstr "טוען נמעני עותק"
+
+msgid "Reply Mail"
+msgstr "השב למייל"
+
+msgid "New Mail"
+msgstr "דואר חדש"
+
+msgid "Please select a Cc recipient record."
+msgstr "אנא בחר רשומת נמען עותק."
+
+msgid "Help"
+msgstr "עֶזרָה"
+
+msgid "Web Manual"
+msgstr "מדריך אינטרנט"
+
+msgid "Item data"
+msgstr "נתוני פריט"
+
+msgid "INSERT"
+msgstr "לְהַכנִיס"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "מיין לפי: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
+msgid "grommunio Web print"
+msgstr "הדפסת אינטרנט של grommunio"
+
+msgid "Display name"
+msgstr "שם תצוגה"
+
+msgid "Email address"
+msgstr "כתובת דואר אלקטרוני"
+
+msgid "Expand distribution list"
+msgstr "הרחב את רשימת התפוצה"
+
+msgid "Distribution list will be replaced with its members. You will not be able to collapse it again."
+msgstr "רשימת התפוצה תוחלף ברשימת החברים בה. לא תוכל לקפל אותה שוב."
+
+msgid "Edit Recipient"
+msgstr "ערוך נמען"
+
+msgid "Copy email addresses"
+msgstr "העתק כתובות דוא\"ל"
+
+msgid "Send email"
+msgstr "שלח דואר"
+
+msgid "Delete recipient from suggestion list"
+msgstr "מחק את הנמען מרשימת ההצעות"
+
+msgid "Copy all email addresses"
+msgstr "העתק את כל כתובות האימייל"
+
+msgid "View recipient"
+msgstr "הצג נמען"
+
+msgid "Weekday"
+msgstr "ימי עבודה"
+
+msgid "Weekend Day"
+msgstr "ימי סופשבוע"
+
+msgid "1st"
+msgstr "ראשון"
+
+msgid "2nd"
+msgstr "שני"
+
+msgid "3rd"
+msgstr "שלישי"
+
+msgid "4th"
+msgstr "רביעי"
+
+msgid "last"
+msgstr "אחרון"
+
+msgid "Every {A} day(s)"
+msgstr "בכל {A} ימים"
+
+msgid "Every weekday"
+msgstr "בכל ימי השבוע"
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr "צור מחדש משימה חדשה {A} ימים לאחר שהמשימה הושלמה"
+
+msgid "Day {A} of every {B} month(s)"
+msgstr "ביום {A} של כל {B} חודשים"
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr "ה {B} {A} של כל {C} חודשים"
+
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr "צור משימה חדשה {A} חודשים לאחר שהמשימה הושלמה"
+
+msgid "Appointment Recurrence"
+msgstr "מפוע חוזר של פגישה"
+
+msgid "Remove Recurrence"
+msgstr "הסר מופע חוזר"
+
+msgid "Reset recurring"
+msgstr "איפוס חוזר"
+
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "זה יאפס כל חריג. האם אתה רוצה להמשיך?"
+
+msgid "Task Recurrence"
+msgstr "מופע חוזר של משימה"
+
+msgid "Daily"
+msgstr "יומי"
+
+msgid "Weekly"
+msgstr "שבועי"
+
+msgid "Monthly"
+msgstr "חודשי"
+
+msgid "Yearly"
+msgstr "שנתי"
+
+msgid "Range of recurrence"
+msgstr "טווח המופעים החוזרים"
+
+msgid "No end date"
+msgstr "אין תאריך סיום"
+
+msgid "End after {A} occurrences"
+msgstr "סיים לאחר {A} מופעים "
+
+msgid "End by {A}"
+msgstr "סיים על ידי {A}"
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr "משך התרחשות: {D} {H} {M}"
+
+msgid "Every {A} week(s) on"
+msgstr "כל {A} שבועות ב"
+
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr "צור מחדש משימה חדש {A} שבועות לאחר שהמשימה הושלמה"
+
+msgid "Every {A} years(s) on"
+msgstr "כל {A} שנים בתאריך"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
+
+msgid "The {A} {B} of {C}"
+msgstr "ה {B} {A} ל {C}"
+
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr "צור מחדש משימה חדשה {A} שנים לאחר שהמשימה הושלמה"
+
+msgid "Info"
+msgstr "מידע"
+
+msgid "Not supported at the moment."
+msgstr "לא נתמך כרגע."
+
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "יש תזכורת{0}"
+msgstr[1] "יש תזכורות{0}"
+
+msgid "Reminders"
+msgstr "תזכורות"
+
+msgid "There are no reminders"
+msgstr "אין תזכורות"
+
+msgid "Due In"
+msgstr "אמור להגיע"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr "בשל"
+
+msgid "Reminder time"
+msgstr "זמן תזכורת"
+
+msgid "Dismiss All"
+msgstr "דחה הכל"
+
+msgid "Open Item"
+msgstr "פתח פריט"
+
+msgid "Dismiss"
+msgstr "לְפַטֵר"
+
+msgid "Click Snooze to be reminded again in"
+msgstr "לחץ על 'נודניק' כדי לקבל תזכורת שוב"
+
+msgid "Snooze"
+msgstr "נִמנוּם"
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] "תזכורת{0}נבחרה."
+msgstr[1] "תזכורות{0}נבחרות."
+
+msgid "Restore Softdeleted Items"
+msgstr "שחזר פריטים מסוג Softdeleted"
+
+msgid "Restore From {0}"
+msgstr "שחזר מ-{0}"
+
+msgid "Restore"
+msgstr "שחזר"
+
+msgid "Restore All"
+msgstr "שחזר הכל"
+
+msgid "Permanent Delete"
+msgstr "מחק לצמיתות"
+
+msgid "Delete All"
+msgstr "מחק הכל"
+
+msgid "Messages"
+msgstr "הודעות"
+
+msgid "Delete all items"
+msgstr "מחק את כל הפריטים"
+
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "האם אתה בטוח שברצונך למחוק לצמיתות את כל הפריטים?"
+
+msgid "Restore all items"
+msgstr "שחזר את כל הפריטים"
+
+msgid "Are you sure you want to restore all items?"
+msgstr "האם אתה בטוח שברצונך לשחזר את כל הפריטים?"
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] "סה\"כ פריט{0}שניתן לשחזר"
+msgstr[1] "סה\"כ פריטים הניתנים לשחזור{0}"
+
+msgid "Deleted On"
+msgstr "נמחק ב"
+
+msgid "Sort by: Deleted On"
+msgstr "מיין לפי: נמחק בתאריך"
+
+msgid "Item Count"
+msgstr "ספירת פריטים"
+
+msgid "Sort by: Item Count"
+msgstr "מיין לפי: ספירת פריטים"
+
+msgid "Sort by: From"
+msgstr "מיין לפי: מאת"
+
+msgid "Received"
+msgstr "התקבל"
+
+msgid "Sort by: Received"
+msgstr "מיין לפי: התקבלו"
+
+msgid "Size"
+msgstr "גודל"
+
+msgid "Sort by: Size"
+msgstr "מיין לפי: גודל"
+
+msgid "Move the message to folder…"
+msgstr "העבר את ההודעה לתיקיה..."
+
+msgid "Copy the message to folder…"
+msgstr "העתק את ההודעה לתיקיה..."
+
+msgid "Delete the message"
+msgstr "מחק את ההודעה"
+
+msgid "Redirect the message to…"
+msgstr "הפנה את ההודעה אל..."
+
+msgid "Forward the message to…"
+msgstr "העבר את ההודעה ל…"
+
+msgid "Forward the message as attachment to…"
+msgstr "העבר את ההודעה כקובץ מצורף אל..."
+
+msgid "Mark the message as read…"
+msgstr "סמן את ההודעה כנקראה..."
+
+msgid "is received from…"
+msgstr "מתקבל מ…"
+
+msgid "includes these words in the sender's address…"
+msgstr "כולל מילים אלו בכתובת השולח..."
+
+msgid "includes these words in the recipient's address…"
+msgstr "כולל מילים אלו בכתובת הנמען..."
+
+msgid "includes these words in the subject…"
+msgstr "כולל את המילים הללו בנושא..."
+
+msgid "includes these words in the body…"
+msgstr "כולל את המילים האלה בגוף..."
+
+msgid "includes these words in the transport headers…"
+msgstr "כולל את המילים האלה בכותרות התחבורה..."
+
+msgid "has importance…"
+msgstr "יש חשיבות…"
+
+msgid "has an attachment"
+msgstr "יש קובץ מצורף"
+
+msgid "is sent to…"
+msgstr "נשלח אל…"
+
+msgid "is sent only to me"
+msgstr "נשלח רק אלי"
+
+msgid "has my name in the Cc field"
+msgstr "יש את השם שלי בשדה העתק"
+
+msgid "does not have my name in the To or Cc field"
+msgstr "אין את השם שלי בשדה אל או עותק"
+
+msgid "has my name in the To or Cc field"
+msgstr "יש את השם שלי בשדה אל או עותק"
+
+msgid "has sensitivity…"
+msgstr "יש רגישות…"
+
+msgid "is received after…"
+msgstr "מתקבל לאחר…"
+
+msgid "is received before…"
+msgstr "התקבל לפני…"
+
+msgid "size is at least…"
+msgstr "הגודל הוא לפחות…"
+
+msgid "size is at most…"
+msgstr "הגודל הוא לכל היותר…"
+
+msgid "has my name in the To field"
+msgstr "יש את השם שלי בשדה אל"
+
+msgid "is received (all messages)"
+msgstr "התקבל (כל ההודעות)"
+
+msgid "Message size"
+msgstr "גודל ההודעה"
+
+msgid "Size unit"
+msgstr "יחידת מידה"
+
+msgid "Condition"
+msgstr "תנאי"
+
+msgid "Unknown condition"
+msgstr "מצב לא ידוע"
+
+msgid "This condition for the current rule is unknown"
+msgstr "תנאי זה עבור הכלל הנוכחי אינו ידוע"
+
+msgid "Add action"
+msgstr "הוסף פעולה"
+
+msgid "Remove action"
+msgstr "הסר את הפעולה"
+
+msgid "Action"
+msgstr "פעולה"
+
+msgid "Unknown action"
+msgstr "פעולה לא ידועה"
+
+msgid "This action for the current rule is unknown"
+msgstr "פעולה זו עבור הכלל הנוכחי אינה ידועה"
+
+msgid "Add condition"
+msgstr "הוסף תנאי"
+
+msgid "Remove condition"
+msgstr "הסר מצב"
+
+msgid "Inbox Rule"
+msgstr "כלל תיבת הדואר הנכנס"
+
+msgid "Rule name"
+msgstr "שם כלל"
+
+msgid "When the message"
+msgstr "כאשר ההודעה"
+
+msgid "Do the following"
+msgstr "בצע את הפעולות הבאות"
+
+msgid "Exceptions"
+msgstr "חריגים"
+
+msgid "Apply only when Out of Office is active"
+msgstr "החל רק כאשר מחוץ למשרד פעיל"
+
+msgid "Stop processing more rules"
+msgstr "תפסיק לעבד עוד כללים"
+
+msgid "Add exception"
+msgstr "הוסף חריגה"
+
+msgid "Remove exception"
+msgstr "הסר חריגה"
+
+msgid "Specify Words or Phrases"
+msgstr "ציין מילים או ביטויים"
+
+msgid "Edit"
+msgstr "לַעֲרוֹך"
+
+msgid "Word"
+msgstr "Word"
+
+msgid "and"
+msgstr "ו"
+
+msgid "Distribution lists are not supported in rules, would you like to replace the distribution list with its members?"
+msgstr "רשימות תפוצה אינן נתמכות בכללים. האם ברצונך להחליף את רשימת התפוצה בחבריה?"
+
+msgid "or"
+msgstr "אוֹ"
+
+msgid "No rule exists"
+msgstr "לא קיים כלל"
+
+msgid "Move Up"
+msgstr "העבר למעלה"
+
+msgid "Move Down"
+msgstr "הורד למטה"
+
+msgid "Active"
+msgstr "פָּעִיל"
+
+msgid "Out of office"
+msgstr "מחוץ למשרד"
+
+msgid "Rule"
+msgstr "כְּלָל"
+
+msgid "Loading rules"
+msgstr "טוען חוקים"
+
+msgid "Please select a rule."
+msgstr "אנא בחר כלל."
+
+msgid "Rule already has highest priority."
+msgstr "לשלטון כבר יש עדיפות עליונה."
+
+msgid "Rule already has lowest priority."
+msgstr "הכלל כבר נמצא בעדיפות הנמוכה ביותר."
+
+msgid "Always move messages from {0}"
+msgstr "העבר תמיד הודעות מ-{0}"
+
+msgid "Always move messages that are sent to <recipients>"
+msgstr "העבר תמיד הודעות שנשלחות אל <נמענים>"
+
+msgid "Always move messages with this subject"
+msgstr "העבר תמיד הודעות עם הנושא הזה"
+
+msgid "Create rule…"
+msgstr "צור כלל..."
+
+msgid "myself"
+msgstr "עַצמִי"
+
+msgid "Update rules for"
+msgstr "עדכון כללים עבור"
+
+msgid "Apply changes"
+msgstr "החל שינויים"
+
+msgid "Do you wish to apply the changes?"
+msgstr "האם ברצונך להחיל את השינויים?"
+
+msgid "Category"
+msgstr "קָטֵגוֹרִיָה"
+
+msgid "Recent searches"
+msgstr "חיפושים אחרונים"
+
+msgid "Filter by"
+msgstr "סנן לפי"
+
+msgid "Show"
+msgstr "לְהַצִיג"
+
+msgid "Operators"
+msgstr "מפעילים"
+
+msgid "AND"
+msgstr "ו"
+
+msgid "OR"
+msgstr "אוֹ"
+
+msgid "NOT"
+msgstr "לֹא"
+
+msgid "Search in"
+msgstr "חפש ב"
+
+msgid "All folders"
+msgstr "כל התיקיות"
+
+msgid "Other…"
+msgstr "אַחֵר…"
+
+msgid "Type"
+msgstr "סוג"
+
+msgid "Search"
+msgstr "לְחַפֵּשׂ"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "לחץ למחזור: AND → או → לא"
+
+msgid "Folder does not exist"
+msgstr "התיקיה לא קיימת"
+
+msgid "The folder you are searching through no longer exists. Please select another folder"
+msgstr "התיקייה שאתה מחפש בה כבר לא קיימת. אנא בחר תיקייה אחרת"
+
+msgid "Add/Edit sender"
+msgstr "הוסף/ערוך שולח"
+
+msgid "No from addresses configured"
+msgstr "לא מכתובות שהוגדרו"
+
+msgid "Loading from addresses"
+msgstr "טוען מכתובות"
+
+msgid "Forward Mail"
+msgstr "העבר דואר"
+
+msgid "Please select a from address record."
+msgstr "אנא בחר רשומת כתובת."
+
+msgid "Add/Edit From recipient"
+msgstr "הוסף/ערוך מנמען"
+
+msgid "Manage the recipients used in the 'From' field"
+msgstr "נהל את הנמענים שבהם נעשה שימוש בשדה 'מאת'"
+
+msgid "View"
+msgstr "נוֹף"
+
+msgid "Please select a sendas record."
+msgstr "אנא בחר רשומת sendas."
+
+msgid "Delegates"
+msgstr "נציגים"
+
+msgid "Delegate settings"
+msgstr "האצל הגדרות"
+
+msgid "Desktop Notifications Settings"
+msgstr "הגדרות הודעות שולחן העבודה"
+
+msgid "We need permissions to enable desktop notifications."
+msgstr "אנו זקוקים להרשאות כדי לאפשר הודעות על שולחן העבודה."
+
+msgid "Request Permissions"
+msgstr "בקש הרשאות"
+
+msgid "Enable desktop notifications for new mail"
+msgstr "הפעל התראות בשולחן העבודה עבור דואר חדש"
+
+msgid "Enable desktop notifications for reminders"
+msgstr "אפשר הודעות על שולחן העבודה עבור תזכורות"
+
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
+msgstr "{A} הסתר אוטומטית התראה על שולחן העבודה לאחר שניות {B}"
+
+msgid "Disable sound"
+msgstr "השבת את הצליל"
+
+msgid "Notifications"
+msgstr "התראות"
+
+msgid "Rules"
+msgstr "כללים"
+
+msgid "From Addresses"
+msgstr "מתוך כתובות"
+
+msgid "From Addresses settings"
+msgstr "מתוך הגדרות כתובות"
+
+msgid "Select color"
+msgstr "בחר צבע"
+
+msgid "Full name"
+msgstr "שם מלא"
+
+msgid "Phone Numbers"
+msgstr "מספרי טלפון"
+
+msgid "Business Fax"
+msgstr "פקס בעסק"
+
+msgid "Webpage"
+msgstr "כתובת אתר אינטרנט"
+
+msgid "IM Address"
+msgstr "כתובת IM"
+
+msgid "Message body"
+msgstr "גוף ההודעה"
+
+msgid "D, d-m-Y, {0}"
+msgstr "ד, ד-מ-י,{0}"
+
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] "השורה שנבחרה{0}"
+msgstr[1] "{0}שורות נבחרות"
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr "התזכורת מוגדרת על:{0},{1}"
+
+msgid "d-m-Y"
+msgstr "ש-ח-י"
+
+msgid "l d/m/Y"
+msgstr "l d/m/Y"
+
+msgid "l d/m/Y {0}"
+msgstr "l d/m/Y{0}"
+
+msgid "d-m-Y {0}"
+msgstr "d-m-Y{0}"
+
+msgid "Unknown"
+msgstr "לא ידוע"
+
+msgid "Meeting Organizer"
+msgstr "מארגן הפגישה"
+
+msgid "Follow up"
+msgstr "מַעֲקָב"
+
+msgid "{0} overdue"
+msgstr "{0}באיחור"
+
+msgid "Message body editor"
+msgstr "עורך גוף ההודעה"
+
+msgid "Loading…"
+msgstr "טוען…"
+
+msgid "Message could not be loaded"
+msgstr "לא ניתן היה לטעון את ההודעה"
+
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr "קבצים מצורפים"
+
+msgid "Download Pictures"
+msgstr "הורד תמונות"
+
+msgid "Add Sender to Safe Senders List"
+msgstr "הוסף שולח לרשימת שולחים בטוחים"
+
+msgid "Add Domain to Safe Senders List"
+msgstr "הוסף דומיין לרשימת שולחים בטוחים"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr "הודעה זו נשלחה עם חשיבות {0}"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr "אנא התייחס לזה כ{0}"
+
+msgctxt "mail.previewpanel"
+msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
+msgstr "לחץ כאן כדי להוריד תמונות. כדי להגן על פרטיותך, grommunio Web מנע הורדה אוטומטית של חלק מהתמונות בהודעה זו."
+
+msgctxt "mail.previewpanel"
+msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
+msgstr "הודעה זו פגומה ולא תוצג כהלכה. לחץ כאן כדי לתקן אותה."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr "{0} קיבלו"
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr "{0}קיבלה מטעם{1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr "{0} קיבלו בהיסוס"
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr "{0}התקבל באופן טנטטיבי מטעם{1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr "{0} סירבו."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr "{0}דחה מטעם{1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr "{0} קיבלו בהיסוס והציעו זמן חדש לפגישה זו."
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} קיבל את ההצעה באופן זמני בשם {1} והציע מועד חדש לישיבה זו."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr "{0} סירבו והציעו זמן חדש לפגישה זו."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0}דחה בשם{1}והציע מועד חדש לפגישה זו."
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr "פגישה זו אינה בלוח השנה; יכול להיות שהיא הועברה או נמחקה."
+
+msgctxt "mail.previewpanel"
+msgid "This meeting request was updated after this message was sent. You should open the latest update or open the item from the calendar."
+msgstr "בקשה לפגשיה זו עודכנה לאחר שהודעה זו נשלחה. עליך לפתוח את העדכון האחרון או לפתוח את הפריט מלוח השנה."
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr "כמארגן הפגישה , איך צריך להגיב לפגישה"
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr "הפגישה עודכנה לאחר שהנוכח שלח תגובה זו"
+
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr "פגישה זו מתרחשת בעבר."
+
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr "אנא הגב."
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr "זהו עדכון של בקשת פגישה שנשלחה בעבר."
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr "התקבל עבור{0}."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr "ענית להודעה זו."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr "העברת את ההודעה הזו."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr "הגבת להודעה זו ב-{0}."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr "העברת הודעה זו ב-{0}."
+
+msgid "Assigned by {0} on {1}."
+msgstr "הוקצה על ידי{0}ב-{1}."
+
+msgid "Waiting for response from recipient"
+msgstr "ממתין לתגובה מהנמען"
+
+msgid "Accepted by {0} on {1}."
+msgstr "מקובל על ידי{0}ב-{1}."
+
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr "{0}קיבלה מטעם{1}{2}."
+
+msgid "Declined by {0} on {1}."
+msgstr "נדחה על ידי{0}ב-{1}."
+
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{0}דחה מטעם{1}{2}."
+
+msgid "Last update sent on {0}."
+msgstr "עדכון אחרון נשלח ב-{0}."
+
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr "{0}עדכנה מטעם{1}{2}."
+
+msgid "Fix message"
+msgstr "תיקון הודעה"
+
+msgid "We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr "אנו עומדים לנסות לתקן הודעת דוא\"ל פגומה. האם ברצונך להמשיך?"
+
+msgid "The matching task was not found in your task list."
+msgstr "המשימה התואמת לא נמצאה ברשימת המשימות שלך."
+
+msgid "Toggle header"
+msgstr "החלף כותרת"
+
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr "אל"
+
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr "עותק נוסף"
+
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr "עותק סודי"
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr "קטגוריות"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr "נמענים"
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr "בְּשֵׁם"
+
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr "ללא"
+
+msgid "Pagination"
+msgstr "דִפּוּף"
+
+msgid "Page number"
+msgstr "מספר עמוד"
+
+msgid "Pop-out"
+msgstr "קופץ החוצה"
+
+msgid "Mark as read"
+msgstr "סמן כנקרא"
+
+msgid "Mark as unread"
+msgstr "סמן כלא נקרא"
+
+msgid "in"
+msgstr "ב"
+
+msgid "Root"
+msgstr "שׁוֹרֶשׁ"
+
+msgid "Datepicker"
+msgstr "בורר תאריכים"
+
+msgid "File As"
+msgstr "קובץ בשם"
+
+msgid "Full Name"
+msgstr "שם מלא"
+
+msgid "Department Name"
+msgstr "שם המחלקה"
+
+msgid "Home Address"
+msgstr "כתובת בבית"
+
+msgid "Business Address"
+msgstr "כתובת העסק"
+
+msgid "Other Address"
+msgstr "כתובת אחרת"
+
+msgid "Business Phone"
+msgstr "טלפון בעסק"
+
+msgid "Business 2 Phone"
+msgstr "טלפון עסקים 2"
+
+msgid "Assistant Phone"
+msgstr "טלפון עוזר"
+
+msgid "Company Main Phone"
+msgstr "הטלפון העיקרי של החברה"
+
+msgid "Home 2 Phone"
+msgstr "טלפון בית 2"
+
+msgid "Car Phone"
+msgstr "טלפון ברכב"
+
+msgid "Radio"
+msgstr "רדיו"
+
+msgid "Callback Phone"
+msgstr "טלפון להתקשרות חוזרת"
+
+msgid "Other Phone"
+msgstr "טלפון נוסף"
+
+msgid "Primary Phone"
+msgstr "טלפון ראשי"
+
+msgid "Telex"
+msgstr "טלקס"
+
+msgid "TTY/TDD Phone"
+msgstr "טלפון TTY/TDD"
+
+msgid "ISDN"
+msgstr "רשת דיגיטלית לשירותים משולבים (ISDN)"
+
+msgid "Other Fax"
+msgstr "פקס נוסף"
+
+msgid "Home Fax"
+msgstr "פקס בבית"
+
+msgid "Email Display As"
+msgstr "אימייל תצוגה בשם"
+
+msgid "Email 2"
+msgstr "דואר אלקטורני 2"
+
+msgid "Email2 Display As"
+msgstr "אימייל2 הצג כ"
+
+msgid "Email 3"
+msgstr "דואר אלקטורני 3"
+
+msgid "Email3 Display As"
+msgstr "אימייל3 הצג כ"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr "יום הולדת"
+
+msgid "Wedding Anniversary"
+msgstr "יום נישואין"
+
+msgid "Spouse/Partner"
+msgstr "בן זוג/שותף"
+
+msgid "Profession"
+msgstr "מקצוע"
+
+msgid "Assistant's Name"
+msgstr "שם העוזר"
+
+msgid "Distribution List Name"
+msgstr "שם רשימת תפוצה"
+
+msgid "Open Shared Contacts"
+msgstr "פתח את אנשי קשר משותפים"
+
+msgid "Business Cards"
+msgstr "כרטיס ביקור"
+
+msgid "Phone List"
+msgstr "רישמת טלפונים"
+
+msgid "Add to contacts"
+msgstr "הוסף לאנשי קשר"
+
+msgid "Print selected contact"
+msgstr "הדפס איש קשר נבחר"
+
+msgid "No contact selected"
+msgstr "לא נבחר איש קשר"
+
+msgid "Distribution list"
+msgstr "רשימת תפוצה"
+
+msgid "Dr."
+msgstr "ד\"ר"
+
+msgid "Miss"
+msgstr "גברת"
+
+msgid "Mr."
+msgstr "מר"
+
+msgid "Mrs."
+msgstr "גברת."
+
+msgid "Ms."
+msgstr "גב"
+
+msgid "Prof."
+msgstr "פרופ'"
+
+msgid "Jr."
+msgstr "הבן"
+
+msgid "Sr."
+msgstr "האב"
+
+msgid "Phone number"
+msgstr "מזפר טלפון"
+
+msgid "Check address"
+msgstr "בדוק כתובת"
+
+msgid "State/Province"
+msgstr "מדינה/פריבינציה"
+
+msgid "Zip/Postal code"
+msgstr "מיקוד"
+
+msgid "Country/Region"
+msgstr "מידנה/איזור"
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr "הצג הודעה זו שוב כאשר הכתובת אינה מלאה או אינה ברורה."
+
+msgid "Details"
+msgstr "פרטים"
+
+msgid "Office location"
+msgstr "מיקום המשרד"
+
+msgid "Manager's name"
+msgstr "שם המנהל"
+
+msgid "Assistant's name"
+msgstr "שם העוזר"
+
+msgid "Nickname"
+msgstr "כינוי"
+
+msgid "Suffix"
+msgstr "סיומת"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr "יוֹם הַשָׁנָה"
+
+msgid "Photo"
+msgstr "תמונה"
+
+msgid "Addresses"
+msgstr "כתובות"
+
+msgid "Additional information"
+msgstr "מידע נוסף"
+
+msgid "Callback"
+msgstr "מספר שיחה חוזרת"
+
+msgid "Car"
+msgstr "טלפון ברכב"
+
+msgid "Primary"
+msgstr "עיקרי"
+
+msgid "TTY/TDD"
+msgstr "TTY/TDD"
+
+msgid "Check full name"
+msgstr "בדוק שם מלא"
+
+msgid "First"
+msgstr "שם פרטי"
+
+msgid "Middle"
+msgstr "אמצעי"
+
+msgid "Last"
+msgstr "שם משפחה"
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr "הצג הודעה זו שוב כאשר השם אינו שלם או אינו ברור."
+
+msgid "Check phone number"
+msgstr "בדוק מספר טלפון"
+
+msgid "Country/Region code"
+msgstr "קידומת מדינה/איזור"
+
+msgid "City/Area code"
+msgstr "קידומת העיר/האיזור"
+
+msgid "Local number"
+msgstr "מספר מקומי"
+
+msgid "Extension"
+msgstr "תוספת"
+
+msgid "Add Attachment"
+msgstr "הוסף קובץ מצורף"
+
+msgid "Add attachments to this contact"
+msgstr "הוסף קבצים מצורפים לאיש קשר זה"
+
+msgid "Mark this contact as private"
+msgstr "סמן איש קשר זה כפרטי"
+
+msgid "Distribution List"
+msgstr "רשימת תפוצה"
+
+msgid "Mark this Distribution list as private"
+msgstr "סמן את רשימת התפוצה הזו כפרטית"
+
+msgid "New email address"
+msgstr "כתובת אימייל חדשה"
+
+msgid "Please enter a valid email address"
+msgstr "נא להזין כתובת אימייל חוקית"
+
+msgid "Select Members"
+msgstr "בחר חברים"
+
+msgid "Add New"
+msgstr "הוסף חדש"
+
+msgid "Type your note here…"
+msgstr "הקלד את ההערה שלך כאן..."
+
+msgid "New contact"
+msgstr "איש קשר חדש"
+
+msgid "New distribution list"
+msgstr "רשימת תפוצה חדשה"
+
+msgid "Email 2 Display As"
+msgstr "דוא\"ל 2 הצג כ"
+
+msgid "Email 3 Display As"
+msgstr "אימייל 3 הצג כ"
+
+msgid "Loading contacts"
+msgstr "טוען אנשי קשר"
+
+msgid "There are no items to show in this list. Update the filter for more results."
+msgstr "אין פריטים להציג ברשימה זו. עדכן את המסנן כדי להציג תוצאות נוספות."
+
+msgid "[Group]"
+msgstr "[קְבוּצָה]"
+
+msgid "Work:"
+msgstr "עֲבוֹדָה:"
+
+msgid "Primary:"
+msgstr "יְסוֹדִי:"
+
+msgid "Mobile:"
+msgstr "נייד:"
+
+msgid "Sort by: Full Name"
+msgstr "מיין לפי: שם מלא"
+
+msgid "Sort by: Email Address 2"
+msgstr "מיין לפי: כתובת דואר אלקטרוני 2"
+
+msgid "Sort by: Email Address 3"
+msgstr "מיין לפי: כתובת אימייל 3"
+
+msgid "Mobile Phone"
+msgstr "טלפון נייד"
+
+msgid "Sort by: Mobile Phone"
+msgstr "מיין לפי: טלפון נייד"
+
+msgid "Sort by: Business Phone"
+msgstr "מיין לפי: טלפון עסקי"
+
+msgid "Sort by: Business Fax"
+msgstr "מיין לפי: פקס עסקי"
+
+msgid "Sort by: Department Name"
+msgstr "מיין לפי: שם המחלקה"
+
+msgid "Office Location"
+msgstr "מיקום המשרד"
+
+msgid "Sort by: Office Location"
+msgstr "מיין לפי: מיקום משרד"
+
+msgid "Sort by: Profession"
+msgstr "מיין לפי: מקצוע"
+
+msgid "Manager Name"
+msgstr "שם המנהל"
+
+msgid "Sort by: Manager Name"
+msgstr "מיין לפי: שם מנהל"
+
+msgid "Sort by: Assistant's Name"
+msgstr "מיין לפי: שם העוזר"
+
+msgid "Sort by: Nickname"
+msgstr "מיין לפי: כינוי"
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr "מיין לפי: שם בן/בת הזוג/שותף"
+
+msgid "Sort by: Birthday"
+msgstr "מיין לפי: יום הולדת"
+
+msgid "Sort by: Anniversary"
+msgstr "מיין לפי: יום נישואין"
+
+msgid "Sort by: Business Address"
+msgstr "מיין לפי: כתובת העסק"
+
+msgid "Sort by: Home Address"
+msgstr "מיין לפי: כתובת הבית"
+
+msgid "Sort by: Office Address"
+msgstr "מיין לפי: כתובת משרד"
+
+msgid "Mailing Address"
+msgstr "כתובת למשלוח"
+
+msgid "Sort by: Mailing Address"
+msgstr "מיין לפי: כתובת למשלוח דואר"
+
+msgid "Sort by: IM Address"
+msgstr "מיין לפי: כתובת IM"
+
+msgid "Sort by: Webpage"
+msgstr "מיין לפי: דף אינטרנט"
+
+msgid "Assistant's Phone"
+msgstr "מספר טלפון של העוזר"
+
+msgid "Sort by: Assistant's Phone"
+msgstr "מיין לפי: הטלפון של Assistant"
+
+msgid "Business Phone 2"
+msgstr "טלפון בעסק 2"
+
+msgid "Sort by: Business Phone 2"
+msgstr "מיין לפי: טלפון עסקי 2"
+
+msgid "Sort by: Callback"
+msgstr "מיין לפי: התקשרות חוזרת"
+
+msgid "Sort by: Car Phone"
+msgstr "מיין לפי: טלפון רכב"
+
+msgid "Company Phone"
+msgstr "טלפון החברה"
+
+msgid "Sort by: Company Main Phone"
+msgstr "מיין לפי: טלפון ראשי של החברה"
+
+msgid "Home Phone 2"
+msgstr "טלפון בבית 2"
+
+msgid "Sort by: Home Phone 2"
+msgstr "מיין לפי: טלפון ביתי 2"
+
+msgid "Sort by: Home Fax"
+msgstr "מיין לפי: פקס ביתי"
+
+msgid "Sort by: ISDN"
+msgstr "מיין לפי: ISDN"
+
+msgid "Sort by: Other Phone"
+msgstr "מיין לפי: אחר טלפון"
+
+msgid "Radio Phone"
+msgstr "רדיו טלפון"
+
+msgid "Sort by: Radio Phone"
+msgstr "מיין לפי: רדיו טלפון"
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr "מיין לפי: טלפון TTY/TDD"
+
+msgid "Sort by: Telex Phone"
+msgstr "מיין לפי: טלקס טלפון"
+
+msgid "Contacts list"
+msgstr "רשימת אנשי קשר"
+
+msgid "Change Picture"
+msgstr "שנה תמונה"
+
+msgid "Remove Picture"
+msgstr "הסר תמונה"
+
+msgid "VCF file(s)"
+msgstr "קבצי VCF"
+
+msgid "Quick Contact"
+msgstr "יצירת קשר מהיר"
+
+msgid "Open in new browser window"
+msgstr "פתח בחלון דפדפן חדש"
+
+msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
+msgstr "נראה שהדפדפן שלך חסם חלון קופץ אחד או יותר. אנא שנה את הגדרות הדפדפן שלך כך שתמיד תאפשר חלונות קופצים מ-grommunio Web."
+
+msgid "Untitled"
+msgstr "ללא כותרת."
+
+msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
+msgstr "לא ניתן להעלות קובץ מצורף, ניתן להוסיף רק {0} קבצים מצורפים להודעה"
+
+msgid "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr "לא ניתן להעלות קובץ מצורף, מספר הקבצים המצורפים הוא {0} בעוד שהמספר המרבי המותר הוא {1}."
+
+msgid "Cannot upload attachment, the total attachment size is {0} while the allowed maximum is {1}"
+msgstr "לא ניתן להעלות קובץ מצורף, הגודל הכולל של הקובץ המצורף הוא {0} בעוד שהגודל המרבי המותר הוא {1}"
+
+msgid "Cannot upload attachment, total attachment is {0} while the allowed maximum attachment in single request is {1}."
+msgstr "לא ניתן להעלות קובץ מצורף, סך הקבצים המצורפים הוא {0} בעוד שהגודל המרבי המותר לקובץ מצורף בבקשה אחת הוא {1}."
+
+msgid "Cannot upload attachment, total attachments are {0} files while the maximum {1} files are allowed in single request."
+msgstr "לא ניתן להעלות קובץ מצורף. סך כל הקבצים המצורפים הוא {0}, בעוד שהמספר המרבי המותר בבקשה אחת הוא {1}."
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr "{0}מטעם{1}"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "jS F"
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Important"
+msgstr "חשוב"
+
+msgid "Work"
+msgstr "עבודה"
+
+msgid "Personal"
+msgstr "אישי "
+
+msgid "Holiday"
+msgstr "חג"
+
+msgid "Travel Required"
+msgstr "מסעות חובה"
+
+msgid "Preparation Required"
+msgstr "נדרשת הכנה"
+
+msgid "Special Date"
+msgstr "תאריך מיוחד"
+
+msgid "Phone Interview"
+msgstr "ראיון טלפוני"
+
+msgid "Free"
+msgstr "חופשי"
+
+msgid "Low"
+msgstr "נמוך "
+
+msgid "Normal"
+msgstr "רגיל"
+
+msgid "High"
+msgstr "גבוה"
+
+msgid "Canceled"
+msgstr "בוטל"
+
+msgid "Blue"
+msgstr "כחול"
+
+msgid "Green"
+msgstr "ירוק"
+
+msgid "Pink"
+msgstr "ורוד"
+
+msgid "White"
+msgstr "לבן"
+
+msgid "Yellow"
+msgstr "צהוב"
+
+msgid "No response"
+msgstr "אין תגובה"
+
+msgid "Not responded"
+msgstr "לא הגיבו"
+
+msgid "Accepted"
+msgstr "התקבל"
+
+msgid "Declined"
+msgstr "סורב"
+
+msgid "Confidential"
+msgstr "סודי"
+
+msgid "Not Started"
+msgstr "לא החל"
+
+msgid "In Progress"
+msgstr "בתהליך"
+
+msgid "Wait for other person"
+msgstr "חכה לאדם השני"
+
+msgid "Deferred"
+msgstr "דָחוּי"
+
+msgid "Purple"
+msgstr "סגול"
+
+msgid "Orange"
+msgstr "כתום"
+
+msgid "Lime"
+msgstr "ליים"
+
+msgid "Magenta"
+msgstr "מַגֶנטָה"
+
+msgid "High Contrast"
+msgstr "ניגודיות גבוהה"
+
+msgid "Cyan"
+msgstr "ציאן"
+
+msgid "Teal"
+msgstr "טורקיז"
+
+msgid "Indigo"
+msgstr "אינדיגו"
+
+msgid "Red"
+msgstr "אדום"
+
+msgid "Brown"
+msgstr "חום"
+
+msgid "Main navigation"
+msgstr "ניווט ראשי"
+
+msgid "Logout"
+msgstr "התנתק"
+
+msgid "Appearance"
+msgstr "הוֹפָעָה"
+
+msgid "Light"
+msgstr "בהיר"
+
+msgid "Dark"
+msgstr "כהה"
+
+msgid "Automatic"
+msgstr "אוֹטוֹמָטִי"
+
+msgid "Main toolbar"
+msgstr "סרגל הכלים הראשי"
+
+msgid "Switch view"
+msgstr "החלף תצוגה"
+
+msgid "Skip to main content"
+msgstr "דלג לתוכן הראשי"
+
+msgid "Widgets"
+msgstr "ווידג'טים"
+
+msgid "Sending…"
+msgstr "שְׁלִיחָה…"
+
+msgid "Sent successfully"
+msgstr "נשלח בהצלחה"
+
+msgid "No recipient"
+msgstr "אין נמען"
+
+msgid "Please specify at least one recipient"
+msgstr "נא לציין נמען אחד לפחות"
+
+msgid "Please specify a recipient"
+msgstr "אנא ציין מען"
+
+msgid "The attached files are not uploaded yet."
+msgstr "הקבצים המצורפים עדיין לא הועלו."
+
+msgid "Do you want to send this message without attachments?"
+msgstr "האם ברצונך לשלוח הודעה זו ללא קבצים מצורפים?"
+
+msgid "Attachments not uploaded yet"
+msgstr "קבצים מצורפים עדיין לא הועלו"
+
+msgid "Don't Send"
+msgstr "אל תשלח"
+
+msgid "Send Anyway"
+msgstr "שלח בכל זאת"
+
+msgid "Missing attachment"
+msgstr "חסר קובץ מצורף"
+
+msgid "Your message appears to reference an attachment but no file is attached. Send anyway?"
+msgstr "נראה שההודעה שלך מתייחסת לקובץ מצורף אך לא מצורף קובץ. לשלוח בכל זאת?"
+
+msgid "No subject"
+msgstr "אין נושא"
+
+msgid "Send this message without a subject?"
+msgstr "לשלוח הודעה זו ללא נושא?"
+
+msgid "Unresolved recipients"
+msgstr "נמענים לא פתורים"
+
+msgid "Not all recipients could be resolved"
+msgstr "לא ניתן היה להגיע לכל הנמענים"
+
+msgid "Collapse hierarchy"
+msgstr "כיווץ היררכיה"
+
+msgid "Expand hierarchy"
+msgstr "הרחב את ההיררכיה"
+
+msgid "Folders List"
+msgstr "רשימת תיקיות"
+
+msgid "Copy Details"
+msgstr "העתק פרטים"
+
+msgid "Hide Details"
+msgstr "הסתר פרטים"
+
+msgid "Loaded {0} of {1}"
+msgstr "נטען{0}של{1}"
+
+msgid "Copied!"
+msgstr "מוּעֲתָק!"
+
+msgid "Saving"
+msgstr "חִסָכוֹן"
+
+msgid "Saved"
+msgstr "נשמר"
+
+msgid "Saved successfully"
+msgstr "נשמר בהצלחה"
+
+msgid "You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr "כל העבודה שלא נשמרה תאבד. האם אתה בטוח שברצונך לסגור חלון זה?"
+
+msgid "grommunio Content Panel"
+msgstr "חלונית תוכן grommunio"
+
+msgid "Delete item"
+msgstr "מחק פריט"
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr "פריט זה השתנה. האם אתה בטוח שברצונך למחוק אותו?"
+
+msgid "Unsaved changes"
+msgstr "שינויים שלא נשמרו"
+
+msgid "Welcome to grommunio Web"
+msgstr "ברוכים הבאים ל-grommunio Web"
+
+msgid "Set up your preferences to get started."
+msgstr "הגדר את ההעדפות שלך כדי להתחיל."
+
+msgid "Get Started"
+msgstr "התחל"
+
+msgid "Widget height"
+msgstr "גובה יישומון"
+
+msgid "pixels"
+msgstr "פיקסלים"
+
+msgid "Configure widget"
+msgstr "להגדיר יישומון"
+
+msgid "Reload interval"
+msgstr "מרווח טעינה מחדש"
+
+msgid "seconds"
+msgstr "שניות"
+
+msgid "Open in new tab"
+msgstr "פתח בכרטיסייה חדשה"
+
+msgid "Add widgets"
+msgstr "הוסף ווידג'טים"
+
+msgid "No widgets installed."
+msgstr "לא מותקנים ווידג'טים."
+
+msgid "Remove widget"
+msgstr "הסר ווידג'ט"
+
+msgid "Collapse widget"
+msgstr "כווץ ווידג'ט"
+
+msgid "Expand widget"
+msgstr "הרחב את הווידג'ט"
+
+msgid "About this widget"
+msgstr "על הווידג'ט הזה"
+
+msgid "Add new widget"
+msgstr "הוסף ווידג'ט חדש"
+
+msgid "Collapse widget panel"
+msgstr "כווץ חלונית הווידג'ט"
+
+msgid "Expand widget panel"
+msgstr "הרחב את לוח הווידג'ט"
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr "השינויים שלך יאבדו אם תעזוב את הדף הזה עכשיו."
+
+msgid "d-m-Y G:i"
+msgstr ""
+
+msgid "D {0}"
+msgstr "D{0}"
+
+msgid "D d-m"
+msgstr "ד ד-מ"
+
+msgid "D d-m G:i"
+msgstr ""
+
+msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
+msgstr "אין לך מספיק הרשאות כדי לפתוח חנות זו. האם ברצונך להסירה מההיררכיה?"
+
+msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
+msgstr "אין לך הרשאות מספיקות כדי לפתוח את התיקיה הזו. האם ברצונך להסיר אותה מההיררכיה?"
+
+msgid "Insufficient Permissions"
+msgstr "הרשאות לא מספיקות"
+
+msgid "Not enough permissions to open this folder."
+msgstr "אין מספיק הרשאות לפתיחת תיקיה זו."
+
+msgid "Empty folder"
+msgstr "תיקיה ריקה"
+
+msgid "Emptying {0}… (0%)"
+msgstr "מרוקן את{0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "רוקן בהצלחה את{0}. (פריטים{1}הוסרו)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "מרוקן את{0}... ({1}%)"
+
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "יש הודעה{0}שלא נקראה בתיקייה{1}של{2}"
+msgstr[1] "יש הודעות{0}שלא נקראו בתיקייה{1}של{2}"
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] "ישנה הודעה {0} שלא נקראה בתיקיה {1}"
+msgstr[1] "ישנן {0} הודעות שלא נקראו בתיקיה {1}"
+
+msgid "Publishing Editor"
+msgstr "עורך הוצאה לאור"
+
+msgid "Editor"
+msgstr "עוֹרֵך"
+
+msgid "Publishing Author"
+msgstr "מחבר הוצאה לאור"
+
+msgid "Author"
+msgstr "מְחַבֵּר"
+
+msgid "Nonediting Author"
+msgstr "מחבר ללא עריכה"
+
+msgid "Reviewer"
+msgstr "סוֹקֵר"
+
+msgid "Contributor"
+msgstr "תוֹרֵם"
+
+msgid "Free/Busy time, subject, location"
+msgstr "זמן פנוי/עסוק, נושא, מיקום"
+
+msgid "Free/Busy time"
+msgstr "זמן פנוי/עסוק"
+
+msgid "Unable to import:"
+msgstr "לא ניתן לייבא:"
+
+msgid "The files are not valid"
+msgstr "הקבצים אינם חוקיים"
+
+msgid "Create New Folder"
+msgstr "צור תיקיה חדשה"
+
+msgid "Folder contains"
+msgstr "תיקייה מכילה"
+
+msgid "Calendar Items"
+msgstr "פריטי לוח השנה"
+
+msgid "Mail and Post Items"
+msgstr "דואר ופריטים שנשלחו"
+
+msgid "Contacts Items"
+msgstr "פריטי אנשי קשר"
+
+msgid "Note Items"
+msgstr "פריטי פתקים"
+
+msgid "Task Items"
+msgstr "פריטי משימה"
+
+msgid "Select where to place the folder"
+msgstr "בחר היכן למקם את התיקיה"
+
+msgid "No folder name"
+msgstr "אין שם תיקיה"
+
+msgid "No destination"
+msgstr "אין יעד"
+
+msgid "You must select a destination folder."
+msgstr "עליך לבחור תיקיית יעד."
+
+msgid "Description"
+msgstr "תיאור"
+
+msgid "Folder size"
+msgstr "גודל התיקיה"
+
+msgid "Folder containing {0} Items"
+msgstr "התיקיה מכילה {0} פריטים"
+
+msgid "Permissions"
+msgstr "הרשאות"
+
+msgid "No permissions granted"
+msgstr "לא ניתנו הרשאות"
+
+msgid "Profile"
+msgstr "פרופיל"
+
+msgid "Full Details"
+msgstr "פרטים מלאים"
+
+msgid "Read"
+msgstr "לִקְרוֹא"
+
+msgid "Write"
+msgstr "לִכתוֹב"
+
+msgid "Create items"
+msgstr "צור פריטים"
+
+msgid "Create subfolders"
+msgstr "צור תיקיות משנה"
+
+msgid "Edit own"
+msgstr "ערוך משלך"
+
+msgid "Edit all"
+msgstr "ערוך הכל"
+
+msgid "Delete items"
+msgstr "מחק פריטים"
+
+msgid "Own"
+msgstr "היה בעלים"
+
+msgid "All"
+msgstr "הכל"
+
+msgid "Folder owner"
+msgstr "בעל תיקיה"
+
+msgid "Folder contact"
+msgstr "איש קשר בתיקייה"
+
+msgid "Folder visible"
+msgstr "תיקיה נראית"
+
+msgid "Apply (copy) changed permissions recursively"
+msgstr "החל (העתק) הרשאות שהשתנו באופן רקורסיבי"
+
+msgid "User already exists"
+msgstr "המשתמש כבר קיים"
+
+msgid "Group already exists"
+msgstr "הקבוצה כבר קיימת"
+
+msgid "Folder Size"
+msgstr "גודל תיקיה"
+
+msgid "Folder Name"
+msgstr "שם התיקיה"
+
+msgid "Size (without subfolders)"
+msgstr "גודל (ללא תיקיות משנה)"
+
+msgid "Total size (including subfolders)"
+msgstr "גודל כולל (כולל תיקיות משנה)"
+
+msgid "Loading subfolder sizes"
+msgstr "טוען גדלי תיקיות משנה"
+
+msgid "No subfolders present"
+msgstr "אין תיקיות משנה"
+
+msgid "Subfolder"
+msgstr "תיקיית משנה"
+
+msgid "Sort by: Name of the subfolder"
+msgstr "מיין לפי: שם תיקיית המשנה"
+
+msgid "Sort by: Size (without subfolders)"
+msgstr "מיין לפי: גודל (ללא תיקיות משנה)"
+
+msgid "Total size"
+msgstr "גודל כולל"
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr "מיין לפי: גודל כולל (כולל תיקיות משנה)"
+
+msgid "Open Shared Folders"
+msgstr "פתח תיקיות משותפות"
+
+msgid "Unresolved user"
+msgstr "משתמש לא פתור"
+
+msgid "Username '{0}' could not be resolved."
+msgstr "לא ניתן היה לפתור את שם המשתמש '{0}'."
+
+msgid "Invalid user"
+msgstr "משתמש לא חוקי"
+
+msgid "Username '{0}' is not a valid user."
+msgstr "שם המשתמש '{0}' אינו משתמש חוקי."
+
+msgid "Own store"
+msgstr "חנות משלו"
+
+msgid "It is not possible to open your own store twice."
+msgstr "אין אפשרות לפתוח חנות משלך פעמיים."
+
+msgid "Folder already open"
+msgstr "התיקיה כבר פתוחה"
+
+msgid "This shared folder is already open."
+msgstr "התיקיה המשותפת הזו כבר פתוחה."
+
+msgid "No user"
+msgstr "אין משתמש"
+
+msgid "You must specify a user"
+msgstr "עליך לציין משתמש"
+
+msgid "Folder type"
+msgstr "סוג תיקיה"
+
+msgid "Show subfolders"
+msgstr "הצג תיקיות משנה"
+
+msgid "Open shared folder/store"
+msgstr "פתח תיקייה/חנות משותפת"
+
+msgid "Rename folder"
+msgstr "שנה את שם התיקיה"
+
+msgid "Empty Junk Email"
+msgstr "דואר זבל ריק"
+
+msgid "Empty Deleted Items"
+msgstr "ריק פריטים שנמחקו"
+
+msgid "Rename Folder"
+msgstr "קבע שם חדש לתיקיה"
+
+msgid "New Folder"
+msgstr "תיקיה חדשה"
+
+msgid "Mark All Messages Read"
+msgstr "סמן את כל ההודעות כנקראו"
+
+msgid "Delete Folder"
+msgstr "מחק תיקיה"
+
+msgid "Close store"
+msgstr "סגור אחסון"
+
+msgid "Close folder"
+msgstr "סגור תיקיה"
+
+msgid "Reload"
+msgstr "טען מחדש"
+
+msgid "Restore items"
+msgstr "שחזר פריטים"
+
+msgid "Add to Favorites"
+msgstr "הוסף למועדפים"
+
+msgid "Remove From Favorites"
+msgstr "הסר מהמועדפים"
+
+msgid "Share folder…"
+msgstr "שתף תיקייה..."
+
+msgid "Import emails"
+msgstr "ייבוא ​​מיילים"
+
+msgid "Import appointments"
+msgstr "ייבוא ​​פגישות"
+
+msgid "Import contacts"
+msgstr "ייבוא ​​אנשי קשר"
+
+msgid "Properties of {0}"
+msgstr "מאפיינים של{0}"
+
+msgid "Share {0} with…"
+msgstr "שתף את{0}עם..."
+
+msgid "Properties of {0} - {1}"
+msgstr "מאפיינים של{0}-{1}"
+
+msgid "Are you sure you want to permanently delete all the items and subfolders in the \"{0}\" folder?"
+msgstr "האם אתה בטוח כי ברצוך למחוק את כל הפריטים ותיקיות המשנה בתיקיית \"{0}\""
+
+msgid "Are you sure you want to delete the folder \"{0}\" and move all of its contents into the Deleted Items folder?"
+msgstr "האם אתה בטוח כי ברצונך למחוק את תיקיית \"{0}\" ולהעביר את כל תוכנה לתיקיית הפריטים שנמחקו?"
+
+msgid "Delete folder"
+msgstr "מחק תיקייה"
+
+msgid "Are you sure you want to empty {0}?"
+msgstr "האם אתה בטוח כי ברצונך לרוקן את {0}?"
+
+msgid "Show All"
+msgstr "הצג הכל"
+
+msgid "Filter folders"
+msgstr "סינון תיקיות"
+
+msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
+msgstr "אין לך הרשאות מספיקות כדי להעביר תיקייה זו. האם ברצונך להעתיק אותה במקום זאת?"
+
+msgid "CC"
+msgstr "עותק נוסף"
+
+msgid "BCC"
+msgstr "עותק סודי"
+
+msgid "Sort by: To"
+msgstr "מיין לפי: אל"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "נשלח"
+
+msgid "Original message"
+msgstr "הודעה מקורית"
+
+msgid "Schedule mail to be sent out"
+msgstr "תזמן שליחת דואר"
+
+msgid "Scheduled Items"
+msgstr "פריטים מתוזמנים"
+
+msgid "Your message will be sent at "
+msgstr "הודעתך תישלח ב-"
+
+msgid "Go to your Outbox to edit your email."
+msgstr "עבור אל תיבת הדואר הנכנס שלך כדי לערוך את הדוא\"ל שלך."
+
+msgid "hour(s)"
+msgstr "שעה"
+
+msgid "month(s)"
+msgstr "חודש(ים)"
+
+msgid "at a specific time"
+msgstr "בזמן מסוים"
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr "השעה שהזנת היא בעבר. נא לתזמן מחדש את הדואר שלך."
+
+msgid "today  at "
+msgstr "היום בשעה"
+
+msgid "tomorrow  at "
+msgstr "מחר בשעה"
+
+msgid "{0} at "
+msgstr "{0}בשעה"
+
+msgid "at {0}"
+msgstr "ב-{0}"
+
+msgid "Your email will be sent {0}{1}"
+msgstr "הדוא\"ל שלך יישלח{0}{1}"
+
+msgid "Saving…"
+msgstr "שומר…"
+
+msgid "Saved at {0}"
+msgstr "נשמר בשעה {0}"
+
+msgid "Saving failed"
+msgstr "השמירה נכשלה"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr "הודעה זו תסומן למעקב כאשר היא תישלח."
+
+msgid "Send Later"
+msgstr "שלח מאוחר יותר"
+
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr "תזמן את שליחת הדואר שלך בתאריך ושעה ספציפיים"
+
+msgid "Add attachments to this email"
+msgstr "הוסף קבצים מצורפים לדואר זה"
+
+msgid "Add signature"
+msgstr "הוסף חתימה"
+
+msgid "Open options dialog"
+msgstr "פתח את תיבת האפשרויות"
+
+msgid "Set flag"
+msgstr "הגדר דגל"
+
+msgid "Set flag on this email"
+msgstr "הגדר דגל בדואר זה"
+
+msgid "Mark this mail as high priority"
+msgstr "סמן דואר זה בעדיפות גבוהה"
+
+msgid "Mark this mail as low priority"
+msgstr "סמן את האימייל הזה בעדיפות נמוכה"
+
+msgid "Set read receipt"
+msgstr "הגדר קבלת קריאה"
+
+msgid "Request read receipt from recipients"
+msgstr "בקש קבלת קריאה מהמשתמש"
+
+msgid "Show Bcc"
+msgstr "הצג את שדה עותק סודי"
+
+msgid "Show Bcc field"
+msgstr "הצג שדה עותק מוסתר"
+
+msgid "Show From field"
+msgstr "הצג משדה"
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr "לא ניתן לשמור בזמן העלאת הקובץ המצורף"
+
+msgid "Internet Headers"
+msgstr "כותרות אינטרנט"
+
+msgid "Message Settings"
+msgstr "הגדרות הודעה"
+
+msgid "Tracking Options"
+msgstr "אפשרויות מעקב"
+
+msgid "Request a read receipt for this message."
+msgstr "בקש קבלת קריאה עבור הודעה זו"
+
+msgid "no subject"
+msgstr "ללא נושא"
+
+msgid "Set Category"
+msgstr "הגדר קטגוריה"
+
+msgid "Pop-Out"
+msgstr "פופ-אאוט"
+
+msgid "Mark Read"
+msgstr "סמן כנקרא"
+
+msgid "Mark Unread"
+msgstr "סמן כלא נקרא"
+
+msgid "New mail"
+msgstr "דואר חדש"
+
+msgid "Mail"
+msgstr "דואר"
+
+msgid "Reply all"
+msgstr "השב לכולם"
+
+msgid "Toggle read/unread"
+msgstr "החלף בין קריאה/לא נקראה"
+
+msgid "Toggle red/complete flag"
+msgstr "החלף את הדגל האדום/השלם"
+
+msgid "Open Shared Mails"
+msgstr "פתח אימיילים משותפים"
+
+msgid "Print single email"
+msgstr "הדפס מייל בודד"
+
+msgid "Print selected email"
+msgstr "הדפס את האימייל שנבחר"
+
+msgid "Filter"
+msgstr "לְסַנֵן"
+
+#. TRANSLATORS: prefix before sender name in print-to-PDF filename
+msgid "FROM"
+msgstr "מאת"
+
+msgid "on behalf of"
+msgstr "בְּשֵׁם"
+
+msgid "Safe Senders list is empty"
+msgstr "רשימת השולחים הבטוחים ריקה"
+
+msgid "Please select a safe sender record."
+msgstr "אנא בחר רשומת שולח בטוח."
+
+msgid "Delete all safe senders"
+msgstr "מחק את כל השולחים הבטוחים"
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr "האם אתה בטוח שברצונך למחוק את כל השולחים הבטוחים?"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain Text"
+msgstr "טקסט רגיל"
+
+msgid "In both representee's and delegate's Sent Items"
+msgstr "גם בפריטים שנשלחו של הנציג וגם של הנציג"
+
+msgid "Only in delegate's Sent Items"
+msgstr "רק בפריטים שנשלחו של הנציג"
+
+msgid "Only in representee's Sent Items"
+msgstr "רק בפריטים שנשלחו של הנציג"
+
+msgid "Compose mail settings"
+msgstr "חיבור הגדרות דואר"
+
+msgid "Compose mail in this format"
+msgstr "כתוב דואר בפורמט זה"
+
+msgid "Default font"
+msgstr "גופן ברירת מחדל"
+
+msgid "Default font size"
+msgstr "גודל גופן ברירת מחדל"
+
+msgid "Save emails sent by delegate"
+msgstr "שמור אימיילים שנשלחו על ידי נציג"
+
+msgid "Always request a read receipt"
+msgstr "בקש תמיד אישור קריאה"
+
+msgid "Activate attachment reminder"
+msgstr "הפעל תזכורת לקובץ מצורף"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr "{A}שמירה אוטומטית של דואר שלא נשלח כל {B} דקות"
+
+msgid "Conversation view settings"
+msgstr "הגדרות תצוגת שיחה"
+
+msgid "Enable conversation view"
+msgstr "אפשר תצוגת שיחה"
+
+msgid "Collapse conversation when selecting a different email"
+msgstr "כווץ שיחה בעת בחירת דוא\"ל אחר"
+
+msgid "Incoming mail"
+msgstr "דואר נכנס"
+
+msgid "How to respond to requests for read receipts"
+msgstr "כיצד להגיב לבקשות לקבלת אישורי קריאה"
+
+msgid "Always send a response"
+msgstr "תמיד שלח תגובה"
+
+msgid "Never send a response"
+msgstr "לעולם אל תשלח תגובה"
+
+msgid "Ask me before sending a response"
+msgstr "שאל אותי לפני שליחת תגובה"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr "{A}סמן אוטומטית דואר כנקראו לאחר {B} שניות"
+
+msgid "View mail in this format"
+msgstr "הצג דואר בפורמט זה"
+
+msgid "Cc recipients"
+msgstr "מקבלי עותק"
+
+msgid "Right"
+msgstr "ימינה"
+
+msgid "Bottom"
+msgstr "תחתית"
+
+msgid "Location of preview pane"
+msgstr "מיקום חלונית התצוגה המקדימה"
+
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr "השתמש בקידומות נושא בהתאם ל-RFC 5256/5322"
+
+msgid "Close original message on reply or forward"
+msgstr "סגור את ההודעה המקורית בתשובה או העברה"
+
+msgid "General mail settings"
+msgstr "הגדרות דואר כלליות"
+
+msgid "Open or compose a mail item in a"
+msgstr "פתח או חבר פריט דואר ב-a"
+
+msgid "grommunio Web tab"
+msgstr "לשונית grommunio Web"
+
+msgid "Browser window"
+msgstr "חלון דפדפן"
+
+msgid "Update Out of Office settings for"
+msgstr "עדכון הגדרות מחוץ למשרד עבור"
+
+msgid "I am currently in the office"
+msgstr "אני כרגע במשרד"
+
+msgid "I am out of the office from"
+msgstr "אני מחוץ למשרד מ"
+
+msgid "Out of office from"
+msgstr "לא במשרד מ-"
+
+msgid "I will be back on"
+msgstr "אני אחזור"
+
+msgid "Back on"
+msgstr "חזרה ל"
+
+msgid "Automatically reply with the following message:"
+msgstr "השב אוטומטית עם ההודעה הבאה:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr "(תדירות התשובות תלויה בתצורת השרת.)"
+
+msgid "Inside My Organization"
+msgstr "בתוך הארגון שלי"
+
+msgid "User is currently out of office."
+msgstr "המשתמש אינו במשרד כרגע."
+
+msgid "Outside My Organization"
+msgstr "מחוץ לארגון שלי"
+
+msgid "Auto-reply to people outside my organization"
+msgstr "תשובה אוטומטית לאנשים מחוץ לארגון שלי"
+
+msgid "My contacts only"
+msgstr "אנשי הקשר שלי בלבד"
+
+msgid "Anyone outside my organization"
+msgstr "כל אחד מחוץ לארגון שלי"
+
+msgid "The time you entered is before the out of office date. Please reschedule."
+msgstr "הזמן שהזנתם מוקדם יותר מתאריך היעדרותכם. אנא קבעו מועד חדש."
+
+msgid "Safe Senders"
+msgstr "שולחים בטוחים"
+
+msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
+msgstr "כדי להגן על פרטיותך, ניתן להוסיף כתובות דוא\"ל או דומיינים רק באמצעות הפונקציה \"הוסף לרשימת השולחים הבטוחים\" בדוא\"ל פתוח."
+
+msgid "Delete all"
+msgstr "מחק הכל"
+
+msgid "Signatures"
+msgstr "חתימות"
+
+msgid "No signatures configured"
+msgstr "לא הוגדרו חתימות"
+
+msgid "New messages"
+msgstr "הודעות חדשות"
+
+msgid "Replies/forwards"
+msgstr "תשובות/העברה"
+
+msgid "Signature name"
+msgstr "שם חתימה"
+
+msgid "Signature name:"
+msgstr "שם החתימה:"
+
+msgid "Save Signature"
+msgstr "שמור חתימה"
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr "יש לך שינויים שלא נשמרו. האם ברצונך לשמור את השינויים?"
+
+msgid "New signature"
+msgstr "חתימה חדשה"
+
+msgid "EML file(s)"
+msgstr "קבצי EML"
+
+msgid "ZIP file"
+msgstr "קובץ ZIP"
+
+msgid "max. "
+msgstr "מקסימום"
+
+msgid "Sort by: Sent"
+msgstr "מיין לפי: נשלחו"
+
+msgid "Scheduled"
+msgstr "מתוזמן"
+
+msgid "Sort by: Scheduled"
+msgstr "מיין לפי: מתוזמן"
+
+msgid "Modified"
+msgstr "שונה"
+
+msgid "Sort by: Modified"
+msgstr "מיין לפי: שונה"
+
+msgid "Flag"
+msgstr "דֶגֶל"
+
+msgid "Sort by: flag"
+msgstr "מיין לפי: דגל"
+
+msgid "Older"
+msgstr "ישן יותר"
+
+msgid "Yesterday"
+msgstr "אֶתמוֹל"
+
+msgid "Last Week"
+msgstr "שבוע שעבר"
+
+msgid "Two Weeks Ago"
+msgstr "לפני שבועיים"
+
+msgid "Three Weeks Ago"
+msgstr "לפני שלושה שבועות"
+
+msgid "Last Month"
+msgstr "חודש שעבר"
+
+msgid "Small"
+msgstr "קָטָן"
+
+msgid "Medium"
+msgstr "בֵּינוֹנִי"
+
+msgid "Large"
+msgstr "גָדוֹל"
+
+msgid "Very large"
+msgstr "גדול מאוד"
+
+msgid "Huge"
+msgstr "עָצוּם"
+
+msgid "Move to Junk Folder"
+msgstr "העבר לתיקית זבל"
+
+msgid "Not Junk Email"
+msgstr "לא דואר זבל"
+
+msgid "Send to"
+msgstr "שלח ל"
+
+msgid "Message list"
+msgstr "רשימת הודעות"
+
+msgid "Loading mail"
+msgstr "טוען דואר"
+
+msgid "No unread mail."
+msgstr "אין דואר שלא נקרא."
+
+msgid "Unread Mail"
+msgstr "דואר שלא נקרא"
+
+msgid "Quick Mail"
+msgstr "דואר מהיר"
+
+msgid "Print note"
+msgstr "הדפס הערה"
+
+msgid "Color"
+msgstr "צבע"
+
+msgid "New note"
+msgstr "פתק חדש"
+
+msgid "Open Shared Notes"
+msgstr "פתח את הערות משותפות"
+
+msgid "Sticky note"
+msgstr "פתק דביק"
+
+msgid "Print selected note"
+msgstr "הדפס הערה שנבחרה"
+
+msgid "No note selected"
+msgstr "לא נבחרה הערה"
+
+msgid "Icons"
+msgstr "סמלים"
+
+msgid "List view"
+msgstr "הצג כרשימה"
+
+msgid "List Last Seven Days"
+msgstr "רשימת שבעת הימים האחרונים"
+
+msgid "Created"
+msgstr "נוצר"
+
+msgid "Sort by: Created"
+msgstr "מיין לפי: נוצר"
+
+msgid "Sort by: Color"
+msgstr "מיין לפי: צבע"
+
+msgid "Notes list"
+msgstr "רשימת הערות"
+
+msgid "Loading Notes"
+msgstr "טוען הערות"
+
+msgid "Loading notes"
+msgstr "טוען הערות"
+
+msgid "Quick Note"
+msgstr "הערה מהירה"
+
+msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
+msgstr "עליך לטעון מחדש את grommunio Web כדי שהשינויים ייכנסו לתוקף. שינויים שלא נשמרו יאבדו."
+
+msgid "Reload grommunio Web"
+msgstr "טען מחדש את grommunio Web"
+
+msgid "Settings"
+msgstr "הגדרות"
+
+msgid "Basic"
+msgstr "בְּסִיסִי"
+
+msgid "System"
+msgstr "מַעֲרֶכֶת"
+
+msgid "Language"
+msgstr "שפה"
+
+msgid "Startup folder"
+msgstr "תיקיית אתחול"
+
+msgid "Theme"
+msgstr "נוֹשֵׂא"
+
+msgid "Personal information"
+msgstr "מידע אישי"
+
+msgid "Last Name, First Name"
+msgstr "שם משפחה, שם פרטי"
+
+msgid "First Name Last Name"
+msgstr "שם פרטי שם משפחה"
+
+msgid "Select Default Folder"
+msgstr "בחר תיקיית ברירת מחדל"
+
+msgid "Name Display Format"
+msgstr "פורמט תצוגת השם"
+
+msgid "Advanced"
+msgstr "מִתקַדֵם"
+
+msgid "Advanced settings"
+msgstr "הגדרות מתקדמות"
+
+msgid "Developer tools"
+msgstr "כלים למפתחים"
+
+msgid "Show insertion points in grommunio Web"
+msgstr "הצג נקודות הכנסה ב-grommunio Web"
+
+msgid "Show \"item data\" button in context menu (mail only)"
+msgstr "הצג כפתור \"נתוני פריט\" בתפריט ההקשר (דואר בלבד)"
+
+msgid "Settings categories"
+msgstr "קטגוריות הגדרות"
+
+msgid "Edit setting"
+msgstr "ערוך הגדרה"
+
+msgid "Restore to defaults"
+msgstr "שחזר לברירות המחדל"
+
+msgid "Delete settings"
+msgstr "מחק הגדרות"
+
+msgid "{0} Iconset"
+msgstr "{0}אייקונים"
+
+msgid "About"
+msgstr "אוֹדוֹת"
+
+msgid "Date & Time"
+msgstr "תאריך ושעה"
+
+msgid "Date format"
+msgstr "פורמט תאריך"
+
+msgid "Short"
+msgstr "קָצָר"
+
+msgid "Long"
+msgstr "אָרוֹך"
+
+msgid "Time format"
+msgstr "פורמט זמן"
+
+msgid "12h clock"
+msgstr "שעון 12 שעות"
+
+msgid "24h clock"
+msgstr "שעון 24 שעות"
+
+msgid "Hide favorites"
+msgstr "הסתר מועדפים"
+
+msgid "Unpin favorites from top"
+msgstr "בטל את הצמדת המועדפים מלמעלה"
+
+msgid "Interface"
+msgstr "מִמְשָׁק"
+
+msgid "Give unread items a colored border"
+msgstr "תן לפריטים שלא נקראו גבול צבעוני"
+
+msgid "Show 'help' button in top-right corner"
+msgstr "הצג את כפתור 'עזרה' בפינה השמאלית העליונה"
+
+msgid "Show unread mail counter in application title"
+msgstr "הצג מונה דואר שלא נקרא בכותרת האפליקציה"
+
+msgid "Hide widget panel"
+msgstr "הסתר חלונית ווידג'ט"
+
+msgid "Auto"
+msgstr "אוטומטי"
+
+msgid "Actual size"
+msgstr "גודל בפועל"
+
+msgid "Page width"
+msgstr "רוחב עמוד"
+
+msgid "Attachment preview (PDF and Open formats)"
+msgstr "תצוגה מקדימה של קבצים מצורפים (PDF ופורמטים פתוחים)"
+
+msgid "Document default zoom"
+msgstr "זום ברירת מחדל למסמך"
+
+msgid "PDF zoom"
+msgstr "זום PDF"
+
+msgid "File previewing"
+msgstr "תצוגה מקדימה של קבצים"
+
+msgid "Inbox navigation"
+msgstr "ניווט בתיבת הדואר הנכנס"
+
+msgid "I want to navigate through my items by using:"
+msgstr "אני רוצה לנווט בין הפריטים שלי באמצעות:"
+
+msgid "Navigation method"
+msgstr "שיטת ניווט"
+
+msgid "Infinite Scroll"
+msgstr "גלילה אינסופית"
+
+msgid "grommunio Web automatically loads additional items when you scroll down"
+msgstr "grommunio Web טוען אוטומטית פריטים נוספים כאשר אתה גולל למטה"
+
+msgid "grommunio Web displays items on pages and you can use navigation controls to navigate"
+msgstr "grommunio Web מציג פריטים בדפים, וניתן להשתמש בפקדי הניווט כדי לנווט"
+
+msgid "Load items in blocks of {A}"
+msgstr "טען פריטים בבלוקים של {A}"
+
+msgid "Load {A} items per page."
+msgstr "טען {A} פריטים בעמוד."
+
+msgid "Keyboard Shortcuts"
+msgstr "קיצורי מקלדת"
+
+msgid "Extended"
+msgstr "מוּרחָב"
+
+msgid "Keyboard shortcuts"
+msgstr "קיצורי מקלדת"
+
+msgid "Keyboard shortcuts off"
+msgstr "קיצורי מקשים כבויים"
+
+msgid "Basic keyboard shortcuts on"
+msgstr "קיצורי מקשים בסיסיים מופעלים"
+
+msgid "Extended shortcuts on"
+msgstr "קיצורי דרך מורחבים פועלים"
+
+msgid "This change requires a reload of grommunio Web"
+msgstr "שינוי זה דורש טעינה מחדש של grommunio Web"
+
+msgid "Plugins"
+msgstr "תוספים"
+
+msgid "Available plugins"
+msgstr "תוספים זמינים"
+
+msgid "No plugins available"
+msgstr "אין פלאגינים זמינים"
+
+msgid "Version"
+msgstr "גִרְסָה"
+
+msgid "This plugin cannot be disabled"
+msgstr "לא ניתן לבטל את התוסף הזה"
+
+msgid "This plugin cannot be enabled"
+msgstr "לא ניתן להפעיל את התוסף הזה"
+
+msgid "Mailbox Usage"
+msgstr "שימוש בתיבת דואר"
+
+msgid "A quota is not set on your store."
+msgstr "לא נקבעה מכסה לחנות שלך."
+
+msgid "{0} of mailbox space is used."
+msgstr "נעשה שימוש בשטח תיבת הדואר{0}."
+
+msgid "You have exceeded hard quota, you can not send or receive mails."
+msgstr "חרגת מהמכסה הקשה, אינך יכול לשלוח או לקבל מיילים."
+
+msgid "At {0} you won't be able to send mails."
+msgstr "ב-{0}לא תוכל לשלוח מיילים."
+
+msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
+msgstr "אינך יכול לשלוח דוא\"ל מכיוון שחרגת ממכסת הזיכרון הרכה; ב-{0} לא תוכל לקבל דוא\"ל."
+
+msgid "At {0} you won't be able to send or receive mails."
+msgstr "ב-{0}לא תוכל לשלוח או לקבל מיילים."
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr "אינך יכול לשלוח מיילים מכיוון שחרגת מהמכסה הרכה."
+
+msgid "Reset settings"
+msgstr "אפס את ההגדרות"
+
+msgid "Reset settings to their original defaults."
+msgstr "אפס את ההגדרות לברירות המחדל המקוריות שלהן."
+
+msgid "This will close all opened shared stores and resets all settings to the default value."
+msgstr "פעולה זו תסגור את כל המאגרים המשותפים הפתוחים ותאפס את כל ההגדרות לערכי ברירת המחדל."
+
+msgid "grommunio Web will automatically reload in order for these changes to take effect"
+msgstr "grommunio Web יטען מחדש באופן אוטומטי כדי שהשינויים ייכנסו לתוקף"
+
+msgid "Reset"
+msgstr "אִתחוּל"
+
+msgid "Reloading, Please wait."
+msgstr "טוען מחדש, אנא המתן."
+
+msgid "Setting"
+msgstr "סְבִיבָה"
+
+msgid "The setting '{0}' can not be edited"
+msgstr "לא ניתן לערוך את ההגדרה '{0}'"
+
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "אימות בסיסי"
+
+msgid "System information"
+msgstr "מידע מערכת"
+
+msgid "Gromox"
+msgstr "גרומוקס"
+
+msgid "Logged in via"
+msgstr "מחובר דרך"
+
+msgid "Browser"
+msgstr "דפדפן"
+
+msgid "Maintenance"
+msgstr "תַחזוּקָה"
+
+msgid "Reset all settings to defaults"
+msgstr "אפס את כל ההגדרות לברירות המחדל"
+
+msgid "Delete confirmation"
+msgstr "מחק אישור"
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr "מחיקת הפריט/ים תמחק גם את הפריט/ים המקוריים."
+
+msgid "Do you want to delete the item(s)?"
+msgstr "האם ברצונך למחוק את הפריט/ים?"
+
+msgid "Sort by: Priority"
+msgstr "מיין לפי: עדיפות"
+
+msgid "Status"
+msgstr "מצב"
+
+msgid "Sort by: Status"
+msgstr "מיין לפי: סטטוס"
+
+msgid "Due Date"
+msgstr "תאריך היעד"
+
+msgid "Sort by: Due Date"
+msgstr "מיין לפי: תאריך יעד"
+
+msgid "% Completed"
+msgstr "% הושלם"
+
+msgid "Sort by: Percent Completed"
+msgstr "מיין לפי: אחוז הושלמה"
+
+msgid "Task Status"
+msgstr "סטטוס משימה"
+
+msgid "Percent Complete"
+msgstr "אחוז השלמה"
+
+msgid "Total Work"
+msgstr "סך הכל עבודה"
+
+msgid "Actual Work"
+msgstr "עבודה בפועל"
+
+msgid "Companies"
+msgstr "חברות"
+
+msgid "Billing Information"
+msgstr "פרטי חיוב"
+
+msgid "Mileage"
+msgstr "קילומטראז'"
+
+msgid "Accepting Task"
+msgstr "קבלת משימה"
+
+msgid "Declining Task"
+msgstr "משימה דוחה"
+
+#, fuzzy
+msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
+msgstr "פגישה זו התקבלה ותועבר ללוח השנה שלך. האם אתה רוצה לכלול הערות עם התגובה שלך?"
+
+#, fuzzy
+msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
+msgstr "פגישה זו סורבה ותועבר לתיקית \"פריטים שנמחקו\". האם אתה רוצה לכלול הערות עם התגובה שלך?"
+
+msgid "Send the response now"
+msgstr "שלח את התגובה עכשיו"
+
+msgid "Date Complete"
+msgstr "תאריך השלמה"
+
+msgid "Multiple companies name must be separated by"
+msgstr "יש להפריד בין שם חברות מרובות ב"
+
+msgid "Update List"
+msgstr "עדכן רשימה"
+
+msgid "Create Unassigned Copy"
+msgstr "צור העתק לא מוקצה"
+
+msgid "copy"
+msgstr "לְהַעְתִיק"
+
+msgid "Unable to send task request"
+msgstr "לא ניתן לשלוח בקשת משימה"
+
+msgid "You cannot send a task request to yourself."
+msgstr "אינך יכול לשלוח בקשת משימה לעצמך."
+
+msgid "Multiple recipients"
+msgstr "מספר נמענים"
+
+msgid "A task request can only have one recipient."
+msgstr "לבקשת משימה יכולה להיות רק נמען אחד."
+
+msgid "Due date"
+msgstr "תאריך יעד"
+
+msgid "Priority"
+msgstr "עדיפות"
+
+msgid "% Complete"
+msgstr "% הושלם"
+
+msgid "Track progress"
+msgstr "עקוב אחר ההתקדמות"
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr "שמור עותק מעודכן של המשימה וקבל דוחות מצב אוטומטיים"
+
+msgid "Send task to assignees"
+msgstr "שלח משימה למקצים"
+
+msgid "Restore to Task List"
+msgstr "שחזר לרשימת המשימות"
+
+msgid "Delete this task"
+msgstr "מחק את המשימה הזו"
+
+msgid "Add attachments to this task"
+msgstr "הוסף קובץ מצורף למשימה זו"
+
+msgid "Mark as Complete"
+msgstr "סמן כהושלמה"
+
+msgid "Mark this task as complete"
+msgstr "סמן משימה זו כהושלמה"
+
+msgid "Print this task"
+msgstr "הדפס משימה זו"
+
+msgid "Assign Task"
+msgstr "הקצה משימה"
+
+msgid "Cancel Assignment"
+msgstr "בטל משימה"
+
+msgid "Mark this task as private"
+msgstr "סמן משימה זו כפרטית"
+
+msgid "New task"
+msgstr "משימה חדשה"
+
+msgid "Completed"
+msgstr "הושלם"
+
+msgid "Printed by: "
+msgstr "נדפס על ידי:"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Printed on: "
+msgstr "מודפס על:"
+
+msgid "Percent complete"
+msgstr "אחוז הושלמה"
+
+msgid "Total work"
+msgstr "סך הכל עבודה"
+
+msgid "{totalwork} hours"
+msgstr "{totalwork} שעות"
+
+msgid "Actual work"
+msgstr "עבודה בפועל"
+
+msgid "{actualwork} hours"
+msgstr "{actualwork} שעות"
+
+msgid "Open Shared Tasks"
+msgstr "פתח את משימות משותפות"
+
+msgid "Simple view"
+msgstr "נוף פשוט"
+
+msgid "Detailed view"
+msgstr "תצוגה מפורטת"
+
+msgid "Task request"
+msgstr "בקשת משימה"
+
+msgid "Print selected task"
+msgstr "הדפס את המשימה שנבחרה"
+
+msgid "No task selected"
+msgstr "לא נבחרה משימה"
+
+msgid "Print task list"
+msgstr "הדפס רשימת משימות"
+
+msgid "Create task"
+msgstr "צור משימה"
+
+msgid "Upcoming"
+msgstr "בקרוב"
+
+msgid "Overdue"
+msgstr "באיחור"
+
+msgid "Mark Complete"
+msgstr "סמן הושלם"
+
+msgid "Mark Incomplete"
+msgstr "סמן לא שלם"
+
+msgid "Remove from To-Do List"
+msgstr "הסר מרשימת המטלות"
+
+msgid "Changes to assigned task"
+msgstr "שינויים במשימה שהוקצתה"
+
+msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
+msgstr "שימו לב: משימות שהוקצו יוחלפו כאשר מקבל המשימה יבצע שינויים."
+
+msgid "Sort by: Complete"
+msgstr "מיין לפי: הושלם"
+
+msgid "Reminder Time"
+msgstr "תזכורת זמן"
+
+msgid "Sort by: Reminder Time"
+msgstr "מיין לפי: זמן תזכורת"
+
+msgid "Assigned To"
+msgstr "משויך אל"
+
+msgid "Sort by: Assignee"
+msgstr "מיין לפי: מוקצה"
+
+msgid "Sort by: Owner"
+msgstr "מיין לפי: בעלים"
+
+msgid "Sort by: Percentage Completed"
+msgstr "מיין לפי: אחוז הושלמה"
+
+msgid "Assigned task changes"
+msgstr "שינויים במשימה שהוקצתה"
+
+msgid "Tasks list"
+msgstr "רשימת משימות"
+
+msgid "Loading tasks"
+msgstr "טוען משימות"
+
+msgid "Date completed"
+msgstr "תאריך הושלם"
+
+msgid "hours"
+msgstr "שעות"
+
+msgid "Billing information"
+msgstr "פרטי חיוב"
+
+msgid "Update list"
+msgstr "עדכן רשימה"
+
+msgid "D d-m-Y"
+msgstr "ד ד-מ-י"
+
+msgid "none"
+msgstr "אַף לֹא אֶחָד"
+
+msgid "Quick Task"
+msgstr "משימה מהירה"
+
+msgid "No tasks."
+msgstr "אין משימות."
+
+msgid "Tasks / To-Do"
+msgstr "משימות / מטלות"
+
+msgid "Click the link to open the URL in a new window."
+msgstr "לחץ על הקישור כדי לפתוח את כתובת האתר בחלון חדש."
+
+msgid "The server reported an unknown error on your request."
+msgstr "השרת דיווח על שגיאה לא ידועה בבקשתך."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "השרת דיווח על שגיאה לא מפורטת בבקשתך."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "פג תוקף ההפעלה, נדרש אימות מחדש."
+
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "הפעלה בחלון הדפדפן הנוכחי נסגרה מחלון דפדפן או מכרטיסייה אחרים."
+
+msgid "Session expired"
+msgstr "פג תוקף ההפעלה"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "האם ברצונך שיפנו אותך לדף הכניסה?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr "נדרש אימות מחדש, לחץ כאן כדי לחזור לדף הכניסה."
+
+msgid "Connection problem"
+msgstr "בעיית חיבור"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr "לא ניתן להתחבר לשרת, מנסה שוב בעוד{0}שניות"
+
+msgid "Click to retry now"
+msgstr "לחץ כדי לנסות שוב כעת"
+
+msgid "Connection restored"
+msgstr "החיבור שוחזר"
+
+msgid "Connection with server has been restored"
+msgstr "החיבור לשרת שוחזר"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP{0}"
+
+msgid "Invalid data received from the server"
+msgstr "נתונים לא חוקיים התקבלו מהשרת"
+
+msgid "Missing store"
+msgstr "חסרה חנות"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "חנות ברירת המחדל חסרה בהיררכיה."
+
+msgid "Not all functionality of grommunio Web might be working properly because of this."
+msgstr "ייתכן שלא כל הפונקציות של grommunio Web פועלות כראוי עקב כך."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "תיבת דואר נכנס"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "תיבת דואר יוצא"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "פריטים שנשלחו"
+
+#, fuzzy
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "מחק פריטים"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "לוח שנה"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "אנשי קשר"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "דַמקָה"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "יומן"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "פתקים"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "משימות"
+
+#, fuzzy
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "דואר אלקטורני"
+
+msgid "Missing folders"
+msgstr "חסרות תיקיות"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "התיקיה הנדרשת הבאה חסרה בהיררכיה:{0}"
+msgstr[1] "התיקיות הנדרשות הבאות חסרות בהיררכיה:{0}"
+
+msgid "Loading model from server failed"
+msgstr "טעינת מודל מן השרת נכשלה"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "מחוץ למשרד מופעל כעת. האם תרצה לכבות אותו?"
+
+msgid "AI Assistant"
+msgstr "עוזר בינה מלאכותית"
+
+msgid "The editor could not be found."
+msgstr "לא ניתן היה למצוא את העורך."
+
+msgid "Write some text in the message first."
+msgstr "כתוב תחילה טקסט כלשהו בהודעה."
+
+msgid "Improved draft"
+msgstr "טיוטה משופרת"
+
+msgid "Shortened draft"
+msgstr "טיוטה מקוצרת"
+
+msgid "Expanded draft"
+msgstr "טיוטה מורחבת"
+
+msgid "Grammar & spelling"
+msgstr "דקדוק ואיות"
+
+msgid "Rewritten draft"
+msgstr "טיוטה משוכתבת"
+
+msgid "Translated draft"
+msgstr "טיוטה מתורגמת"
+
+msgid "The message you were composing is no longer open."
+msgstr "ההודעה שכתבת כבר אינה פתוחה."
+
+msgid "Summarize"
+msgstr "סיכום"
+
+msgid "Summarize thread"
+msgstr "סיכום השרשור"
+
+msgid "Translate"
+msgstr "תרגום"
+
+msgid "Suggest actions"
+msgstr "הצעת פעולות"
+
+msgid "No AI features enabled"
+msgstr "לא הופעלו תכונות בינה מלאכותית"
+
+msgid "My language"
+msgstr "השפה שלי"
+
+msgid "English"
+msgstr "אנגלית"
+
+msgid "German"
+msgstr "גרמנית"
+
+msgid "French"
+msgstr "צרפתית"
+
+msgid "Spanish"
+msgstr "ספרדית"
+
+msgid "Italian"
+msgstr "איטלקית"
+
+msgid "Dutch"
+msgstr "הולנדית"
+
+msgid "Portuguese"
+msgstr "פורטוגזית"
+
+msgid "Polish"
+msgstr "פולנית"
+
+msgid "Chinese"
+msgstr "סינית"
+
+msgid "Japanese"
+msgstr "יפנית"
+
+msgid "Please open or select a message first."
+msgstr "אנא פתח או בחר הודעה תחילה."
+
+msgid "Suggested actions"
+msgstr "פעולות מוצעות"
+
+msgid "Looking for actions…"
+msgstr "מחפש פעולות…"
+
+msgid "Summarize with AI"
+msgstr "סיכום באמצעות AI"
+
+msgid "Translate with AI"
+msgstr "תרגום באמצעות AI"
+
+msgid "Thread summary"
+msgstr "סיכום השרשור"
+
+msgid "Summary"
+msgstr "סיכום"
+
+msgid "Translation"
+msgstr "תרגום"
+
+msgid "No suggested actions were found for this message."
+msgstr "לא נמצאו פעולות מוצעות עבור הודעה זו."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "פעולות מוצעות — כל אחת פותחת תיבת דו-שיח מלאה מראש שתעבור עליה לפני השמירה:"
+
+msgid "The AI request failed."
+msgstr "בקשת ה-AI נכשלה."
+
+msgid "An unknown error occurred."
+msgstr "אירעה שגיאה לא ידועה."
+
+msgid "Brief"
+msgstr "קצר"
+
+msgid "Standard"
+msgstr "רגיל"
+
+msgid "Detailed"
+msgstr "מפורט"
+
+msgid "Neutral"
+msgstr "ניטרלי"
+
+msgid "Formal"
+msgstr "רשמי"
+
+msgid "Friendly"
+msgstr "ידידותי"
+
+msgid "Confident"
+msgstr "בטוח"
+
+msgid "Concise"
+msgstr "תמציתי"
+
+msgid "Casual"
+msgstr "קליל"
+
+msgid "My language (automatic)"
+msgstr "השפה שלי (אוטומטי)"
+
+msgid "Provider"
+msgstr "ספק"
+
+msgid "Configured by administrator"
+msgstr "הוגדר על ידי המנהל"
+
+msgid "Test connection"
+msgstr "בדיקת חיבור"
+
+msgid "Preferences"
+msgstr "העדפות"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "ניתן להפעיל או לכבות את עוזר ה-AI תחת הגדרות → תוספים."
+
+msgid "Summary length"
+msgstr "אורך הסיכום"
+
+msgid "Translate into"
+msgstr "תרגום לשפה"
+
+msgid "Writing tone"
+msgstr "נימת הכתיבה"
+
+msgid "Stream responses as they are generated"
+msgstr "הזרמת התשובות תוך כדי יצירתן"
+
+msgid "Features"
+msgstr "תכונות"
+
+msgid "Summarize emails and threads"
+msgstr "סיכום הודעות ושרשורים"
+
+msgid "Translate emails"
+msgstr "תרגום הודעות"
+
+msgid "Writing assistant in the composer"
+msgstr "עוזר כתיבה בחלון החיבור"
+
+msgid "Suggest smart actions"
+msgstr "הצעת פעולות חכמות"
+
+msgid "Smart actions"
+msgstr "פעולות חכמות"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "פעולות חכמות פותחות תמיד תיבת דו-שיח מלאה מראש לבדיקתך — שום דבר אינו נשמר או נשלח באופן אוטומטי."
+
+msgid "Create meetings and invite attendees"
+msgstr "יצירת פגישות והזמנת משתתפים"
+
+msgid "Create tasks"
+msgstr "יצירת משימות"
+
+msgid "Add contacts"
+msgstr "הוספת אנשי קשר"
+
+msgid "Draft replies"
+msgstr "ניסוח תשובות"
+
+msgid "{0} · model {1}"
+msgstr "{0} · מודל {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "לא מוגדר. בקש מהמנהל להגדיר ספק."
+
+msgid "Disabled by administrator"
+msgstr "הושבת על ידי המנהל"
+
+msgid "Testing…"
+msgstr "בודק…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "מחובר אל {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "אין תיקיית ברירת מחדל מסוג {0} עבור חשבון זה."
+
+msgid "calendar"
+msgstr "יומן"
+
+msgid "tasks"
+msgstr "משימות"
+
+msgid "contacts"
+msgstr "אנשי קשר"
+
+msgid "Draft reply"
+msgstr "ניסוח תשובה"
+
+msgid "Open as reply"
+msgstr "פתיחה כתשובה"
+
+msgid "Drafting reply…"
+msgstr "מנסח תשובה…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "לא ניתן היה לפתוח את ההודעה לצורך ניסוח תשובה."
+
+msgid "Meeting: {0}"
+msgstr "פגישה: {0}"
+
+msgid "Create meeting"
+msgstr "יצירת פגישה"
+
+msgid "Task: {0}"
+msgstr "משימה: {0}"
+
+msgid "Add contact: {0}"
+msgstr "הוספת איש קשר: {0}"
+
+msgid "Add contact"
+msgstr "הוספת איש קשר"
+
+msgid "Thinking…"
+msgstr "חושב…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "התשובה הופסקה ועשויה להיות חלקית."
+
+msgid "Insert at cursor"
+msgstr "הוספה במיקום הסמן"
+
+msgid "Replace draft"
+msgstr "החלפת הטיוטה"
+
+msgid "Regenerate"
+msgstr "יצירה מחדש"
+
+msgid "Copied"
+msgstr "הועתק"
+
+msgid "AI writing assistant"
+msgstr "עוזר כתיבה של AI"
+
+msgid "Improve writing"
+msgstr "שיפור הכתיבה"
+
+msgid "Shorten"
+msgstr "קיצור"
+
+msgid "Expand"
+msgstr "הרחבה"
+
+msgid "Change tone"
+msgstr "שינוי הנימה"
+
+msgid "Fix grammar & spelling"
+msgstr "תיקון דקדוק ואיות"
+
+msgid "Archive"
+msgstr "ארכיון"
+
+msgid "Chat"
+msgstr "לְשׂוֹחֵחַ"
+
+msgid "Open Chat at start"
+msgstr "פתח את צ'אט בהתחלה"
+
+msgid "Desktop Notifications Plugin"
+msgstr "תוסף הודעות שולחן עבודה"
+
+msgid "Desktop Notifications"
+msgstr "הודעות על שולחן העבודה"
+
+msgid "Files: Default plugin"
+msgstr "קבצים: תוסף ברירת מחדל"
+
+msgid "Loading users and groups"
+msgstr "טוען משתמשים וקבוצות"
+
+msgid "Add users or groups to share files."
+msgstr "הוסף משתמשים או קבוצות כדי לשתף קבצים."
+
+msgid "Sort by: Type"
+msgstr "מיין לפי: סוג"
+
+msgid "Re-share"
+msgstr "שתף מחדש"
+
+msgid "Change"
+msgstr "לְשַׁנוֹת"
+
+msgid "Share with"
+msgstr "שתף עם"
+
+msgid "Share Details"
+msgstr "שתף פרטים"
+
+msgid "Type to search"
+msgstr "הקלד לחיפוש"
+
+msgid "No results"
+msgstr "אין תוצאות"
+
+msgid "Share with user/group"
+msgstr "שתף עם משתמש/קבוצה"
+
+msgid "Share via link"
+msgstr "שתפו באמצעות קישור"
+
+msgid "Public link"
+msgstr "קישור ציבורי"
+
+msgid "Copy link"
+msgstr "העתק קישור"
+
+msgid "Password protect"
+msgstr "הגנה באמצעות סיסמה"
+
+msgid "Password"
+msgstr "סיסמה"
+
+msgid "Public upload"
+msgstr "העלאה ציבורית"
+
+msgid "Expiration date"
+msgstr "תַאֲרִיך תְפוּגָה"
+
+msgid "More than 1 share link exists. Only showing the latest one"
+msgstr "קיים יותר מקישור שיתוף אחד. מציג רק את האחרון"
+
+msgid "Loading details…"
+msgstr "טוען פרטים..."
+
+msgid "Files: Seafile Backend"
+msgstr "קבצים: Seafile Backend"
+
+msgid "Copy link to clipboard"
+msgstr "העתק קישור ללוח"
+
+msgid "Link copied to clipboard"
+msgstr "הקישור הועתק ללוח"
+
+msgid "Clipboard"
+msgstr "לוח כתיבה"
+
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr "לא ניתן היה להעתיק את הקישור באופן אוטומטי. אנא העתק אותו ידנית."
+
+msgid "Loading details..."
+msgstr "טוען פרטים..."
+
+msgid "Share"
+msgstr "לַחֲלוֹק"
+
+msgid "Loading..."
+msgstr "טְעִינָה..."
+
+msgid "Add attachment from {0}"
+msgstr "הוסף קובץ מצורף מ-{0}"
+
+msgid "Confirm deletion"
+msgstr "אשר את המחיקה"
+
+msgid "Are you sure you want to delete {0}?"
+msgstr "האם אתה בטוח שברצונך למחוק את{0}?"
+
+msgid "Are you sure you want to delete {0} and all of its contents?"
+msgstr "האם אתה בטוח שברצונך למחוק את{0}ואת כל התוכן שלו?"
+
+msgid "Are you sure you want to delete {0} files?"
+msgstr "האם אתה בטוח שברצונך למחוק קבצי{0}?"
+
+msgid "Are you sure want to delete {0} folders and all of their contents?"
+msgstr "האם אתה בטוח שברצונך למחוק את תיקיות{0}ואת כל התוכן שלהן?"
+
+msgid "Are you sure want to delete the selected items and all of their contents?"
+msgstr "האם אתה בטוח שברצונך למחוק את הפריטים שנבחרו ואת כל תוכנם?"
+
+msgid "Confirm overwrite"
+msgstr "אשר את ההחלפה"
+
+msgid "File already exists. Do you want to overwrite it?"
+msgstr "הקובץ כבר קיים. האם אתה רוצה להחליף אותו?"
+
+msgid "Please enter a new name"
+msgstr "נא להזין שם חדש"
+
+msgid "Rename record"
+msgstr "שנה את שם הרשומה"
+
+msgid "A file name should not be empty."
+msgstr "שם קובץ לא צריך להיות ריק."
+
+msgid "Rename item"
+msgstr "שנה את שם הפריט"
+
+msgid "A file named \"{0}\" already exists. Please enter a different name."
+msgstr "קובץ בשם \"{0}\" כבר קיים. נא להזין שם אחר."
+
+msgid "Downloading"
+msgstr "מוריד"
+
+msgid "Download started... please wait!"
+msgstr "ההורדה החלה... אנא המתן!"
+
+msgid "Upload"
+msgstr "העלה"
+
+msgid "At least one file is too large! Maximum allowed filesize: {0}."
+msgstr "לפחות קובץ אחד גדול מדי! גודל קובץ מקסימלי מותר:{0}."
+
+msgid "Keep both"
+msgstr "שמור על שניהם"
+
+msgid "Overwrite"
+msgstr "החלף"
+
+msgid "l d/m/Y G:i"
+msgstr "l d/m/Y G:i"
+
+msgid "Never"
+msgstr "לְעוֹלָם לֹא"
+
+msgid "Add from Files"
+msgstr "הוסף מקבצים"
+
+msgid "Add attachment from Files"
+msgstr "הוסף קובץ מצורף מקבצים"
+
+msgid "Add to Files"
+msgstr "הוסף לקבצים"
+
+msgid "Upload file"
+msgstr "העלה קובץ"
+
+msgid "Files"
+msgstr "קבצים"
+
+msgid "Files Plugin"
+msgstr "תוסף קבצים"
+
+msgid "Default"
+msgstr "בְּרִירַת מֶחדָל"
+
+msgid "Manage Accounts"
+msgstr "נהל חשבונות"
+
+msgid "Reset Files settings"
+msgstr "אפס את הגדרות הקבצים"
+
+msgid "Resets Files settings to their original defaults"
+msgstr "מאפס את הגדרות הקבצים לברירות המחדל המקוריות שלהן"
+
+msgid "Are you sure to remove all settings and accounts?"
+msgstr "האם אתה בטוח להסיר את כל ההגדרות והחשבונות?"
+
+msgid "Accounts marked by your administrator as \"cannot be changed\" will not be removed."
+msgstr "חשבונות שסומנו על ידי המנהל כ\"לא ניתנים לשינוי\" לא יוסרו."
+
+msgid "grommunio Web will automatically restart in order for these changes to take effect."
+msgstr "grommunio Web יופעל מחדש באופן אוטומטי על מנת שהשינויים ייכנסו לתוקף."
+
+msgid "grommunio Web is reloading, Please wait."
+msgstr "grommunio Web נטען מחדש, אנא המתן."
+
+msgid "Edit Account"
+msgstr "ערוך חשבון"
+
+msgid "Backend"
+msgstr "אחורי"
+
+msgid "Account Information"
+msgstr "פרטי חשבון"
+
+msgid "Account name"
+msgstr "שם חשבון"
+
+msgid "Account Configuration"
+msgstr "תצורת חשבון"
+
+msgid "Update"
+msgstr "לְעַדְכֵּן"
+
+msgid "ID"
+msgstr "תְעוּדַת זֶהוּת"
+
+msgid "Sort by: ID"
+msgstr "מיין לפי: מזהה"
+
+msgid "Sort by: Backend"
+msgstr "מיין לפי: Backend"
+
+msgid "Shows all available features of the backend."
+msgstr "מציג את כל התכונות הזמינות של הקצה האחורי."
+
+msgid "Show quota information"
+msgstr "הצג מידע על מכסה"
+
+msgid "Show version information"
+msgstr "הצג מידע על גרסה"
+
+msgid "Share files"
+msgstr "שתף קבצים"
+
+msgid "Fast Down/Upload"
+msgstr "הורדה/העלאה מהירה"
+
+msgid "No account created!"
+msgstr "לא נוצר חשבון!"
+
+msgid "Add Account"
+msgstr "הוסף חשבון"
+
+msgid "Remove Account"
+msgstr "הסר חשבון"
+
+msgid "Loading accounts"
+msgstr "טוען חשבונות"
+
+msgid "Do you really want to delete the account \"{0}\"?"
+msgstr "האם אתה באמת רוצה למחוק את החשבון \"{0}\"?"
+
+msgid "Quota Information"
+msgstr "מידע על מכסות"
+
+msgid "Used"
+msgstr "מְשׁוּמָשׁ"
+
+msgid "Total"
+msgstr "סַך הַכֹּל"
+
+msgid "Version Information"
+msgstr "מידע גרסה"
+
+msgid "Filename"
+msgstr "שם הקובץ"
+
+msgid "Sort by: Filename"
+msgstr "מיין לפי: שם קובץ"
+
+msgid "Loading files"
+msgstr "טוען קבצים"
+
+msgid "The file {0} is too large!"
+msgstr "הקובץ{0}גדול מדי!"
+
+msgid "max"
+msgstr "מקסימום"
+
+msgid "You have to choose at least one file!"
+msgstr "אתה צריך לבחור לפחות קובץ אחד!"
+
+msgid "Create New "
+msgstr "צור חדש"
+
+msgid "Incorrect filename"
+msgstr "שם קובץ שגוי"
+
+msgid "Error reaching office backend"
+msgstr "שגיאה בהגעה לקצה האחורי של המשרד"
+
+msgid "Folder already exists"
+msgstr "התיקיה כבר קיימת"
+
+msgid "Incorrect foldername"
+msgstr "שם תיקיה שגוי"
+
+msgid "File information"
+msgstr "מידע על הקובץ"
+
+msgid "Select a file"
+msgstr "בחר קובץ"
+
+msgid "Maximum upload size"
+msgstr "גודל העלאה מקסימלי"
+
+msgid "Browse"
+msgstr "לְדַפדֵף"
+
+msgid "Select upload folder"
+msgstr "בחר תיקיית העלאה"
+
+msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
+msgstr "הקובץ \"{0}\" גדול מדי! גודל קובץ מקסימלי מותר:{1}."
+
+msgid "Add item to Files"
+msgstr "הוסף פריט לקבצים"
+
+msgid "You have to choose a folder!"
+msgstr "אתה צריך לבחור תיקיה!"
+
+msgid "Uploaded"
+msgstr "הועלה"
+
+msgid "Attachment successfully stored in Files"
+msgstr "הקובץ המצורף מאוחסן בהצלחה בקבצים"
+
+msgid "Upload Failed"
+msgstr "ההעלאה נכשלה"
+
+msgid "Attachment could not be stored in Files! Error: "
+msgstr "לא ניתן לאחסן קובץ מצורף בקבצים! שְׁגִיאָה:"
+
+msgid "Share Files"
+msgstr "שתף קבצים"
+
+msgid "Uploading files to "
+msgstr "העלאת קבצים ל"
+
+msgid "Starting upload"
+msgstr "מתחיל להעלות"
+
+msgid "Cancel upload"
+msgstr "בטל העלאה"
+
+msgid "- seconds left"
+msgstr "- נותרו שניות"
+
+msgid " seconds left"
+msgstr "נותרו שניות"
+
+msgid " minutes left"
+msgstr "דקות נותרו"
+
+msgid "Uploading: "
+msgstr "מעלה:"
+
+msgid "Upload status unavailable... please wait."
+msgstr "סטטוס ההעלאה אינו זמין... אנא המתן."
+
+msgid "Upload finished!"
+msgstr "ההעלאה הסתיימה!"
+
+msgid "Upload aborted!"
+msgstr "ההעלאה בוטלה!"
+
+msgid "Upload failed!"
+msgstr "ההעלאה נכשלה!"
+
+msgid "Document"
+msgstr "מִסְמָך"
+
+msgid "Presentation"
+msgstr "הַצָגָה"
+
+msgid "Spreadsheet"
+msgstr "גיליון אלקטרוני"
+
+msgid "Upload files"
+msgstr "העלה קבצים"
+
+msgid "Create document"
+msgstr "צור מסמך"
+
+msgid "Create office document"
+msgstr "צור מסמך אופיס"
+
+msgid "Download files"
+msgstr "הורד קבצים"
+
+msgid "Attach to mail"
+msgstr "צרף למייל"
+
+msgid "Attach to mail as link"
+msgstr "צרף למייל כקישור"
+
+msgid "Attaching"
+msgstr "מצרף"
+
+msgid "Creating email... Please wait!"
+msgstr "יוצר אימייל... אנא המתן!"
+
+msgid "Edit share"
+msgstr "ערוך שיתוף"
+
+msgid "There are no accounts added. Go to settings, Files tab and add an account"
+msgstr "לא נוספו חשבונות. עבור להגדרות, לכרטיסייה 'קבצים' והוסף חשבון"
+
+msgid "Filesize"
+msgstr "גודל קובץ"
+
+msgid "Last modified"
+msgstr "שונה לאחרונה"
+
+msgid "Is shared"
+msgstr "משותף"
+
+msgid "File preview"
+msgstr "תצוגה מקדימה של הקובץ"
+
+msgid "File content"
+msgstr "תוכן הקובץ"
+
+msgid "Your browser does not support previewing of audio files!"
+msgstr "הדפדפן שלך אינו תומך בתצוגה מקדימה של קבצי אודיו!"
+
+msgid "Your browser does not support previewing of video files!"
+msgstr "הדפדפן שלך אינו תומך בתצוגה מקדימה של קבצי וידאו!"
+
+msgid "d.m.Y G:i"
+msgstr "d.m.Y G:i"
+
+msgid "Folder"
+msgstr "תיקיה"
+
+msgid "File ({0})"
+msgstr "קובץ ({0})"
+
+msgid "Sort by: Path"
+msgstr "מיין לפי: נתיב"
+
+msgid "Sort by: Last modified"
+msgstr "מיין לפי: שונה לאחרונה"
+
+msgid "Sort by: Shared"
+msgstr "מיין לפי: משותף"
+
+msgid "There are no items to show in this view"
+msgstr "אין פריטים להצגה בתצוגה זו"
+
+msgid "files selected"
+msgstr "קבצים שנבחרו"
+
+msgid "Authentication required, when using grommunio-files for the first time"
+msgstr "נדרש אימות בעת שימוש בקבצי grommunio בפעם הראשונה"
+
+msgid "Intranet"
+msgstr "אינטראנט"
+
+msgid "Archive to InfoShare"
+msgstr "העבר לארכיון ל-InfoShare"
+
+msgid "Kendox InfoShare"
+msgstr "Kendox InfoShare"
+
+msgid "Constraints for single attachment archiving"
+msgstr "אילוצים לארכיון של קובץ מצורף בודד"
+
+msgid "Max count attachments"
+msgstr "מספר מקסימלי של קבצים מצורפים"
+
+msgid "Max size all selected attachments (MB)"
+msgstr "גודל מקסימלי של כל הקבצים המצורפים שנבחרו (MB)"
+
+msgid "Selection Kendox InfoShare environment"
+msgstr "בחירה סביבת Kendox InfoShare"
+
+msgid "Production"
+msgstr "הֲפָקָה"
+
+msgid "Test"
+msgstr "מִבְחָן"
+
+msgid "URLs for production environment"
+msgstr "כתובות URL עבור סביבת ייצור"
+
+msgid "Kendox InfoShare API URL"
+msgstr "כתובת ה-API של Kendox InfoShare"
+
+msgid "Kendox InfoShare Web dialog URL"
+msgstr "כתובת URL של דו-שיח אינטרנט של Kendox InfoShare"
+
+msgid "URLs for test environment"
+msgstr "כתובות URL עבור סביבת בדיקה"
+
+msgid "Mail/Document archive to Kendox InfoShare"
+msgstr "ארכיון דואר/מסמכים ל-Kendox InfoShare"
+
+msgid "Attachment information is requested"
+msgstr "מידע מצורף מתבקש"
+
+msgid "Please select the type of Archive (max"
+msgstr "אנא בחר את סוג הארכיון (מקסימום"
+
+msgid "files, max"
+msgstr "קבצים, מקסימום"
+
+msgid "MB total size)"
+msgstr "גודל כולל של MB)"
+
+msgid "Everything - Store mail in original format"
+msgstr "הכל - אחסן דואר בפורמט מקורי"
+
+msgid "Email only - Store mail without attachments"
+msgstr "דואר אלקטרוני בלבד - שמור דואר ללא קבצים מצורפים"
+
+msgid "Separate - Store attachments separately"
+msgstr "נפרד - אחסן קבצים מצורפים בנפרד"
+
+msgid "No attachments available in mail"
+msgstr "אין קבצים מצורפים זמינים בדואר"
+
+msgid "Start archive"
+msgstr "התחל לארכיון"
+
+msgid "embedded"
+msgstr "מוטמע"
+
+msgid "Reading attachment information failed"
+msgstr "קריאת המידע המצורף נכשלה"
+
+msgid "Files are sent to Kendox InfoShare"
+msgstr "קבצים נשלחים אל Kendox InfoShare"
+
+msgid "With the selection of separate attachments a maximum of"
+msgstr "עם מבחר של קבצים מצורפים נפרדים מקסימום"
+
+msgid "attachments can be selected. There have been"
+msgstr "ניתן לבחור קבצים מצורפים. היו"
+
+msgid "attachments selected"
+msgstr "נבחרו קבצים מצורפים"
+
+msgid "With the selection of separate attachments the total size of all attachments may not exceed"
+msgstr "כאשר בוחרים קבצים מצורפים נפרדים, הגודל הכולל של כל הקבצים המצורפים לא יעלה על"
+
+msgid "MB. There have been"
+msgstr "MB. היו"
+
+msgid "MB selected."
+msgstr "MB נבחר."
+
+msgid "Sending of mail failed"
+msgstr "שליחת הדואר נכשלה"
+
+msgid "Openstreetmap"
+msgstr "Openstreetmap"
+
+#. TRANSLATORS: The map of earth
+msgid "Map"
+msgstr "מַפָּה"
+
+msgid "Mobile Device Manager"
+msgstr "מנהל התקנים ניידים"
+
+msgid "Wiping device"
+msgstr "מוחק מכשיר"
+
+msgid "Password incorrect"
+msgstr "סיסמא שגויה"
+
+msgid "Full resync in progress"
+msgstr "מתבצע סנכרון מלא מחדש"
+
+msgid "Username or password incorrect"
+msgstr "שם משתמש או סיסמה שגויים"
+
+msgid "Not Applicable"
+msgstr "לא ישים"
+
+msgid "Wipe Pending"
+msgstr "ניגוב בהמתנה"
+
+msgid "Wipe Requested"
+msgstr "מחק מבוקש"
+
+msgid "Wipe Executed"
+msgstr "מחק בוצע"
+
+msgid "Account Only Wipe Pending"
+msgstr "מחיקת חשבון בלבד בהמתנה"
+
+msgid "Account Only Wipe Requested"
+msgstr "בקשת מחיקת חשבון בלבד"
+
+msgid "Account Only Wipe Executed"
+msgstr "בוצע מחיקת חשבון בלבד"
+
+msgid "Not Available"
+msgstr "לא זמין"
+
+msgid "Device"
+msgstr "הֶתקֵן"
+
+msgid "Operating System"
+msgstr "מַעֲרֶכֶת הַפעָלָה"
+
+msgid "User Agent"
+msgstr "סוכן משתמש"
+
+msgid "MDM Plugin"
+msgstr "תוסף MDM"
+
+msgid "Active Sync Version"
+msgstr "גרסת סינכרון פעיל"
+
+msgid "grommunio-sync Version"
+msgstr "גרסת grommunio-sync"
+
+msgid "Policy name"
+msgstr "שם מדיניות"
+
+msgid "Connected since"
+msgstr "מחובר מאז"
+
+msgid "d F Y"
+msgstr "ד F Y"
+
+msgid "Last updated"
+msgstr "עודכן לאחרונה"
+
+msgid "d F Y, H:i"
+msgstr "ד F Y, H:i"
+
+msgid "Last connect"
+msgstr "התחברות אחרונה"
+
+msgid "Impersonated by"
+msgstr "התחזות על ידי"
+
+msgid "Synchronize"
+msgstr "לְסַנכְרֵן"
+
+msgid "Shared Folders"
+msgstr "תיקיות משותפות"
+
+msgid "Manage Shared Folders"
+msgstr "נהל תיקיות משותפות"
+
+msgid "Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first."
+msgstr "בחר תיקיות מהרשימה שלמטה לסנכרון עם המכשיר שלך. כדי להוסיף תיבות דואר נוספות לרשימה, פתח אותן תחילה ב-grommunio Web."
+
+msgid "grommunio-sync"
+msgstr "grommunio-sync"
+
+msgid "Mobile device management"
+msgstr "ניהול מכשירים ניידים"
+
+msgid "Mobile Devices"
+msgstr "מכשירים ניידים"
+
+msgid "Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
+msgstr "לא ניתן להתחבר לשרת grommunio-sync. לחץ על {0} כדי להזין את פרטי ההזדהות שלך"
+
+msgid "Devices"
+msgstr "מכשירים"
+
+msgid "No devices connected to your account"
+msgstr "אין מכשירים מחוברים לחשבון שלך"
+
+msgid "Provisioning Status"
+msgstr "סטטוס אספקה"
+
+msgid "Last Connect"
+msgstr "התחברות אחרונה"
+
+msgid "Device ID"
+msgstr "מזהה מכשיר"
+
+msgid "Device OS"
+msgstr "מערכת הפעלה של המכשיר"
+
+msgid "Device Info"
+msgstr "מידע על המכשיר"
+
+msgid "First Sync time"
+msgstr "זמן סנכרון ראשון"
+
+msgid "Wipe Device"
+msgstr "מחק מכשיר"
+
+msgid "Full resync"
+msgstr "סנכרון מלא"
+
+msgid "Remove device"
+msgstr "הסר את המכשיר"
+
+msgid "Please enter your username and password"
+msgstr "אנא הכנס את שם המשתמש והסיסמה שלך"
+
+msgid "Type {0} to confirm"
+msgstr "הקלד{0}כדי לאשר"
+
+msgid "Please type {0} to confirm"
+msgstr "אנא הקלד{0}כדי לאשר"
+
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "מכשיר בהתחזות: זמינה מחיקה מרחוק ברמת החשבון בלבד."
+
+msgid "Wipe only data related to this account"
+msgstr "מחק רק נתונים הקשורים לחשבון זה"
+
+msgid "Wipe all data"
+msgstr "מחק את כל הנתונים"
+
+msgid "Username"
+msgstr "שם משתמש"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"האם אתה באמת רוצה למחוק את המכשיר שלך?\n"
+"עבור מכשירים בהתחזות זמינה מחיקה מרחוק ברמת החשבון בלבד.\n"
+"הזן את הסיסמה שלך לאישור."
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+"האם אתה באמת רוצה למחוק את המכשיר שלך?\n"
+" הקלד WIPE כדי לאשר."
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+"האם אתה באמת רוצה למחוק את המכשיר שלך?\n"
+"הזן את הסיסמה שלך כדי לאשר."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
+"האם אתה באמת רוצה להסיר את המכשיר שלך?\n"
+"הקלד REMOVE כדי לאשר."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Enter your password to confirm."
+msgstr ""
+"האם אתה באמת רוצה להסיר את המכשיר שלך?\n"
+"הזן את הסיסמה שלך כדי לאשר."
+
+msgid "Add meeting"
+msgstr "הוסף פגישה"
+
+msgid "Room name:"
+msgstr "שם החדר:"
+
+msgid "Room name"
+msgstr "שם החדר"
+
+msgid "Room URL:"
+msgstr "כתובת האתר של החדר:"
+
+msgid "Room URL"
+msgstr "כתובת URL של החדר"
+
+msgid "Meet"
+msgstr "Meet"
+
+msgid "Shift-click for advanced settings"
+msgstr "לחץ על Shift להגדרות מתקדמות"
+
+msgid "Join webmeeting"
+msgstr "הצטרף לפגישת אינטרנט"
+
+msgid "Open meeting in:"
+msgstr "פתח פגישה ב:"
+
+msgid "Open meeting in"
+msgstr "פתח פגישה ב-"
+
+msgid "Web tab"
+msgstr "לשונית אינטרנט"
+
+msgid "Popup"
+msgstr "קופץ"
+
+msgid "Hide the button in the main toolbar"
+msgstr "הסתר את הכפתור בסרגל הכלים הראשי"
+
+msgid "Add the subject to the room name"
+msgstr "הוסף את הנושא לשם החדר"
+
+msgid "Add the organizer name to the room name"
+msgstr "הוסף את שם המארגן לשם החדר"
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr "הוסף את כתובת האתר למיקום הפגישה במקום לדרוס אותה"
+
+msgid "Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)"
+msgstr "למנוע החלפה אוטומטית של כתובת ה-URL במיקום הפגישה (לדוגמה: בעת הוספת חדר ישיבות)"
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr "אם יש לך בעיות בעת יצירת פגישות, נסה להשבית את ההגדרה הזו"
+
+msgid "Add an invitation to the appointment description"
+msgstr "הוסף הזמנה לתיאור הפגישה"
+
+msgid "Invitation text (plain text)"
+msgstr "טקסט הזמנה (טקסט רגיל)"
+
+msgid "used when composing in plain text, must contain %url%, empty to reset to default"
+msgstr "משמשת בעת כתיבת הודעה בטקסט רגיל, חייבת להכיל %url%, ריקה כדי לאפס לברירת המחדל"
+
+msgid "Invitation text"
+msgstr "טקסט ההזמנה"
+
+msgid "Invitation template (HTML)"
+msgstr "תבנית הזמנה (HTML)"
+
+msgid "used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr "משמשת בעת כתיבת הודעה ב-HTML, חייבת להכיל %url%, ריקה כדי לאפס לברירת המחדל"
+
+msgid "Invitation template"
+msgstr "תבנית הזמנה"
+
+msgid "An unknown error occurred while changing password."
+msgstr "אירעה שגיאה לא ידועה בעת שינוי הסיסמה."
+
+msgid "Password is changed successfully."
+msgstr "הסיסמה השתנתה בהצלחה."
+
+msgid "Success"
+msgstr "הַצלָחָה"
+
+msgid "Change Password"
+msgstr "שנה סיסמה"
+
+msgid "Current password"
+msgstr "סיסמה נוכחית"
+
+msgid "New password"
+msgstr "סיסמה חדשה"
+
+msgid "Retype new password"
+msgstr "הקלד שוב סיסמה חדשה"
+
+msgid "New passwords do not match."
+msgstr "סיסמאות חדשות אינן תואמות."
+
+msgid "Current password is empty."
+msgstr "הסיסמה הנוכחית ריקה."
+
+msgid "New password is empty."
+msgstr "הסיסמה החדשה ריקה."
+
+msgid "One or more fields does contain errors."
+msgstr "שדה אחד או יותר מכילים שגיאות."
+
+msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
+msgstr "הסיסמה חלשה. הסיסמה צריכה להכיל אותיות גדולות, אותיות קטנות ומספרים. אורך הסיסמה צריך להיות בין 8 ל-20 תווים."
+
+msgid "Change passphrase"
+msgstr "שנה ביטוי סיסמה"
+
+msgid "Old passphrase"
+msgstr "ביטוי סיסמה ישן"
+
+msgid "Wrong passphrase. Please try again"
+msgstr "ביטוי סיסמה שגוי. אנא נסה שוב"
+
+msgid "New passphrase"
+msgstr "ביטוי סיסמה חדש"
+
+msgid "Confirm new passphrase"
+msgstr "אשר ביטוי סיסמה חדש"
+
+msgid "The passphrases don't match. Please try again"
+msgstr "ביטויי הסיסמה אינם תואמים. אנא נסה שוב"
+
+msgid "S/MIME Message"
+msgstr "הודעת S/MIME"
+
+msgid "Passphrase changed successfully"
+msgstr "ביטוי הסיסמה השתנה בהצלחה"
+
+msgid "S/MIME Passphrase"
+msgstr "ביטוי סיסמה S/MIME"
+
+msgid "Submit"
+msgstr "לְהַגִישׁ"
+
+msgid "Certificate passphrase"
+msgstr "ביטוי סיסמה לתעודה"
+
+msgid "The passphrase you typed is incorrect. Please try again."
+msgstr "משפט הסיסמה שהקלדת שגוי. אנא נסה שוב."
+
+msgid "No certificates imported, please upload your private certificate"
+msgstr "לא יובאו אישורים, אנא העלה את האישור הפרטי שלך"
+
+msgid "Valid from"
+msgstr "תקף החל מ"
+
+msgid "Expires"
+msgstr "פג תוקף"
+
+msgid "Key Type"
+msgstr "סוג מפתח"
+
+msgid "Purpose"
+msgstr "מַטָרָה"
+
+msgid "Sign"
+msgstr "סִימָן"
+
+msgid "Encrypt"
+msgstr "הצפין"
+
+msgid "Sign & Encrypt"
+msgstr "חתום והצפן"
+
+msgid "Loading certificates"
+msgstr "טוען תעודות"
+
+msgid "S/MIME Plugin"
+msgstr "תוסף S/MIME"
+
+msgid "Please select a certificate."
+msgstr "אנא בחר תעודה."
+
+msgid "Do you really want to remove your private certificate? If you remove your certificate you will not be able to sign or decrypt S/MIME emails."
+msgstr "האם אתה באמת רוצה להסיר את האישור הפרטי שלך? אם תסיר את האישור, לא תוכל לחתום או לפענח הודעות דוא\"ל ב-S/MIME."
+
+msgid "Signing"
+msgstr "הַחתָמָה"
+
+msgid "Encryption"
+msgstr "הצפנה"
+
+msgid "Signing & Encryption"
+msgstr "חתימה והצפנה"
+
+msgid "Serial"
+msgstr "סִדרָתִי"
+
+msgid "Issued by"
+msgstr "הונפק על ידי"
+
+msgid "Issued to"
+msgstr "הונפק ל"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 טביעת אצבע"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 טביעת אצבע"
+
+msgid "Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger certificate."
+msgstr "אזהרה: גודל מפתח ה-RSA נמוך מ-2048 סיביות. שקול לשדרג לתעודה חזקה יותר."
+
+msgid "Certificate details"
+msgstr "פרטי תעודה"
+
+msgid "Filter on Email"
+msgstr "סינון על אימייל"
+
+msgid "Public & Private certificates"
+msgstr "תעודות ציבוריות ופרטיות"
+
+msgid "S/MIME"
+msgstr "S/MIME"
+
+msgid "You don't have a valid certificate corresponding to your account"
+msgstr "אין לך אישור תקף המתאים לחשבון שלך"
+
+msgid "Personal certificate"
+msgstr "תעודה אישית"
+
+msgid "Change passphrase for last certificate"
+msgstr "שנה את ביטוי הסיסמה עבור האישור האחרון"
+
+msgid "Default encryption algorithm"
+msgstr "אלגוריתם הצפנה ברירת מחדל"
+
+msgid "Recommended"
+msgstr "מוּמלָץ"
+
+msgid "Legacy"
+msgstr "מוֹרֶשֶׁת"
+
+msgid "Default signing digest"
+msgstr "תקציר חתימה כברירת מחדל"
+
+msgid "You have a valid certificate corresponding to your account"
+msgstr "יש לך אישור תקף המתאים לחשבון שלך"
+
+msgid "Upload your certificate"
+msgstr "העלה את התעודה שלך"
+
+msgid "Below you can upload your private certificate in PKCS#12 format. grommunio Web only accepts certificates which are valid and only stores one private certificate on the server."
+msgstr "להלן תוכל להעלות את האישור הפרטי שלך בפורמט PKCS#12. grommunio Web מקבל רק אישורים תקפים ומאחסן רק אישור פרטי אחד בשרת."
+
+msgid "Private certificate"
+msgstr "תעודה פרטית"
+
+msgid "You must fill in the certificate passphrase to upload your certificate."
+msgstr "עליך למלא את משפט הסיסמה של האישור כדי להעלות את האישור שלך."
+
+msgid "You must first select a valid private certificate in PKCS#12 format."
+msgstr "תחילה עליך לבחור אישור פרטי חוקי בפורמט PKCS#12."
+
+msgid "bits"
+msgstr "ביטים"
+
+msgid "signing"
+msgstr "הַחתָמָה"
+
+msgid "encryption"
+msgstr "הצפנה"
+
+msgid "signing & encryption"
+msgstr "חתימה והצפנה"
+
+msgid "Sign message"
+msgstr "חתום על הודעה"
+
+msgid "Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature."
+msgstr "ודא את האותנטיות של ההודעה על ידי הוספת חתימה דיגיטלית להודעה זו. כל שינוי בהודעה יבטל את תוקף החתימה."
+
+msgid "Encrypt message"
+msgstr "הצפין הודעה"
+
+msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
+msgstr "הבטח את פרטיות ההודעה על ידי הצפנת תוכנה. רק הנמען של ההודעה יוכל לפתוח אותה."
+
+msgid "Algorithms used"
+msgstr "השתמשו באלגוריתמים"
+
+msgid "What's going on with my email?"
+msgstr "מה קורה למייל שלי?"
+
+msgid "CBC mode"
+msgstr "מצב CBC"
+
+msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
+msgstr "grommunio Web יכול לאמת חתימות דיגיטליות של הודעות דוא\"ל. אימות מוצלח מבטיח לך שההודעה לא זויפה ומאמת את זהות השולח."
+
+msgid "You are seeing this message because the verification of the digital signature"
+msgstr "הודעה זו מוצגת מכיוון שאימות החתימה הדיגיטלית"
+
+msgid " has failed"
+msgstr "נכשל"
+
+msgid " for this message."
+msgstr "להודעה זו."
+
+msgid "What caused this issue?"
+msgstr "מה גרם לבעיה זו?"
+
+msgid "What should I do?"
+msgstr "מה עלי לעשות?"
+
+msgid "You can continue to work. However, you should keep in mind that the identity and the authenticity of the message content could not be verified."
+msgstr "אתה יכול להמשיך לעבוד. עם זאת, עליך לזכור שלא ניתן לאמת את זהות השולח ואת האותנטיות של תוכן ההודעה."
+
+msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
+msgstr "אם אינך בטוח מה עליך לעשות כעת, תוכל לפנות לשירות התמיכה או למנהל המערכת."
+
+msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
+msgstr "grommunio Web יכול לאמת חתימות דיגיטליות של הודעות דוא\"ל. אימות מוצלח מעניק לך ביטחון "
+
+msgid "that the message has not been tampered with and validates the identity of the sender."
+msgstr "המעיד כי ההודעה לא זויפה ומאמת את זהות השולח."
+
+msgid "The verification of the digital signature was successful for this email message."
+msgstr "אימות החתימה הדיגיטלית של הודעת דוא\"ל זו הצליח."
+
+msgid "grommunio Web could not find a public certificate for the recipient."
+msgstr "grommunio Web לא הצליח למצוא אישור ציבורי עבור הנמען."
+
+msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr "זהות השולח ואמינות תוכן ההודעה אומתו, אך תוקף האישור ששימש לחתימת ההודעה פג ב-[יום-חודש-שנה]."
+
+msgid "The digital signature could not be verified for unknown reasons."
+msgstr "לא ניתן לאמת את החתימה הדיגיטלית מסיבות לא ידועות."
+
+msgid "The digital certificate used to sign this message has been revoked (i.e. the sender has marked it as compromised)"
+msgstr "האישור הדיגיטלי ששימש לחתימת הודעה זו בוטל (כלומר, השולח סימן אותו כפגום)"
+
+msgid "The verification service of the certificate authority that signed the sender's certificate is not available. The validity of the certificate could not be verified."
+msgstr "שירות האימות של רשות האישורים שחתמה על תעודת השולח אינו זמין. לא ניתן היה לאמת את תוקף התעודה."
+
+msgid "The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified."
+msgstr "סטטוס הביטול של האישור הדיגיטלי ששימש לחתימת דוא\"ל זה אינו ידוע (השרת אינו זמין או שהאישור אינו תומך ב-OCSP). לא ניתן היה לאמת את תוקף האישור."
+
+msgid "The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified."
+msgstr "סטטוס הביטול של האישור הדיגיטלי ששימש לחתימה על דוא\"ל זה הוא מושבת (OCSP). לא ניתן היה לאמת את תוקף האישור."
+
+msgid "The certificate verification server (OCSP) is temporarily offline."
+msgstr "שרת אימות האישורים (OCSP) אינו מקוון באופן זמני."
+
+msgid "Sender is removed from the server."
+msgstr "השולח מוסר מהשרת."
+
+msgid "The digital certificate used to sign this message has been revoked according to the Certificate Revocation List (CRL)."
+msgstr "האישור הדיגיטלי ששימש לחתימת הודעה זו בוטל בהתאם לרשימת ביטול האישורים (CRL)."
+
+msgid "The revocation status of the certificate could not be verified because the CRL Distribution Point is unavailable."
+msgstr "לא ניתן לאמת את מצב הביטול של האישור מכיוון שנקודת הפצת ה-CRL אינה זמינה."
+
+msgid "The RSA key size used in this certificate is below the recommended minimum of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr "גודל מפתח ה-RSA המשמש בתעודה זו נמוך מהמינימום המומלץ של 2048 סיביות. שקול לשדרג לתעודה חזקה יותר."
+
+msgid "The certificate's Key Usage extension does not permit this operation. The certificate may be intended for signing only or encryption only."
+msgstr "הרחבת 'שימוש במפתח' של האישור אינה מאפשרת פעולה זו. ייתכן שהאישור מיועד לחתימה בלבד או להצפנה בלבד."
+
+msgid "This message was encrypted using CBC mode (not authenticated encryption). While it was decrypted successfully, AES-GCM (authenticated encryption) provides stronger protection against modification attacks. Consider asking the sender to upgrade their S/MIME configuration."
+msgstr "הודעה זו הוצפנה במצב CBC (הצפנה ללא אימות). אף שהצפנה זו פוענחה בהצלחה, AES-GCM (הצפנה מאומתת) מספקת הגנה חזקה יותר מפני התקפות שינוי. שקול לבקש מהשולח לשדרג את תצורת ה-S/MIME שלו."
+
+msgid "The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering."
+msgstr "זמן החתימה בחתימה הדיגיטלית שונה באופן משמעותי מהזמן הצפוי. הדבר עשוי להצביע על בעיה בסנכרון השעון או על חבלה בהודעה."
+
+msgid "Signature verified successfully"
+msgstr "החתימה אומתה בהצלחה"
+
+msgid "Could not verify signature, missing public certificate"
+msgstr "לא ניתן היה לאמת חתימה, חסר אישור ציבורי"
+
+msgid "Signature verification successful, but certificate is expired"
+msgstr "אימות החתימה הצליח, אך פג תוקף האישור"
+
+msgid "Signature could not be verified"
+msgstr "לא ניתן לאמת את החתימה"
+
+msgid "Certificate has been revoked"
+msgstr "האישור בוטל"
+
+msgid "Verification with Certificate Authority failed"
+msgstr "האימות עם רשות האישורים נכשל"
+
+msgid "Message decrypted successfully"
+msgstr "ההודעה פוענחה בהצלחה"
+
+msgid "Message decryption failed"
+msgstr "פענוח ההודעה נכשל"
+
+msgid "Please"
+msgstr "אָנָא"
+
+msgid "click here"
+msgstr "לחץ כאן"
+
+msgid "to unlock your certificate"
+msgstr "כדי לפתוח את האישור שלך"
+
+msgid "Cannot determine revocation status of certificate"
+msgstr "לא ניתן לקבוע את סטטוס ביטול האישור"
+
+msgid "Signature verified"
+msgstr "חתימה מאומתת"
+
+msgid "Unable to decrypt this message. Certificate does not match"
+msgstr "לא ניתן לפענח את ההודעה הזו. התעודה לא תואמת"
+
+msgid "Verification failed. User is removed from the server."
+msgstr "האימות נכשל. המשתמש מוסר מהשרת."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "האישור בוטל (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "לא ניתן לבדוק סטטוס ביטול (CRL לא זמין)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "גודל מפתח RSA מתחת למינימום המומלץ"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "אישור לא תקף עבור פעולה זו (חוסר התאמה של שימוש במפתח)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "מפוענח (מצב CBC - שקול AES-GCM להגנה חזקה יותר)"
+
+msgid "Signing time differs from expected time"
+msgstr "זמן החתימה שונה מהזמן הצפוי"
+
+msgid "Digest"
+msgstr "לְעַכֵּל"
+
+msgid "Signature"
+msgstr "חֲתִימָה"
+
+msgid "Cipher"
+msgstr "צוֹפֶן"
+
+msgid "Key transport"
+msgstr "הובלת מפתחות"
+
+msgid "Template Snippets"
+msgstr "קטעי תבנית"
+
+msgid "System Templates"
+msgstr "תבניות מערכת"
+
+msgid "read-only"
+msgstr "לקריאה בלבד"
+
+msgid "No system templates available"
+msgstr "אין תבניות מערכת זמינות"
+
+msgid "User Templates"
+msgstr "תבניות משתמש"
+
+msgid "No user templates defined"
+msgstr "לא הוגדרו תבניות משתמש"
+
+msgid "Template name"
+msgstr "שם התבנית"
+
+msgid "Save Template"
+msgstr "שמור תבנית"
+
+msgid "HTML Content"
+msgstr "תוכן HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "המר HTML לטקסט רגיל"
+
+msgid "Convert Plain Text to HTML"
+msgstr "המר טקסט רגיל ל-HTML"
+
+msgid "Plain Text Content"
+msgstr "תוכן בטקסט רגיל"
+
+msgid "New template"
+msgstr "תבנית חדשה"
+
+msgid "New system template"
+msgstr "תבנית מערכת חדשה"
+
+msgid "Delete system template"
+msgstr "מחק תבנית מערכת"
+
+msgid "Are you sure you want to delete the system template \"{0}\"? This affects all users."
+msgstr "האם אתה בטוח שברצונך למחוק את תבנית המערכת \"{0}\"? פעולה זו תשפיע על כל המשתמשים."
+
+msgid "Insert Template"
+msgstr "הוסף תבנית"
+
+msgid "Insert a text template at the cursor position"
+msgstr "הוסף תבנית טקסט במיקום הסמן"
+
+msgid "No templates available"
+msgstr "אין תבניות זמינות"
+
+msgid "Charm pink"
+msgstr "קסם ורוד"
+
+msgid "Cadmium red"
+msgstr "אדום קדמיום"
+
+msgid "Apricot"
+msgstr "מִשׁמֵשׁ"
+
+msgid "California"
+msgstr "קליפורניה"
+
+msgid "Soft green"
+msgstr "ירוק רך"
+
+msgid "Mint"
+msgstr "מֶנטָה"
+
+msgid "Pearl aqua"
+msgstr "פנינה אקווה"
+
+msgid "Grommunio blue"
+msgstr "גרומוניו כחול"
+
+msgid "Baby blue"
+msgstr "כחול בייבי"
+
+msgid "Mauve"
+msgstr "סְגַלגַל"
+
+msgid "Silver sand"
+msgstr "חול כסף"
+
+msgid "Competition"
+msgstr "תחרות"
+
+msgid "Gifts"
+msgstr "מתנות"
+
+msgid "Goals/Objectives"
+msgstr "מטרות/יעדים"
+
+msgid "Holiday Cards"
+msgstr "כרטיסי ברכה לחג"
+
+msgid "Hot Contacts"
+msgstr "אנשי קשר \"חמים\""
+
+msgid "Ideas"
+msgstr "רעיונות"
+
+msgid "International"
+msgstr "בינלאומי"
+
+msgid "Key Customer"
+msgstr "לקוח מפתח"
+
+msgid "Miscellaneous"
+msgstr "שונות"
+
+msgid "Phone Calls"
+msgstr "שיחות טלפון"
+
+msgid "Strategies"
+msgstr "אסטרטגיות"
+
+msgid "Suppliers"
+msgstr "ספקים"
+
+msgid "Time & Expenses"
+msgstr "זמן & הוצאות"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "ממתין"
+
+msgid "You have been automatically logged out"
+msgstr "בוצעה עבורך התנתקות אוטומטית"
+
+msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
+msgstr "אנו מתנצלים, הגישה ל-grommunio Web אינה זמינה עם חשבון משתמש זה. אנא פנה למנהל המערכת שלך."
+
+msgid "The AI request failed unexpectedly."
+msgstr "בקשת ה-AI נכשלה באופן בלתי צפוי."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "תכונת AI זו הושבתה על ידי המנהל שלך."
+
+msgid "No message was selected for the AI request."
+msgstr "לא נבחרה הודעה עבור בקשת ה-AI."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "עוזר ה-AI עדיין אינו מופעל. הגדר את PLUGIN_AI_ENABLE לערך true בקובץ config.php של התוסף."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "לא הוגדרו מודל AI או נקודת קצה בקובץ config.php של התוסף."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "לא הוגדר מפתח API עבור הספק \"%s\". הוסף את המפתח שלך אל PLUGIN_AI_API_KEY בקובץ config.php של התוסף."
+
+msgid "The selected message could not be opened."
+msgstr "לא ניתן היה לפתוח את ההודעה שנבחרה."
+
+msgid "connection error"
+msgstr "שגיאת חיבור"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "לא ניתן היה להגיע אל שירות ה-AI (%s). בדוק את הגדרות נקודת הקצה."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "שירות ה-AI דחה את פרטי ההזדהות. בדוק את מפתח ה-API ואת נקודת הקצה."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "מודל ה-AI או נקודת הקצה לא נמצאו. בדוק את שם המודל ואת כתובת ה-URL הבסיסית."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "שירות ה-AI מוגבל בקצב או שחרגת מהמכסה. נסה שוב מאוחר יותר."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "שירות ה-AI דיווח על שגיאה פנימית. נסה שוב מאוחר יותר."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "שירות ה-AI החזיר שגיאה (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "אין טקסט לעבוד איתו."
+
+msgid "Unknown AI feature."
+msgstr "תכונת AI לא ידועה."
+
+msgid "The message appears to be empty."
+msgstr "נראה שההודעה ריקה."
+
+msgid "This backend provides the default WebDAV integration for Files."
+msgstr "קצה עורפי זה מספק את שילוב ברירת המחדל של WebDAV עבור קבצים."
+
+msgid "Files Default Backend: "
+msgstr "Backend ברירת מחדל לקבצים:"
+
+msgid "Server address"
+msgstr "כתובת השרת"
+
+msgid "Server port"
+msgstr "יציאת שרת"
+
+msgid "Use TLS"
+msgstr "השתמש ב-TLS"
+
+msgid "Webdav base path"
+msgstr "נתיב בסיס Webdav"
+
+msgid "Use grommunio credentials"
+msgstr "השתמש באישורי grommunio"
+
+msgid "php-curl is not available"
+msgstr "php-curl אינו זמין"
+
+msgid "Access denied"
+msgstr "הגִישָׁה נִדחֲתָה"
+
+msgid "Connection failed"
+msgstr "החיבור נכשל"
+
+msgid "Sabre error"
+msgstr "שגיאת סבר"
+
+msgid "Copying failed"
+msgstr "ההעתקה נכשלה"
+
+msgid "Unknown error"
+msgstr "שגיאה לא ידועה"
+
+msgid "Please contact your system administrator."
+msgstr "אנא פנה למנהל המערכת שלך."
+
+msgid "Unauthorized. Wrong username or password."
+msgstr "לא מורשה. שם משתמש או סיסמה שגויים."
+
+msgid "File server is not reachable. Please verify the file server URL."
+msgstr "לא ניתן להגיע לשרת הקבצים. אנא אמת את כתובת האתר של שרת הקבצים."
+
+msgid "You don't have enough permissions to view this file or folder."
+msgstr "אין לך מספיק הרשאות כדי להציג את הקובץ או התיקיה הזו."
+
+msgid "The file or folder is not available anymore."
+msgstr "הקובץ או התיקיה אינם זמינים יותר."
+
+msgid "Connection to the file server timed out. Please check again later."
+msgstr "תם הזמן הקצוב לחיבור לשרת הקבצים. אנא בדוק שוב מאוחר יותר."
+
+msgid "This file is locked by another user. Please try again later."
+msgstr "קובץ זה ננעל על ידי משתמש אחר. אנא נסה שוב מאוחר יותר."
+
+msgid "The request failed."
+msgstr "הבקשה נכשלה."
+
+msgid "The file server encountered an internal problem."
+msgstr "שרת הקבצים נתקל בבעיה פנימית."
+
+msgid "We could not write to temporary directory."
+msgstr "לא יכולנו לכתוב לספרייה זמנית."
+
+msgid "We could not retrieve list of server features."
+msgstr "לא הצלחנו לאחזר את רשימת תכונות השרת."
+
+msgid "PHP-Curl is not available."
+msgstr "PHP-Curl אינו זמין."
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr "עם הקצה האחורי הזה, אתה יכול להתחבר לכל שרת Seafile."
+
+msgid "Files "
+msgstr "קבצים"
+
+msgid "Use SSL"
+msgstr "השתמש ב-SSL"
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr "Seafile אינו נגיש. הוזנה כתובת עורפית נכונה?"
+
+msgid "You don't have enough permissions for this operation."
+msgstr "אין לך מספיק הרשאות עבור הפעולה הזו."
+
+msgid "File is not available any more."
+msgstr "הקובץ אינו זמין יותר."
+
+msgid "Connection to server timed out. Retry later."
+msgstr "תם הזמן הקצוב לחיבור לשרת. נסה שוב מאוחר יותר."
+
+msgid "This file is locked by another user."
+msgstr "קובץ זה ננעל על ידי משתמש אחר."
+
+msgid "The request failed due to failure of a previous request."
+msgstr "הבקשה נכשלה עקב כישלון בקשה קודמת."
+
+msgid "Seafile-server encountered a problem."
+msgstr "שרת Seafile נתקל בבעיה."
+
+msgid "Could not write to temporary directory. Contact the server administrator."
+msgstr "לא ניתן לכתוב לספרייה הזמנית. פנה למנהל השרת."
+
+msgid "Could not retrieve list of server features. Contact the server administrator."
+msgstr "לא ניתן לאחזר את רשימת תכונות השרת. פנה למנהל השרת."
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr "PHP-Curl אינו זמין. פנה למנהל המערכת שלך."
+
+msgid "This function is not yet implemented."
+msgstr "פונקציה זו עדיין לא מיושמת."
+
+msgid "Unknown account ID"
+msgstr "מזהה חשבון לא ידוע"
+
+msgid "Feature \"Quota Information\" is not supported by this backend!"
+msgstr "התכונה \"מידע על מכסה\" אינה נתמכת על ידי קצה זה!"
+
+msgid "Feature \"Version Information\" is not supported by this backend!"
+msgstr "התכונה \"מידע גרסה\" אינה נתמכת על ידי קצה זה!"
+
+msgid "Feature \"OAUTH\" is not supported by this backend!"
+msgstr "התכונה \"OAUTH\" אינה נתמכת על ידי הקצה העורפי הזה!"
+
+msgid "Moving between accounts is not implemented"
+msgstr "מעבר בין חשבונות אינו מיושם"
+
+msgid "Files plugin"
+msgstr "תוסף קבצים"
+
+msgid "Unknown type - cannot save this file to the Files backend!"
+msgstr "סוג לא ידוע - לא ניתן לשמור את הקובץ הזה בקצה העורפי של הקבצים!"
+
+msgid "No record given!"
+msgstr "לא ניתן רישום!"
+
+msgid "Fetching sharing information failed"
+msgstr "אחזור מידע השיתוף נכשל"
+
+msgid "Sharing failed"
+msgstr "השיתוף נכשל"
+
+msgid "Updating share failed"
+msgstr "עדכון השיתוף נכשל"
+
+msgid "Deleting share failed"
+msgstr "מחיקת השיתוף נכשלה"
+
+msgid "With this backend, you can connect to any WebDAV server."
+msgstr "עם הקצה האחורי הזה, אתה יכול להתחבר לכל שרת WebDAV."
+
+msgid "Files WebDAV Backend: "
+msgstr "קבצים WebDAV Backend:"
+
+msgid "PHP-CURL is not installed"
+msgstr "PHP-CURL אינו מותקן"
+
+msgid "Directory creation failed"
+msgstr "יצירת הספרייה נכשלה"
+
+msgid "Deletion failed"
+msgstr "המחיקה נכשלה"
+
+msgid "Moving failed"
+msgstr "המעבר נכשל"
+
+msgid "Temporary directory problems"
+msgstr "בעיות זמניות בספרייה"
+
+msgid "File or folder not found"
+msgstr "הקובץ או התיקיה לא נמצאו"
+
+msgid "Not implemented"
+msgstr "לא מיושם"
+
+msgid "Please contact your system administrator"
+msgstr "אנא פנה למנהל המערכת שלך"
+
+msgid "File server is not reachable. Please verify the connection."
+msgstr "לא ניתן להגיע לשרת הקבצים. נא לאמת את החיבור."
+
+msgid "PHP-CURL not installed"
+msgstr "PHP-CURL לא מותקן"
+
+msgid "Account is ready to use."
+msgstr "החשבון מוכן לשימוש."
+
+msgid "File backend not responding. Please try again later."
+msgstr "הקצה האחורי של הקובץ לא מגיב. אנא נסה שוב מאוחר יותר."
+
+msgid "Zip file generation failed. Please inform the administrator."
+msgstr "יצירת קובץ Zip נכשלה. נא ליידע את המנהל."
+
+msgid "This file is no longer available. Please reload the folder."
+msgstr "קובץ זה אינו זמין יותר. טען מחדש את התיקיה."
+
+msgid "Kendox certificate path is not configured."
+msgstr "נתיב אישור Kendox לא מוגדר."
+
+msgid "Kendox certificate password is not configured."
+msgstr "סיסמת אישור Kendox לא מוגדרת."
+
+msgid "Kendox certificate is not available."
+msgstr "אישור קנדוקס אינו זמין."
+
+msgid "Kendox certificate is not readable."
+msgstr "לא ניתן לקרוא את אישור Kendox."
+
+msgid "Mobile device management plugin"
+msgstr "תוסף ניהול מכשירים ניידים"
+
+#, php-format
+msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
+msgstr "אירעה שגיאה בלתי צפויה. אנא פנה למנהל המערכת שלך. קוד שגיאה: %s"
+
+msgid "No data received."
+msgstr "לא התקבלו נתונים."
+
+msgid "Account is empty."
+msgstr "החשבון ריק."
+
+msgid "Your password is wrong or you have insufficient permission to change password"
+msgstr "הסיסמה שלך שגויה או שאין לך הרשאה מספקת לשנות את הסיסמה"
+
+msgid "Password is not changed."
+msgstr "הסיסמה לא משתנה."
+
+msgid "Error changing password. Please verify your password or contact the system administrator."
+msgstr "שגיאה בשינוי הסיסמה. אנא אמת את הסיסמה שלך או פנה למנהל המערכת."
+
+msgid "Password has been changed successfully."
+msgstr "הסיסמה שונתה בהצלחה."
+
+msgid "No certificate available"
+msgstr "אין תעודה זמינה"
+
+msgid "Private certificate has expired, unable to sign email"
+msgstr "פג תוקף האישור הפרטי, לא ניתן לחתום על דוא\"ל"
+
+msgid "Private certificate is not valid yet, unable to sign email"
+msgstr "האישור הפרטי אינו תקף עדיין, לא ניתן לחתום על דוא\"ל"
+
+msgid "Private certificate does not match email address"
+msgstr "האישור הפרטי אינו תואם לכתובת האימייל"
+
+msgid "No email address specified"
+msgstr "לא צוינה כתובת אימייל"
+
+msgid "No certificates found for this email address"
+msgstr "לא נמצאו אישורים עבור כתובת דוא\"ל זו"
+
+msgid "Unable to read certificates"
+msgstr "לא ניתן לקרוא תעודות"
+
+msgid "Unable to generate certs-only message"
+msgstr "לא ניתן ליצור הודעת אישורים בלבד"
+
+msgid "LDAP not configured"
+msgstr "LDAP לא מוגדר"
+
+msgid "Missing public certificates for the following recipients: "
+msgstr "חסרות תעודות ציבוריות עבור הנמענים הבאים:"
+
+msgid ". Please contact your system administrator for details"
+msgstr ". אנא פנה למנהל המערכת שלך לקבלת פרטים"
+
+msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
+msgstr "התעודה הציבורית שלך אינה מותקנת. ללא תעודה זו, לא תוכל לקרוא הודעות מוצפנות ששלחת לאחרים."
+
+msgid "Certificate is already stored on the server"
+msgstr "האישור כבר מאוחסן בשרת"
+
+msgid "Unable to decrypt certificate"
+msgstr "לא ניתן לפענח את האישור"
+
+msgid "Private key can't be used to sign email"
+msgstr "לא ניתן להשתמש במפתח פרטי כדי לחתום על דוא\"ל"
+
+msgid "Certificate email address doesn't match grommunio Web account "
+msgstr "כתובת הדוא\"ל של האישור אינה תואמת לחשבון האינטרנט של grommunio"
+
+#, php-format
+msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
+msgstr "גודל מפתח RSA של %d סיביות נמוך מהמינימום המומלץ של %d סיביות. האישור יובא."
+
+msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
+msgstr "תעודות EdDSA (Ed25519) דורשות PHP 8.4+ וייתכן שלא יתמכו באופן מלא. התעודה יובאה."
+
+msgid "Certificate was expired on "
+msgstr "תוקף האישור פג בתאריך"
+
+msgid "Certificate was imported."
+msgstr "האישור יובא."
+
+msgid "Certificate is not yet valid "
+msgstr "האישור עדיין לא בתוקף"
+
+msgid "Certificate has not been imported"
+msgstr "האישור לא יובא"
+
+msgid "Certificate is revoked, but was imported."
+msgstr "האישור בוטל, אך יובא."
+
+msgid "Unable to read public certificate"
+msgstr "לא ניתן לקרוא תעודה ציבורית"
+
+msgid "You do not have permission to manage system templates."
+msgstr "אין לך הרשאה לנהל תבניות מערכת."
+
+msgid "Template name is required."
+msgstr "יש להזין שם תבנית."
+
+msgid "Cannot create template directory."
+msgstr "לא ניתן ליצור ספריית תבניות."
+
+msgid "Failed to write template file."
+msgstr "לא ניתן לכתוב את קובץ התבנית."
+
+msgid "Template key is required."
+msgstr "יש להזין מפתח תבנית."
+
+msgid "Template directory not found."
+msgstr "לא נמצא ספריית התבניות."
+
+msgid "Template file not found."
+msgstr "לא נמצא קובץ תבנית."
+
+msgid "Failed to delete template file."
+msgstr "לא ניתן למחוק את קובץ התבנית."
+
+msgid "Template deleted successfully."
+msgstr "התבנית נמחקה בהצלחה."
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr "לא ניתן להוסיף נתונים לאוטובוס, אותו סוג פעולה קיים באוטובוס"
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr "נתוני תגובה נתבקשו מהאוטובוס אך אין לו נתונים כלשהם."
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr "מודול לא ידוע '%s' עם המזהה '%s'"
+
+msgid "Server encountered some problem, so it was not able to handle the request."
+msgstr "השרת נתקל בבעיה כלשהי, ולכן לא הצליח לטפל בבקשה."
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr "מודיע לא ידוע '%s'"
+
+msgid "An unexpected error has occurred"
+msgstr "אירעה שגיאה בלתי צפויה"
+
+msgid "To-Do List"
+msgstr "רשימת מטלות"
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr "%1$sאו%2$s"
+
+msgid "Error retrieving existing settings"
+msgstr "שגיאה באחזור הגדרות קיימות"
+
+msgid "Error retrieving existing persistent settings"
+msgstr "שגיאה באחזור הגדרות קבועות קיימות"
+
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr "הכניסה נכשלה. אנא אמת את האישורים שלך ונסה שוב."
+
+msgid "Cannot connect to Gromox."
+msgstr "לא ניתן להתחבר ל-Gromox."
+
+msgid "Login did not work due to a duplicate session. The issue was automatically resolved, please log in again."
+msgstr "הכניסה לא הצליחה עקב כפילויות בפעילות. הבעיה נפתרה באופן אוטומטי, אנא התחבר שוב."
+
+msgid "Unknown MAPI Error"
+msgstr "שגיאת MAPI לא ידועה"
+
+msgid "Destination folder not found."
+msgstr "תיקיית היעד לא נמצאה."
+
+msgid "Eml is corrupted"
+msgstr "אמל מושחת"
+
+msgid "The eml Attachment is not imported successfully"
+msgstr "הקובץ המצורף eml לא מיובא בהצלחה"
+
+msgid "The vcf attachment is not imported successfully"
+msgstr "קובץ ה-vcf המצורף לא מיובא בהצלחה"
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "לא ניתן לייבא את '%s' אל '%s'."
+
+msgid "There is no appointment found in this file."
+msgstr "לא נמצאה פגישה בקובץ זה."
+
+msgid "The file is corrupt."
+msgstr "הקובץ פגום."
+
+msgid "The file is invalid."
+msgstr "הקובץ לא חוקי."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "לא ניתן לייבא את '%s'."
+
+msgid "Attachment is not imported successfully"
+msgstr "הקובץ המצורף לא מיובא בהצלחה"
+
+msgid "Embedded attachment not found."
+msgstr "לא נמצא קובץ מצורף מוטבע."
+
+msgid "ZIP is not created successfully"
+msgstr "ZIP לא נוצר בהצלחה"
+
+msgid "Attachments can not be downloaded"
+msgstr "לא ניתן להוריד קבצים מצורפים"
+
+msgid "Could not find attachment."
+msgstr "לא ניתן היה למצוא את הקובץ המצורף."
+
+msgid "Operation failed"
+msgstr "הפעולה נכשלה"
+
+msgid "Sticky Note"
+msgstr "פתק דביק"
+
+msgid "Task Request"
+msgstr "בקשת משימה"
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr "לא ניתן למצוא את ההודעה, או שהיא הועברה או נמחקה."
+
+msgid "Action is not performed correctly."
+msgstr "הפעולה לא מבוצעת כהלכה."
+
+msgid "Could not handle this type of object."
+msgstr "לא ניתן לטפל בסוג אובייקט זה."
+
+msgid "Could not open this object."
+msgstr "לא ניתן לפתוח אובייקט זה."
+
+msgid "Domain Contact Folders"
+msgstr "תיקיות אנשי קשר של הדומיין"
+
+msgid "Personal Contact Folders"
+msgstr "תיקיות אנשי קשר אישיות"
+
+msgid "Shared Contact Folders"
+msgstr "תיקיות אנשי קשר משותפות"
+
+msgid "Public Contact Folders"
+msgstr "תיקיות אנשי קשר ציבוריות"
+
+msgid "Error in search, please try again"
+msgstr "שגיאה בחיפוש, אנא נסה שוב"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr "לא ניתן לבצע שאילתת חיפוש, אין הרשאות ליצור תיקיית חיפוש."
+
+msgid "Unable to perform search query, search folder not found."
+msgstr "לא ניתן לבצע שאילתת חיפוש, תיקיית החיפוש לא נמצאה."
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr "לא ניתן לבצע שאילתת חיפוש, ייתכן שהחנות לא תומכת בחיפוש."
+
+msgid "Error in creating search folder."
+msgstr "שגיאה ביצירת תיקיית חיפוש."
+
+msgid "Could not open occurrence."
+msgstr "לא ניתן היה לפתוח את ההתרחשות."
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr "לא ניתן היה לפתוח את ההתרחשות, כנראה שהמופע הספציפי נמחק."
+
+msgid "a meeting request"
+msgstr "בקשה לפגישה"
+
+msgid "an appointment"
+msgstr "פגישה"
+
+msgid "You have insufficient privileges to move "
+msgstr "אין לך מספיק הרשאות לעבור"
+
+msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
+msgstr "לא ניתן להגדיר תזכורת שתופיע לפני האירוע הקודם. אפס את התזכורת כדי לשמור את השינוי"
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr "שני התרחשויות לא יכולות להתרחש באותו יום"
+
+#, php-format
+msgid "You marked '%s' as a resource. You cannot schedule a meeting with '%s' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule '%s'."
+msgstr "סימנת את '%s' כמשאב. לא ניתן לתאם פגישה עם '%s' מכיוון שאין לך את ההרשאות המתאימות לחשבון זה. הזן את השם כמשתתף חובה או אופציונלי, או פנה למנהל המערכת כדי לקבל הרשאה לתאם פגישה עם '%s'."
+
+#, php-format
+msgid "'%s' has declined your meeting because '%s' does not automatically accept meeting requests."
+msgstr "'%s' דחה את הפגישה שלך מכיוון ש-'%s' אינו מקבל בקשות לפגישה באופן אוטומטי."
+
+#, php-format
+msgid "'%s' has declined your meeting because it is recurring. You must book each meeting separately with this resource."
+msgstr "'%s' דחה את הפגישה שלך מכיוון שמדובר בפגישה חוזרת. עליך לקבוע כל פגישה בנפרד עם משאב זה."
+
+#, php-format
+msgid "'%s' is already booked for this specified time. You must use another time or find another resource."
+msgstr "'%s' כבר הוזמן לשעה זו. עליך לבחור שעה אחרת או למצוא משאב אחר."
+
+msgid "Meeting was not scheduled."
+msgstr "הפגישה לא נקבעה."
+
+msgid "Meeting could not be sent."
+msgstr "לא ניתן לשלוח את הפגישה."
+
+msgid "Meeting could not be saved."
+msgstr "לא ניתן היה לשמור את הפגישה."
+
+msgid "Private Appointment"
+msgstr "פגישה פרטית"
+
+#, php-format
+msgid "%s's Birthday"
+msgstr "יום ההולדת של%s"
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr "יום השנה ל-%s"
+
+msgid "You don't have the permission to complete this action"
+msgstr "אין לך הרשאה להשלים פעולה זו"
+
+msgid "Quota error"
+msgstr "טעות במכסה"
+
+msgid "Send quota limit reached"
+msgstr "הגעת למגבלת מכסת השליחה"
+
+msgid "Sender address could not be applied"
+msgstr "לא ניתן היה להחיל את כתובת השולח"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "ההודעה לא נשלחה מכיוון שלא ניתן היה להחיל את כתובת השולח שנבחרה. אנא נסה שוב."
+
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
+msgstr "שליחת האימייל נכשלה (%s). בדוק את קבצי היומן לקבלת מידע נוסף."
+
+msgid "Unknown user/group"
+msgstr "משתמש/קבוצה לא ידועים"
+
+msgid "Could not save delegate information."
+msgstr "לא ניתן לשמור את פרטי הנציג."
+
+msgid "Could not delete delegate."
+msgstr "לא ניתן היה למחוק את הנציג."
+
+msgid "Can not get list of delegates."
+msgstr "לא ניתן לקבל רשימת נציגים."
+
+msgid "Could not open the store."
+msgstr "לא ניתן היה לפתוח את החנות."
+
+msgid "Could not load the hierarchy."
+msgstr "לא ניתן לטעון את ההיררכיה."
+
+msgid "Could not open the shared store."
+msgstr "לא ניתן היה לפתוח את החנות המשותפת."
+
+msgid "Could not load folder properties."
+msgstr "לא ניתן לטעון את מאפייני התיקיה."
+
+msgid "Could not remove folder from favorites."
+msgstr "לא ניתן להסיר את התיקיה מהמועדפים."
+
+msgid "You have insufficient privileges to delete folder."
+msgstr "אין לך הרשאות מספיקות כדי למחוק תיקיה."
+
+msgid "Could not delete folder."
+msgstr "לא ניתן למחוק תיקייה."
+
+msgid "You have insufficient privileges to copy folder."
+msgstr "אין לך הרשאות מספיקות להעתקת תיקיה."
+
+msgid "Could not copy folder."
+msgstr "לא ניתן היה להעתיק את התיקיה."
+
+msgid "You have insufficient privileges to move this folder."
+msgstr "אין לך הרשאות מספיקות כדי להעביר תיקיה זו."
+
+msgid "Could not move folder."
+msgstr "לא ניתן היה להעביר את התיקיה."
+
+msgid "You have insufficient privileges to delete items."
+msgstr "אין לך הרשאות מספיקות כדי למחוק פריטים."
+
+msgid "Could not empty folder."
+msgstr "לא ניתן היה לרוקן את התיקיה."
+
+msgid "Could not perform action correctly."
+msgstr "לא ניתן לבצע את הפעולה כראוי."
+
+msgid "A favorite folder with this name already exists, please use another name."
+msgstr "תיקייה מועדפת בשם זה כבר קיימת, אנא השתמש בשם אחר."
+
+msgid "Could not add folder to favorites."
+msgstr "לא ניתן להוסיף תיקייה למועדפים."
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr "אין לך הרשאות מספיקות כדי להגדיר הרשאות עבור תיקיה זו."
+
+msgid "Could not set folder permissions."
+msgstr "לא ניתן להגדיר הרשאות תיקיה."
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr "אין לך הרשאות מספיקות כדי לשנות את שם התיקיה הזו."
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "תיקייה בשם זה כבר קיימת. השתמש בשם אחר."
+
+msgid "Could not rename folder."
+msgstr "לא ניתן לשנות את שם התיקיה."
+
+msgid "You have insufficient privileges to create this folder."
+msgstr "אין לך הרשאות מספיקות כדי ליצור תיקיה זו."
+
+msgid "Could not create folder."
+msgstr "לא ניתן ליצור תיקיה."
+
+msgid "Could not close shared folder."
+msgstr "לא ניתן לסגור את התיקייה המשותפת."
+
+msgid "User could not be resolved."
+msgstr "לא ניתן היה לפתור את המשתמש."
+
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "אין לך הרשאות מספיקות כדי לפתוח את התיקייה %1$s. בעל התיקייה יכול להגדיר הרשאות אלה באמצעות הכרטיסייה 'הרשאות' במאפייני התיקייה (לחץ לחיצה ימנית על התיקייה %1$s > מאפיינים > הרשאות)."
+
+msgid "default"
+msgstr "בְּרִירַת מֶחדָל"
+
+msgid "anonymous"
+msgstr "אֲנוֹנִימִי"
+
+msgid "unknown"
+msgstr "לֹא יְדוּעַ"
+
+msgid "Could not move folder"
+msgstr "לא ניתן היה להעביר את התיקיה"
+
+msgid "Could not copy folder"
+msgstr "לא ניתן היה להעתיק את התיקיה"
+
+msgid "You have insufficient privileges to open this message."
+msgstr "אין לך הרשאות מספיקות כדי לפתוח הודעה זו."
+
+msgid "Could not find message, either it has been moved or deleted or you don't have access to open this message."
+msgstr "לא ניתן למצוא את ההודעה. ייתכן שהיא הועברה או נמחקה, או שאין לך הרשאה לפתוח אותה."
+
+msgid "Could not open message."
+msgstr "לא ניתן לפתוח את ההודעה."
+
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr "אין לך מספיק הרשאות כדי לדחות את בקשת הפגישה הזו"
+
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr "אין לך מספיק הרשאות לקבל את בקשת הפגישה הזו"
+
+msgid "Could not copy message"
+msgstr "לא ניתן היה להעתיק את ההודעה"
+
+msgid "Could not move message"
+msgstr "לא ניתן היה להעביר את ההודעה"
+
+msgid "Could not forward meeting request"
+msgstr "לא ניתן להעביר את בקשת הפגישה"
+
+msgid "You have insufficient privileges to save items in this folder"
+msgstr "אין ברשותך הרשאות מספקות בכדי לשמור פריטים בתיקיה זו"
+
+msgid "Could not save message"
+msgstr "לא ניתן לשמור את ההודעה"
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr "אין ברשותך הרשאות מספקות בכדי להסיר פריטים מלוח השנה."
+
+msgid "Message is no longer in the outgoing queue, typically because it has already been sent."
+msgstr "ההודעה כבר לא נמצאת בתור היוצא, בדרך כלל מכיוון שהיא כבר נשלחה."
+
+msgid "Message cannot be aborted"
+msgstr "לא ניתן לבטל את ההודעה"
+
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr "אין לך הרשאות מספיקות כדי למחוק פריטים בתיקייה זו"
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr "אין ברשותך הרשאות מספקות בכדי לצרף פריט כקובץ מצורף."
+
+msgid "Could not attach item as an attachment."
+msgstr "לא ניתן לצרף את הפריט כקובץ מצורף."
+
+msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
+msgstr "אין ברשותך הרשאות מספקות בכדי לדרוש מחדש את הבעלות על בקשת משימה זו."
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr "לא ניתן לדרוש מחדש בעלות על בקשת משימה זו."
+
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr "אין ברשותך הרשאות מספקות בכדי לקבל את בקשת המשימה הזו."
+
+msgid "Could not accept Task Request."
+msgstr "לא ניתן לקבל את בקשת המשימה הזו."
+
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr "אין ברשותך הרשאות מספקות בכדי לסרב לבקשת המשימה הזו."
+
+msgid "Could not decline Task Request."
+msgstr "לא ניתן לסרב לבקשת משימה זו."
+
+msgid "Conflicts with another appointment."
+msgstr "מתנגש עם מינוי אחר."
+
+#, php-format
+msgid "%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural "%s occurrences of this recurring appointment conflicts with other appointments."
+msgstr[0] "הופעתו של %s של פגישה חוזרת זו מתנגשת עם פגישה אחרת."
+msgstr[1] "%s מופעים של פגישה חוזרת זו מתנגשים עם פגישות אחרות."
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr "הודעתך לא הגיע לחלק או לכל המיועדים שלה."
+
+msgid "The following recipient(s) could not be reached"
+msgstr "לא ניתן היה להגיע אל המיועדים הבאים:"
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j F Y G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "הפגישה שלך הועברה"
+
+msgid "has forwarded your meeting request to others."
+msgstr "העביר את בקשת הפגישה שלך לאחרים."
+
+msgid "Meeting Time"
+msgstr "שעת הפגישה"
+
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr "אין לך הרשאות מספיקות כדי לראות את התוכן של תיקיה זו."
+
+msgid "Could not load the contents of this folder."
+msgstr "לא ניתן לטעון את התוכן של תיקיה זו."
+
+msgid "You have insufficient privileges to perform search operation in this folder."
+msgstr "אין לך הרשאות מספיקות לביצוע פעולת חיפוש בתיקיה זו."
+
+msgid "Could not update search results."
+msgstr "לא ניתן היה לעדכן את תוצאות החיפוש."
+
+msgid "Could not stop search operation."
+msgstr "לא ניתן להפסיק את פעולת החיפוש."
+
+msgid "You have insufficient privileges to save this message."
+msgstr "אין לך הרשאות מספיקות כדי לשמור הודעה זו."
+
+msgid "Could not save message."
+msgstr "לא ניתן לשמור את ההודעה."
+
+msgid "You have insufficient privileges to delete this message."
+msgstr "אין לך הרשאות מספיקות כדי למחוק הודעה זו."
+
+msgid "Could not delete message."
+msgstr "לא ניתן למחוק את ההודעה."
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr "אין לך הרשאות מספיקות כדי לבטל את בקשת הפגישה הזו."
+
+msgid "Could not cancel Meeting Request."
+msgstr "לא ניתן לבטל את בקשת הפגישה."
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "אין לך מספיק הרשאות כדי לדחות את בקשת הפגישה הזו."
+
+msgid "Could not decline Meeting Request."
+msgstr "לא ניתן היה לדחות את בקשת הפגישה."
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "אין לך מספיק הרשאות לקבל את בקשת הפגישה הזו."
+
+msgid "Could not accept Meeting Request."
+msgstr "לא ניתן היה לקבל את בקשת הפגישה."
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr "אין לך הרשאות מספיקות כדי לבטל את ההזמנה לבקשת פגישה."
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr "לא ניתן לבטל את ההזמנות לבקשת פגישה."
+
+msgid "You can not continue search operation on this folder."
+msgstr "לא ניתן להמשיך בפעולת החיפוש בתיקייה זו."
+
+msgid "Error in search, please try again."
+msgstr "שגיאה בחיפוש, אנא נסה שוב."
+
+msgid "Error in distribution list expansion."
+msgstr "שגיאה בהרחבת רשימת התפוצה."
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr "חנות ההודעות חרגה מהמכסה הקשה שלה."
+
+msgid "To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr "כדי לצמצם את כמות הנתונים במאגר ההודעות הזה, בחר פריטים שאינך זקוק להם עוד, מחק אותם ונקה את תיקיית 'פריטים שנמחקו'."
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr "חנות ההודעות חרגה ממגבלת המכסה הרכה שלה."
+
+msgid "Could not process request data properly."
+msgstr "לא ניתן לעבד את נתוני הבקשה כראוי."
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr "צוין סוג פעולה לא ידוע -%s"
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr "לא ניתן להשהות את התזכורת. ייתכן שתזכרו שוב."
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr "לא ניתן לבטל את התזכורת. ייתכן שתזכרו שוב."
+
+msgid "You have insufficient privileges to perform this action."
+msgstr "אין לך הרשאות מספיקות כדי לבצע פעולה זו."
+
+msgid "Could not resolve user."
+msgstr "לא ניתן לפתור את המשתמש."
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr "אסור להגדיר מסנני דואר בחנויות של משתמשים אחרים."
+
+msgid "Untitled rule"
+msgstr "כלל ללא כותרת"
+
+msgid "Could not save rules."
+msgstr "לא ניתן לשמור כללים."
+
+msgid "Could not load rules."
+msgstr "לא ניתן לטעון כללים."
+
+msgid "Task Request:"
+msgstr "בקשת משימה:"
+
+msgid "Sign in"
+msgstr "היכנס"
+
+msgid "File is not imported successfully"
+msgstr "הקובץ לא יובא בהצלחה"
+
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr "הקובץ שהועלה חורג מההנחיה upload_max_filesize ב-php.ini."
+
+msgid "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form."
+msgstr "הקובץ שהועלה חורג מההוראה MAX_FILE_SIZE שצוינה בטופס ה-HTML."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "הקובץ שהועלה הועלה רק חלקית."
+
+msgid "No file was uploaded. ."
+msgstr "לא הועלה קובץ. ."
+
+msgid "Missing a temporary folder."
+msgstr "חסרה תיקיה זמנית."
+
+msgid "Failed to write file to disk."
+msgstr "כתיבת הקובץ לדיסק נכשלה."
+
+msgid "A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help."
+msgstr "תוסף PHP עצר את העלאת הקובץ. PHP אינו מספק דרך לברר איזה תוסף גרם לעצירת העלאת הקובץ; בדיקת רשימת התוספים הטעונים באמצעות phpinfo() עשויה לעזור."
+
+msgid "There is no contact found in this file."
+msgstr "לא נמצא איש קשר בקובץ זה."
+
+msgid "grommunio Web does not support importing multiple VCF with this version."
+msgstr "grommunio Web אינו תומך בייבוא מספר קבצי VCF בגרסה זו."
+
+msgid "grommunio Web does not support importing multiple ICS with this version."
+msgstr "grommunio Web אינו תומך בייבוא מספר קבצי ICS בגרסה זו."
+
+msgid "GB"
+msgstr "GB"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "B"
+msgstr "ב"
+
+msgid "The maximum stack depth has been exceeded"
+msgstr "חרג מעומק הערימה המרבי"
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr "שגיאת תו בקרה, אולי מקודד שגוי"
+
+msgid "Invalid or malformed JSON"
+msgstr "JSON לא חוקי או פגום"
+
+msgid "Syntax error"
+msgstr "שגיאת תחביר"
+
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr "תווי UTF-8 שגויים, אולי מקודדים בצורה שגויה"
+
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "בעיה מסוימת שנתקלה בעת קידוד/פענוח נתוני JSON: -%s"
+
+msgid "Legal Information"
+msgstr "מידע משפטי"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} הודעה נוספת"
+msgstr[1] "{0} הודעות נוספות"
+
+msgid "Show less"
+msgstr "הראה פחות"
+
+msgid "Undo and redo"
+msgstr "ביטול וביצוע מחדש"
+
+msgid "Enable undo and redo of message actions"
+msgstr "אפשר ביטול וביצוע מחדש של פעולות על הודעות"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "ביטול (Ctrl+Z) וביצוע מחדש (Ctrl+Y) של פעולות כגון מחיקה, העברה או סימון בדגל של הודעות. תיעוד פעולות אלה מוסיף עומס קל, ולכן התכונה מושבתת כברירת מחדל."
+
+msgid "Undo"
+msgstr "בטל"
+
+msgid "Redo"
+msgstr "בצע שוב"
+
+msgid "Undo: {0}"
+msgstr "בטל: {0}"
+
+msgid "Redo: {0}"
+msgstr "בצע שוב: {0}"
+
+msgid "Nothing to undo"
+msgstr "אין מה לבטל"
+
+msgid "Undo the last action"
+msgstr "בטל את הפעולה האחרונה"
+
+msgid "Redo the last undone action"
+msgstr "בצע שוב את הפעולה האחרונה שבוטלה"
+
+msgid "Undo failed"
+msgstr "הביטול נכשל"
+
+msgid "Redo failed"
+msgstr "הביצוע מחדש נכשל"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "לא ניתן היה לבטל את {0}. ייתכן שהפריט הועבר, שונה או הוסר בינתיים."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "לא ניתן היה לבצע שוב את {0}. ייתכן שהפריט הועבר, שונה או הוסר בינתיים."
+
+msgid "Delete {0}"
+msgstr "מחיקת {0}"
+
+msgid "Delete {0} items"
+msgstr "מחיקת {0} פריטים"
+
+msgid "Move {0} to {1}"
+msgstr "העברת {0} אל {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "העברת {0} פריטים אל {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "העתקת {0} אל {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "העתקת {0} פריטים אל {1}"
+
+msgid "Create {0}"
+msgstr "יצירת {0}"
+
+msgid "Change flag"
+msgstr "שינוי דגל"
+
+msgid "Change categories"
+msgstr "שינוי קטגוריות"
+
+msgid "Change appointment time"
+msgstr "שינוי שעת הפגישה"
+
+msgid "another folder"
+msgstr "תיקיה אחרת"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} פריטים"
+
+msgid "New mail from {0}"
+msgstr "דואר חדש מאת {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} הודעה חדשה בתיקייה {1}"
+msgstr[1] "{0} הודעות חדשות בתיקייה {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} הודעה חדשה בתיקייה {1} של {2}"
+msgstr[1] "{0} הודעות חדשות בתיקייה {1} של {2}"
+
+msgid "In folder {0}"
+msgstr "בתיקייה {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "בתיקייה {0} של {1}"
+
+msgid "New Mail Notifications"
+msgstr "התראות על דואר חדש"
+
+msgid "Only my own mailbox"
+msgstr "רק תיבת הדואר שלי"
+
+msgid "Only the folders I choose"
+msgstr "רק התיקיות שאבחר"
+
+msgid "Unknown folder"
+msgstr "תיקיה לא ידועה"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "לא נבחרו תיקיות, ולכן לא תוצג התראה על דואר חדש."

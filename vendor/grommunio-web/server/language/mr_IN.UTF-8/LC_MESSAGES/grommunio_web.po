@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: mr_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "कायदेशीर माहिती"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "आणखी {0} सूचना"
+msgstr[1] "आणखी {0} सूचना"
+
+msgid "Show less"
+msgstr "कमी दाखवा"
+
+msgid "Undo and redo"
+msgstr "पूर्ववत करा आणि पुन्हा करा"
+
+msgid "Enable undo and redo of message actions"
+msgstr "संदेश क्रिया पूर्ववत करणे आणि पुन्हा करणे सक्षम करा"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "संदेश हटवणे, हलवणे किंवा ध्वजांकित करणे यांसारख्या क्रिया पूर्ववत (Ctrl+Z) आणि पुन्हा (Ctrl+Y) करता येतात. या क्रियांची नोंद ठेवल्याने थोडा अतिरिक्त भार पडतो, त्यामुळे हे वैशिष्ट्य डीफॉल्टनुसार अक्षम असते."
+
+msgid "Undo"
+msgstr "पूर्ववत करा"
+
+msgid "Redo"
+msgstr "पुन्हा करा"
+
+msgid "Undo: {0}"
+msgstr "पूर्ववत करा: {0}"
+
+msgid "Redo: {0}"
+msgstr "पुन्हा करा: {0}"
+
+msgid "Nothing to undo"
+msgstr "पूर्ववत करण्यासारखे काही नाही"
+
+msgid "Undo the last action"
+msgstr "शेवटची क्रिया पूर्ववत करा"
+
+msgid "Redo the last undone action"
+msgstr "शेवटची पूर्ववत केलेली क्रिया पुन्हा करा"
+
+msgid "Undo failed"
+msgstr "पूर्ववत करणे अयशस्वी झाले"
+
+msgid "Redo failed"
+msgstr "पुन्हा करणे अयशस्वी झाले"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} पूर्ववत करता आले नाही. आयटम या दरम्यान हलवला, बदलला किंवा काढून टाकला गेला असावा."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} पुन्हा करता आले नाही. आयटम या दरम्यान हलवला, बदलला किंवा काढून टाकला गेला असावा."
+
+msgid "Delete {0}"
+msgstr "{0} हटवा"
+
+msgid "Delete {0} items"
+msgstr "{0} आयटम हटवा"
+
+msgid "Move {0} to {1}"
+msgstr "{0} {1} फोल्डरमध्ये हलवा"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} आयटम {1} फोल्डरमध्ये हलवा"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} {1} फोल्डरमध्ये कॉपी करा"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} आयटम {1} फोल्डरमध्ये कॉपी करा"
+
+msgid "Create {0}"
+msgstr "{0} तयार करा"
+
+msgid "Change flag"
+msgstr "ध्वज बदला"
+
+msgid "Change categories"
+msgstr "श्रेण्या बदला"
+
+msgid "Change appointment time"
+msgstr "अपॉइंटमेंटची वेळ बदला"
+
+msgid "another folder"
+msgstr "दुसऱ्या"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} आयटम"
+
+msgid "New mail from {0}"
+msgstr "{0} कडून नवीन मेल"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{1} फोल्डरमध्ये {0} नवीन संदेश"
+msgstr[1] "{1} फोल्डरमध्ये {0} नवीन संदेश"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{2} यांच्या {1} फोल्डरमध्ये {0} नवीन संदेश"
+msgstr[1] "{2} यांच्या {1} फोल्डरमध्ये {0} नवीन संदेश"
+
+msgid "In folder {0}"
+msgstr "{0} फोल्डरमध्ये"
+
+msgid "In folder {0} of {1}"
+msgstr "{1} यांच्या {0} फोल्डरमध्ये"
+
+msgid "New Mail Notifications"
+msgstr "नवीन मेल सूचना"
+
+msgid "Only my own mailbox"
+msgstr "फक्त माझा स्वतःचा मेलबॉक्स"
+
+msgid "Only the folders I choose"
+msgstr "फक्त मी निवडलेले फोल्डर"
+
+msgid "Unknown folder"
+msgstr "अज्ञात फोल्डर"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "कोणतेही फोल्डर निवडलेले नाहीत, त्यामुळे नवीन मेलची कोणतीही सूचना दाखवली जाणार नाही."

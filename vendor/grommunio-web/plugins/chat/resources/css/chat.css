@@ -1,0 +1,14 @@
+.icon_chat, .k-chat-settings-category {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTEyIDJjNS41MjMgMCAxMCA0LjQ3NyAxMCAxMHMtNC40NzcgMTAtMTAgMTBhOS45NiA5Ljk2IDAgMCAxLTQuNTg3LTEuMTEybC0zLjgyNiAxLjA2N2ExLjI1IDEuMjUgMCAwIDEtMS41NC0xLjU0bDEuMDY4LTMuODIzQTkuOTYgOS45NiAwIDAgMSAyIDEyQzIgNi40NzcgNi40NzcgMiAxMiAyWm0wIDEuNUE4LjUgOC41IDAgMCAwIDMuNSAxMmMwIDEuNDcuMzczIDIuODgzIDEuMDczIDQuMTM3bC4xNS4yNy0xLjExMiAzLjk4NCAzLjk4Ny0xLjExMi4yNy4xNUE4LjUgOC41IDAgMSAwIDEyIDMuNVpNOC43NSAxM2g0LjQ5OGEuNzUuNzUgMCAwIDEgLjEwMiAxLjQ5M2wtLjEwMi4wMDdIOC43NWEuNzUuNzUgMCAwIDEtLjEwMi0xLjQ5M0w4Ljc1IDEzaDQuNDk4SDguNzVabTAtMy41aDYuNTA1YS43NS43NSAwIDAgMSAuMTAxIDEuNDkzbC0uMTAxLjAwN0g4Ljc1YS43NS43NSAwIDAgMS0uMTAyLTEuNDkzTDguNzUgOS41aDYuNTA1SDguNzVaIi8+PC9zdmc+);
+}
+.x-tab-strip-text.icon_chat {
+	background-position: 0 10px !important;
+}
+.chat-iframe{
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+.k-chat-settings-category {
+	background-position: 5px center;
+}

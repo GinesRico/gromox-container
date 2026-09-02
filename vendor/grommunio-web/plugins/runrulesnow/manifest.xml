@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>0.1.0</version>
+		<name>runrulesnow</name>
+		<title>Run Rules Now</title>
+		<author>local</author>
+		<description>Run enabled inbox move rules on already received messages.</description>
+	</info>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile type="module" module="runrulesnowmodule">php/class.runrulesnowmodule.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/runrulesnow.js</clientfile>
+					<clientfile load="debug">js/runrulesnow.js</clientfile>
+					<clientfile load="source">js/runrulesnow.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>

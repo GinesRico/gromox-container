@@ -1,0 +1,67 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React, { useState } from 'react';
+import { makeStyles } from 'tss-react/mui';
+import { Button, Dialog, DialogContent, DialogTitle, Divider, Theme, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { DNSDialogProps } from './types';
+import GenerateDkimKeys from './GenerateDkimKeys';
+
+
+const useStyles = makeStyles()((theme: Theme) => ({
+  divider: {
+    margin: theme.spacing(2, 0, 1, 0),
+  },
+  result: {
+    marginBottom: 16,
+  },
+  res: {
+    wordWrap: 'break-word',
+  }
+}));
+
+
+function Dkim({ onClose, dnsCheck, domain }: DNSDialogProps) {
+  const { classes } = useStyles();
+  const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
+
+  const handleKeygen = (open: boolean) => () => {
+    setOpen(open);
+  }
+
+  return (<>
+    <Dialog open maxWidth="md" fullWidth onClose={onClose}>
+      <DialogTitle display="flex" justifyContent="space-between">
+        {t("DKIM")}
+        <Button
+          onClick={handleKeygen(true)}
+          variant='contained'
+          size='small'
+          sx={{ ml: 1 }}
+        >
+          {t("Generate DKIM keypair")}
+        </Button>
+      </DialogTitle>
+      <DialogContent>
+        <Typography>{t("dkim_expl")}</Typography>
+        <Divider className={classes.divider}/>
+        <Typography variant="h6" className={classes.result}>{t("DNS check result")}</Typography>
+        <Typography className={classes.res}>{t("External DNS")}: {dnsCheck.dkim?.externalDNS || t("Unresolvable")}</Typography>
+        <Divider className={classes.divider}/>
+        <pre>
+          {`dkim._domainkey.${domain.domainname || "example.at"}.    1    IN    TXT    "v=DKIM1; k=rsa; p=DKIM_PUBLIC_KEY"`}
+        </pre>
+      </DialogContent>
+    </Dialog>
+    <GenerateDkimKeys
+      open={open}
+      onClose={handleKeygen(false)}
+      domain={domain}
+    />
+  </>);
+}
+
+
+export default Dkim;

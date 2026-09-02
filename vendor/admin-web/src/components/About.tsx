@@ -1,0 +1,105 @@
+/* eslint-disable no-undef */
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React from 'react';
+import { makeStyles } from 'tss-react/mui';
+import { Paper, Theme, Typography} from '@mui/material';
+import StorageIcon from '@mui/icons-material/Storage';
+import { Dashboard, Outlet, Power } from '@mui/icons-material';
+import { useTranslation, withTranslation } from 'react-i18next';
+import { useAppSelector } from '../store';
+
+
+const useStyles = makeStyles()((theme: Theme) => ({
+  root: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    [theme.breakpoints.down('md')]: {
+      gridTemplateColumns: '1fr 1fr',
+    },
+  },
+  flexItem: {
+    flex: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+  },
+  icon: {
+    flex: 1,
+    color: '#777',
+    position: 'relative',
+    bottom: 12,
+    height: 28,
+  },
+  labeledData: {
+    flex: 4,
+  },
+  data: {
+    fontWeight: 600,
+    lineHeight: 1.1,
+    margin: theme.spacing(1, 0, 1, 0),
+  },
+  label: {
+    color: '#777',
+  },
+}));
+
+
+const About = () => {
+  const { classes } = useStyles();
+  const { t } = useTranslation();
+
+  const about = useAppSelector(state => state.about);
+  const { API, backend, schema } = about;
+  return (
+    <div className={classes.root}>
+      <div className={classes.flexItem}>
+        <Paper className={classes.paper}>
+          <Dashboard className={classes.icon}/>
+          <div className={classes.labeledData}>
+            <Typography className={classes.data}>{process.env.REACT_APP_BUILD_VERSION}</Typography>
+            <Typography className={classes.label}>{t("Web UI")}</Typography>
+          </div>
+        </Paper>
+      </div>
+      <div className={classes.flexItem}>
+        <Paper className={classes.paper}>
+          <Power className={classes.icon}/>
+          <div className={classes.labeledData}>
+            <Typography className={classes.data}>{API}</Typography>
+            <Typography className={classes.label}>{t("API")}</Typography>
+          </div>
+        </Paper>
+      </div>
+      <div className={classes.flexItem}>
+        <Paper className={classes.paper}>
+          <Outlet className={classes.icon}/>
+          <div className={classes.labeledData}>
+            <Typography className={classes.data}>{backend}</Typography>
+            <Typography className={classes.label}>{t("Backend")}</Typography>
+          </div>
+        </Paper>
+      </div>
+      <div className={classes.flexItem}>
+        <Paper className={classes.paper}>
+          <StorageIcon className={classes.icon}/>
+          <div className={classes.labeledData}>
+            <Typography className={classes.data}>{schema}</Typography>
+            <Typography className={classes.label}>{t("Database")}</Typography>
+          </div>
+        </Paper>
+      </div>
+    </div>
+  );
+}
+
+
+export default withTranslation()(About);

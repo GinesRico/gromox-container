@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: ky_KG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "ຂໍ້ມູນທາງກົດໝາຍ"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "дагы {0} билдирүү"
+msgstr[1] "дагы {0} билдирүү"
+
+msgid "Show less"
+msgstr "Азыраак көрсөтүү"
+
+msgid "Undo and redo"
+msgstr "Артка кайтаруу жана кайра аткаруу"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Билдирүү аракеттерин артка кайтарууну жана кайра аткарууну иштетүү"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Билдирүүлөрдү өчүрүү, жылдыруу же желекче коюу сыяктуу аракеттерди артка кайтаруу (Ctrl+Z) жана кайра аткаруу (Ctrl+Y). Бул аракеттерди жаздыруу бир аз кошумча жүк жаратат, ошондуктан бул функция демейки боюнча өчүрүлгөн."
+
+msgid "Undo"
+msgstr "Артка кайтаруу"
+
+msgid "Redo"
+msgstr "Кайра аткаруу"
+
+msgid "Undo: {0}"
+msgstr "Артка кайтаруу: {0}"
+
+msgid "Redo: {0}"
+msgstr "Кайра аткаруу: {0}"
+
+msgid "Nothing to undo"
+msgstr "Артка кайтара турган эч нерсе жок"
+
+msgid "Undo the last action"
+msgstr "Акыркы аракетти артка кайтаруу"
+
+msgid "Redo the last undone action"
+msgstr "Акыркы артка кайтарылган аракетти кайра аткаруу"
+
+msgid "Undo failed"
+msgstr "Артка кайтаруу ишке ашкан жок"
+
+msgid "Redo failed"
+msgstr "Кайра аткаруу ишке ашкан жок"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} аракетин артка кайтаруу мүмкүн болгон жок. Бул элемент ошол убакыттын ичинде жылдырылып, өзгөртүлүп же өчүрүлүп калышы мүмкүн."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} аракетин кайра аткаруу мүмкүн болгон жок. Бул элемент ошол убакыттын ичинде жылдырылып, өзгөртүлүп же өчүрүлүп калышы мүмкүн."
+
+msgid "Delete {0}"
+msgstr "{0} өчүрүү"
+
+msgid "Delete {0} items"
+msgstr "{0} элементти өчүрүү"
+
+msgid "Move {0} to {1}"
+msgstr "{0} дегенди {1} дегенге жылдыруу"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} элементти {1} дегенге жылдыруу"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} дегенди {1} дегенге көчүрүү"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} элементти {1} дегенге көчүрүү"
+
+msgid "Create {0}"
+msgstr "{0} түзүү"
+
+msgid "Change flag"
+msgstr "Желекчени өзгөртүү"
+
+msgid "Change categories"
+msgstr "Категорияларды өзгөртүү"
+
+msgid "Change appointment time"
+msgstr "Жолугушуунун убактысын өзгөртүү"
+
+msgid "another folder"
+msgstr "башка папка"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} элемент"
+
+msgid "New mail from {0}"
+msgstr "{0} дегенден жаңы кат"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{1} папкасында {0} жаңы билдирүү"
+msgstr[1] "{1} папкасында {0} жаңы билдирүү"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{2} дегендин {1} папкасында {0} жаңы билдирүү"
+msgstr[1] "{2} дегендин {1} папкасында {0} жаңы билдирүү"
+
+msgid "In folder {0}"
+msgstr "{0} папкасында"
+
+msgid "In folder {0} of {1}"
+msgstr "{1} дегендин {0} папкасында"
+
+msgid "New Mail Notifications"
+msgstr "Жаңы кат билдирмелери"
+
+msgid "Only my own mailbox"
+msgstr "Өзүмдүн почта кутум гана"
+
+msgid "Only the folders I choose"
+msgstr "Мен тандаган папкалар гана"
+
+msgid "Unknown folder"
+msgstr "Белгисиз папка"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Папкалар тандалган жок, жаңы кат жөнүндө билдирме көрсөтүлбөйт."

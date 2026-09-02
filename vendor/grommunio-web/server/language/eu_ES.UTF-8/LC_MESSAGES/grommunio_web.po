@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: eu_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "Lege-informazioa"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "beste {0} abisu"
+msgstr[1] "beste {0} abisu"
+
+msgid "Show less"
+msgstr "Erakutsi gutxiago"
+
+msgid "Undo and redo"
+msgstr "Desegin eta berregin"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Gaitu mezu-ekintzak desegitea eta berregitea"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Desegin (Ctrl+Z) eta berregin (Ctrl+Y) ekintzak, adibidez mezuak ezabatzea, lekuz aldatzea edo banderaz markatzea. Ekintza horiek erregistratzeak karga txiki bat gehitzen du; horregatik, eginbidea desgaituta dago lehenespenez."
+
+msgid "Undo"
+msgstr "Desegin"
+
+msgid "Redo"
+msgstr "Berregin"
+
+msgid "Undo: {0}"
+msgstr "Desegin: {0}"
+
+msgid "Redo: {0}"
+msgstr "Berregin: {0}"
+
+msgid "Nothing to undo"
+msgstr "Ez dago ezer desegiteko"
+
+msgid "Undo the last action"
+msgstr "Desegin azken ekintza"
+
+msgid "Redo the last undone action"
+msgstr "Berregin desegindako azken ekintza"
+
+msgid "Undo failed"
+msgstr "Desegiteak huts egin du"
+
+msgid "Redo failed"
+msgstr "Berregiteak huts egin du"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Ezin izan da {0} desegin. Baliteke elementua bitartean lekuz aldatu, aldatu edo kendu izana."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Ezin izan da {0} berregin. Baliteke elementua bitartean lekuz aldatu, aldatu edo kendu izana."
+
+msgid "Delete {0}"
+msgstr "Ezabatu {0}"
+
+msgid "Delete {0} items"
+msgstr "Ezabatu {0} elementu"
+
+msgid "Move {0} to {1}"
+msgstr "Eraman {0} hona: {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Eraman {0} elementu hona: {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopiatu {0} hona: {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopiatu {0} elementu hona: {1}"
+
+msgid "Create {0}"
+msgstr "Sortu {0}"
+
+msgid "Change flag"
+msgstr "Aldatu bandera"
+
+msgid "Change categories"
+msgstr "Aldatu kategoriak"
+
+msgid "Change appointment time"
+msgstr "Aldatu hitzorduaren ordua"
+
+msgid "another folder"
+msgstr "beste karpeta bat"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} elementu"
+
+msgid "New mail from {0}"
+msgstr "{0}(r)en mezu berria"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} mezu berri {1} karpetan"
+msgstr[1] "{0} mezu berri {1} karpetan"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} mezu berri {2}(r)en {1} karpetan"
+msgstr[1] "{0} mezu berri {2}(r)en {1} karpetan"
+
+msgid "In folder {0}"
+msgstr "{0} karpetan"
+
+msgid "In folder {0} of {1}"
+msgstr "{1}(r)en {0} karpetan"
+
+msgid "New Mail Notifications"
+msgstr "Mezu berrien jakinarazpenak"
+
+msgid "Only my own mailbox"
+msgstr "Nire postontzia soilik"
+
+msgid "Only the folders I choose"
+msgstr "Nik aukeratutako karpetak soilik"
+
+msgid "Unknown folder"
+msgstr "Karpeta ezezaguna"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Ez da karpetarik hautatu; ez da mezu berrien jakinarazpenik erakutsiko."

@@ -1,0 +1,32 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React from 'react';
+import DefaultDavDialog from './DefaultDavDialog';
+import { DNSDialogProps } from './types';
+
+
+function DavTxt({ onClose, dnsCheck, domain }: DNSDialogProps) {
+  const domainname = domain.domainname || "example.at";
+  return (
+    <DefaultDavDialog
+      onClose={onClose}
+      dnsCheck={dnsCheck}
+      title="Cal-/Carddav TXT"
+      subtitle="davtxt_expl"
+      label1='Caldav TXT result'
+      label2='Carddav TXT result'
+      field1='caldavTXT'
+      field2='carddavTXT'
+      example={<pre>
+        {`_caldavs._tcp.${domainname}.    1    IN    TXT    "path=/dav"
+_caldav._tcp.${domainname}.     1    IN    TXT    "path=/dav"
+_carddavs._tcp.${domainname}.   1    IN    TXT    "path=/dav"
+_carddav._tcp.${domainname}.    1    IN    TXT    "path=/dav"`}
+      </pre>}
+    />
+  );
+}
+
+
+export default DavTxt;

@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: cy_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "Gwybodaeth gyfreithiol"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} hysbysiad arall"
+msgstr[1] "{0} hysbysiad arall"
+
+msgid "Show less"
+msgstr "Dangos llai"
+
+msgid "Undo and redo"
+msgstr "Dadwneud ac ailwneud"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Galluogi dadwneud ac ailwneud gweithredoedd negeseuon"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Dadwneud (Ctrl+Z) ac ailwneud (Ctrl+Y) gweithredoedd fel dileu, symud neu fflagio negeseuon. Mae cofnodi'r gweithredoedd hyn yn ychwanegu ychydig o lwyth ychwanegol, felly mae'r nodwedd wedi'i hanalluogi yn ddiofyn."
+
+msgid "Undo"
+msgstr "Dadwneud"
+
+msgid "Redo"
+msgstr "Ailwneud"
+
+msgid "Undo: {0}"
+msgstr "Dadwneud: {0}"
+
+msgid "Redo: {0}"
+msgstr "Ailwneud: {0}"
+
+msgid "Nothing to undo"
+msgstr "Dim byd i'w ddadwneud"
+
+msgid "Undo the last action"
+msgstr "Dadwneud y weithred ddiwethaf"
+
+msgid "Redo the last undone action"
+msgstr "Ailwneud y weithred a ddadwnaed ddiwethaf"
+
+msgid "Undo failed"
+msgstr "Dadwneud wedi methu"
+
+msgid "Redo failed"
+msgstr "Ailwneud wedi methu"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nid oedd modd dadwneud {0}. Efallai fod yr eitem wedi cael ei symud, ei newid neu ei dileu yn y cyfamser."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nid oedd modd ailwneud {0}. Efallai fod yr eitem wedi cael ei symud, ei newid neu ei dileu yn y cyfamser."
+
+msgid "Delete {0}"
+msgstr "Dileu {0}"
+
+msgid "Delete {0} items"
+msgstr "Dileu {0} eitem"
+
+msgid "Move {0} to {1}"
+msgstr "Symud {0} i {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Symud {0} eitem i {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Copïo {0} i {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Copïo {0} eitem i {1}"
+
+msgid "Create {0}"
+msgstr "Creu {0}"
+
+msgid "Change flag"
+msgstr "Newid fflag"
+
+msgid "Change categories"
+msgstr "Newid categorïau"
+
+msgid "Change appointment time"
+msgstr "Newid amser apwyntiad"
+
+msgid "another folder"
+msgstr "ffolder arall"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} eitem"
+
+msgid "New mail from {0}"
+msgstr "Post newydd gan {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} neges newydd yn y ffolder {1}"
+msgstr[1] "{0} neges newydd yn y ffolder {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} neges newydd yn ffolder {1} y defnyddiwr {2}"
+msgstr[1] "{0} neges newydd yn ffolder {1} y defnyddiwr {2}"
+
+msgid "In folder {0}"
+msgstr "Yn y ffolder {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "Yn ffolder {0} y defnyddiwr {1}"
+
+msgid "New Mail Notifications"
+msgstr "Hysbysiadau post newydd"
+
+msgid "Only my own mailbox"
+msgstr "Fy mlwch post fy hun yn unig"
+
+msgid "Only the folders I choose"
+msgstr "Dim ond y ffolderi rwy'n eu dewis"
+
+msgid "Unknown folder"
+msgstr "Ffolder anhysbys"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Ni ddewiswyd unrhyw ffolderi, ni ddangosir unrhyw hysbysiad post newydd."

@@ -1,0 +1,435 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React, { useState } from 'react';
+import { makeStyles } from 'tss-react/mui';
+import { useTranslation } from 'react-i18next';
+import ListItemText from '@mui/material/ListItemText';
+import List from '@mui/material/List';
+import Collapse from '@mui/material/Collapse';
+import Search from '@mui/icons-material/Search';
+import Dashboard from '@mui/icons-material/Dashboard';
+import Person from '@mui/icons-material/Person';
+import Domains from '@mui/icons-material/Domain';
+import Topic from '@mui/icons-material/Topic';
+import Ldap from '@mui/icons-material/Contacts';
+import Groups from '@mui/icons-material/Groups';
+import Storage from '@mui/icons-material/Storage';
+import Orgs from '@mui/icons-material/GroupWork';
+import Logs from '@mui/icons-material/ViewHeadline';
+import Sync from '@mui/icons-material/Sync';
+import Roles from '@mui/icons-material/VerifiedUser';
+import logo from '../res/grommunio_logo_light.svg';
+import { Grid2, Tabs, Tab, TextField, InputAdornment, Typography, Button, ListItemButton, ListItemIcon, Theme } from '@mui/material';
+import { selectDrawerDomain } from '../actions/drawer';
+import { Add, BackupTable, ContactMail, Dns, QueryBuilder, TableChart, TaskAlt } from '@mui/icons-material';
+import { SYSTEM_ADMIN_READ } from '../constants';
+import Feedback from './Feedback';
+import AddDomain from './Dialogs/AddDomain';
+import { useNavigate } from 'react-router';
+import SpamIcon from './SpamIcon';
+import { useAppDispatch, useAppSelector } from '../store';
+import { Domain } from '@/types/domains';
+import { ChangeEvent, MuiIcon } from '@/types/common';
+
+
+const useStyles = makeStyles()((theme: Theme) => ({
+  drawerHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(0, 2, 0, 2),
+    justifyContent: 'center',
+    minHeight: 64,
+  },
+  nestedIcon: {
+    float: 'left',
+    paddingLeft: 16,
+    paddingRight: 6,
+    color: 'white',
+  },
+  drawerItemLabel: {
+    fontWeight: 700,
+  },
+  nestedLabel: {
+    fontWeight: 700,
+  },
+  tabs: {
+    width: 260,
+    minWidth: 260,
+    marginLeft: 8,
+    color: '#333',
+  },
+  tab: {
+    width: 122,
+    minWidth: 122,
+    color: '#ccc',
+  },
+  logo: {
+    cursor: 'pointer',
+  },
+  input: {
+    color: 'white',
+  },
+  textfield: {
+    margin: theme.spacing(1, 1, 1, 1),
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'grey',
+      },
+      '&:hover fieldset': {
+        borderColor: 'white',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: theme.palette.primary.main,
+      },
+    },
+  },
+  subheader: {
+    margin: theme.spacing(2, 0, 1, 1),
+    fontWeight: 600,
+  },
+  addButton: {
+    margin: '0 8px',
+    padding: '8px 16px',
+  },
+  flexCenter: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  selected: {
+    background: `${theme.palette.primary.main} !important`,
+  },
+  icon: {
+    color: '#fff',
+  }
+}));
+
+type NavigationLinksProps = {
+  domains: Domain[];
+  tab: number;
+  setTab: (tab: number) => void;
+}
+
+type ListElementProps = {
+  label: string;
+  ID?: number;
+  path: string;
+  Icon: MuiIcon | typeof SpamIcon;
+}
+
+type NestedListElementProps = { ID: number } & ListElementProps;
+
+const NavigationLinks = (props: NavigationLinksProps) => {
+  const { domains, tab, setTab } = props;
+  const { classes } = useStyles();
+  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const { capabilities } = useAppSelector(state => state.auth);
+  const expandedDomain = useAppSelector(state => state.drawer.selectedDomain);
+  const config = useAppSelector(state => state.config);
+  const [state, setState] = useState({
+    filter: '',
+    adding: false,
+    snackbar: '',
+  });
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string | number) => (event: React.MouseEvent) => {
+    event.preventDefault();
+    navigate(`/${path}`);
+  }
+
+  const handleDrawer = (domain: number) => (event: React.MouseEvent) => {
+    event.preventDefault();
+    dispatch(selectDrawerDomain(domain));
+    navigate(`/${domain}`);
+  }
+
+  const handleTextInput = (event: ChangeEvent) => {
+    setState({ ...state, filter: event.target.value });
+  }
+
+  const handleAdd = () => setState({ ...state, adding: true });
+
+  const handleAddingClose = () => setState({ ...state, adding: false });
+
+  const handleAddingSuccess = () => setState({ ...state, adding: false, snackbar: 'Success!' });
+
+  const handleAddingError = (error: string) => setState({ ...state, snackbar: error });
+
+  const toggleTab = () => {
+    setTab(tab === 0 ? 1 : 0);
+  }
+
+  // eslint-disable-next-line react/prop-types
+  const ListElement = ({ label, path, Icon }: ListElementProps) => {
+    const selected = location.pathname.endsWith('/' + path);
+    return (
+      <ListItemButton
+        onClick={handleNavigation(path)}
+        classes={{ selected: classes.selected }}
+        selected={selected}
+      >
+        <ListItemIcon>
+          <Icon className={classes.icon}/>
+        </ListItemIcon>
+        <ListItemText
+          primary={t(label)}
+          slotProps={{
+            primary: { className: selected ? classes.drawerItemLabel : undefined }
+          }}
+        />
+      </ListItemButton>
+    );
+  }
+
+  // eslint-disable-next-line react/prop-types
+  const NestedListElement = ({ ID, label, path, Icon }: NestedListElementProps) => {
+    const selected = expandedDomain === ID &&
+      location.pathname.startsWith('/' + ID + path);
+    return (
+      <ListItemButton
+        onClick={handleNavigation(ID + path)}
+        selected={selected}
+        classes={{ selected: classes.selected }}
+      >
+        <ListItemIcon>
+          <Icon className={classes.nestedIcon}/>
+        </ListItemIcon>
+        <ListItemText
+          primary={t(label)}
+          slotProps={{
+            primary: { className: selected ? classes.nestedLabel : undefined }
+          }}
+        />
+      </ListItemButton>
+    );
+  }
+
+  const { filter, adding, snackbar } = state;
+  const isSysAdmin = capabilities.includes(SYSTEM_ADMIN_READ);
+  const pathname = location.pathname;
+  const customImages = config.customImages[window.location.hostname] || config.customImages["*"];
+
+  return (
+    (<React.Fragment>
+      <div className={classes.drawerHeader}>
+        <img
+          src={customImages?.logoLight || logo}
+          height="32"
+          alt="OpenMail"
+          onClick={handleNavigation('')}
+          className={classes.logo}
+        />
+      </div>
+      {isSysAdmin && <Tabs
+        onChange={toggleTab}
+        value={tab}
+        className={classes.tabs}
+        indicatorColor="primary"
+        textColor="primary"
+      >
+        <Tab className={classes.tab} label={t('Admin')} />
+        <Tab className={classes.tab} label={t('Domains')} />
+      </Tabs>}
+      {(tab === 1 || !isSysAdmin) &&
+            <Grid2 container component="form" autoComplete="off">
+              <TextField
+                variant="outlined"
+                label={t('Search')}
+                value={filter}
+                onChange={handleTextInput}
+                color="primary"
+                className={classes.textfield}
+                slotProps={{
+                  input: {
+                    classes: { root: classes.input },
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Search color="secondary" />
+                      </InputAdornment>
+                    ),
+                  },
+
+                  inputLabel: {
+                    classes: {
+                      root: classes.input,
+                    },
+                    shrink: true,
+                  }
+                }} />
+            </Grid2>}
+      <List>
+        {tab === 1 && isSysAdmin && <div className={classes.flexCenter}>
+          <Button
+            color="primary"
+            onClick={handleAdd}
+            className={classes.addButton}
+          >
+            {t("New domain")}
+            <Add />
+          </Button>
+        </div>
+        }
+        {(tab === 1 || !isSysAdmin) &&
+            domains
+              .filter(({ domainname }) => domainname.includes(filter))
+              .map(({ domainname: name, ID, domainStatus }) => {
+                const selected = expandedDomain === ID && pathname === '/' + ID;
+                return (
+                  <React.Fragment key={name}>
+                    <ListItemButton
+                      onClick={handleDrawer(ID)}
+                      selected={selected}
+                      classes={{ selected: classes.selected }}
+                    >
+                      <ListItemIcon>
+                        <Domains className={classes.icon}/>
+                      </ListItemIcon>
+                      <ListItemText
+                        sx={{ wordWrap: 'break-word' }}
+                        primary={name + (domainStatus === 3 ? ` [${t('Deactivated')}]` : '')}
+                        slotProps={{
+                          primary: { className: selected ? classes.drawerItemLabel : undefined }
+                        }}
+                      />
+                    </ListItemButton>
+                    <Collapse in={expandedDomain === ID} unmountOnExit>
+                      <List component="div" disablePadding>
+                        <NestedListElement
+                          ID={ID}
+                          label={"Users"}
+                          path="/users"
+                          Icon={Person}
+                        />
+                        <NestedListElement
+                          ID={ID}
+                          label={"Contacts"}
+                          path="/contacts"
+                          Icon={ContactMail}
+                        />
+                        <NestedListElement
+                          ID={ID}
+                          label={"Groups"}
+                          path="/groups"
+                          Icon={Groups}
+                        />
+                        <NestedListElement
+                          ID={ID}
+                          label={"Public folders"}
+                          path="/folders"
+                          Icon={Topic}
+                        />
+                      </List>
+                    </Collapse>
+                  </React.Fragment>
+                );
+              })}
+        {(tab === 0 && !isSysAdmin) && <ListElement
+          label={"Task queue"}
+          path="taskq"
+          Icon={TaskAlt}
+        />}
+        {tab === 0 && isSysAdmin && <React.Fragment>
+          <Typography variant="inherit" className={classes.subheader}>{t('Overview')}</Typography>
+          <ListElement
+            label={"Dashboard"}
+            path=""
+            Icon={Dashboard}
+          />
+          {config?.["loadAntispamData"] !== false && <ListElement
+            label={"Spam History"}
+            path="spam"
+            Icon={SpamIcon}
+          />}
+          <Typography variant="inherit" className={classes.subheader}>{t('Management')}</Typography>
+          <ListElement
+            label={"Organizations"}
+            path="orgs"
+            Icon={Orgs}
+          />
+          <ListElement
+            label={"Domains"}
+            path="domains"
+            Icon={Domains}
+          />
+          <ListElement
+            label={"Users"}
+            path="users"
+            Icon={Person}
+          />
+          <ListElement
+            label={"Contacts"}
+            path="contacts"
+            Icon={ContactMail}
+          />
+          <ListElement
+            label={"Roles"}
+            path="roles"
+            Icon={Roles}
+          />
+          <ListElement
+            label={"Defaults"}
+            path="defaults"
+            Icon={BackupTable}
+          />
+          <Typography variant="inherit" className={classes.subheader}>{t('Configuration')}</Typography>
+          <ListElement
+            label={"LDAP Directory"}
+            path="directory"
+            Icon={Ldap}
+          />
+          <ListElement
+            label={"Configuration DB"}
+            path="dbconf"
+            Icon={Storage}
+          />
+          <ListElement
+            label={"Servers"}
+            path="servers"
+            Icon={Dns}
+          />
+          <ListElement
+            label={"Monitoring"}
+            path="logs"
+            Icon={Logs}
+          />
+          <ListElement
+            label={"Mail queue"}
+            path="mailq"
+            Icon={QueryBuilder}
+          />
+          <ListElement
+            label={"Task queue"}
+            path="taskq"
+            Icon={TaskAlt}
+          />
+          <ListElement
+            label={"Mobile devices"}
+            path="sync"
+            Icon={Sync}
+          />
+          <ListElement
+            label={"Live status"}
+            path="status"
+            Icon={TableChart}
+          />
+        </React.Fragment>
+        }
+      </List>
+      <AddDomain
+        open={adding}
+        onSuccess={handleAddingSuccess}
+        onError={handleAddingError}
+        onClose={handleAddingClose}
+      />
+      <Feedback
+        snackbar={snackbar}
+        onClose={() => setState({ ...state, snackbar: "" })}
+      />
+    </React.Fragment>)
+  );
+}
+
+
+export default NavigationLinks;

@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: be_BY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "Юрыдычная інфармацыя"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "Яшчэ {0} апавяшчэнне"
+msgstr[1] "Яшчэ {0} апавяшчэнні"
+
+msgid "Show less"
+msgstr "Паказаць менш"
+
+msgid "Undo and redo"
+msgstr "Адмена і вяртанне"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Уключыць адмену і вяртанне дзеянняў з паведамленнямі"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Адмена (Ctrl+Z) і вяртанне (Ctrl+Y) такіх дзеянняў, як выдаленне, перамяшчэнне або пазначэнне паведамленняў сцяжком. Запіс гэтых дзеянняў стварае невялікую дадатковую нагрузку, таму гэтая функцыя па змаўчанні адключана."
+
+msgid "Undo"
+msgstr "Адмяніць"
+
+msgid "Redo"
+msgstr "Вярнуць"
+
+msgid "Undo: {0}"
+msgstr "Адмяніць: {0}"
+
+msgid "Redo: {0}"
+msgstr "Вярнуць: {0}"
+
+msgid "Nothing to undo"
+msgstr "Няма чаго адмяняць"
+
+msgid "Undo the last action"
+msgstr "Адмяніць апошняе дзеянне"
+
+msgid "Redo the last undone action"
+msgstr "Вярнуць апошняе адмененае дзеянне"
+
+msgid "Undo failed"
+msgstr "Не ўдалося адмяніць"
+
+msgid "Redo failed"
+msgstr "Не ўдалося вярнуць"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Не ўдалося адмяніць дзеянне: {0}. Магчыма, элемент тым часам быў перамешчаны, зменены або выдалены."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Не ўдалося вярнуць дзеянне: {0}. Магчыма, элемент тым часам быў перамешчаны, зменены або выдалены."
+
+msgid "Delete {0}"
+msgstr "Выдаліць {0}"
+
+msgid "Delete {0} items"
+msgstr "Выдаліць элементы ({0})"
+
+msgid "Move {0} to {1}"
+msgstr "Перамясціць {0} у {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Перамясціць элементы ({0}) у {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Скапіяваць {0} у {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Скапіяваць элементы ({0}) у {1}"
+
+msgid "Create {0}"
+msgstr "Стварыць {0}"
+
+msgid "Change flag"
+msgstr "Змяніць сцяжок"
+
+msgid "Change categories"
+msgstr "Змяніць катэгорыі"
+
+msgid "Change appointment time"
+msgstr "Змяніць час сустрэчы"
+
+msgid "another folder"
+msgstr "іншую папку"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: элементы ({1})"
+
+msgid "New mail from {0}"
+msgstr "Новы ліст ад {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} новае паведамленне ў папцы {1}"
+msgstr[1] "Новыя паведамленні ў папцы {1} ({0})"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} новае паведамленне ў папцы {1} карыстальніка {2}"
+msgstr[1] "Новыя паведамленні ў папцы {1} карыстальніка {2} ({0})"
+
+msgid "In folder {0}"
+msgstr "У папцы {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "У папцы {0} карыстальніка {1}"
+
+msgid "New Mail Notifications"
+msgstr "Апавяшчэнні пра новую пошту"
+
+msgid "Only my own mailbox"
+msgstr "Толькі мая ўласная паштовая скрыня"
+
+msgid "Only the folders I choose"
+msgstr "Толькі выбраныя мной папкі"
+
+msgid "Unknown folder"
+msgstr "Невядомая папка"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Папкі не выбраны, апавяшчэнне пра новую пошту не паказваецца."

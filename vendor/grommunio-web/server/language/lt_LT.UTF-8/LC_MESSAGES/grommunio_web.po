@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: lt_LT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "Teisinė informacija"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "Dar {0} pranešimas"
+msgstr[1] "Dar {0} pranešimai"
+
+msgid "Show less"
+msgstr "Rodyti mažiau"
+
+msgid "Undo and redo"
+msgstr "Anuliavimas ir perdarymas"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Įjungti laiškų veiksmų anuliavimą ir perdarymą"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Anuliuokite (Ctrl+Z) ir perdarykite (Ctrl+Y) tokius veiksmus kaip laiškų naikinimas, perkėlimas ar pažymėjimas vėliavėle. Šių veiksmų įrašymas sukuria nedidelę papildomą apkrovą, todėl ši funkcija pagal numatytuosius nustatymus yra išjungta."
+
+msgid "Undo"
+msgstr "Anuliuoti"
+
+msgid "Redo"
+msgstr "Perdaryti"
+
+msgid "Undo: {0}"
+msgstr "Anuliuoti: {0}"
+
+msgid "Redo: {0}"
+msgstr "Perdaryti: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nėra ką anuliuoti"
+
+msgid "Undo the last action"
+msgstr "Anuliuoti paskutinį veiksmą"
+
+msgid "Redo the last undone action"
+msgstr "Perdaryti paskutinį anuliuotą veiksmą"
+
+msgid "Undo failed"
+msgstr "Anuliuoti nepavyko"
+
+msgid "Redo failed"
+msgstr "Perdaryti nepavyko"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nepavyko anuliuoti: {0}. Elementas per tą laiką galėjo būti perkeltas, pakeistas arba pašalintas."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nepavyko perdaryti: {0}. Elementas per tą laiką galėjo būti perkeltas, pakeistas arba pašalintas."
+
+msgid "Delete {0}"
+msgstr "{0} naikinimas"
+
+msgid "Delete {0} items"
+msgstr "{0} elementų naikinimas"
+
+msgid "Move {0} to {1}"
+msgstr "{0} perkėlimas į {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} elementų perkėlimas į {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} kopijavimas į {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} elementų kopijavimas į {1}"
+
+msgid "Create {0}"
+msgstr "{0} kūrimas"
+
+msgid "Change flag"
+msgstr "Vėliavėlės keitimas"
+
+msgid "Change categories"
+msgstr "Kategorijų keitimas"
+
+msgid "Change appointment time"
+msgstr "Paskyrimo laiko keitimas"
+
+msgid "another folder"
+msgstr "kitą aplanką"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} elem."
+
+msgid "New mail from {0}"
+msgstr "Naujas laiškas nuo {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} naujas laiškas aplanke {1}"
+msgstr[1] "{0} nauji laiškai aplanke {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} naujas laiškas aplanke {1} ({2})"
+msgstr[1] "{0} nauji laiškai aplanke {1} ({2})"
+
+msgid "In folder {0}"
+msgstr "Aplanke {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "Aplanke {0} ({1})"
+
+msgid "New Mail Notifications"
+msgstr "Pranešimai apie naujus laiškus"
+
+msgid "Only my own mailbox"
+msgstr "Tik mano pašto dėžutė"
+
+msgid "Only the folders I choose"
+msgstr "Tik mano pasirinkti aplankai"
+
+msgid "Unknown folder"
+msgstr "Nežinomas aplankas"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nepasirinktas nė vienas aplankas, todėl joks pranešimas apie naujus laiškus nerodomas."

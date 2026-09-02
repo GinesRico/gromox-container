@@ -1,0 +1,9 @@
+{
+  "customImages": {
+    "*": {
+      "logo": "openmail/login.png",
+      "logoLight": "openmail/login.png",
+      "icon": "openmail/icon.png"
+    }
+  }
+}

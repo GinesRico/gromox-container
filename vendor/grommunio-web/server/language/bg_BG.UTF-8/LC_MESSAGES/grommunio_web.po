@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "Правна информация"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "Още {0} известие"
+msgstr[1] "Още {0} известия"
+
+msgid "Show less"
+msgstr "Покажи по-малко"
+
+msgid "Undo and redo"
+msgstr "Отмяна и връщане"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Разрешаване на отмяна и връщане на действията със съобщения"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Отмяна (Ctrl+Z) и връщане (Ctrl+Y) на действия като изтриване, преместване или маркиране на съобщения с флаг. Записването на тези действия добавя малко допълнително натоварване, затова функцията е изключена по подразбиране."
+
+msgid "Undo"
+msgstr "Отмени"
+
+msgid "Redo"
+msgstr "Върни"
+
+msgid "Undo: {0}"
+msgstr "Отмени: {0}"
+
+msgid "Redo: {0}"
+msgstr "Върни: {0}"
+
+msgid "Nothing to undo"
+msgstr "Няма нищо за отмяна"
+
+msgid "Undo the last action"
+msgstr "Отмяна на последното действие"
+
+msgid "Redo the last undone action"
+msgstr "Връщане на последното отменено действие"
+
+msgid "Undo failed"
+msgstr "Неуспешна отмяна"
+
+msgid "Redo failed"
+msgstr "Неуспешно връщане"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Не можа да се отмени: {0}. Възможно е междувременно елементът да е бил преместен, променен или премахнат."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Не можа да се върне: {0}. Възможно е междувременно елементът да е бил преместен, променен или премахнат."
+
+msgid "Delete {0}"
+msgstr "Изтриване на {0}"
+
+msgid "Delete {0} items"
+msgstr "Изтриване на {0} елемента"
+
+msgid "Move {0} to {1}"
+msgstr "Преместване на {0} в {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Преместване на {0} елемента в {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Копиране на {0} в {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Копиране на {0} елемента в {1}"
+
+msgid "Create {0}"
+msgstr "Създаване на {0}"
+
+msgid "Change flag"
+msgstr "Промяна на флага"
+
+msgid "Change categories"
+msgstr "Промяна на категориите"
+
+msgid "Change appointment time"
+msgstr "Промяна на часа на срещата"
+
+msgid "another folder"
+msgstr "друга папка"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} елемента"
+
+msgid "New mail from {0}"
+msgstr "Нова поща от {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} ново съобщение в папка {1}"
+msgstr[1] "{0} нови съобщения в папка {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} ново съобщение в папка {1} на {2}"
+msgstr[1] "{0} нови съобщения в папка {1} на {2}"
+
+msgid "In folder {0}"
+msgstr "В папка {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "В папка {0} на {1}"
+
+msgid "New Mail Notifications"
+msgstr "Известия за нова поща"
+
+msgid "Only my own mailbox"
+msgstr "Само моята пощенска кутия"
+
+msgid "Only the folders I choose"
+msgstr "Само папките, които избера"
+
+msgid "Unknown folder"
+msgstr "Неизвестна папка"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Няма избрани папки, няма да се показва известие за нова поща."

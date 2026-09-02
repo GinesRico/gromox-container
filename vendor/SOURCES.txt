@@ -1,0 +1,10 @@
+Local source snapshots used by gromox-core/Dockerfile.
+
+The directories in this folder are copied into the Docker build context from
+the working trees on the development machine. They intentionally do not
+contain .git directories or node_modules.
+
+gromox: local working tree, branch arvera-shared-only-mapi (gromox.tar.gz)
+grommunio-web: local working tree, branch arvera-operator-users
+admin-api: local working tree, branch arvera-operator-users
+admin-web: local working tree, branch arvera-operator-users

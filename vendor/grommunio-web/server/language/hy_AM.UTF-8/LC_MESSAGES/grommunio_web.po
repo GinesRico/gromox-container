@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: hy_AM\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "Իրավական տեղեկություններ"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "ևս {0} ծանուցում"
+msgstr[1] "ևս {0} ծանուցում"
+
+msgid "Show less"
+msgstr "Ցուցադրել ավելի քիչ"
+
+msgid "Undo and redo"
+msgstr "Հետարկում և կրկնում"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Միացնել նամակների գործողությունների հետարկումը և կրկնումը"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Գործողությունների հետարկում (Ctrl+Z) և կրկնում (Ctrl+Y), օրինակ՝ նամակների ջնջում, տեղափոխում կամ դրոշակավորում։ Այս գործողությունների գրանցումը փոքր լրացուցիչ ծանրաբեռնվածություն է ստեղծում, ուստի գործառույթը լռելյայն անջատված է։"
+
+msgid "Undo"
+msgstr "Հետարկել"
+
+msgid "Redo"
+msgstr "Կրկնել"
+
+msgid "Undo: {0}"
+msgstr "Հետարկել՝ {0}"
+
+msgid "Redo: {0}"
+msgstr "Կրկնել՝ {0}"
+
+msgid "Nothing to undo"
+msgstr "Հետարկելու բան չկա"
+
+msgid "Undo the last action"
+msgstr "Հետարկել վերջին գործողությունը"
+
+msgid "Redo the last undone action"
+msgstr "Կրկնել վերջին հետարկված գործողությունը"
+
+msgid "Undo failed"
+msgstr "Հետարկումը ձախողվեց"
+
+msgid "Redo failed"
+msgstr "Կրկնումը ձախողվեց"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Չհաջողվեց հետարկել {0}։ Հնարավոր է՝ տարրն այդ ընթացքում տեղափոխվել, փոփոխվել կամ հեռացվել է։"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Չհաջողվեց կրկնել {0}։ Հնարավոր է՝ տարրն այդ ընթացքում տեղափոխվել, փոփոխվել կամ հեռացվել է։"
+
+msgid "Delete {0}"
+msgstr "Ջնջել {0}"
+
+msgid "Delete {0} items"
+msgstr "Ջնջել {0} տարր"
+
+msgid "Move {0} to {1}"
+msgstr "Տեղափոխել {0}-ը դեպի {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Տեղափոխել {0} տարր դեպի {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Պատճենել {0}-ը դեպի {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Պատճենել {0} տարր դեպի {1}"
+
+msgid "Create {0}"
+msgstr "Ստեղծել {0}"
+
+msgid "Change flag"
+msgstr "Փոխել դրոշակը"
+
+msgid "Change categories"
+msgstr "Փոխել կատեգորիաները"
+
+msgid "Change appointment time"
+msgstr "Փոխել հանդիպման ժամանակը"
+
+msgid "another folder"
+msgstr "մեկ այլ թղթապանակ"
+
+msgid "{0}: {1}"
+msgstr "{0}՝ {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}՝ {1} տարր"
+
+msgid "New mail from {0}"
+msgstr "Նոր նամակ {0}-ից"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} նոր հաղորդագրություն {1} թղթապանակում"
+msgstr[1] "{0} նոր հաղորդագրություն {1} թղթապանակում"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} նոր հաղորդագրություն {2}-ի {1} թղթապանակում"
+msgstr[1] "{0} նոր հաղորդագրություն {2}-ի {1} թղթապանակում"
+
+msgid "In folder {0}"
+msgstr "{0} թղթապանակում"
+
+msgid "In folder {0} of {1}"
+msgstr "{1}-ի {0} թղթապանակում"
+
+msgid "New Mail Notifications"
+msgstr "Նոր նամակների ծանուցումներ"
+
+msgid "Only my own mailbox"
+msgstr "Միայն իմ սեփական փոստարկղը"
+
+msgid "Only the folders I choose"
+msgstr "Միայն իմ ընտրած թղթապանակները"
+
+msgid "Unknown folder"
+msgstr "Անհայտ թղթապանակ"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Ոչ մի թղթապանակ ընտրված չէ, նոր նամակի մասին ծանուցում չի ցուցադրվի։"

@@ -1,0 +1,518 @@
+type: object
+properties:
+  openapi:
+    type: object
+    properties:
+      validateRequest:
+        type: boolean
+        default: true
+        description: Enable/disable request validation
+      validateResponse:
+        type: boolean
+        default: true
+        description: Enable/disable request validation
+  security:
+    type: object
+    properties:
+      jwtExpiresAfter:
+        description: Validity duration of login tokens, in seconds
+        default: 604800
+        type: integer
+      jwtPublicKeyFile:
+        description: Path to the public rsa key used for authentication
+        default: res/jwt-pubkey.pem
+        type: string
+      jwtPrivateKeyFile:
+        description: Path to the private rsa key used for authentication
+        default: res/jwt-privkey.pem
+        type: string
+  DB:
+    type: object
+    description: Database configuration object
+    properties:
+      user:
+        type: string
+        description: Username for database authentication
+      pass:
+        type: string
+        description: Password for database authentication
+      database:
+        type: string
+        description: Database schema to connect to
+      host:
+        type: string
+        description: Hostname of the database server
+        default: 127.0.0.1
+      port:
+        type: integer
+        description: Port the database server listens on
+        default: 3306
+      sessionTimeout:
+        type: integer
+        description: Time in seconds after which database connection closed by the server and a new one is needed
+        default: 28800
+  dns:
+    type: object
+    description: DNS health check configuration
+    properties:
+      dudIP:
+        type: string
+        description: Default-routed IP address used for local IP detection
+        default: 172.16.254.254
+      externalResolvers:
+        type: array
+        description: List of external DNS resolvers to use
+        default: [1.1.1.1, 1.0.0.0]
+        items:
+          type: string
+  options:
+    type: object
+    properties:
+      dataPath:
+        type: string
+        description: Path containing shared resources
+        default: /usr/share/grommunio/common
+      portrait:
+        type: string
+        description: File containing default portrait image. Path is relative to `dataPath`.
+        default: admin/api/portrait.jpg
+      domainStoreRatio:
+        type: integer
+        description: Mysterious storage factor for `domain.maxSize`
+        minimum: 1
+        maximum: 999
+        default: 10
+      domainPrefix:
+        type: string
+        description: Path to store domain home directories in
+        default: /d-data/
+      userPrefix:
+        type: string
+        description: Path to store user home directories in
+        default: /u-data/
+      serverExplicitMount:
+        type: boolean
+        description: Place user and domain directories in server specific subdirectories
+        default: False
+      exmdbHost:
+        type: string
+        description: Name or IP address of the exmdb service provider
+        default: '::1'
+      exmdbPort:
+        type: string
+        description: Port or service name of the exmdb service provider
+        default: '5000'
+      domainStorageLevels:
+        type: integer
+        description: Number of sub-directory levels to use for domain storage
+        minimum: 1
+        maximum: 5
+        default: 1
+      userStorageLevels:
+        type: integer
+        description: Number of sub-directory levels to use for user storage
+        minimum: 1
+        maximum: 5
+        default: 2
+      dashboard:
+        description: Configuration of the dashboard
+        type: object
+        properties:
+          services:
+            type: array
+            description: List of services to monitor
+            items:
+              type: object
+              properties:
+                unit:
+                  type: string
+                  description: Name of the service
+                name:
+                  type: string
+                  description: Optional alternative display name
+      licenseFile:
+        type: string
+        description: Location of the license certificate. Must be writable by the server.
+      fileUid:
+        oneOf:
+          - type: string
+            description: Change ownership of created files to this user (name)
+          - type: integer
+            description: Change ownership of created files to this user (ID)
+      fileGid:
+        oneOf:
+          - type: string
+            description: Change ownership of created files to this group (name)
+          - type: integer
+            description: Change ownership of created files to this group (ID)
+      filePermissions:
+        oneOf:
+          - type: integer
+            description: Permission bitmask of newly created files
+          - type: string
+            description: Permission bitmask of newly created files
+      antispamUrl:
+          type: string
+          default: 'http://localhost:11334'
+          description: URL of the grommunio-antispam backend
+      antispamEndpoints:
+          type: array
+          description: List of allowed endpoints to proxy to grommunio-antispam
+          default: ["stat", "graph", "errors"]
+          items:
+            type: string
+      vhosts:
+        type: object
+        description: Mapping of (freely defined) names to URLS
+        additionalProperties:
+          description: URL of the vhost status endpoint
+          type: string
+  mconf:
+    description: Options for managed configurations
+    type: object
+    properties:
+      fileUid:
+          oneOf:
+            - type: string
+              description: Change ownership of created files to this user (name)
+            - type: integer
+              description: Change ownership of created files to this user (ID)
+      fileGid:
+        oneOf:
+          - type: string
+            description: Change ownership of created files to this group (name)
+          - type: integer
+            description: Change ownership of created files to this group (ID)
+      filePermissions:
+        oneOf:
+          - type: integer
+            description: Permission bitmask of newly created files
+          - type: string
+            description: Permission bitmask of newly created files
+      ldapPath:
+        type: string
+        description: Path to the ldap configuration file
+      authmgrPath:
+        type: string
+        description: Path to the authmgr configuration file
+  logs:
+    description: Associative list of log files to expose
+    type: object
+    additionalProperties:
+      type: object
+      required: [source]
+      properties:
+        format:
+          type: string
+          description: File format. Currently only `journald` is supported.
+          enum: [journald]
+          default: journald
+        source:
+          type: string
+          description: Name of the journald unit
+  chat:
+    type: object
+    properties:
+      connection:
+        type: object
+        additionalProperties: true
+  logging:
+    type: object
+    description: Configuration for logging output
+    properties:
+      level:
+        oneOf:
+          - type: integer
+            minimum: 0
+          - type: string
+            enum: ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
+      loggers:
+        additionalProperties:
+          type: object
+          properties:
+            level:
+              oneOf:
+                - type: integer
+                  minimum: 0
+                - type: string
+                  enum: ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
+  sync:
+    description: Options for grommunio-sync access
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host running the Redis instance
+        default: 127.0.0.1
+      port:
+        type: integer
+        description: Port the Redis instance is listening on
+        default: 6379
+      db:
+        type: string
+        description: Name of the Redis database
+        default: '0'
+      password:
+        type: string
+        description: Password to connect with
+        default: null
+      topTimestampKey:
+        type: string
+        description: Key to write the current timestamp to
+        default: grommunio-sync:topenabledat
+      topdataKey:
+        type: string
+        description: Key containing the top data hash
+        default: grommunio-sync:topdata
+      topExpireEnded:
+        type: integer
+        description: Time (in seconds) after which ended processes are removed
+        default: 20
+      topExpireUpdated:
+        type: integer
+        description: Time (in seconds) since the last update after which processes are removed
+        default: 120
+      syncStateFolder:
+        type: string
+        description: Sub-folder containing the device sync states
+        default: GS-SyncState
+      policyHosts:
+        type: array
+        description: List of hosts that have unauthenticated access to user policies
+        default: ["127.0.0.1", "localhost"]
+        items:
+          type: string
+      defaultPolicy:
+        type: object
+        description: Default policy override
+        properties:
+          allowbluetooth:
+            type: integer
+            enum: [0, 1, 2]
+            default: 2
+            description: Whether Bluetooth and hands-free profiles are allowed on the device (0=disabled, 1=allow only HFP, 2=allow)
+          allowbrowser:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device allows the use of a web browser.
+          allowcam:
+            type: integer
+            default: 1
+            enum: [0, 1]
+            description: Whether the device allows the use of the built-in camera.
+          allowconsumeremail:
+            type: integer
+            default: 1
+            enum: [0, 1]
+            description: Whether the device allows the use of personal email.
+          allowdesktopsync:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device allows synchronization with Desktop ActiveSync.
+          allowhtmlemail:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device uses HTML-formatted email.
+          allowinternetsharing:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device allows the use of Internet Sharing.
+          allowirda:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device allows the use of IrDA (infrared) connections.
+          allowpopimapemail:
+            type: integer
+            default: 1
+            enum: [0, 1]
+            description: Whether the device allows access to POP/IMAP email.
+          allowremotedesk:
+            type: integer
+            default: 1
+            enum: [0, 1]
+            description: Whether the device allows the use of Remote Desktop.
+          allowsimpledevpw:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device allows simple passwords.
+          allowsmimeencalgneg:
+            type: integer
+            enum: [0, 1, 2]
+            default: 2
+            description: Whether the device can negotiate the encryption algorithm to be used for signing (0=not allowed, 1=only strong, 2=any)
+          allowsmimesoftcerts:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device uses soft certificates to sign outgoing messages.
+          allowstoragecard:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device allows the use of the storage card.
+          allowtextmessaging:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device allows Short Message Service (SMS)/text messaging.
+          allowunsignedapps:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device allows unsigned applications to execute.
+          allowunsigninstallpacks:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device allows unsigned cabinet (.cab) files to be installed.
+          allowwifi:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Whether the device allows the use of Wi-Fi connections.
+          alphanumpwreq:
+            type: integer
+            enum: [0, 1]
+            default: 0
+            description: Indicates whether a client device requires an alphanumeric password.
+          approvedapplist:
+            type: array
+            description: A list of in-RAM applications that are approved for execution.
+            default: []
+            items:
+              type: string
+          attenabled:
+            type: integer
+            enum: [0, 1]
+            default: 1
+            description: Indicates whether email attachments are enabled.
+          devencenabled:
+            type: integer
+            default: 0
+            enum: [0, 1]
+            description: Deprecated, kept for backwards compatibility
+          devpwenabled:
+            type: integer
+            enum: [0, 1]
+            default: 0
+            description: Indicates whether a client device requires a password.
+          devpwexpiration:
+            type: integer
+            default: 0
+            description: Whether the password expires after the specified number of days, as determined by the policy (0=unlimited).
+          devpwhistory:
+            type: integer
+            default: 0
+            description: The minimum number of previously used passwords the client device stores to prevent reuse (0=no storage).
+          maxattsize:
+            oneOf:
+              - type: string
+                default: ''
+                enum: ['']
+                description: Unlimited attachment size
+              - type: integer
+                description: The maximum attachment size, as determined by the security policy.
+          maxcalagefilter:
+            type: integer
+            enum: [0, 4, 5, 6, 7]
+            default: 0
+            description: The maximum number of calendar days that can be synchronized (0=unlimited, 4=2 weeks, 5=1 month, 6=3 months, 7=6 months)
+          maxdevpwfailedattempts:
+            type: integer
+            minimum: 4
+            maximum: 16
+            default: 8
+            description: The number of password failures that are permitted before the device is wiped.
+          maxemailagefilter:
+            type: integer
+            default: 0
+            enum: [0, 1, 2, 3, 4, 5]
+            description: The email age limit for synchronization (0=all, 1=1 day, 2=3 days, 3=1 week, 4=2 weeks, 5=1 month)
+          maxemailbodytruncsize:
+            type: integer
+            default: -1
+            description: The truncation size for plain text–formatted email messages (-1=unlimited, 0=header only, >0=truncate to size)
+          maxemailhtmlbodytruncsize:
+            type: integer
+            default: -1
+            description: The truncation size for HTML-formatted email messages (-1=unlimited, 0=header only, >0=truncate to size)
+          maxinacttimedevlock:
+            type: integer
+            default: 900
+            description: The number of seconds of inactivity before the device locks itself (>9999=unlimited)
+          mindevcomplexchars:
+            type: integer
+            minimum: 1
+            maximum: 4
+            default: 3
+            description: The minimum number of character classes (lower case, upper case, numbers and symbols) contained within the password.
+          mindevpwlenngth:
+            type: integer
+            minimum: 1
+            maximum: 16
+            default: 4
+            description: The minimum device password length that the user can enter (1=unlimited).
+          pwrecoveryenabled:
+            type: integer
+            enum: [0, 1]
+            default: 0
+            description: Indicates whether to enable a recovery password to be sent to the server by using the Settings command.
+          reqdevenc:
+            type: integer
+            enum: [0, 1]
+            default: 0
+            description: Whether the device uses encryption.
+          reqencsmimealgorithm:
+            type: integer
+            enum: [0, 1, 2, 3, 4]
+            default: 0
+            description: The algorithm to be used when encrypting a message (0=TripleDES, 1=DES, 2=RC2128bit, 3=RC264bit, 4=RC240bit)
+          reqencsmimemessages:
+            type: integer
+            enum: [0, 1]
+            default: 0
+            description: Whether the device is required to send encrypted messages.
+          reqmansyncroam:
+            type: integer
+            enum: [0, 1]
+            default: 0
+            description: Whether the device requires manual synchronization when the device is roaming.
+          reqsignedsmimealgorithm:
+            type: integer
+            enum: [0, 1]
+            default: 0
+            description: The algorithm to be used when signing a message (0=SHA1, 1=MD5)
+          reqsignedsmimemessages:
+            type: integer
+            enum: [0, 1]
+            default: 0
+            description: Whether the device is required to send signed S/MIME messages.
+          reqstoragecardenc:
+            type: integer
+            default: 0
+            description: Require encryption on storage card (0=no, 1=yes)
+          unapprovedinromapplist:
+            type: array
+            description: A list of in-ROM applications that are not approved for execution.
+            default: []
+            items:
+              type: string
+  tasq:
+    type: object
+    description: TasQ server configuration
+    properties:
+      disabled:
+        type: boolean
+        description: Disable automatic TasQ server startup
+        default: false
+      workers:
+        type: integer
+        description: Number of workers
+        default: 1
+        minimum: 1

@@ -1,0 +1,234 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { makeStyles } from 'tss-react/mui';
+import Search from '@mui/icons-material/Search';
+import BackIcon from '@mui/icons-material/ArrowBack';
+import Import from '@mui/icons-material/ImportContacts';
+import { Checkbox, CircularProgress, Divider, FormControlLabel, Grid2, IconButton, InputAdornment, List, ListItem, ListItemAvatar, ListItemText,
+  Paper, TextField, Theme, Tooltip, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { clearLdapSearch, fetchLdapData } from '../actions/ldap';
+import ImportDialog from '../components/Dialogs/ImportDialog';
+import { CapabilityContext } from '../CapabilityContext';
+import { DOMAIN_ADMIN_WRITE, ORG_ADMIN } from '../constants';
+import ViewWrapper from '../components/ViewWrapper';
+import { AccountCircle, ContactMail, Groups } from '@mui/icons-material';
+import { useNavigate } from 'react-router';
+import { throttle } from 'lodash';
+import { useAppDispatch, useAppSelector } from '../store';
+import { ChangeEvent, DomainViewProps } from '@/types/common';
+import { LdapUser } from '@/types/users';
+import { FetchLdapParams } from '@/types/ldap';
+
+
+const useStyles = makeStyles()((theme: Theme) => ({
+  pageTitle: {
+    margin: theme.spacing(2, 2, 2, 2),
+  },
+  backIcon: {
+    color: theme.palette.primary.main,
+    position: 'relative',
+    top: 4,
+    right: 4,
+    cursor: 'pointer',
+  },
+  searchTf: {
+    maxWidth: 500,
+  },
+  checkbox: {
+    marginLeft: 16,
+  },
+}));
+
+interface LdapState {
+  loading: boolean;
+  confirming: LdapUser | null;
+  snackbar: string;
+}
+
+const Ldap = ({ domain }: DomainViewProps) => {
+  const { classes } = useStyles();
+  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const ldapUsers = useAppSelector(state => state.ldap.Users);
+  const [state, setState] = useState<LdapState>({
+    loading: false,
+    confirming: null,
+    snackbar: '',
+  });
+  const [search, setSearch] = useState("");
+  const [searchInOrg, setSearchInOrg] = useState<boolean>(false);
+  const [showAll, setShowAll] = useState<boolean>(false);
+  const context = useContext(CapabilityContext);
+  const navigate = useNavigate();
+
+  const fetch = async (params: FetchLdapParams) => await dispatch(fetchLdapData(params));
+  const clear = () => dispatch(clearLdapSearch());
+
+  useEffect(() => {
+    return () => {
+      clear();
+    }
+  }, []);
+
+  const handleLdapSearch = ({ target: t }: ChangeEvent) => {
+    const query = t.value;
+    setSearch(query);
+    if(query.length > 2) {
+      debounceFetch({
+        query,
+        domain: searchInOrg ? undefined : domain.ID,
+        organization: searchInOrg ? domain.orgID : undefined,
+        showAll,
+      });
+    }
+  }
+
+  const debounceFetch = useCallback(throttle(params => {
+    setState({ ...state, loading: true });
+    fetch(params)
+      .then(() => setState({ ...state, loading: false }))
+      .catch(snackbar => setState({ ...state, snackbar, loading: false }));
+  }, 500), []);
+
+  const handleImport = (user: LdapUser) => () => setState({ ...state, confirming: user });
+
+  const handleSuccess = () => setState({ ...state, confirming: null, snackbar: 'Success!' });
+
+  const handleClose = () => setState({ ...state, confirming: null });
+
+  const handleError = (error: string) => setState({ ...state,snackbar: error });
+
+  const handleCheckbox = (field: string) => (e: ChangeEvent) => {
+    const { checked } = e.target;
+    if(field === "showAll") {
+      setShowAll(checked);
+      debounceFetch({
+        query: search,
+        domain: searchInOrg ? undefined : domain.ID,
+        organization: searchInOrg ? domain.orgID : undefined,
+        showAll: checked,
+      });
+    }
+    else if (field === "searchInOrg") {
+      setSearchInOrg(checked);
+      debounceFetch({
+        query: search,
+        domain: checked ? undefined : domain.ID,
+        organization: checked ? domain.orgID : undefined,
+        showAll,
+      });
+    }
+  }
+
+  const { loading, snackbar, confirming } = state;
+  const writable = context.includes(DOMAIN_ADMIN_WRITE);
+  return (
+    (<ViewWrapper
+      snackbar={snackbar}
+      onSnackbarClose={() => setState({ ...state,snackbar: '' })}
+    >
+      <Typography variant="h2" className={classes.pageTitle}>
+        <BackIcon onClick={() => navigate(-1)} className={classes.backIcon} />
+        <span>| </span>
+        {t("LDAP")}
+      </Typography>
+      <Grid2 container justifyContent="center">
+        <TextField
+          autoFocus
+          placeholder={t("Search LDAP")}
+          onChange={handleLdapSearch}
+          value={search}
+          variant="outlined"
+          color="primary"
+          fullWidth
+          className={classes.searchTf}
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Search color="primary"/>
+                </InputAdornment>
+              ),
+            }
+          }}
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={showAll || false }
+              value={showAll || false}
+              onChange={handleCheckbox('showAll')}
+              color="primary"
+            />
+          }
+          label={t('Show all')}
+          className={classes.checkbox}
+        />
+        {context.includes(ORG_ADMIN) && <FormControlLabel
+          control={
+            <Checkbox
+              checked={searchInOrg || false }
+              value={searchInOrg || false}
+              onChange={handleCheckbox('searchInOrg')}
+              color="primary"
+            />
+          }
+          label={t('Search in entire organisation')}
+          className={classes.checkbox}
+        />}
+      </Grid2>
+      {ldapUsers.length > 0 && <Paper elevation={1}>
+        <List>
+          {ldapUsers.map((user: LdapUser, idx: number) => <React.Fragment key={idx}>
+            <ListItem>
+              <ListItemAvatar>
+                {user.type === "contact" ?
+                  <ContactMail /> : user.type === "group" ?
+                    <Groups /> :
+                    <AccountCircle />
+                }
+              </ListItemAvatar>
+              <ListItemText
+                primary={user.name}
+                secondary={user.email}
+                slotProps={{
+                  primary: { color: 'primary' }
+                }}
+              />
+              {writable && <Tooltip title={user.error || t("Import user")}>
+                <span>
+                  <IconButton
+                    disabled={!!user.error}
+                    onClick={handleImport(user)}
+                    size="large"
+                  >
+                    <Import />
+                  </IconButton>
+                </span>
+              </Tooltip>}
+            </ListItem>
+            <Divider />
+          </React.Fragment>
+          )}
+        </List>
+      </Paper>}
+      {loading && <Grid2 container justifyContent="center">
+        <CircularProgress color="primary" size={40}/>
+      </Grid2>}
+      <ImportDialog
+        domainID={domain.ID}
+        open={!!confirming}
+        user={confirming}
+        onSuccess={handleSuccess}
+        onClose={handleClose}
+        onError={handleError}
+      />
+    </ViewWrapper>)
+  );
+}
+
+
+export default Ldap;

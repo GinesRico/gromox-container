@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "იურიდიული ინფორმაცია"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "კიდევ {0} შეტყობინება"
+msgstr[1] "კიდევ {0} შეტყობინება"
+
+msgid "Show less"
+msgstr "ნაკლების ჩვენება"
+
+msgid "Undo and redo"
+msgstr "დაბრუნება და გამეორება"
+
+msgid "Enable undo and redo of message actions"
+msgstr "შეტყობინების მოქმედებების დაბრუნებისა და გამეორების ჩართვა"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "მოქმედებების დაბრუნება (Ctrl+Z) და გამეორება (Ctrl+Y), როგორიცაა შეტყობინებების წაშლა, გადატანა ან ალმის დაყენება. ამ მოქმედებების ჩაწერა მცირე დამატებით დატვირთვას იწვევს, ამიტომ ეს ფუნქცია ნაგულისხმევად გამორთულია."
+
+msgid "Undo"
+msgstr "დაბრუნება"
+
+msgid "Redo"
+msgstr "გამეორება"
+
+msgid "Undo: {0}"
+msgstr "დაბრუნება: {0}"
+
+msgid "Redo: {0}"
+msgstr "გამეორება: {0}"
+
+msgid "Nothing to undo"
+msgstr "დასაბრუნებელი არაფერია"
+
+msgid "Undo the last action"
+msgstr "ბოლო მოქმედების დაბრუნება"
+
+msgid "Redo the last undone action"
+msgstr "ბოლო დაბრუნებული მოქმედების გამეორება"
+
+msgid "Undo failed"
+msgstr "დაბრუნება ვერ მოხერხდა"
+
+msgid "Redo failed"
+msgstr "გამეორება ვერ მოხერხდა"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0}-ის დაბრუნება ვერ მოხერხდა. ელემენტი ამასობაში შეიძლება გადატანილი, შეცვლილი ან წაშლილი იყოს."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0}-ის გამეორება ვერ მოხერხდა. ელემენტი ამასობაში შეიძლება გადატანილი, შეცვლილი ან წაშლილი იყოს."
+
+msgid "Delete {0}"
+msgstr "{0}-ის წაშლა"
+
+msgid "Delete {0} items"
+msgstr "{0} ელემენტის წაშლა"
+
+msgid "Move {0} to {1}"
+msgstr "{0}-ის გადატანა {1}-ში"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} ელემენტის გადატანა {1}-ში"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}-ის კოპირება {1}-ში"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} ელემენტის კოპირება {1}-ში"
+
+msgid "Create {0}"
+msgstr "{0}-ის შექმნა"
+
+msgid "Change flag"
+msgstr "ალმის შეცვლა"
+
+msgid "Change categories"
+msgstr "კატეგორიების შეცვლა"
+
+msgid "Change appointment time"
+msgstr "შეხვედრის დროის შეცვლა"
+
+msgid "another folder"
+msgstr "სხვა საქაღალდე"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} ელემენტი"
+
+msgid "New mail from {0}"
+msgstr "ახალი წერილი {0}-სგან"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} ახალი შეტყობინება {1} საქაღალდეში"
+msgstr[1] "{0} ახალი შეტყობინება {1} საქაღალდეში"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} ახალი შეტყობინება {2}-ის {1} საქაღალდეში"
+msgstr[1] "{0} ახალი შეტყობინება {2}-ის {1} საქაღალდეში"
+
+msgid "In folder {0}"
+msgstr "{0} საქაღალდეში"
+
+msgid "In folder {0} of {1}"
+msgstr "{1}-ის {0} საქაღალდეში"
+
+msgid "New Mail Notifications"
+msgstr "ახალი ფოსტის შეტყობინებები"
+
+msgid "Only my own mailbox"
+msgstr "მხოლოდ ჩემი საკუთარი საფოსტო ყუთი"
+
+msgid "Only the folders I choose"
+msgstr "მხოლოდ ჩემ მიერ არჩეული საქაღალდეები"
+
+msgid "Unknown folder"
+msgstr "უცნობი საქაღალდე"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "საქაღალდეები არჩეული არ არის, ახალი ფოსტის შეტყობინება არ გამოჩნდება."

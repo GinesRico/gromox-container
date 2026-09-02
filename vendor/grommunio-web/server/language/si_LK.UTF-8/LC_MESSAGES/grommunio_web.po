@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: si_LK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "නීතිමය තොරතුර"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "තවත් දැනුම්දීම් {0}ක්"
+msgstr[1] "තවත් දැනුම්දීම් {0}ක්"
+
+msgid "Show less"
+msgstr "අඩුවෙන් පෙන්වන්න"
+
+msgid "Undo and redo"
+msgstr "අහෝසි කිරීම සහ යළි කිරීම"
+
+msgid "Enable undo and redo of message actions"
+msgstr "පණිවිඩ ක්‍රියා අහෝසි කිරීම සහ යළි කිරීම සබල කරන්න"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "පණිවිඩ මැකීම, ගෙන යාම හෝ ධජ යෙදීම වැනි ක්‍රියා අහෝසි කිරීම (Ctrl+Z) සහ යළි කිරීම (Ctrl+Y). මෙම ක්‍රියා වාර්තා කිරීමෙන් කුඩා අමතර බරක් එක් වන බැවින්, මෙම විශේෂාංගය පෙරනිමියෙන් අබල කර ඇත."
+
+msgid "Undo"
+msgstr "අහෝසි කරන්න"
+
+msgid "Redo"
+msgstr "යළි කරන්න"
+
+msgid "Undo: {0}"
+msgstr "අහෝසි කරන්න: {0}"
+
+msgid "Redo: {0}"
+msgstr "යළි කරන්න: {0}"
+
+msgid "Nothing to undo"
+msgstr "අහෝසි කිරීමට කිසිවක් නැත"
+
+msgid "Undo the last action"
+msgstr "අවසාන ක්‍රියාව අහෝසි කරන්න"
+
+msgid "Redo the last undone action"
+msgstr "අවසාන අහෝසි කළ ක්‍රියාව යළි කරන්න"
+
+msgid "Undo failed"
+msgstr "අහෝසි කිරීම අසාර්ථක විය"
+
+msgid "Redo failed"
+msgstr "යළි කිරීම අසාර්ථක විය"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} අහෝසි කළ නොහැකි විය. මේ අතරතුර අයිතමය ගෙන ගොස්, වෙනස් කර හෝ ඉවත් කර ඇති විය හැක."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} යළි කළ නොහැකි විය. මේ අතරතුර අයිතමය ගෙන ගොස්, වෙනස් කර හෝ ඉවත් කර ඇති විය හැක."
+
+msgid "Delete {0}"
+msgstr "{0} මැකීම"
+
+msgid "Delete {0} items"
+msgstr "අයිතම {0}ක් මැකීම"
+
+msgid "Move {0} to {1}"
+msgstr "{0} {1} වෙත ගෙන යාම"
+
+msgid "Move {0} items to {1}"
+msgstr "අයිතම {0}ක් {1} වෙත ගෙන යාම"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} {1} වෙත පිටපත් කිරීම"
+
+msgid "Copy {0} items to {1}"
+msgstr "අයිතම {0}ක් {1} වෙත පිටපත් කිරීම"
+
+msgid "Create {0}"
+msgstr "{0} සෑදීම"
+
+msgid "Change flag"
+msgstr "ධජය වෙනස් කිරීම"
+
+msgid "Change categories"
+msgstr "ප්‍රවර්ග වෙනස් කිරීම"
+
+msgid "Change appointment time"
+msgstr "හමුවීමේ වේලාව වෙනස් කිරීම"
+
+msgid "another folder"
+msgstr "වෙනත් ෆෝල්ඩරයක්"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: අයිතම {1}ක්"
+
+msgid "New mail from {0}"
+msgstr "{0} වෙතින් නව තැපෑලක්"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{1} ෆෝල්ඩරයේ නව පණිවිඩ {0}ක්"
+msgstr[1] "{1} ෆෝල්ඩරයේ නව පණිවිඩ {0}ක්"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{2} ගේ {1} ෆෝල්ඩරයේ නව පණිවිඩ {0}ක්"
+msgstr[1] "{2} ගේ {1} ෆෝල්ඩරයේ නව පණිවිඩ {0}ක්"
+
+msgid "In folder {0}"
+msgstr "{0} ෆෝල්ඩරයේ"
+
+msgid "In folder {0} of {1}"
+msgstr "{1} ගේ {0} ෆෝල්ඩරයේ"
+
+msgid "New Mail Notifications"
+msgstr "නව තැපැල් දැනුම්දීම්"
+
+msgid "Only my own mailbox"
+msgstr "මගේම තැපැල් පෙට්ටිය පමණි"
+
+msgid "Only the folders I choose"
+msgstr "මා තෝරන ෆෝල්ඩර පමණි"
+
+msgid "Unknown folder"
+msgstr "නොදන්නා ෆෝල්ඩරය"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "ෆෝල්ඩර කිසිවක් තෝරා නොමැත, නව තැපැල් දැනුම්දීමක් නොපෙන්වේ."

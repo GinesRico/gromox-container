@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: sr_BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "Pravne informacije"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "još {0} obavještenje"
+msgstr[1] "još {0} obavještenja"
+
+msgid "Show less"
+msgstr "Prikaži manje"
+
+msgid "Undo and redo"
+msgstr "Opozivanje i ponavljanje"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Omogući opozivanje i ponavljanje radnji nad porukama"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Opozivanje (Ctrl+Z) i ponavljanje (Ctrl+Y) radnji kao što su brisanje, premještanje ili označavanje poruka zastavicom. Bilježenje ovih radnji stvara malo dodatno opterećenje, pa je funkcija podrazumijevano onemogućena."
+
+msgid "Undo"
+msgstr "Opozovi"
+
+msgid "Redo"
+msgstr "Ponovi"
+
+msgid "Undo: {0}"
+msgstr "Opozovi: {0}"
+
+msgid "Redo: {0}"
+msgstr "Ponovi: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nema radnji za opozivanje"
+
+msgid "Undo the last action"
+msgstr "Opozovi posljednju radnju"
+
+msgid "Redo the last undone action"
+msgstr "Ponovi posljednju opozvanu radnju"
+
+msgid "Undo failed"
+msgstr "Opozivanje nije uspjelo"
+
+msgid "Redo failed"
+msgstr "Ponavljanje nije uspjelo"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nije moguće opozvati {0}. Stavka je u međuvremenu možda premještena, izmijenjena ili uklonjena."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nije moguće ponoviti {0}. Stavka je u međuvremenu možda premještena, izmijenjena ili uklonjena."
+
+msgid "Delete {0}"
+msgstr "Izbriši {0}"
+
+msgid "Delete {0} items"
+msgstr "Izbriši stavke ({0})"
+
+msgid "Move {0} to {1}"
+msgstr "Premjesti {0} u {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Premjesti stavke ({0}) u {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopiraj {0} u {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopiraj stavke ({0}) u {1}"
+
+msgid "Create {0}"
+msgstr "Kreiraj {0}"
+
+msgid "Change flag"
+msgstr "Promijeni zastavicu"
+
+msgid "Change categories"
+msgstr "Promijeni kategorije"
+
+msgid "Change appointment time"
+msgstr "Promijeni vrijeme termina"
+
+msgid "another folder"
+msgstr "drugu fasciklu"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: stavke ({1})"
+
+msgid "New mail from {0}"
+msgstr "Nova pošta od {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} nova poruka u fascikli {1}"
+msgstr[1] "{0} novih poruka u fascikli {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} nova poruka u fascikli {1} korisnika {2}"
+msgstr[1] "{0} novih poruka u fascikli {1} korisnika {2}"
+
+msgid "In folder {0}"
+msgstr "U fascikli {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "U fascikli {0} korisnika {1}"
+
+msgid "New Mail Notifications"
+msgstr "Obavještenja o novoj pošti"
+
+msgid "Only my own mailbox"
+msgstr "Samo moje vlastito poštansko sanduče"
+
+msgid "Only the folders I choose"
+msgstr "Samo fascikle koje izaberem"
+
+msgid "Unknown folder"
+msgstr "Nepoznata fascikla"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nije izabrana nijedna fascikla, ne prikazuje se nijedno obavještenje o novoj pošti."

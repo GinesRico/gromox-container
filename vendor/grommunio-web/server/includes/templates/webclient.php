@@ -1,0 +1,157 @@
+<?php
+include BASE_PATH . 'server/includes/loader.php';
+include BASE_PATH . 'server/includes/templates/serverinfo.php';
+
+$loader = new FileLoader();
+
+$versionInfo['webapp'] = $loader->getVersion();
+$serverConfig = array_merge($serverConfig, [
+	'base_url' => BASE_URL,
+	'webapp_title' => $webappTitle,
+	'using_sso' => false,
+	'auth_method' => !empty($_SESSION['_keycloak_auth']) ? 'oidc' : 'basic',
+	'disable_full_gab' => !ENABLE_FULL_GAB,
+	'plugin_webappmanual_url' => PLUGIN_WEBAPPMANUAL_URL,
+	'enable_shared_rules' => ENABLE_SHARED_RULES,
+	'enable_conversation_view' => !defined('ENABLE_CONVERSATION_VIEW') || ENABLE_CONVERSATION_VIEW,
+	'enable_attachment_drag_out' => !defined('ENABLE_ATTACHMENT_DRAG_OUT') || ENABLE_ATTACHMENT_DRAG_OUT,
+	'attachment_drag_out_max_size' => defined('ATTACHMENT_DRAG_OUT_MAX_SIZE') ? (int) ATTACHMENT_DRAG_OUT_MAX_SIZE : 26214400,
+	'always_enabled_plugins' => $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
+	'enable_advanced_settings' => ENABLE_ADVANCED_SETTINGS ? true : false,
+	'post_max_size' => getMaxPostRequestSize(),
+	'max_file_uploads' => getMaxFileUploads(),
+	'client_timeout' => defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT > 0 ? CLIENT_TIMEOUT : false,
+	'active_theme' => Theming::getActiveTheme(),
+	'icons_primary_color' => Theming::getPrimaryIconColor(),
+	'icons_secondary_color' => Theming::getSecondaryIconColor(),
+	'json_themes' => Theming::getJsonThemes(),
+	'iconsets' => Iconsets::getIconsets(),
+	'active_iconset' => Iconsets::getActiveIconset(),
+	'iconsets_about' => Iconsets::getAboutTexts(),
+	'version_info' => $GLOBALS['PluginManager']->getPluginsVersion(),
+	'is_vcfimport_supported' => function_exists('mapi_vcftomapi'),
+	'is_icsimport_supported' => function_exists('mapi_mapitoical'),
+	'color_schemes' => json_decode(COLOR_SCHEMES),
+	'default_categories' => json_decode(DEFAULT_CATEGORIES),
+	'maximum_eml_files_in_zip' => MAX_EML_FILES_IN_ZIP,
+	'powerpaste' => [
+		'powerpaste_word_import' => POWERPASTE_WORD_IMPORT,
+		'powerpaste_html_import' => POWERPASTE_HTML_IMPORT,
+		'powerpaste_allow_local_images' => POWERPASTE_ALLOW_LOCAL_IMAGES,
+	],
+	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
+	'enable_dompurify' => ENABLE_DOMPURIFY_FILTER,
+	'enable_file_previewer' => ENABLE_FILE_PREVIEWER,
+	'enable_themes' => ENABLE_THEMES,
+	'enable_iconsets' => ENABLE_ICONSETS,
+	'enable_widgets' => ENABLE_WIDGETS,
+	'show_logout_button' => SHOW_LOGOUT_BUTTON,
+]);
+if (CONTACT_PREFIX) {
+	$serverConfig['contact_prefix'] = json_decode(CONTACT_PREFIX);
+}
+if (CONTACT_SUFFIX) {
+	$serverConfig['contact_suffix'] = json_decode(CONTACT_SUFFIX);
+}
+if (defined('ADDITIONAL_COLOR_SCHEMES')) {
+	$serverConfig['additional_color_schemes'] = json_decode((string) ADDITIONAL_COLOR_SCHEMES);
+}
+if (defined('ADDITIONAL_CATEGORIES')) {
+	$serverConfig['additional_default_categories'] = json_decode((string) ADDITIONAL_CATEGORIES);
+}
+if ($GLOBALS['settings']->get('zarafa/v1/contexts/mail/attachment_reminder_enable') === true) {
+	$serverConfig['attachment_reminder_keywords'] = ATTACHMENT_REMINDER_KEYWORDS;
+}
+?>
+<!DOCTYPE html>
+<html lang="<?php echo substr((string) $Language->getSelected(), 0, 2); ?>">
+
+	<head>
+		<meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion(); ?>">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title><?php echo $webappTitle; ?></title>
+		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+		<link rel="manifest" href="manifest.webmanifest">
+
+		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
+		<script>
+		// Resolve system dark mode preference before CSS loads to prevent flash
+		(function() {
+			document.addEventListener('DOMContentLoaded', function() {
+				if (document.body.classList.contains('dark-mode-system') && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					document.body.classList.add('dark-mode');
+				}
+			});
+		})();
+		</script>
+
+		<!-- load the login css first as we need it immediately! -->
+		<link rel="stylesheet" href="client/resources/css/external/login.css" >
+		<link rel="stylesheet" href="client/resources/css/darkmode.css" >
+		<?php
+			$loader->cssOrder();
+echo Theming::getStyles($theme);
+$iconsetStylesheet = Iconsets::getActiveStylesheet();
+?>
+		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
+	</head>
+
+	<body class="zarafa-webclient theme-<?php echo strtolower((string) $theme ?: 'basic');
+echo ' ' . $hideFavorites;
+echo ' ' . $scrollFavorites;
+echo ' ' . $unreadBorders;
+$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('zarafa/v1/main/dark_mode') : 'light';
+if ($darkMode === 'dark') {
+	echo ' dark-mode';
+} elseif ($darkMode === 'system') {
+	echo ' dark-mode-system';
+}
+?>">
+		<a class="skip-link" href="#zarafa-mainpanel"><?php echo _("Skip to main content"); ?></a>
+		<div id="loading-mask" role="status" aria-label="<?php echo _("Loading"); ?>">
+			<div id="form-container" class="loading" style="visibility: hidden;">
+				<div id="bg"></div>
+				<div id="content">
+					<div class="left">
+						<div id="logo" role="img" aria-label="grommunio"></div>
+					</div>
+					<div class="right">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Translations -->
+		<script src="index.php?version=<?php echo $loader->getVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>"></script>
+		<!-- JS Files -->
+		<?php
+		$loader->jsOrder();
+// get URL data from session and dump it for client to use
+$urlActionData = [];
+if (!empty($_SESSION['url_action'])) {
+	$urlActionData = $_SESSION['url_action'];
+
+	// remove data from session so if user reloads webapp then we will again not execute url action
+	unset($_SESSION['url_action']);
+}
+?>
+
+		<script><?php require BASE_PATH . 'client/resize.js'; ?></script>
+		<script>
+			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
+			persistentsettings      = <?php echo $GLOBALS["settings"]->getPersistentSettingsJSON(); ?>;
+			languages 		= <?php echo $Language->getJSON(); ?>;
+			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
+			version 		= <?php echo json_encode($versionInfo); ?>;
+			serverconfig 		= <?php echo json_encode($serverConfig); ?>;
+			urlActionData 		= <?php echo json_encode($urlActionData); ?>;
+<?php if (!empty($prefetchedHierarchy)) { ?>
+			prefetchedHierarchy	= <?php echo json_encode($prefetchedHierarchy); ?>;
+<?php } ?>
+
+			Ext.onReady(Zarafa.loadWebclient, Zarafa);
+		</script>
+	</body>
+</html>

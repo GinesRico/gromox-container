@@ -1,0 +1,256 @@
+# -*- coding: utf-8 -*-
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# SPDX-FileCopyrightText: 2023 grommunio GmbH
+
+from dns import resolver, reversename
+import socket
+import subprocess
+from .config import Config
+
+
+class ExternalResolver:
+    resolver = None
+
+    @classmethod
+    def get(cls):
+        if cls.resolver is None:
+            try:
+                cls.resolver = resolver.Resolver()
+                cls.resolver.nameservers = Config["dns"]["externalResolvers"]
+            except Exception:
+                pass
+        return cls.resolver
+
+
+def getHostByName(domain):
+    try:
+        # If host can be resolved
+        socket.getaddrinfo(domain, None)
+        return True
+    except Exception:
+        pass
+    # Host could not be resolved
+    return False
+
+
+def getLocalIp():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.settimeout(0)
+    try:
+        s.connect((Config["dns"]["dudIP"], 1))
+        IP = s.getsockname()[0]
+    except Exception:
+        IP = '127.0.0.1'
+    s.close()
+    return IP
+
+
+def fullDNSCheck(domain: str):
+    if Config["dns"]["disabled"]:
+        return None, "DNS check disabled by configuration"
+        
+    externalResolver = ExternalResolver.get()
+    if externalResolver is None:
+        return None, "DNS resolver initialization failed"
+
+    localIp = getLocalIp()
+    externalIp = checkMyIP()
+    mxRecords = checkMX(domain)
+    autodiscover = checkAutodiscover(domain)
+    autodiscoverSRV = checkAutodiscoverSRV(domain)
+    autoconfig = checkAutoconfig(domain)
+    txt = checkTXT(domain)
+    dkim = checkDKIM(domain)
+    dmarc = checkDMARC(domain)
+    srv = checkAllSRV(domain)
+    caldavTXT = checkCaldavTxt(domain)
+    carddavTXT = checkCarddavTxt(domain)
+    return {
+        "localIp": localIp,
+        "externalIp": externalIp,
+        "mxRecords": mxRecords,
+        "autodiscover": autodiscover,
+        "autodiscoverSRV": autodiscoverSRV,
+        "autoconfig": autoconfig,
+        "txt": txt,
+        "dkim": dkim,
+        "dmarc": dmarc,
+        "caldavTXT": caldavTXT,
+        "carddavTXT": carddavTXT,
+        **srv
+    }, None
+
+
+def checkMyIP():
+    res = None
+    try:
+        customResolver = resolver.Resolver()
+        customResolver.nameservers = ["208.67.222.222", "208.67.220.220", "208.67.222.220"]
+        dnsAnswer = customResolver.query("myip.opendns.com")
+        res = ", ".join([str(a) for a in dnsAnswer])
+    except Exception:
+        pass
+    return res
+
+
+def ip(domain: str):
+    res = None
+    try:
+        dnsAnswer = resolver.query(domain)
+        res = ", ".join([str(a) for a in dnsAnswer])
+    except Exception:
+        pass
+    return res
+
+
+def checkMX(domain: str):
+    res = {
+        "internalDNS": None,
+        "externalDNS": None,
+        "reverseLookup": None,
+        "mxDomain": None,
+    }
+
+    externalResolver = ExternalResolver.get()
+    if externalResolver is None:
+        return res
+    
+    try:
+        mxRecords = resolver.query(domain, "MX")
+        mxDomain = mxRecords[0].exchange # Mail-domain of domain
+        res["mxDomain"] = str(mxDomain)
+        try:
+            mxResolved = externalResolver.query(mxDomain, "A") # IP of mail-domain
+            res["externalDNS"] = ", ".join([str(r) for r in mxResolved])
+
+            # Reverse lookup
+            addresses = [reversename.from_address(str(r)) for r in mxResolved]
+            res["reverseLookup"] = str(resolver.query(addresses[0], "PTR")[0])
+        except Exception:
+            pass
+        try:
+            mxResolved = resolver.query(mxDomain, "A")
+            res["internalDNS"] = ", ".join([str(r) for r in mxResolved])
+        except Exception:
+            pass
+    except Exception:
+        pass
+    return res
+
+
+def checkAutodiscover(domain: str):
+    return defaultDNSQuery("autodiscover.", domain)
+
+
+def checkAutoconfig(domain: str):
+    return defaultDNSQuery("autoconfig.", domain)
+
+
+def checkAllSRV(domain: str):
+    res = {f"{subdomain}SRV": defaultDNSQuery(f"_{subdomain}._tcp.", domain, recordType="SRV")
+           for subdomain in ["submission", "imap", "imaps", "pop3", "pop3s", "caldav", "caldavs", "carddav", "carddavs"]}
+    return res
+
+
+def checkAutodiscoverSRV(domain: str):
+    res = None
+    resExternal = None
+    adIp = None
+    try:
+        records = resolver.query("_autodiscover._tcp." + domain, "SRV")
+        res = ", ".join([str(r) for r in records])
+    except Exception:
+        pass
+
+    externalResolver = ExternalResolver.get()
+    if externalResolver is not None:
+        try:
+            records = externalResolver.query("_autodiscover._tcp." + domain, "SRV")
+            resExternal = ", ".join([str(r) for r in records])
+            adIp = ip(str(records[0]).split(" ")[3])
+        except Exception:
+            pass
+    return {"internalDNS": res, "externalDNS": resExternal, "ip": adIp }
+
+
+def checkTXT(domain: str):
+    res = None
+    resExternal = None
+    try:
+        txtRecords = resolver.query(domain, "TXT")
+        res = ", ".join([str(r) for r in txtRecords if str(r).startswith('"v=spf1')])
+    except Exception:
+        pass
+
+    externalResolver = ExternalResolver.get()
+    if externalResolver is not None:
+        try:
+            txtRecordsExternal = externalResolver.query(domain, "TXT")
+            resExternal = ", ".join([str(r) for r in txtRecordsExternal if str(r).startswith('"v=spf1')])
+        except Exception:
+            pass
+    return {"internalDNS": res, "externalDNS": resExternal}
+
+
+def checkDKIM(domain: str):
+    return defaultDNSQuery("dkim._domainkey.", domain, recordType="TXT")
+
+
+def checkDMARC(domain: str):
+    return defaultDNSQuery("_dmarc.", domain, recordType="TXT")
+
+
+def checkCaldavTxt(domain: str):
+    return defaultDNSQuery("_caldavs._tcp.", domain, recordType="TXT")
+
+
+def checkCarddavTxt(domain: str):
+    return defaultDNSQuery("_carddavs._tcp.", domain, recordType="TXT")
+
+
+def defaultDNSQuery(subdomain: str, domain: str, recordType="A", path=""):
+    res = None
+    resExternal = None
+    try:
+        records = resolver.query(subdomain + domain + path, recordType)
+        res = ", ".join([str(r) for r in records])
+    except Exception:
+        pass
+    
+    externalResolver = ExternalResolver.get()
+    if externalResolver is not None:
+        try:
+            records = externalResolver.query(subdomain + domain + path, recordType)
+            resExternal = ", ".join([str(r) for r in records])
+        except Exception:
+            pass
+    return {"internalDNS": res, "externalDNS": resExternal}
+
+
+def generateDkimKeys(domain, type="rsa", selector="dkim"):
+    import os
+    import shutil
+    privateKeyFilepath = "/var/lib/grommunio-admin-api/" + domain + ".dkim.key"
+
+    # Create safety copy of previous key, if exists
+    try:
+        if os.path.exists(privateKeyFilepath):
+            oldPrivateKeyFilepath = privateKeyFilepath + ".old"
+            if os.path.exists(oldPrivateKeyFilepath):
+                os.remove(oldPrivateKeyFilepath)
+            os.rename(privateKeyFilepath, oldPrivateKeyFilepath)
+    except Exception:
+        pass
+
+    # Generate new keypair
+    pubKey = subprocess.run(("rspamadm", "dkim_keygen",
+                             "-s", selector,
+                             "-b", "2048",
+                             "-d", domain,
+                             "-t", type,
+                             "-k", privateKeyFilepath),
+                                      stdout=subprocess.PIPE,
+                                      universal_newlines=True).stdout
+    shutil.chown(privateKeyFilepath, "grommunio", "grommunio")
+    os.chmod(privateKeyFilepath, 0o440)
+    return pubKey, None

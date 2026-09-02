@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.4</version>
+		<name>passwd</name>
+		<title>Password Change Plugin</title>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
+		<description>Change your password from grommunio Web</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.passwd.php</serverfile>
+					<serverfile type="module" module="passwdmodule">php/class.passwdmodule.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/passwd.js</clientfile>
+					<clientfile load="debug">js/passwd-debug.js</clientfile>
+
+					<clientfile load="source">js/PasswdPlugin.js</clientfile>
+					<clientfile load="source">js/settings/SettingsPasswdCategory.js</clientfile>
+					<clientfile load="source">js/settings/SettingsPasswdWidget.js</clientfile>
+					<clientfile load="source">js/settings/PasswdPanel.js</clientfile>
+					<clientfile load="source">js/data/PasswdResponseHandler.js</clientfile>
+					<clientfile load="source">js/external/PasswordMeter.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile>resources/css/passwd.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

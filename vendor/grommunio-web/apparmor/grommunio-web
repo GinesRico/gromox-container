@@ -1,0 +1,23 @@
+# Author: grommunio Dev <dev@grommunio.com>
+
+^grommunio-web {
+  #include <abstractions/apache2-common>
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/php>
+
+  @{PROC}/@{pid}/task/@{tid}/comm rw,
+  @{PROC}/@{pid}/cmdline r,
+
+  /etc/grommunio-web/*.php r,
+
+  /usr/share/php-mapi/** r,
+  /usr/share/grommunio-web/** r,
+
+  /var/lib/grommunio-web/tmp/** rwk,
+  /var/lib/grommunio-web/sqlite-index/** rwk,
+  /var/lib/grommunio-web/session/** rwk,
+
+  # Useful when in debugging mode
+  /usr/share/grommunio-web/debug.txt rw,
+}

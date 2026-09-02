@@ -1,0 +1,91 @@
+/*
+ * Navigation Bar Styles
+ */
+
+/** navbar container */
+.navbar_container {
+    width: 100%;
+}
+
+/** override extjs size */
+.navbar_container .x-column-inner {
+    width: 100% !important;
+}
+
+/** Navigation bar home button **/
+.files_navbar_home {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTEwLjU1IDIuNTMyYTIuMjUgMi4yNSAwIDAgMSAyLjkgMGw2Ljc1IDUuNjkyYy41MDcuNDI4LjggMS4wNTcuOCAxLjcydjkuODAzYTEuNzUgMS43NSAwIDAgMS0xLjc1IDEuNzVoLTMuNWExLjc1IDEuNzUgMCAwIDEtMS43NS0xLjc1di01LjVhLjI1LjI1IDAgMCAwLS4yNS0uMjVoLTMuNWEuMjUuMjUgMCAwIDAtLjI1LjI1djUuNWExLjc1IDEuNzUgMCAwIDEtMS43NSAxLjc1aC0zLjVBMS43NSAxLjc1IDAgMCAxIDMgMTkuNzQ3VjkuOTQ0YzAtLjY2My4yOTMtMS4yOTIuOC0xLjcybDYuNzUtNS42OTJabTEuOTMzIDEuMTQ3YS43NS43NSAwIDAgMC0uOTY2IDBMNC43NjcgOS4zN2EuNzUuNzUgMCAwIDAtLjI2Ny41NzN2OS44MDNjMCAuMTM4LjExMi4yNS4yNS4yNWgzLjVhLjI1LjI1IDAgMCAwIC4yNS0uMjV2LTUuNWMwLS45NjcuNzg0LTEuNzUgMS43NS0xLjc1aDMuNWMuOTY2IDAgMS43NS43ODMgMS43NSAxLjc1djUuNWMwIC4xMzguMTEyLjI1LjI1LjI1aDMuNWEuMjUuMjUgMCAwIDAgLjI1LS4yNVY5Ljk0NGEuNzUuNzUgMCAwIDAtLjI2Ny0uNTczbC02Ljc1LTUuNjkyWiIvPjwvc3ZnPg==);
+}
+
+/** Navigation bar x-btn default style and hovered active x-btn inside the navbar **/
+.files_navbar_button .x-btn-small, .files_navbar_button.files_navbar_button_last.x-btn-over .x-btn-small {
+    background: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+}
+
+/** Hovered x-btn in navigation bar (non active) **/
+.files_navbar_button.x-btn-over .x-btn-small  {
+    background: none;
+    box-shadow: none;
+    border: 1px solid #e6e6e6;
+}
+
+/** Navigation bar button **/
+.files_navbar_button .x-btn-small button {
+    float: left;
+    height: 22px !important;
+    padding: 0 4px !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+    background-color: white;
+    box-shadow: none;
+    line-height: 20px;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.files_navbar_button .x-btn-small {
+    margin-right: 0 !important;
+}
+
+/** Navigation bar last/Focus/Active button **/
+.files_navbar_button_last button {
+    font-weight: bold;
+    border: 1px solid #e6e6e6;
+    box-shadow: none;
+    background-color: #f8f8f8 !important;
+    box-sizing: border-box;
+    line-height: 20px;
+    display: inline-block;
+    border-radius: 2px;
+    padding: 1px 6px;
+    overflow: visible;
+}
+
+/** Right arrow icon **/
+.files_navbar_button:before {
+    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSc1JyBoZWlnaHQ9JzknIHZpZXdCb3g9IjAgMCA5Mi4yIDEyMi44OCI+PHBhdGggZD0iTTkyLjIgNjAuOTdMMCAxMjIuODhWMGw5Mi4yIDYwLjk3eiIgZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjNmQ2ZDcwIi8+PC9zdmc+Cg==);
+    float: left;
+    padding: 1px 4px 0 5px;
+}
+
+.files_navbar_button_first::before {
+    content: '';
+    padding: 0;
+}
+
+/** Quota bar **/
+.files_quota_bar_snippet {
+    margin-right: 12px;
+}
+
+.files_navbar_panel {
+    overflow-y: auto;
+}
+
+.zarafa-hierarchy-node-backend {
+    font-weight: normal;
+    color: #777777 !important;
+    font-style: italic !important;
+}

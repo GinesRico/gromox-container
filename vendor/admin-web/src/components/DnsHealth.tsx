@@ -1,0 +1,490 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React, { useEffect, useState } from 'react';
+import { makeStyles } from 'tss-react/mui';
+import { Alert, Chip, CircularProgress, Portal, Snackbar } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { AlternateEmail, CallReceived, EventRepeat, Mail, OnDeviceTraining, Policy, Send, TravelExplore } from '@mui/icons-material';
+import { getChipColorFromScore } from '../utils';
+import { fetchDnsCheckData } from '../actions/domains';
+import { Domain } from '@/types/domains';
+import { useAppDispatch } from '../store';
+import { DnsCheck } from '@/types/dns';
+import { DNSDialogProps } from './Dialogs/dns/types';
+import { MuiIcon } from '@/types/common';
+
+
+const useStyles = makeStyles()(() => ({
+  dnsChips: {
+    marginTop: 8,
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  chip: {
+    color: 'black',
+    margin: '4px 8px',
+    padding: '20px 12px',
+    boxShadow: "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+    '&:hover': {
+      boxShadow: "0px 2px 4px -1px rgba(0,0,0,0.3),0px 4px 5px 0px rgba(0,0,0,0.3),0px 1px 10px 0px rgba(0,0,0,0.3)",
+    },
+  },
+  help: {
+    color: "black !important",
+  },
+  chipIcon: {
+    marginRight: "-2px !important",
+  },
+  cp: {
+    marginRight: "0px !important",
+    marginLeft: "7px !important",  // This is fine-tuned
+  },
+}));
+
+type RequirementType = 'req' | 'rec' | 'opt';
+
+function getEquationValuesFromRequirementTypes(typeA: RequirementType, typeB: RequirementType) {
+  return {
+    "reqreq": [-10, 55, 55],
+    "reqrec": [15, 55, 30],
+    "reqopt": [25, 55, 20],
+    "recrec": [54, 23, 23],
+    "recopt": [54, 33, 13],
+    "optopt": [80, 10, 10],
+  }[typeA+typeB];
+}
+
+function scoreDNSResult(valueA: boolean | string | null, valueB: boolean | string | null, reqAType: RequirementType="opt", reqBType: RequirementType="opt") {
+  const equationValues = getEquationValuesFromRequirementTypes(reqAType, reqBType);
+  if(!equationValues) return 0;
+  const valueMultiplier = [1, valueA ? 1 : 0, valueB ? 1 : 0];
+  const res = equationValues.map((val, idx) => val * valueMultiplier[idx])
+    .reduce((prev, value) => prev + value, 0);
+  return res;
+}
+
+const errorColor = "#d32f2f";
+const successColor = "#66bb6a";
+
+type DnsHealthProps = {
+  domain: Domain;
+  setSnackbar: (message: string) => void;
+}
+
+type DnsHealthState = {
+  loading: boolean;
+  error: boolean;
+  InfoDialog: React.ComponentType<DNSDialogProps> | null;
+  dnsCheck: DnsCheck;
+}
+
+type DnsCheckRecordKey = Exclude<keyof DnsCheck, "externalIp" | "localIp">;
+
+const DnsHealth = (props: DnsHealthProps) => {
+  const { classes } = useStyles();
+  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const { domain, setSnackbar } = props;
+  const [state, setState] = useState<DnsHealthState>({
+    loading: true,
+    error: false,
+    dnsCheck: {
+      externalIp: "",
+      localIp: "",
+      autoconfig: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      autodiscover: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      autodiscoverSRV: {
+        externalDNS: null,
+        internalDNS: null,
+        ip: "",
+      },
+      caldavSRV: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      caldavTXT: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      caldavsSRV: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      carddavSRV: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      carddavTXT: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      carddavsSRV: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      dkim: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      dmarc: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      imapSRV: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      imapsSRV: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      mxRecords: {
+        externalDNS: null,
+        internalDNS: null,
+        mxDomain: "",
+        reverseLookup: null,
+      },
+      pop3SRV: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      pop3sSRV: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      submissionSRV: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+      txt: {
+        externalDNS: null,
+        internalDNS: null,
+      },
+    },
+    InfoDialog: null,
+  });
+  const [warning, setWarning] = useState("");
+
+  useEffect(() => {
+    if(error) return;
+    setState({ ...state, loading: true });
+    dispatch(fetchDnsCheckData(domain.ID))
+      .then(dnsCheck => {
+        setState({ ...state, dnsCheck, loading: false, error: false });
+      })
+      .catch(message => {
+        if(message?.includes("disabled")) setWarning(message);
+        else setSnackbar(message || 'Unknown error');
+        setState({ ...state, loading: false, error: true });
+      });
+  }, [location.pathname]);
+
+  const getReachabiltyColor = () => {
+    const { dnsCheck } = state;
+    return !dnsCheck.externalIp ? errorColor : successColor;
+  }
+
+  const getMXColor = () => {
+    const { dnsCheck } = state;
+    const { mxRecords, externalIp, localIp } = dnsCheck;
+    if(!mxRecords) return errorColor;
+
+    const { externalDNS, internalDNS, reverseLookup, mxDomain } = mxRecords;
+    //TODO: Check reverse
+    const score = scoreDNSResult(externalDNS, internalDNS, "req", "rec");
+
+    const reverseLookupScore = mxDomain === reverseLookup ? score : 70; // Warning, if reverse lookup fails
+
+    const ips: (string | null)[] = [localIp, externalIp];
+    const matchScore = scoreDNSResult(
+      externalDNS === externalIp,
+      ips.includes(internalDNS),
+      "opt",
+      "opt");
+    return getChipColorFromScore(Math.min(score, matchScore, reverseLookupScore));
+  }
+
+  const getAutodiscoverColor = () => {
+    const { dnsCheck } = state;
+    const { autodiscover, externalIp, localIp } = dnsCheck;
+    if(!autodiscover) return errorColor;
+
+    const score = scoreDNSResult(autodiscover.internalDNS, autodiscover.externalDNS, "rec", "rec");
+
+    const ips: (string | null)[] = [localIp, externalIp];
+    const matchScore = scoreDNSResult(
+      autodiscover.externalDNS === externalIp,
+      ips.includes(autodiscover.internalDNS),
+      "opt",
+      "opt");
+    return getChipColorFromScore(Math.min(score, matchScore));
+  }
+
+  const getAutodiscoverSrvColor = () => {
+    const { dnsCheck } = state;
+    const { autodiscoverSRV } = dnsCheck;
+    if(!autodiscoverSRV) return errorColor;
+
+    // TODO: Check for port
+    const score = scoreDNSResult(autodiscoverSRV.internalDNS, autodiscoverSRV.externalDNS, "rec", "rec");
+    const matchScore = scoreDNSResult(
+      autodiscoverSRV.ip,
+      true,
+      "opt",
+      "opt");
+    return getChipColorFromScore(Math.min(score, matchScore));
+  }
+  
+  const getAutoconfigColor = () => {
+    const { dnsCheck } = state;
+    const { autoconfig, externalIp, localIp } = dnsCheck;
+    if(!autoconfig) return errorColor;
+
+    // TODO: Check for port
+    const score = scoreDNSResult(autoconfig.internalDNS, autoconfig.externalDNS, "rec", "opt");
+    const ips: (string | null)[] = [localIp, externalIp];
+    const matchScore = scoreDNSResult(
+      autoconfig.externalDNS === externalIp,
+      ips.includes(autoconfig.internalDNS),
+      "opt",
+      "opt");
+    return getChipColorFromScore(Math.min(score, matchScore));
+  }
+
+  const getSpfColor = () => {
+    const { dnsCheck } = state;
+    const { txt } = dnsCheck;
+    if(!txt) return errorColor;
+
+    const score = scoreDNSResult(txt.externalDNS, true, "rec", "opt");
+    return getChipColorFromScore(score);
+  }
+
+  const getDkimColor = () => {
+    const { dnsCheck } = state;
+    const { dkim } = dnsCheck;
+    if(!dkim) return errorColor;
+
+    const score = scoreDNSResult(dkim.externalDNS, true, "rec", "opt");
+    return getChipColorFromScore(score);
+  }
+
+  const getDmarcColor = () => {
+    const { dnsCheck } = state;
+    const { dkim } = dnsCheck;
+    if(!dkim) return errorColor;
+
+    const score = scoreDNSResult(dkim.externalDNS, true, "rec", "opt");
+    return getChipColorFromScore(score);
+  }
+
+  const getOptionalSrvColor = (records: (DnsCheckRecordKey)[]=[]) => {
+    const { dnsCheck } = state;
+    if(records.some(record => !dnsCheck[record])) return errorColor;
+    const scores = records.map(record => {
+      return scoreDNSResult(dnsCheck[record].externalDNS, dnsCheck[record].internalDNS, "opt", "opt");
+    });
+    return getChipColorFromScore(Math.min(...scores));
+  }
+
+  const getDavTxtColor = (record: DnsCheckRecordKey) => {
+    const { dnsCheck } = state;
+    if(!dnsCheck[record]) return errorColor;
+
+    const score = scoreDNSResult(dnsCheck[record].externalDNS === '"path=/dav"',
+      dnsCheck[record].internalDNS === '"path=/dav"', "opt", "opt");
+    return getChipColorFromScore(score);
+  }
+
+  const asyncDialogImport = (path: string) => async () => {
+    const InfoDialog = await import("./Dialogs/dns/" + path)
+      .then(component => component.default)
+      .catch(() => console.info("Failed to import dialog"));
+    setState({ ...state, InfoDialog: InfoDialog || null });
+  }
+
+  const handleDialogClose = () => setState({ ...state, InfoDialog: null });
+
+  const { loading, InfoDialog, dnsCheck, error } = state;
+  return <div className={classes.dnsChips}>
+    <DNSChip
+      title={t("external_ip_expl")}
+      label={t("Reachability")}
+      icon={CallReceived}
+      color={getReachabiltyColor()}
+      loading={loading}
+      onInfo={asyncDialogImport('Reachability')}
+      error={error}
+    />
+    <DNSChip
+      title={t("mx_expl")}
+      label={t("MX Records")}
+      icon={Mail}
+      color={getMXColor()}
+      loading={loading}
+      onInfo={asyncDialogImport('MXRecords')}
+      error={error}
+    />
+    <DNSChip
+      title={t("autodiscover_expl")}
+      label={t("Autodiscover")}
+      icon={TravelExplore}
+      color={getAutodiscoverColor()}
+      loading={loading}
+      onInfo={asyncDialogImport('Autodiscover')}
+      error={error}
+    />
+    <DNSChip
+      title={t("autodiscoverSrv_expl")}
+      label={t("Autodiscover SRV")}
+      icon={TravelExplore}
+      color={getAutodiscoverSrvColor()}
+      loading={loading}
+      onInfo={asyncDialogImport('AutodiscoverSrv')}
+      error={error}
+    />
+    <DNSChip
+      title={t("autoconfig_expl")}
+      label={t("Autoconfig")}
+      icon={TravelExplore}
+      color={getAutoconfigColor()}
+      loading={loading}
+      onInfo={asyncDialogImport('Autoconfig')}
+      error={error}
+    />
+    <DNSChip
+      title={t("spf_expl")}
+      label={t("SPF Records")}
+      icon={Policy}
+      color={getSpfColor()}
+      loading={loading}
+      onInfo={asyncDialogImport('Spf')}
+      error={error}
+    />
+    <DNSChip
+      title={t("dkim_expl")}
+      label={t("DKIM")}
+      icon={Policy}
+      color={getDkimColor()}
+      loading={loading}
+      onInfo={asyncDialogImport('Dkim')}
+      error={error}
+    />
+    <DNSChip
+      title={t("dmarc_expl")}
+      label={t("DMARC")}
+      icon={Policy}
+      color={getDmarcColor()}
+      loading={loading}
+      onInfo={asyncDialogImport('Dmarc')}
+      error={error}
+    />
+    <DNSChip
+      title={t("caldav_expl")}
+      label={t("DAV TXT")}
+      icon={EventRepeat}
+      color={getDavTxtColor("caldavTXT")}
+      loading={loading}
+      onInfo={asyncDialogImport('DavTxt')}
+      error={error}
+    />
+    <DNSChip
+      title={t("caldav_expl")}
+      label={t("CalDAV(s) SRV")}
+      icon={EventRepeat}
+      color={getOptionalSrvColor(["caldavSRV", "caldavsSRV"])}
+      loading={loading}
+      onInfo={asyncDialogImport('Caldav')}
+      error={error}
+    />
+    <DNSChip
+      title={t("carddav_expl")}
+      label={t("CardDAV(s) SRV")}
+      icon={OnDeviceTraining}
+      color={getOptionalSrvColor(["carddavSRV", "carddavsSRV"])}
+      loading={loading}
+      onInfo={asyncDialogImport('Carddav')}
+      error={error}
+    />
+    <DNSChip
+      title={t("imap_expl")}
+      label={t("IMAP(s) SRV")}
+      icon={AlternateEmail}
+      color={getOptionalSrvColor(["imapSRV", "imapsSRV"])}
+      loading={loading}
+      onInfo={asyncDialogImport('Imap')}
+      error={error}
+    />
+    <DNSChip
+      title={t("pop3_expl")}
+      label={t("POP3(s) SRV")}
+      icon={AlternateEmail}
+      color={getOptionalSrvColor(["pop3SRV", "pop3sSRV"])}
+      loading={loading}
+      onInfo={asyncDialogImport('Pop3')}
+      error={error}
+    />
+    <DNSChip
+      title={t("submission_expl")}
+      label={t("Submission SRV")}
+      icon={Send}
+      color={getOptionalSrvColor(["submissionSRV"])}
+      loading={loading}
+      onInfo={asyncDialogImport('Submission')}
+      error={error}
+    />
+    <Portal>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        open={!!warning}
+        onClose={() => setWarning("")}
+        autoHideDuration={1000}
+      >
+        <Alert
+          onClose={() => setWarning("")}
+          severity={"warning"}
+          elevation={6}
+          variant="filled"
+        >
+          {warning}
+        </Alert>
+      </Snackbar>
+    </Portal>
+    {InfoDialog && <InfoDialog onClose={handleDialogClose} dnsCheck={dnsCheck} domain={domain}/>}
+  </div>
+}
+
+type DNSChipProps = {
+  title: string;
+  loading: boolean;
+  label: string;
+  color: string;
+  icon: MuiIcon;
+  onInfo: () => void;
+  error: boolean;
+};
+
+const DNSChip = ({ loading, label, color, icon: Icon, onInfo, error }: DNSChipProps) => {
+  const { classes } = useStyles();
+  return <Chip
+    className={classes.chip}
+    style={{ backgroundColor: loading || error ? "#969696" : color }}
+    label={label}
+    icon={loading ? <CircularProgress size={20} className={classes.cp}/> : <Icon className={classes.chipIcon} />}
+    color={"info"}  // Necessary for icon color
+    onClick={loading || error ? undefined : onInfo}
+  />
+};
+
+
+export default DnsHealth;

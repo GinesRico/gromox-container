@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: sd_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "නීතිමය තොරතුර"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} وڌيڪ اطلاع"
+msgstr[1] "{0} وڌيڪ اطلاعون"
+
+msgid "Show less"
+msgstr "گهٽ ڏيکاريو"
+
+msgid "Undo and redo"
+msgstr "واپس ڪرڻ ۽ ورجائڻ"
+
+msgid "Enable undo and redo of message actions"
+msgstr "پيغامن جي عملن کي واپس ڪرڻ ۽ ورجائڻ فعال ڪريو"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "عملن کي واپس ڪرڻ (Ctrl+Z) ۽ ورجائڻ (Ctrl+Y)، جهڙوڪ پيغام ڊاهڻ، منتقل ڪرڻ يا جهنڊو لڳائڻ. انهن عملن کي رڪارڊ ڪرڻ سان ٿورو اضافي بار پوي ٿو، تنهنڪري هيءَ سهولت ڊيفالٽ طور بند آهي."
+
+msgid "Undo"
+msgstr "واپس ڪريو"
+
+msgid "Redo"
+msgstr "ورجايو"
+
+msgid "Undo: {0}"
+msgstr "واپس ڪريو: {0}"
+
+msgid "Redo: {0}"
+msgstr "ورجايو: {0}"
+
+msgid "Nothing to undo"
+msgstr "واپس ڪرڻ لاءِ ڪجهه ناهي"
+
+msgid "Undo the last action"
+msgstr "آخري عمل واپس ڪريو"
+
+msgid "Redo the last undone action"
+msgstr "آخري واپس ڪيل عمل ورجايو"
+
+msgid "Undo failed"
+msgstr "واپس ڪرڻ ناڪام ٿيو"
+
+msgid "Redo failed"
+msgstr "ورجائڻ ناڪام ٿيو"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} واپس نه ٿي سگهيو. ٿي سگهي ٿو ته شئي هن وچ ۾ منتقل، تبديل يا ختم ڪئي وئي هجي."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ورجائي نه سگهيو. ٿي سگهي ٿو ته شئي هن وچ ۾ منتقل، تبديل يا ختم ڪئي وئي هجي."
+
+msgid "Delete {0}"
+msgstr "{0} ڊاهڻ"
+
+msgid "Delete {0} items"
+msgstr "{0} شيون ڊاهڻ"
+
+msgid "Move {0} to {1}"
+msgstr "{0} کي {1} ۾ منتقل ڪرڻ"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} شيون {1} ۾ منتقل ڪرڻ"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} کي {1} ۾ ڪاپي ڪرڻ"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} شيون {1} ۾ ڪاپي ڪرڻ"
+
+msgid "Create {0}"
+msgstr "{0} ٺاهڻ"
+
+msgid "Change flag"
+msgstr "جهنڊو تبديل ڪرڻ"
+
+msgid "Change categories"
+msgstr "زمرا تبديل ڪرڻ"
+
+msgid "Change appointment time"
+msgstr "ملاقات جو وقت تبديل ڪرڻ"
+
+msgid "another folder"
+msgstr "ٻئي فولڊر"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} شيون"
+
+msgid "New mail from {0}"
+msgstr "{0} کان نئون ميل"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "فولڊر {1} ۾ {0} نئون پيغام"
+msgstr[1] "فولڊر {1} ۾ {0} نوان پيغام"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{2} جي فولڊر {1} ۾ {0} نئون پيغام"
+msgstr[1] "{2} جي فولڊر {1} ۾ {0} نوان پيغام"
+
+msgid "In folder {0}"
+msgstr "فولڊر {0} ۾"
+
+msgid "In folder {0} of {1}"
+msgstr "{1} جي فولڊر {0} ۾"
+
+msgid "New Mail Notifications"
+msgstr "نئين ميل جا اطلاع"
+
+msgid "Only my own mailbox"
+msgstr "رڳو منهنجو پنهنجو ميل باڪس"
+
+msgid "Only the folders I choose"
+msgstr "رڳو اهي فولڊر جيڪي مان چونڊيان"
+
+msgid "Unknown folder"
+msgstr "اڻڄاتل فولڊر"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "ڪوبه فولڊر نه چونڊيو ويو آهي، نئين ميل جو ڪوبه اطلاع نه ڏيکاريو ويندو."

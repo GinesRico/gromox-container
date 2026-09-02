@@ -13,3 +13,4 @@ smtp-relay.env
 filter-state/
 variables_data/
 gromox_letsencrypt/
+/vendor/gromox/

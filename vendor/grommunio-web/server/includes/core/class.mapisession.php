@@ -1,0 +1,1548 @@
+<?php
+
+require_once BASE_PATH . 'server/includes/core/class.properties.php';
+
+/**
+ * MAPI session handling.
+ *
+ * This class handles MAPI authentication and stores
+ */
+class MAPISession {
+	/**
+	 * @var resource This holds the MAPI Session
+	 */
+	private $session;
+
+	/**
+	 * @var resource This can hold the addressbook resource
+	 */
+	private $ab;
+
+	/**
+	 * @var array List with all the currently opened stores
+	 */
+	private $stores;
+
+	/**
+	 * @var string The entryid (binary) of the default store
+	 */
+	private $defaultstore;
+
+	/**
+	 * @var string The entryid (binary) of the public store
+	 */
+	private $publicStore;
+
+	/**
+	 * @var array Information about the current session (username/email/password/etc)
+	 */
+	private $session_info;
+
+	/**
+	 * @var array Mapping username -> entryid for other stores
+	 */
+	private $userstores;
+
+	/**
+	 * @var int Makes sure retrieveUserData is called only once
+	 */
+	private $userDataRetrieved;
+
+	public function __construct() {
+		$this->stores = [];
+		$this->defaultstore = 0;
+		$this->publicStore = 0;
+		$this->session = false;
+		$this->ab = false;
+		$this->userstores = [];
+		$this->userDataRetrieved = false;
+	}
+
+	/**
+	 * Logon to via php_mapi extension.
+	 *
+	 * Logs on to Gromox with the specified username and password. If the server is not specified,
+	 * it will logon to the local server.
+	 *
+	 * @param string $username     the username of the user
+	 * @param string $password     the password of the user
+	 * @param string $server       the server address
+	 * @param string $sslcert_file the optional ssl certificate file
+	 * @param string $sslcert_pass the optional ssl certificate password
+	 * @param string $flags        the optional logon flags
+	 *
+	 * @return int 0 on no error, otherwise a MAPI error code
+	 */
+	public function logon($username = '', $password = '', $server = DEFAULT_SERVER, $sslcert_file = '', $sslcert_pass = '', $flags = 0) {
+		$result = NOERROR;
+		$username = (string) $username;
+		$password = (string) $password;
+		$flags |= 1; // Always disable notifications
+
+		try {
+			$webapp_version = 'WebApp-' . trim(file_get_contents(BASE_PATH . 'version'));
+			$browser_version = $_SERVER['HTTP_USER_AGENT'] ?? '';
+			$this->session = mapi_logon_zarafa(
+				$username,
+				$password,
+				$server,
+				$sslcert_file,
+				$sslcert_pass,
+				$flags,
+				$webapp_version,
+				$browser_version
+			);
+			if ($this->session !== false) {
+				$this->session_info["username"] = $username;
+			}
+		}
+		catch (MAPIException $e) {
+			$result = $e->getCode();
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Logons to gromox using the access token.
+	 *
+	 * @param mixed $email the username/email of the user
+	 * @param mixed $token the access token
+	 *
+	 * @return int 0 on no error, otherwise a MAPI error code
+	 */
+	public function logon_token($email = null, $token = null) {
+		$result = NOERROR;
+		$email = (string) $email;
+		$token = (string) $token;
+
+		try {
+			$this->session = mapi_logon_token($token);
+			if ($this->session !== false) {
+				$this->session_info["username"] = $email;
+			}
+		}
+		catch (MAPIException $e) {
+			$result = $e->getCode();
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Get the user MAPI Object.
+	 *
+	 * @param string $userEntryid The user entryid which is going to open. default is false.
+	 *
+	 * @return object an user MAPI object
+	 */
+	public function getUser($userEntryid = false) {
+		if ($userEntryid === false) {
+			$userEntryid = $this->getLoggedInUserEntryId();
+		}
+		if (!$userEntryid) {
+			return false;
+		}
+
+		// open the user entry
+		return mapi_ab_openentry($this->getAddressbook(true), $userEntryid);
+	}
+
+	/**
+	 * Resolve the authenticated operator in the address book without using a
+	 * shared mailbox as a substitute identity.
+	 *
+	 * @return string|false
+	 */
+	private function getLoggedInUserEntryId() {
+		if (!$this->isSharedOnlyUser() || $this->hasPersonalStore()) {
+			$store = $this->getDefaultMessageStore();
+			if (!$store) {
+				return false;
+			}
+			$props = mapi_getprops($store, [PR_USER_ENTRYID]);
+
+			return $props[PR_USER_ENTRYID] ?? false;
+		}
+
+		$username = $this->getUserName();
+		if ($username === '') {
+			return false;
+		}
+
+		$addressbook = $this->getAddressbook(true);
+		foreach ([PR_EMAIL_ADDRESS, PR_DISPLAY_NAME] as $property) {
+			try {
+				$rows = mapi_ab_resolvename(
+					$addressbook,
+					[[$property => $username]],
+					EMS_AB_ADDRESS_LOOKUP
+				);
+				if (isset($rows[0][PR_ENTRYID]) && $rows[0][PR_ENTRYID] !== '') {
+					return $rows[0][PR_ENTRYID];
+				}
+			}
+			catch (Throwable $e) {
+				// Try the next address-book key. The operator may be indexed by
+				// display name rather than by PR_EMAIL_ADDRESS.
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Get logged-in user information.
+	 *
+	 * This function populates the 'session_info' property of this class with the following information:
+	 * - userentryid: the MAPI entryid of the current user
+	 * - fullname: the fullname of the current user
+	 * - emailaddress: the email address of the current user
+	 *
+	 * The function only populates the information once, subsequent calls will return without error and without
+	 * doing anything.
+	 *
+	 * @return array Array of information about the currently logged-on user
+	 */
+	public function retrieveUserData() {
+		if ($this->userDataRetrieved) {
+			return;
+		}
+
+		$result = NOERROR;
+
+		try {
+			$userEntryid = $this->getLoggedInUserEntryId();
+			$user = $this->getUser($userEntryid);
+			if (!$user) {
+				throw new MAPIException('Authenticated user could not be resolved in the address book', MAPI_E_NOT_FOUND);
+			}
+
+			// receive userdata
+			$user_props = [PR_ASSISTANT, PR_ASSISTANT_TELEPHONE_NUMBER, PR_BUSINESS2_TELEPHONE_NUMBER, PR_BUSINESS_TELEPHONE_NUMBER,
+				PR_COMPANY_NAME, PR_COUNTRY, PR_DEPARTMENT_NAME, PR_DISPLAY_NAME,
+				PR_EMAIL_ADDRESS, PR_EMS_AB_THUMBNAIL_PHOTO, PR_GIVEN_NAME, PR_HOME2_TELEPHONE_NUMBER,
+				PR_STREET_ADDRESS, PR_HOME_TELEPHONE_NUMBER, PR_INITIALS, PR_LOCALITY,
+				PR_MOBILE_TELEPHONE_NUMBER, PR_OFFICE_LOCATION, PR_PAGER_TELEPHONE_NUMBER, PR_POSTAL_CODE,
+				PR_PRIMARY_FAX_NUMBER, PR_PRIMARY_TELEPHONE_NUMBER, PR_SEARCH_KEY, PR_SMTP_ADDRESS,
+				PR_STATE_OR_PROVINCE, PR_SURNAME, PR_TITLE];
+
+			$user_props = mapi_getprops($user, $user_props);
+
+			if (is_array($user_props) && isset($user_props[PR_DISPLAY_NAME], $user_props[PR_SMTP_ADDRESS])) {
+				$this->session_info["userentryid"] = $userEntryid;
+				$this->session_info["fullname"] = $user_props[PR_DISPLAY_NAME];
+				$this->session_info["smtpaddress"] = $user_props[PR_SMTP_ADDRESS];
+				$this->session_info["emailaddress"] = $user_props[PR_EMAIL_ADDRESS];
+				$this->session_info["searchkey"] = $user_props[PR_SEARCH_KEY];
+				$this->session_info["userimage"] = isset($user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) ? "data:image/jpeg;base64," . base64_encode((string) $user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) : "";
+
+				$this->session_info["given_name"] = $user_props[PR_GIVEN_NAME] ?? '';
+				$this->session_info["initials"] = $user_props[PR_INITIALS] ?? '';
+				$this->session_info["surname"] = $user_props[PR_SURNAME] ?? '';
+				$this->session_info["street_address"] = $user_props[PR_STREET_ADDRESS] ?? '';
+				$this->session_info["locality"] = $user_props[PR_LOCALITY] ?? '';
+				$this->session_info["state_or_province"] = $user_props[PR_STATE_OR_PROVINCE] ?? '';
+				$this->session_info["postal_code"] = $user_props[PR_POSTAL_CODE] ?? '';
+				$this->session_info["country"] = $user_props[PR_COUNTRY] ?? '';
+				$this->session_info["title"] = $user_props[PR_TITLE] ?? '';
+				$this->session_info["company_name"] = $user_props[PR_COMPANY_NAME] ?? '';
+				$this->session_info["department_name"] = $user_props[PR_DEPARTMENT_NAME] ?? '';
+				$this->session_info["office_location"] = $user_props[PR_OFFICE_LOCATION] ?? '';
+				$this->session_info["assistant"] = $user_props[PR_ASSISTANT] ?? '';
+				$this->session_info["assistant_telephone_number"] = $user_props[PR_ASSISTANT_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["office_telephone_number"] = $user_props[PR_PRIMARY_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["business_telephone_number"] = $user_props[PR_BUSINESS_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["business2_telephone_number"] = $user_props[PR_BUSINESS2_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["primary_fax_number"] = $user_props[PR_PRIMARY_FAX_NUMBER] ?? '';
+				$this->session_info["home_telephone_number"] = $user_props[PR_HOME_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["home2_telephone_number"] = $user_props[PR_HOME2_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["mobile_telephone_number"] = $user_props[PR_MOBILE_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["pager_telephone_number"] = $user_props[PR_PAGER_TELEPHONE_NUMBER] ?? '';
+			}
+
+			$this->userDataRetrieved = true;
+		}
+		catch (MAPIException $e) {
+			$result = $e->getCode();
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Get MAPI session object.
+	 *
+	 * @return mapisession Current MAPI session
+	 */
+	public function getSession() {
+		return $this->session;
+	}
+
+	/**
+	 * Set MAPI session object.
+	 *
+	 * @param mapisession The MAPI session
+	 * @param mixed $session
+	 */
+	public function setSession($session) {
+		$this->session = $session;
+	}
+
+	/**
+	 * Get MAPI addressbook object.
+	 *
+	 * @param bool $providerless               When set to true it will return an addressbook resource
+	 *                                         without any Contact Provider set on it, defaults to false
+	 * @param bool $loadSharedContactsProvider when set to true it denotes that shared folders are
+	 *                                         required to be configured to load the contacts from
+	 *
+	 * @return mixed An addressbook object to be used with mapi_ab_* or an error code
+	 */
+	public function getAddressbook($providerless = false, $loadSharedContactsProvider = false) {
+		if ($providerless) {
+			try {
+				return mapi_openaddressbook($this->session);
+			}
+			catch (MAPIException $e) {
+				return $e->getCode();
+			}
+		}
+
+		$result = NOERROR;
+
+		if ($this->ab === false) {
+			$this->setupContactProviderAddressbook($loadSharedContactsProvider);
+		}
+
+		try {
+			if ($this->ab === false) {
+				$this->ab = mapi_openaddressbook($this->session);
+			}
+
+			if ($this->ab !== false) {
+				$result = $this->ab;
+			}
+		}
+		catch (MAPIException $e) {
+			$result = $e->getCode();
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Get logon status
+	 * NOTE: This function only exists for backward compatibility with older plugins.
+	 * 		 Currently the preferred way to check if a user is logged in, is using
+	 * 		 the isAuthenticated() method of WebAppAuthentication.
+	 *
+	 * @return bool true on logged on, false on not logged on
+	 */
+	public function isLoggedOn() {
+		trigger_error("isLoggedOn is deprecated, use WebAppAuthentication::isAuthenticated()", E_USER_NOTICE);
+
+		return WebAppAuthentication::isAuthenticated();
+	}
+
+	/**
+	 * Get current session id.
+	 *
+	 * @deprecated 2.2.0 This function only exists for backward compatibility with
+	 * 		 older plugins that want to send the session id as a GET parameter with
+	 * 		 requests that they make to grommunio.php. The script grommunio.php does not
+	 * 		 expect this parameter anymore, but plugins that are not updated might
+	 * 		 still call this function.
+	 *
+	 * @return string Always empty
+	 */
+	public function getSessionID() {
+		return '';
+	}
+
+	/**
+	 * Get current user entryid.
+	 *
+	 * @return string Current user's entryid
+	 */
+	public function getUserEntryID() {
+		$this->retrieveUserData();
+
+		return $this->session_info["userentryid"] ?? '';
+	}
+
+	/**
+	 * Get current username.
+	 *
+	 * @return string Current user's username (equal to username passed in logon() )
+	 */
+	public function getUserName() {
+		$encryptionStore = EncryptionStore::getInstance();
+
+		return $encryptionStore->get('username') ?: '';
+	}
+
+	/**
+	 * Get current user's full name.
+	 *
+	 * @return string User's full name
+	 */
+	public function getFullName() {
+		$this->retrieveUserData();
+
+		return array_key_exists("fullname", $this->session_info) ? $this->session_info["fullname"] : false;
+	}
+
+	/**
+	 * Get current user's smtp address.
+	 *
+	 * @return string User's smtp address
+	 */
+	public function getSMTPAddress() {
+		$this->retrieveUserData();
+
+		return array_key_exists("smtpaddress", $this->session_info) ? $this->session_info["smtpaddress"] : false;
+	}
+
+	/**
+	 * Get current user's email address.
+	 *
+	 * @return string User's email address
+	 */
+	public function getEmailAddress() {
+		$this->retrieveUserData();
+
+		return array_key_exists("emailaddress", $this->session_info) ? $this->session_info["emailaddress"] : false;
+	}
+
+	/**
+	 * Get current user's image from the LDAP server.
+	 *
+	 * @return string A base64 encoded string (data url)
+	 */
+	public function getUserImage() {
+		$this->retrieveUserData();
+
+		return array_key_exists("userimage", $this->session_info) ? $this->session_info["userimage"] : false;
+	}
+
+	public function setUserImage($user_image) {
+		if ($this->userDataRetrieved && is_array($this->session_info)) {
+			$this->session_info["userimage"] = $user_image;
+		}
+	}
+
+	public function getGivenName() {
+		$this->retrieveUserData();
+
+		return array_key_exists("given_name", $this->session_info) ? $this->session_info["given_name"] : false;
+	}
+
+	public function getInitials() {
+		$this->retrieveUserData();
+
+		return array_key_exists("initials", $this->session_info) ? $this->session_info["initials"] : false;
+	}
+
+	public function getSurname() {
+		$this->retrieveUserData();
+
+		return array_key_exists("surname", $this->session_info) ? $this->session_info["surname"] : false;
+	}
+
+	public function getStreetAddress() {
+		$this->retrieveUserData();
+
+		return array_key_exists("street_address", $this->session_info) ? $this->session_info["street_address"] : false;
+	}
+
+	public function getLocality() {
+		$this->retrieveUserData();
+
+		return array_key_exists("locality", $this->session_info) ? $this->session_info["locality"] : false;
+	}
+
+	public function getStateOrProvince() {
+		$this->retrieveUserData();
+
+		return array_key_exists("state_or_province", $this->session_info) ? $this->session_info["state_or_province"] : false;
+	}
+
+	public function getPostalCode() {
+		$this->retrieveUserData();
+
+		return array_key_exists("postal_code", $this->session_info) ? $this->session_info["postal_code"] : false;
+	}
+
+	public function getCountry() {
+		$this->retrieveUserData();
+
+		return array_key_exists("country", $this->session_info) ? $this->session_info["country"] : false;
+	}
+
+	public function getTitle() {
+		$this->retrieveUserData();
+
+		return array_key_exists("title", $this->session_info) ? $this->session_info["title"] : false;
+	}
+
+	public function getCompanyName() {
+		$this->retrieveUserData();
+
+		return array_key_exists("company_name", $this->session_info) ? $this->session_info["company_name"] : false;
+	}
+
+	public function getDepartmentName() {
+		$this->retrieveUserData();
+
+		return array_key_exists("department_name", $this->session_info) ? $this->session_info["department_name"] : false;
+	}
+
+	public function getOfficeLocation() {
+		$this->retrieveUserData();
+
+		return array_key_exists("office_location", $this->session_info) ? $this->session_info["office_location"] : false;
+	}
+
+	public function getAssistant() {
+		$this->retrieveUserData();
+
+		return array_key_exists("assistant", $this->session_info) ? $this->session_info["assistant"] : false;
+	}
+
+	public function getAssistantTelephoneNumber() {
+		$this->retrieveUserData();
+
+		return array_key_exists("assistant_telephone_number", $this->session_info) ? $this->session_info["assistant_telephone_number"] : false;
+	}
+
+	public function getOfficeTelephoneNumber() {
+		$this->retrieveUserData();
+
+		return array_key_exists("office_telephone_number", $this->session_info) ? $this->session_info["office_telephone_number"] : false;
+	}
+
+	public function getBusinessTelephoneNumber() {
+		$this->retrieveUserData();
+
+		return array_key_exists("business_telephone_number", $this->session_info) ? $this->session_info["business_telephone_number"] : false;
+	}
+
+	public function getBusiness2TelephoneNumber() {
+		$this->retrieveUserData();
+
+		return array_key_exists("business2_telephone_number", $this->session_info) ? $this->session_info["business2_telephone_number"] : false;
+	}
+
+	public function getPrimaryFaxNumber() {
+		$this->retrieveUserData();
+
+		return array_key_exists("primary_fax_number", $this->session_info) ? $this->session_info["primary_fax_number"] : false;
+	}
+
+	public function getHomeTelephoneNumber() {
+		$this->retrieveUserData();
+
+		return array_key_exists("home_telephone_number", $this->session_info) ? $this->session_info["home_telephone_number"] : false;
+	}
+
+	public function getHome2TelephoneNumber() {
+		$this->retrieveUserData();
+
+		return array_key_exists("home2_telephone_number", $this->session_info) ? $this->session_info["home2_telephone_number"] : false;
+	}
+
+	public function getMobileTelephoneNumber() {
+		$this->retrieveUserData();
+
+		return array_key_exists("mobile_telephone_number", $this->session_info) ? $this->session_info["mobile_telephone_number"] : false;
+	}
+
+	public function getPagerTelephoneNumber() {
+		$this->retrieveUserData();
+
+		return array_key_exists("pager_telephone_number", $this->session_info) ? $this->session_info["pager_telephone_number"] : false;
+	}
+
+	/**
+	 * Checks whether the user is enabled for grommunio-web.
+	 *
+	 * @return bool
+	 */
+	public function isGwebEnabled() {
+		$store_props = mapi_getprops($this->getDefaultMessageStore(), [PR_EC_ENABLED_FEATURES_L]);
+
+		return $store_props[PR_EC_ENABLED_FEATURES_L] & UP_WEB;
+	}
+
+	/**
+	 * @return bool true if webapp is disabled feature else return false
+	 */
+	public function isWebappDisableAsFeature() {
+		return !$this->isGwebEnabled();
+	}
+
+	/**
+	 * Magic method to get properties from the session_info. When a method of this class if called
+	 * and there is no method of this name defined this function will be called
+	 * It creates getter methods for the properties stored in $session_info using the following syntax:
+	 * getSomeUserProperty() will look return a property called some_user_property if it exists and
+	 * throw an exception otherwise.
+	 *
+	 * @param string $methodName The name of the method that was called
+	 * @param array  $arguments  The arguments that were passed in the call
+	 *
+	 * @return string The requested property if it exists
+	 *
+	 * @throws Exception
+	 */
+	public function __call($methodName, $arguments) {
+		if (!preg_match('/^get(.+)$/', $methodName, $matches)) {
+			// We don't know this function, so let's throw an error
+			throw new Exception('Method ' . $methodName . ' does not exist');
+		}
+		$this->retrieveUserData();
+		$propertyName = strtolower((string) preg_replace('/([^A-Z])([A-Z])/', '$1_$2', $matches[1]));
+		if (!array_key_exists($propertyName, $this->session_info)) {
+			// We don't know this function, so let's throw an error
+			throw new Exception('Method ' . $methodName . ' does not exist ' . $propertyName);
+		}
+
+		return $this->session_info[$propertyName];
+	}
+
+	/**
+	 * Returns a hash with information about the user that is logged in.
+	 *
+	 * @return array
+	 */
+	public function getUserInfo() {
+		return [
+			'username' => $this->getUserName(),
+			'shared_only' => $this->isSharedOnlyUser(),
+			'operator_mode' => $this->isOperatorUser(),
+			'hide_personal_store' => $this->hidePersonalStore(),
+			'shared_mailboxes' => $this->getSharedOnlyStoreNames(),
+			'fullname' => $this->getFullName(),
+			'entryid' => bin2hex($this->getUserEntryid()),
+			'email_address' => $this->getEmailAddress(),
+			'smtp_address' => $this->getSMTPAddress(),
+			'search_key' => bin2hex($this->getSearchKey()),
+			'user_image' => $this->getUserImage(),
+			'given_name' => $this->getGivenName(),
+			'initials' => $this->getInitials(),
+			'surname' => $this->getSurname(),
+			'street_address' => $this->getStreetAddress(),
+			'locality' => $this->getLocality(),
+			'state_or_province' => $this->getStateOrProvince(),
+			'postal_code' => $this->getPostalCode(),
+			'country' => $this->getCountry(),
+			'title' => $this->getTitle(),
+			'company_name' => $this->getCompanyName(),
+			'department_name' => $this->getDepartmentName(),
+			'office_location' => $this->getOfficeLocation(),
+			'assistant' => $this->getAssistant(),
+			'assistant_telephone_number' => $this->getAssistantTelephoneNumber(),
+			'office_telephone_number' => $this->getOfficeTelephoneNumber(),
+			'business_telephone_number' => $this->getBusinessTelephoneNumber(),
+			'business2_telephone_number' => $this->getBusiness2TelephoneNumber(),
+			'primary_fax_number' => $this->getPrimaryFaxNumber(),
+			'home_telephone_number' => $this->getHomeTelephoneNumber(),
+			'home2_telephone_number' => $this->getHome2TelephoneNumber(),
+			'mobile_telephone_number' => $this->getMobileTelephoneNumber(),
+			'pager_telephone_number' => $this->getPagerTelephoneNumber(),
+		];
+	}
+
+	/**
+	 * Get current user's search key.
+	 *
+	 * @return string Current user's searchkey
+	 */
+	public function getSearchKey() {
+		$this->retrieveUserData();
+
+		return $this->session_info["searchkey"] ?? '';
+	}
+
+	/**
+	 * Get the message stores from the message store table from your session. Standard stores
+	 * like the default store and the public store are made them easily accessible through the
+	 * defaultstore and publicStore properties.
+	 */
+	public function loadMessageStoresFromSession() {
+		$storestables = mapi_getmsgstorestable($this->session);
+		$rows = mapi_table_queryallrows($storestables, [PR_ENTRYID, PR_DEFAULT_STORE, PR_MDB_PROVIDER]);
+		foreach ($rows as $row) {
+			if (!$row[PR_ENTRYID]) {
+				continue;
+			}
+
+			if (isset($row[PR_DEFAULT_STORE]) && $row[PR_DEFAULT_STORE] == true) {
+				$this->defaultstore = $row[PR_ENTRYID];
+			}
+			elseif ($row[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
+				$this->publicStore = $row[PR_ENTRYID];
+			}
+			elseif ($row[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
+				$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj($row[PR_ENTRYID]);
+				if (isset($eidObj['MailboxDN'])) {
+					$this->openMessageStore($row[PR_ENTRYID], strtolower($eidObj['MailboxDN']));
+				}
+			}
+		}
+	}
+
+	/**
+	 * Get the current user's default message store.
+	 *
+	 * The store is opened only once, subsequent calls will return the previous store object
+	 *
+	 * @param bool reopen force re-open
+	 * @param mixed $reopen
+	 *
+	 * @return mapistore User's default message store object
+	 */
+	public function getDefaultMessageStore($reopen = false) {
+		$sharedOnlyStores = $this->getSharedOnlyStoreNames();
+		if (!empty($sharedOnlyStores) && !$this->hasPersonalStore()) {
+			// A mailboxless session has no personal default store. Open the
+			// first authorized shared store only as an internal compatibility
+			// store; never record it as the user's default store.
+			foreach ($sharedOnlyStores as $username) {
+				try {
+					$entryid = mapi_msgstore_createentryid($this->session, $username);
+					$store = $this->openMessageStore($entryid, $username);
+					if ($store !== false) {
+						return $store;
+					}
+				}
+				catch (Exception $e) {
+					error_log(sprintf("shared-only store %s failed (actor:%s): %s",
+						$username, $this->session_info["username"] ?? '', $e->getMessage()));
+				}
+			}
+
+			return false;
+		}
+		// Return cached default store if we have one
+		if (!$reopen && !empty($this->defaultstore) && isset($this->stores[$this->defaultstore])) {
+			return $this->stores[$this->defaultstore];
+		}
+
+		try {
+			$this->loadMessageStoresFromSession();
+		}
+		catch (Exception $e) {
+			// Mailboxless users may not have a usable message-store table.
+			// Continue so a configured shared-only virtual default can be opened.
+			error_log(sprintf("message-store table unavailable (actor:%s): %s",
+				$this->session_info["username"] ?? '', $e->getMessage()));
+		}
+
+		if (empty($this->defaultstore)) {
+			foreach ($sharedOnlyStores as $username) {
+				try {
+					$entryid = mapi_msgstore_createentryid($this->session, $username);
+					$store = $this->openMessageStore($entryid, $username);
+					if ($store !== false) {
+						$props = mapi_getprops($store, [PR_ENTRYID]);
+						return $store;
+					}
+				}
+				catch (Exception $e) {
+					error_log(sprintf("shared-only default store %s failed (actor:%s): %s",
+						$username, $this->session_info["username"] ?? '', $e->getMessage()));
+				}
+			}
+		}
+
+		if (empty($this->defaultstore)) {
+			return false;
+		}
+
+		return $this->openMessageStore($this->defaultstore, 'Default store');
+	}
+
+	/**
+	 * Whether the logged-in account is a mailboxless operator with configured
+	 * delegated stores. Shared-only sends must keep the selected delegated store
+	 * instead of being redirected to the synthetic personal store.
+	 *
+	 * @return bool
+	 */
+	public function isSharedOnlyUser() {
+		return $this->isOperatorUser() && !$this->hasPersonalStore();
+	}
+
+	/**
+	 * Whether this account is configured as an operator for shared mailboxes.
+	 * This remains true when it has a hidden technical mailbox.
+	 */
+	public function isOperatorUser() {
+		return $this->getOperatorConfig() !== null;
+	}
+
+	public function hidePersonalStore() {
+		$config = $this->getOperatorConfig();
+
+		return is_array($config) && ($config['hide_personal'] ?? false) === true;
+	}
+
+	/**
+	 * Return the server-authorized shared mailboxes for the logged-in operator.
+	 * This is the only source of truth for mailboxless sessions.
+	 *
+	 * @return string[]
+	 */
+	public function getAuthorizedSharedStoreNames() {
+		return $this->getSharedOnlyStoreNames();
+	}
+
+	/**
+	 * Open a shared mailbox only when it belongs to the server-side allowlist.
+	 * The client is allowed to send an entryid, but never to choose an arbitrary
+	 * mailbox by changing that value in the request.
+	 *
+	 * @param string $entryid Binary store entryid
+	 * @return mapistore|false
+	 */
+	public function openAuthorizedSharedStore($entryid) {
+		if (!$this->isOperatorUser() || !is_string($entryid) || $entryid === '') {
+			return false;
+		}
+
+		foreach ($this->getAuthorizedSharedStoreNames() as $username) {
+			try {
+				$requestedEntryid = mapi_msgstore_createentryid($this->session, $username);
+				$store = $this->openMessageStore($requestedEntryid, $username);
+				if ($store === false) {
+					continue;
+				}
+
+				$props = mapi_getprops($store, [PR_ENTRYID]);
+				if ($GLOBALS['entryid']->compareEntryIds(
+					bin2hex((string) ($props[PR_ENTRYID] ?? '')),
+					bin2hex($entryid)
+				)) {
+					return $store;
+				}
+			}
+			catch (Throwable $e) {
+				continue;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Resolve an authorized shared mailbox by its canonical SMTP address.
+	 *
+	 * @param string $username
+	 * @return mapistore|false
+	 */
+	public function openAuthorizedSharedStoreByName($username) {
+		$username = strtolower(trim((string) $username));
+		if (!$this->isOperatorUser() || !in_array($username, array_map('strtolower', $this->getAuthorizedSharedStoreNames()), true)) {
+			return false;
+		}
+
+		try {
+			$entryid = mapi_msgstore_createentryid($this->session, $username);
+			return $this->openMessageStore($entryid, $username);
+		}
+		catch (Throwable $e) {
+			return false;
+		}
+	}
+
+	/**
+	 * Resolve a store supplied by a client action. Mailboxless users may use
+	 * only an authorized shared mailbox or the public store.
+	 *
+	 * @param string $entryid Binary store entryid
+	 * @return mapistore|false
+	 */
+	public function openStoreForAction($entryid) {
+		if (!$this->isOperatorUser()) {
+			return $this->openMessageStore($entryid);
+		}
+
+		$store = $this->openAuthorizedSharedStore($entryid);
+		if ($store !== false) {
+			return $store;
+		}
+
+		try {
+			$publicStore = $this->getPublicMessageStore();
+			$props = mapi_getprops($publicStore, [PR_ENTRYID]);
+			if ($GLOBALS['entryid']->compareEntryIds(
+				bin2hex((string) ($props[PR_ENTRYID] ?? '')),
+				bin2hex($entryid)
+			)) {
+				return $publicStore;
+			}
+		}
+		catch (Throwable $e) {
+			// The public store is optional.
+		}
+
+		return false;
+	}
+
+	/**
+	 * Return the shared mailboxes assigned to a mailboxless webmail account.
+	 *
+	 * The JSON mapping is intentionally server-side configuration. It prevents
+	 * a user from selecting an arbitrary mailbox and avoids storing shared
+	 * mailbox passwords in the webmail session.
+	 *
+	 * @return string[]
+	 */
+	private function getOperatorConfig() {
+		// On requests after the initial login the serialized session_info may not
+		// contain username yet; EncryptionStore is the authoritative login identity.
+		$username = strtolower(trim((string) $this->getUserName()));
+		$raw = getenv('GROMMUNIO_OPERATOR_MAILBOXES');
+		if ($raw === false || trim($raw) === '') {
+			$raw = $_SERVER['GROMMUNIO_OPERATOR_MAILBOXES'] ?? $_ENV['GROMMUNIO_OPERATOR_MAILBOXES'] ?? false;
+		}
+		if ($raw === false || trim($raw) === '') {
+			$mappingFile = '/etc/grommunio/operator-mailboxes.json';
+			if (is_readable($mappingFile)) {
+				$raw = file_get_contents($mappingFile);
+			}
+		}
+		if ($raw === false || trim($raw) === '') {
+			$raw = getenv('GROMMUNIO_SHARED_ONLY_STORES');
+			if ($raw === false || trim($raw) === '') {
+				$mappingFile = '/etc/grommunio/shared-only-stores.json';
+				if (is_readable($mappingFile)) {
+					$raw = file_get_contents($mappingFile);
+				}
+			}
+		}
+		if ($username === '' || $raw === false || trim($raw) === '') {
+			return null;
+		}
+
+		$mapping = json_decode(trim((string) $raw), true);
+		if (!is_array($mapping)) {
+			error_log('GROMMUNIO_OPERATOR_MAILBOXES must contain a JSON object');
+			return null;
+		}
+
+		foreach ($mapping as $account => $stores) {
+			if (strtolower((string) $account) !== $username) {
+				continue;
+			}
+			if (is_array($stores) && $this->isList($stores)) {
+				$stores = ['hide_personal' => true, 'shared_mailboxes' => $stores];
+			}
+			return is_array($stores) ? $stores : null;
+		}
+
+		return null;
+	}
+
+	private function getSharedOnlyStoreNames() {
+		$config = $this->getOperatorConfig();
+		$stores = is_array($config) ? ($config['shared_mailboxes'] ?? []) : [];
+
+		return is_array($stores) ? array_values(array_filter(array_map('strval', $stores), static fn($store) => $store !== '')) : [];
+	}
+
+	private function isList(array $values) {
+		return array_keys($values) === range(0, count($values) - 1);
+	}
+
+	private function hasPersonalStore() {
+		if (!empty($this->defaultstore)) {
+			return true;
+		}
+
+		try {
+			$this->loadMessageStoresFromSession();
+		}
+		catch (Throwable $e) {
+			return false;
+		}
+
+		return !empty($this->defaultstore);
+	}
+
+	/**
+	 * The default messagestore entryid.
+	 *
+	 * @return string the entryid of the default messagestore
+	 */
+	public function getDefaultMessageStoreEntryId() {
+		if ($this->isSharedOnlyUser()) {
+			$store = $this->getDefaultMessageStore();
+			if (!$store) {
+				return '';
+			}
+			$props = mapi_getprops($store, [PR_ENTRYID]);
+
+			return bin2hex((string) ($props[PR_ENTRYID] ?? ''));
+		}
+
+		$this->getDefaultMessageStore();
+
+		return bin2hex($this->defaultstore);
+	}
+
+	/**
+	 * Get single store if we are opening full store.
+	 *
+	 * @param object $store        the store of the user
+	 * @param array  $storeOptions contains folder_type of which folder to open
+	 *                             It is mapped to username, If folder_type is 'all' (i.e. Open Entire Inbox)
+	 *                             then we will open full store.
+	 * @param string $username     The username
+	 *
+	 * @return array storeArray The array of stores containing user's store
+	 */
+	public function getSingleMessageStores($store, $storeOptions, $username) {
+		return [$store];
+	}
+
+	/**
+	 * Get the public message store.
+	 *
+	 * The store is opened only once, subsequent calls will return the previous store object
+	 *
+	 * @return mapistore Public message store object
+	 */
+	public function getPublicMessageStore() {
+		// Return cached public store if we have one
+		if (isset($this->publicStore, $this->stores[$this->publicStore])) {
+			return $this->stores[$this->publicStore];
+		}
+
+		$this->loadMessageStoresFromSession();
+
+		return $this->openMessageStore($this->publicStore, 'Public store');
+	}
+
+	/**
+	 * Get all message stores currently open in the session.
+	 *
+	 * @return array Associative array with entryid -> mapistore of all open stores (private, public, delegate)
+	 */
+	public function getAllMessageStores() {
+		$this->getDefaultMessageStore();
+		$this->getPublicMessageStore();
+		// The cache now contains all the stores in our profile. Next, add the stores
+		// for other users.
+		$this->getOtherUserStore();
+
+		// A mailboxless user's service store is a synthetic login anchor, not
+		// a visible mailbox. Keep only authorized shared stores and public store.
+		if ($this->isOperatorUser() && $this->hidePersonalStore()) {
+			$visibleStores = [];
+			foreach ($this->stores as $entryid => $store) {
+				if (!empty($this->defaultstore) &&
+					$GLOBALS['entryid']->compareEntryIds(bin2hex((string) $entryid), bin2hex((string) $this->defaultstore))) {
+					continue;
+				}
+				try {
+					$props = mapi_getprops($store, [PR_MDB_PROVIDER]);
+					if (($props[PR_MDB_PROVIDER] ?? null) === ZARAFA_SERVICE_GUID) {
+						continue;
+					}
+				}
+				catch (Exception $e) {
+					continue;
+				}
+				$visibleStores[$entryid] = $store;
+			}
+
+			return $visibleStores;
+		}
+
+		return $this->stores;
+	}
+
+	/**
+	 * Open the message store with entryid $entryid.
+	 *
+	 * @param string $entryid string representation of the binary entryid of the store
+	 * @param string $name    The name of the store. Will be logged when opening fails.
+	 *
+	 * @return mapistore|false The opened store on success, false otherwise
+	 */
+	public function openMessageStore($entryid, $name = '') {
+		// Check the cache before opening
+		foreach ($this->stores as $storeEntryId => $storeObj) {
+			if ($GLOBALS["entryid"]->compareEntryIds(bin2hex($entryid), bin2hex($storeEntryId))) {
+				return $storeObj;
+			}
+		}
+
+		try {
+			$store = mapi_openmsgstore($this->session, $entryid);
+			$store_props = mapi_getprops($store, [PR_ENTRYID]);
+			$entryid = $store_props[PR_ENTRYID];
+
+			// Cache the store for later use
+			$this->stores[$entryid] = $store;
+			$this->userstores[$name] = $entryid;
+		}
+		catch (Exception $e) {
+			// mapi_openmsgstore seems to not only throw MAPIException
+			error_log(sprintf("openmsgstore %s failed (actor:%s, name:%s): %s",
+				bin2hex($entryid), $this->session_info["username"], $name,
+				method_exists($e, 'getDisplayMessage') ? $e->getDisplayMessage() : $e->getMessage()));
+
+			return false;
+		}
+
+		return $store;
+	}
+
+	/**
+	 * Get all the available shared stores.
+	 *
+	 * The store is opened only once, subsequent calls will return the previous store object
+	 */
+	public function getOtherUserStore() {
+		$sharedOnlyStores = $this->getSharedOnlyStoreNames();
+		if (!empty($sharedOnlyStores)) {
+			// Shared-only accounts are restricted to the server-side allowlist.
+			$otherusers = [];
+			foreach ($sharedOnlyStores as $username) {
+				$otherusers[$username] = [
+					'all' => ['folder_type' => 'all', 'show_subfolders' => true],
+				];
+			}
+		}
+		else {
+			$otherusers = $this->retrieveOtherUsersFromSettings();
+		}
+		$otherUsersStores = [];
+
+		foreach ($otherusers as $username => $folder) {
+			if (isset($this->userstores[$username])) {
+				continue;
+			}
+			$storeOk = true;
+
+			if (is_array($folder) && !empty($folder)) {
+				try {
+					$user_entryid = mapi_msgstore_createentryid($this->session, $username);
+
+					$sharedStore = $this->openMessageStore($user_entryid, $username);
+					if ($sharedStore === false || $sharedStore === ecLoginPerm ||
+						$sharedStore === MAPI_E_CALL_FAILED || $sharedStore === MAPI_E_NOT_FOUND) {
+						$storeOk = false;
+					}
+				}
+				catch (MAPIException $e) {
+					if ($e->getCode() == MAPI_E_NOT_FOUND) {
+						// The user or the corresponding store couldn't be found,
+						// print an error to the log, and remove the user from the settings.
+						dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.' . ': ' . $e->getMessage());
+						$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . bin2hex($username), true);
+					}
+					else {
+						// That is odd, something else went wrong. Lets not be hasty and preserve
+						// the user in the settings, but do print something to the log to indicate
+						// something happened...
+						dump('Failed to load store for user ' . $username . '. ' . $e->getDisplayMessage());
+					}
+				}
+				finally {
+					if (!$storeOk && ($sharedStore == ecLoginPerm || $sharedStore == MAPI_E_NOT_FOUND)) {
+						// The user or the corresponding store couldn't be opened
+						// (e.g. the user was deleted or permissions revoked),
+						// print an error to the log, and remove the user from the settings.
+						dump(sprintf("The user %s failed to load store of the user %s. Removing it from settings.", $this->session_info["username"], $username));
+						$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . bin2hex($username), true);
+					}
+				}
+			}
+		}
+
+		foreach ($this->userstores as $entryid) {
+			$otherUsersStores[$entryid] = $this->stores[$entryid];
+		}
+
+		return $otherUsersStores;
+	}
+
+	/**
+	 * Resolve the username strictly by opening that user's store and returning the
+	 * PR_MAILBOX_OWNER_ENTRYID. This can be used for resolving an username without the risk of
+	 * ambiguity since mapi_ab_resolve() does not strictly resolve on the username.
+	 *
+	 * @param string $username The username
+	 *
+	 * @return Binary|int Entryid of the user on success otherwise the hresult error code
+	 */
+	public function resolveStrictUserName($username) {
+		$storeEntryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
+		$store = $this->openMessageStore($storeEntryid, $username);
+		$storeProps = mapi_getprops($store, [PR_MAILBOX_OWNER_ENTRYID]);
+
+		return $storeProps[PR_MAILBOX_OWNER_ENTRYID];
+	}
+
+	/**
+	 * Get other users from settings.
+	 *
+	 * @return array Array of usernames of delegate stores
+	 */
+	public function retrieveOtherUsersFromSettings() {
+		$other_users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
+		$result = [];
+		foreach ($other_users as $username => $folders) {
+			// No folders are being shared, the store has probably been closed by the user,
+			// but the username is still lingering in the settings...
+			if (!isset($folders) || empty($folders)) {
+				continue;
+			}
+
+			$username = strtolower(hex2bin((string) $username));
+			if (!isset($result[$username])) {
+				$result[$username] = [];
+			}
+
+			foreach ($folders as $folder) {
+				if (is_array($folder)) {
+					$result[$username][$folder["folder_type"]] = [];
+					$result[$username][$folder["folder_type"]]["folder_type"] = $folder["folder_type"];
+					$result[$username][$folder["folder_type"]]["show_subfolders"] = $folder["show_subfolders"];
+				}
+			}
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Add the store of another user to the list of other user stores.
+	 *
+	 * @param string $username The username whose store should be added to the list of other users' stores
+	 *
+	 * @return mapistore The store of the user or false on error;
+	 */
+	public function addUserStore($username) {
+		$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
+
+		if ($user_entryid) {
+			// mapi_msgstore_createentryid and mapi_getprops(PR_ENTRYID) have different
+			// values for shared stores, so save the one from mapi_getprops(PR_ENTRYID)
+			// $this->userstores[$username] = $user_entryid;
+
+			return $this->openMessageStore($user_entryid, $username);
+		}
+	}
+
+	/**
+	 * Remove the store of another user from the list of other user stores.
+	 *
+	 * @param string $username The username whose store should be deleted from the list of other users' stores
+	 *
+	 * @return string The entryid of the store which was removed
+	 */
+	public function removeUserStore($username) {
+		// Remove the reference to the store if we had one
+		if (isset($this->userstores[$username])) {
+			$entryid = $this->userstores[$username];
+			unset($this->userstores[$username], $this->stores[$entryid]);
+
+			return $entryid;
+		}
+	}
+
+	/**
+	 * Get the store entryid of the specified user.
+	 *
+	 * The store must have been previously added via addUserStores.
+	 *
+	 * @param string $username The username whose store is being looked up
+	 *
+	 * @return string The entryid of the store of the user
+	 */
+	public function getStoreEntryIdOfUser($username) {
+		return $this->userstores[$username] ?? null;
+	}
+
+	/**
+	 * Get the username of the user store.
+	 *
+	 * @param string $username the loginname of whom we want to full name
+	 *
+	 * @return string the display name of the user
+	 */
+	public function getDisplayNameofUser($username) {
+		$user_entryid = $this->getStoreEntryIdOfUser($username);
+		$store = $this->openMessageStore($user_entryid, $username);
+		$props = mapi_getprops($store, [PR_DISPLAY_NAME]);
+
+		return str_replace('Inbox - ', '', $props[PR_DISPLAY_NAME]);
+	}
+
+	/**
+	 * Get the username of the owner of the specified store.
+	 *
+	 * The store must have been previously added via addUserStores.
+	 *
+	 * @param string $entryid EntryID of the store
+	 *
+	 * @return string Username of the specified store or false if it is not found
+	 */
+	public function getUserNameOfStore($entryid) {
+		foreach ($this->userstores as $username => $storeentryid) {
+			if ($GLOBALS["entryid"]->compareEntryIds(bin2hex((string) $storeentryid), bin2hex($entryid))) {
+				return $username;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Open a MAPI message using session object.
+	 * The function is used to open message when we don't know
+	 * the specific store and we want to open message using entryid.
+	 *
+	 * @param string $entryid entryid of the message
+	 *
+	 * @return object MAPI Message
+	 */
+	public function openMessage($entryid) {
+		return mapi_openentry($this->session, $entryid);
+	}
+
+	/**
+	 * Setup the contact provider for the addressbook. It asks getContactFoldersForABContactProvider
+	 * for the entryids and display names for the contact folders in the user's store.
+	 *
+	 * @param bool $loadSharedContactsProvider when set to true it denotes that shared folders are
+	 *                                         required to be configured to load the contacts from
+	 */
+	public function setupContactProviderAddressbook($loadSharedContactsProvider) {
+		$profsect = mapi_openprofilesection($GLOBALS['mapisession']->getSession(), pbGlobalProfileSectionGuid);
+		if ($profsect) {
+			// Get information about all contact folders from own store, shared stores and public store
+			$defaultStore = $this->getDefaultMessageStore();
+			$contactFolders = $this->getContactFoldersForABContactProvider($defaultStore);
+
+			// include shared contact folders in addressbook if shared contact folders are enabled
+			if (ENABLE_SHARED_CONTACT_FOLDERS && $loadSharedContactsProvider) {
+				if (empty($this->userstores)) {
+					$this->getOtherUserStore();
+				}
+
+				$sharedSetting = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
+				// Find available contact folders from all user stores, one by one.
+				foreach ($this->userstores as $username => $storeEntryID) {
+					$userContactFolders = [];
+					$sharedUserSetting = [];
+					$openedUserStore = $this->openMessageStore($storeEntryID, $username);
+
+					// Get settings of respective shared folder of given user
+					if (array_key_exists(strtolower(bin2hex($username)), $sharedSetting)) {
+						$sharedUserSetting = $sharedSetting[strtolower(bin2hex($username))];
+					}
+
+					// Only add opened shared folders into addressbook contacts provider.
+					// If entire inbox is opened then add each and every contact folders of that particular user.
+					if (isset($sharedUserSetting['all'])) {
+						$userContactFolders = $this->getContactFoldersForABContactProvider($openedUserStore);
+					}
+					elseif (isset($sharedUserSetting['contact'])) {
+						// Add respective default contact folder which is opened.
+						// Get entryid of default contact folder from root.
+						$root = mapi_msgstore_openentry($openedUserStore);
+						$rootProps = mapi_getprops($root, [PR_IPM_CONTACT_ENTRYID]);
+
+						// Just add the default contact folder only.
+						$defaultContactFolder = [
+							PR_STORE_ENTRYID => $storeEntryID,
+							PR_ENTRYID => $rootProps[PR_IPM_CONTACT_ENTRYID],
+							PR_DISPLAY_NAME => _("Contacts"),
+						];
+						array_push($userContactFolders, $defaultContactFolder);
+
+						// Go for sub folders only if configured in settings
+						if ($sharedUserSetting['contact']['show_subfolders'] == true) {
+							$subContactFolders = $this->getContactFolders($openedUserStore, $rootProps[PR_IPM_CONTACT_ENTRYID], true);
+							if (is_array($subContactFolders)) {
+								$userContactFolders = array_merge($userContactFolders, $subContactFolders);
+							}
+						}
+					}
+
+					// Postfix display name of every contact folder with respective owner name
+					// it is mandatory to keep display-name different
+					$userStoreProps = mapi_getprops($openedUserStore, [PR_MAILBOX_OWNER_NAME]);
+					for ($i = 0,$len = count($userContactFolders); $i < $len; ++$i) {
+						$userContactFolders[$i][PR_DISPLAY_NAME] = $userContactFolders[$i][PR_DISPLAY_NAME] . " - " . $userStoreProps[PR_MAILBOX_OWNER_NAME];
+					}
+
+					$contactFolders = array_merge($contactFolders, $userContactFolders);
+				}
+			}
+
+			// Include public contact folders in addressbook if public folders and public contacts folders are enabled
+			if (ENABLE_PUBLIC_CONTACT_FOLDERS && ENABLE_PUBLIC_FOLDERS) {
+				$publicStore = $this->getPublicMessageStore();
+				if ($publicStore !== false) {
+					$contactFolders = array_merge($contactFolders, $this->getContactFoldersForABContactProvider($publicStore));
+				}
+			}
+			// TODO: The shared stores are not opened as there still is a bug that does not allow resolving from shared contact folders
+
+			// These lists will be used to put set in the profile section
+			$contact_store_entryids = [];
+			$contact_folder_entryids = [];
+			$contact_folder_names = [];
+
+			// Create the lists of store entryids, folder entryids and folder names to be added
+			// to the profile section
+			for ($i = 0, $len = count($contactFolders); $i < $len; ++$i) {
+				$contact_store_entryids[] = $contactFolders[$i][PR_STORE_ENTRYID];
+				$contact_folder_entryids[] = $contactFolders[$i][PR_ENTRYID];
+				$contact_folder_names[] = $contactFolders[$i][PR_DISPLAY_NAME];
+			}
+
+			if (!empty($contact_store_entryids)) {
+				// add the defaults contacts folder in the addressbook hierarchy under 'Contacts Folders'
+				mapi_setprops($profsect, [PR_ZC_CONTACT_STORE_ENTRYIDS => $contact_store_entryids,
+					PR_ZC_CONTACT_FOLDER_ENTRYIDS => $contact_folder_entryids,
+					PR_ZC_CONTACT_FOLDER_NAMES => $contact_folder_names, ]);
+			}
+		}
+	}
+
+	/**
+	 * Get the store entryid, folder entryid and display name of the contact folders in the
+	 * user's store. It returns an array prepared by getContactFolders.
+	 *
+	 * @param mapiStore $store The mapi store to look for folders in
+	 *
+	 * @return array Contact folder information
+	 */
+	public function getContactFoldersForABContactProvider($store) {
+		$storeProps = mapi_getprops($store, [PR_ENTRYID, PR_MDB_PROVIDER, PR_IPM_SUBTREE_ENTRYID, PR_IPM_PUBLIC_FOLDERS_ENTRYID]);
+		$contactFolders = [];
+
+		try {
+			// Only searches one level deep, otherwise deleted contact folders will also be included.
+			$contactFolders = $this->getContactFolders($store, $storeProps[PR_IPM_SUBTREE_ENTRYID], $storeProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID ? true : false);
+		}
+		catch (Exception) {
+			return $contactFolders;
+		}
+
+		// Need to search all the contact-subfolders within first level contact folders.
+		if ($storeProps[PR_MDB_PROVIDER] != ZARAFA_STORE_PUBLIC_GUID) {
+			$firstLevelHierarchyNodes = $contactFolders;
+			foreach ($firstLevelHierarchyNodes as $firstLevelNode) {
+				try {
+					// To search for multiple levels CONVENIENT_DEPTH needs to be passed as well.
+					$contactFolders = array_merge($contactFolders, $this->getContactFolders($store, $firstLevelNode[PR_ENTRYID], true));
+				}
+				catch (Exception) {
+					// Skip subfolder search if the parent folder cannot be accessed
+				}
+			}
+		}
+
+		return $contactFolders;
+	}
+
+	/**
+	 * Get the store entryid, folder entryid and display name of the contact folders from within given folder, in the
+	 * user's store. It provides an array where each item contains the information of a folder
+	 * formatted like this:
+	 * Array(
+	 *     PR_STORE_ENTRYID => '1234567890ABCDEF',
+	 *     PR_ENTRYID       => '1234567890ABCDEF',
+	 *     PR_DISPLAY_NAME  => 'Contact folder'
+	 * ).
+	 *
+	 * @param mapiStore $store         The mapi store of the user
+	 * @param string    $folderEntryid EntryID of the folder to look for contact folders in
+	 * @param int       $depthSearch   flag to search into all the folder levels
+	 *
+	 * @return array an array in which founded contact-folders will be pushed
+	 */
+	public function getContactFolders($store, $folderEntryid, $depthSearch) {
+		$restriction = [RES_AND,
+			[
+				[RES_CONTENT,
+					[
+						// Fuzzylevel PF_PREFIX also allows IPF.Contact.Custom folders to be included.
+						// Otherwise FL_FULLSTRING would only allow IPF.Contact folders.
+						FUZZYLEVEL => FL_PREFIX,
+						ULPROPTAG => PR_CONTAINER_CLASS,
+						VALUE => [
+							PR_CONTAINER_CLASS => "IPF.Contact",
+						],
+					],
+				],
+				// Exclude hidden folders (PR_ATTR_HIDDEN == false or not set)
+				[RES_OR,
+					[
+						[RES_PROPERTY,
+							[
+								RELOP => RELOP_EQ,
+								ULPROPTAG => PR_ATTR_HIDDEN,
+								VALUE => [PR_ATTR_HIDDEN => false],
+							],
+						],
+						[RES_NOT,
+							[
+								[RES_EXIST,
+									[ULPROPTAG => PR_ATTR_HIDDEN],
+								],
+							],
+						],
+					],
+				],
+			],
+		];
+
+		// Set necessary flag(s) to search considering all the sub folders or not
+		$depthFlag = MAPI_DEFERRED_ERRORS;
+		if ($depthSearch) {
+			$depthFlag |= CONVENIENT_DEPTH;
+		}
+
+		$hierarchyFolder = mapi_msgstore_openentry($store, $folderEntryid);
+
+		// Filter-out contact folders only
+		$contactFolderTable = mapi_folder_gethierarchytable($hierarchyFolder, $depthFlag);
+		mapi_table_restrict($contactFolderTable, $restriction, TBL_BATCH);
+
+		return mapi_table_queryallrows($contactFolderTable, [PR_STORE_ENTRYID, PR_ENTRYID, PR_DISPLAY_NAME, PR_PARENT_ENTRYID, PR_DEPTH]);
+	}
+
+	/**
+	 * Obtains server version from the PR_EC_SERVER_VERSION property.
+	 */
+	public function getServerVersion() {
+		$props = mapi_getprops($this->getDefaultMessageStore(), [PR_EC_SERVER_VERSION]);
+		if (propIsError(PR_EC_SERVER_VERSION, $props) === MAPI_E_NOT_FOUND) {
+			return '';
+		}
+
+		return $props[PR_EC_SERVER_VERSION];
+	}
+
+	/**
+	 * Checks if the entryid is of the public store.
+	 *
+	 * @param string $entryid
+	 *
+	 * @return bool true if public store entryid false otherwise
+	 */
+	public function isPublicStore($entryid) {
+		return $GLOBALS["entryid"]->compareEntryIds(bin2hex($this->publicStore), $entryid);
+	}
+}

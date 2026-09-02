@@ -1,0 +1,252 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React, { useEffect, useState } from 'react';
+import { makeStyles } from 'tss-react/mui';
+import { Button, Dialog, DialogContent, DialogTitle, Grid2, IconButton, Paper, TextField, Theme, Tooltip, Typography } from '@mui/material';
+import { AddCircle, CopyAll } from '@mui/icons-material';
+import { Trans, useTranslation } from 'react-i18next';
+import { addItem, copyToClipboard } from '../../utils';
+import { useAppSelector } from '../../store';
+import { ChangeEvent } from '@/types/common';
+import { CustomImageSet } from '@/types/config';
+
+
+const useStyles = makeStyles()((theme: Theme) => ({
+  paper: {
+    margin: theme.spacing(3, 2, 3, 2),
+    padding: theme.spacing(2, 2, 2, 2),
+  },
+  grid: {
+    margin: theme.spacing(0, 1),
+  },
+  progressContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    margin: theme.spacing(1),
+  },
+  input: {
+    margin: theme.spacing(1),
+  },
+  flexBox: {
+    display: 'flex',
+  },
+  imgPreview: {
+    maxWidth: '100%',
+  },
+  imageGroup: {
+    margin: theme.spacing(0, 0, 4, 0),
+  },
+  jsonPreview: {
+    whiteSpace: 'pre',
+  },
+  pre: {
+    display: 'inline',
+    margin: theme.spacing(0, 0.5)
+  },
+  subtitle: {
+    margin: theme.spacing(2, 0, 0, 2),
+  }
+}));
+
+type CustomImages = Partial<
+  Record<'hostname' | 'logo' | 'logoLight' | 'icon' | 'background' | 'backgroundDark', string>
+>[];
+
+interface DesignState {
+  customImages: CustomImages;
+  configOpen: boolean;
+}
+
+const Design = () => {
+  const { classes } = useStyles();
+  const { t } = useTranslation();
+  const { customImages: storedImages } = useAppSelector(state => state.config);
+  const [state, setState] = useState<DesignState>({
+    customImages: [],
+    configOpen: false,
+  });
+  const { customImages, configOpen } = state;
+
+  useEffect(() => {
+    setState({
+      ...state,
+      customImages: Object.entries(storedImages)
+        .map(([hostname, { logo, logoLight, icon, background, backgroundDark }]) => ({
+          hostname,
+          logo,
+          logoLight,
+          icon,
+          background,
+          backgroundDark
+        })),
+    });
+  }, []);
+
+  const handleAddImageGroup = () => setState({
+    ...state,
+    customImages: addItem(customImages, {}),
+  });
+
+  const handleImgInput = (field: keyof CustomImageSet | 'hostname', idx: number) => (e: ChangeEvent) => {
+    const copy = [...state.customImages];
+    copy[idx][field] = e.target.value;
+    setState({ ...state, customImages: copy });
+  }
+
+  // Saves stringified config object to clipboard
+  const handleCopyToClipboard = () => {
+    copyToClipboard('"customImages": ' + JSON.stringify(
+      customImages.reduce((prevValue, currentValue) => {
+        const { hostname, ...logos } = currentValue;
+        if(!hostname) return prevValue;
+        return {
+          ...prevValue,
+          [hostname]: {
+            ...logos
+          },
+        };
+      }, {}), null, 4)
+    )
+  }
+
+  const handleShowConfig = () => setState({ ...state, configOpen: true });
+
+  const handleConfigClose = () => setState({ ...state, configOpen: false });
+
+  return <>
+    <Typography variant="caption" className={classes.subtitle}>
+      {t("design_sub")}
+    </Typography>
+    <Paper className={classes.paper} elevation={1}>
+      {customImages.map(({ hostname, logo, logoLight, icon, background, backgroundDark}, idx) =>
+        <div className={classes.imageGroup} key={idx}>
+          <TextField
+            label={t("Hostname")}
+            value={hostname || ''}
+            className={classes.input}
+            required
+            fullWidth
+            onChange={handleImgInput("hostname", idx)}
+          />
+          <div className={classes.flexBox}>
+            <Grid2 container direction="column" alignItems="center" className={classes.grid}>
+              <TextField
+                label={t("Logo")}
+                value={logo || ''}
+                variant="standard"
+                onChange={handleImgInput("logo", idx)}
+                fullWidth
+              />
+              <img src={logo || ''} alt="" className={classes.imgPreview}/>
+            </Grid2>
+            <Grid2 container direction="column"  alignItems="center" className={classes.grid}>
+              <TextField
+                label={t("Logo light")}
+                value={logoLight || ''}
+                variant="standard"
+                onChange={handleImgInput("logoLight", idx)}
+                fullWidth
+              />
+              <img src={logoLight || ''} alt="" className={classes.imgPreview}/>
+            </Grid2>
+            <Grid2 container direction="column"  alignItems="center" className={classes.grid}>
+              <TextField
+                label={t("Icon")}
+                value={icon || ''}
+                variant="standard"
+                onChange={handleImgInput("icon", idx)}
+                fullWidth
+              />
+              <img src={icon || ''} alt="" className={classes.imgPreview}/>
+            </Grid2>
+            <Grid2 container direction="column" alignItems="center" className={classes.grid}>
+              <TextField
+                label={t("Background")}
+                value={background || ''}
+                variant="standard"
+                onChange={handleImgInput("background", idx)}
+                fullWidth
+              />
+              <img src={background || ''} alt="" className={classes.imgPreview}/>
+            </Grid2>
+            <Grid2 container direction="column" alignItems="center" className={classes.grid}>
+              <TextField
+                label={t("Background dark")}
+                value={backgroundDark || ''}
+                variant="standard"
+                onChange={handleImgInput("backgroundDark", idx)}
+                fullWidth
+              />
+              <img src={backgroundDark || ''} alt="" className={classes.imgPreview}/>
+            </Grid2>
+          </div>
+        </div>
+      )}
+      <div className={classes.progressContainer}>
+        <Tooltip title={t("Add new set of icons for explicit hostname")}>
+          <IconButton onClick={handleAddImageGroup}>
+            <AddCircle color="primary"/>
+          </IconButton>
+        </Tooltip>
+      </div>
+      <Grid2 container>
+        <Button variant='contained' onClick={handleShowConfig}>
+          {t("Show config")}
+        </Button>
+      </Grid2>
+    </Paper>
+    <Dialog
+      maxWidth="lg"
+      fullWidth
+      onClose={handleConfigClose}
+      open={configOpen}
+    >
+      <DialogTitle>
+        {t("Serverconfig")}
+        <Tooltip placement="top" title={t('Copy config')}>
+          <IconButton onClick={handleCopyToClipboard} size="large">
+            <CopyAll />
+          </IconButton>
+        </Tooltip>
+      </DialogTitle>
+      <DialogContent>
+        <pre>
+          <code className={classes.jsonPreview}>
+            &quot;customImages&quot;:
+            {JSON.stringify(
+              customImages.reduce((prevValue, currentValue) => {
+                const { hostname, ...logos } = currentValue;
+                if(!hostname) return prevValue;
+                return {
+                  ...prevValue,
+                  [hostname]: {
+                    ...logos
+                  },
+                };
+              }, {}), null, 4)
+            }
+          </code>
+        </pre>
+        <Typography>
+          <Trans i18nKey="configInstructions1">
+              Copy these lines into
+            <pre className={classes.pre}>
+                /etc/grommunio-admin-common/config.json
+            </pre>
+          </Trans>.
+          <Trans i18nKey="configInstructions2">
+              Be careful not to duplicate the
+            <pre className={classes.pre}>
+                &quot;customImages&quot;
+            </pre>
+              key
+          </Trans>.
+        </Typography>
+      </DialogContent>
+    </Dialog>
+  </>
+}
+
+
+export default Design;

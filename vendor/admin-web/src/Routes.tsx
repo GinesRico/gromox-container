@@ -1,0 +1,328 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React, { ReactNode } from "react";
+
+import { Routes, Route } from "react-router-dom";
+
+import AuthenticatedRoute from './components/AuthenticatedRoute';
+import AuthenticatedDomainRoute from './components/AuthenticatedDomainRoute';
+import UnauthenticatedRoute from './components/UnauthenticatedRoute';
+import NotFound from "./containers/NotFound";
+import DefaultRedirect from "./components/DefaultRedirect";
+import { DOMAIN_ADMIN_READ, ORG_ADMIN, SYSTEM_ADMIN_READ } from "./constants";
+import makeLoadableComponent from "./lazy";
+import { Domain } from "./types/domains";
+import { RoutesProps } from "./types/misc";
+
+
+// Create async components
+const AsyncLogin = makeLoadableComponent(() => import("./containers/Login"));
+const AsyncMenu = makeLoadableComponent(() => import("./containers/Dashboard"));
+const AsyncDomainAdminMenu = makeLoadableComponent(() => import("./containers/Menu"));
+const AsyncDefaults = makeLoadableComponent(() => import("./containers/Defaults"));
+const AsyncDomainList = makeLoadableComponent(() => import("./containers/Domains"));
+const AsyncDomainListDetails = makeLoadableComponent(() => import("./containers/DomainDetails"));
+const AsyncGlobalUsersList = makeLoadableComponent(() => import("./containers/GlobalUsers"));
+const AsyncGlobalContactsList = makeLoadableComponent(() => import("./containers/GlobalContacts"));
+const AsyncOrgs = makeLoadableComponent(() => import("./containers/Orgs"));
+const AsyncOrgDetails = makeLoadableComponent(() => import("./containers/OrgDetails"));
+const AsyncGroups = makeLoadableComponent(() => import("./containers/Groups"));
+const AsyncGroupDetails = makeLoadableComponent(() => import("./containers/GroupDetails"));
+const AsyncChangePw = makeLoadableComponent(() => import("./containers/ChangePw"));
+const AsyncSettings = makeLoadableComponent(() => import("./containers/Settings"));
+const AsyncUsers = makeLoadableComponent(() => import("./containers/Users"));
+const AsyncUserDetails = makeLoadableComponent(() => import("./containers/UserDetails"));
+const AsyncContacts = makeLoadableComponent(() => import("./containers/Contacts"));
+const AsyncContactDetails = makeLoadableComponent(() => import("./containers/ContactDetails"));
+const AsyncLdap = makeLoadableComponent(() => import("./containers/Ldap"));
+const AsyncLdapConfig = makeLoadableComponent(() => import("./containers/LdapConfig"));
+const AsyncFolders = makeLoadableComponent(() => import("./containers/Folders"));
+const AsyncFolderDetails = makeLoadableComponent(() => import("./containers/FolderDetails"));
+const AsyncDBConf = makeLoadableComponent(() => import("./containers/DBConf"));
+const AsyncDBService = makeLoadableComponent(() => import("./containers/DBService"));
+const AsyncDBFile = makeLoadableComponent(() => import("./containers/DBFile"));
+const AsyncDomainMenu = makeLoadableComponent(() => import("./containers/DomainMenu"));
+const AsyncRoles = makeLoadableComponent(() => import("./containers/Roles"));
+const AsyncRoleDetails = makeLoadableComponent(() => import("./containers/RoleDetails"));
+const AsyncLogs = makeLoadableComponent(() => import("./containers/Logs"));
+const AsyncMailQ = makeLoadableComponent(() => import("./containers/MailQ"));
+const AsyncTaskQ = makeLoadableComponent(() => import("./containers/TaskQ"));
+const AsyncTaskDetails = makeLoadableComponent(() => import("./containers/TaskDetails"));
+const AsyncSync = makeLoadableComponent(() => import("./containers/Sync"));
+const AsyncStatus = makeLoadableComponent(() => import("./containers/Status"));
+const AsyncServers = makeLoadableComponent(() => import("./containers/Servers"));
+const AsyncServerDetails = makeLoadableComponent(() => import("./containers/ServerDetails"));
+const AsyncLicense = makeLoadableComponent(() => import("./containers/License"));
+const AsyncResetPasswd = makeLoadableComponent(() => import("./containers/ResetPasswd"));
+const AsyncSpam = makeLoadableComponent(() => import("./containers/Spam"));
+
+
+/**
+ * react-router routes
+ * 
+ */
+
+
+type AppRoutesProps = {
+  routesProps: RoutesProps;
+  domains: Domain[];
+  capabilities: string[];
+}
+
+const AppRoutes = ({ routesProps, domains, capabilities }: AppRoutesProps) => (
+  <Routes>
+    <Route
+      path="/"
+      element={<AuthenticatedRoute
+        component={capabilities.includes(SYSTEM_ADMIN_READ) ? AsyncMenu : 
+          capabilities.includes(DOMAIN_ADMIN_READ) ? AsyncDomainAdminMenu : AsyncResetPasswd}
+        props={routesProps}
+      />}
+    />
+    <Route
+      path="/login"
+      element={<UnauthenticatedRoute
+        component={AsyncLogin}
+        props={routesProps}
+      />}
+    />
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/spam"
+      element={<AuthenticatedRoute
+        component={AsyncSpam}
+        props={routesProps}
+      />}
+    />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/domains"
+      element={<AuthenticatedRoute
+        component={AsyncDomainList}
+        props={routesProps}
+      />}
+    />}
+    {capabilities.includes(ORG_ADMIN) && <Route
+      path="/domains/:domainID"
+      element={<AuthenticatedRoute
+        component={AsyncDomainListDetails}
+        props={routesProps}
+      />}
+    />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/users"
+      element={<AuthenticatedRoute
+        component={AsyncGlobalUsersList}
+        props={routesProps}
+      />}
+    />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/contacts"
+      element={<AuthenticatedRoute
+        component={AsyncGlobalContactsList}
+        props={routesProps}
+      />}/>}
+    <Route
+      path="/changePassword"
+      element={<AuthenticatedRoute
+        component={AsyncChangePw}
+        props={routesProps}
+      />} />
+    <Route
+      path="/settings"
+      element={<AuthenticatedRoute
+        component={AsyncSettings}
+        props={routesProps}
+      />} />
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/roles"
+      element={<AuthenticatedRoute
+        component={AsyncRoles}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/defaults"
+      element={<AuthenticatedRoute
+        component={AsyncDefaults}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/directory"
+      element={<AuthenticatedRoute
+        component={AsyncLdapConfig}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/logs"
+      element={<AuthenticatedRoute
+        component={AsyncLogs}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/mailq"
+      element={<AuthenticatedRoute
+        component={AsyncMailQ}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/sync"
+      element={<AuthenticatedRoute
+        component={AsyncSync}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/license"
+      element={<AuthenticatedRoute
+        component={AsyncLicense}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/status"
+      element={<AuthenticatedRoute
+        component={AsyncStatus}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/dbconf"
+      element={<AuthenticatedRoute
+        component={AsyncDBConf}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/dbconf/:serviceName"
+      element={<AuthenticatedRoute
+        component={AsyncDBService}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/dbconf/:serviceName/:fileName"
+      element={<AuthenticatedRoute
+        component={AsyncDBFile}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/roles/:roleID"
+      element={<AuthenticatedRoute
+        component={AsyncRoleDetails}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/orgs"
+      element={<AuthenticatedRoute
+        component={AsyncOrgs}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/orgs/:orgID"
+      element={<AuthenticatedRoute
+        component={AsyncOrgDetails}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/servers"
+      element={<AuthenticatedRoute
+        component={AsyncServers}
+        props={routesProps}
+      />} />}
+    {capabilities.includes(SYSTEM_ADMIN_READ) && <Route
+      path="/servers/:serverID"
+      element={<AuthenticatedRoute
+        component={AsyncServerDetails}
+        props={routesProps}
+      />} />}
+    <Route
+      path="/taskq"
+      element={<AuthenticatedRoute
+        component={AsyncTaskQ}
+        props={routesProps}
+      />} />
+    <Route
+      path="/taskq/:taskID"
+      element={<AuthenticatedRoute
+        component={AsyncTaskDetails}
+        props={routesProps}
+      />} />
+    {domains.reduce((prev: ReactNode[], domain: Domain) => {
+      prev.push(<Route
+        path={`/${domain.ID}`}
+        key={domain.ID}
+        element={<AuthenticatedDomainRoute
+          component={AsyncDomainMenu}
+          domain={domain}
+          props={routesProps}
+        />} />, <Route
+        path={`/${domain.ID}/users`}
+        key={domain.ID}
+        element={<AuthenticatedDomainRoute
+          component={AsyncUsers}
+          props={routesProps}
+          domain={domain}
+        />} />, <Route
+        path={`/${domain.ID}/users/:userID`}
+        key={domain.ID}
+        element={<AuthenticatedDomainRoute
+          component={AsyncUserDetails}
+          props={routesProps}
+          domain={domain}
+        />} />, <Route
+        path={`/${domain.ID}/contacts`}
+        key={domain.ID}
+        element={<AuthenticatedDomainRoute
+          component={AsyncContacts}
+          props={routesProps}
+          domain={domain}
+        />} />, <Route
+        path={`/${domain.ID}/contacts/:userID`}
+        key={domain.ID}
+        element={<AuthenticatedDomainRoute
+          component={AsyncContactDetails}
+          props={routesProps}
+          domain={domain}
+        />} />, <Route
+        path={`/${domain.ID}/folders`}
+        key={domain.ID}
+        element={<AuthenticatedDomainRoute
+          component={AsyncFolders}
+          props={routesProps}
+          domain={domain}
+        />} />, <Route
+        path={`/${domain.ID}/folders/:folderID`}
+        key={domain.ID}
+        element={<AuthenticatedDomainRoute
+          domain={domain}
+          component={AsyncFolderDetails}
+          props={routesProps}
+        />} />, <Route
+        path={`/${domain.ID}/ldap`}
+        key={domain.ID}
+        element={<AuthenticatedDomainRoute
+          component={AsyncLdap}
+          props={routesProps}
+          domain={domain}
+        />} />, <Route
+        path={`/${domain.ID}/groups`}
+        key={domain.ID}
+        element={<AuthenticatedDomainRoute
+          component={AsyncGroups}
+          props={routesProps}
+          domain={domain}
+        />} />, <Route
+        path={`/${domain.ID}/groups/:groupID`}
+        key={domain.ID}
+        element={<AuthenticatedDomainRoute
+          component={AsyncGroupDetails}
+          props={routesProps}
+          domain={domain}
+        />} />);
+      return prev;
+    }, [])}
+    {!routesProps.loading ?
+      <Route
+        path="*"
+        element={<NotFound />} />
+      : <Route path="*" element={<DefaultRedirect />} />
+    }
+  </Routes>
+);
+
+
+export default AppRoutes;

@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+Flask = "*"
+mysqlclient = "*"
+openapi-core = ">=0.13.8,<=0.19,!=0.18"
+psutil = "*"
+pyjwt = "*"
+ldap3 = "*"
+argcomplete = "*"
+idna = "*"
+mattermostdriver = "*"
+sqlalchemy = "~=2.0"
+redis = "*"
+systemd-python = "*"
+multidict = "*"
+cryptography = "*"
+dnspython = "*"
+legacycrypt = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3"

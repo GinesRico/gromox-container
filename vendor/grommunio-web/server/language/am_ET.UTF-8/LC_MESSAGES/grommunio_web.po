@@ -1,0 +1,140 @@
+# grommunio Web translations.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"PO-Revision-Date: 2025-03-30 04:00+0000\n"
+"Language: am_ET\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Legal Information"
+msgstr "የህግ መረጃ"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} ተጨማሪ ማሳወቂያ"
+msgstr[1] "{0} ተጨማሪ ማሳወቂያዎች"
+
+msgid "Show less"
+msgstr "ያነሰ አሳይ"
+
+msgid "Undo and redo"
+msgstr "መቀልበስ እና መድገም"
+
+msgid "Enable undo and redo of message actions"
+msgstr "የመልእክት እርምጃዎችን መቀልበስ እና መድገም አንቃ"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "እንደ መልእክቶችን መሰረዝ፣ ማንቀሳቀስ ወይም ባንዲራ ማድረግ ያሉ እርምጃዎችን መቀልበስ (Ctrl+Z) እና መድገም (Ctrl+Y)። እነዚህን እርምጃዎች መመዝገብ ትንሽ ተጨማሪ ጫና ይጨምራል፣ ስለዚህ ባህሪው በነባሪ ተሰናክሏል።"
+
+msgid "Undo"
+msgstr "ቀልብስ"
+
+msgid "Redo"
+msgstr "ድገም"
+
+msgid "Undo: {0}"
+msgstr "ቀልብስ፦ {0}"
+
+msgid "Redo: {0}"
+msgstr "ድገም፦ {0}"
+
+msgid "Nothing to undo"
+msgstr "የሚቀለበስ ነገር የለም"
+
+msgid "Undo the last action"
+msgstr "የመጨረሻውን እርምጃ ቀልብስ"
+
+msgid "Redo the last undone action"
+msgstr "የመጨረሻውን የተቀለበሰ እርምጃ ድገም"
+
+msgid "Undo failed"
+msgstr "መቀልበስ አልተሳካም"
+
+msgid "Redo failed"
+msgstr "መድገም አልተሳካም"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0}ን መቀልበስ አልተቻለም። ንጥሉ በዚህ መሃል ተንቀሳቅሶ፣ ተቀይሮ ወይም ተወግዶ ሊሆን ይችላል።"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0}ን መድገም አልተቻለም። ንጥሉ በዚህ መሃል ተንቀሳቅሶ፣ ተቀይሮ ወይም ተወግዶ ሊሆን ይችላል።"
+
+msgid "Delete {0}"
+msgstr "{0}ን ሰርዝ"
+
+msgid "Delete {0} items"
+msgstr "{0} ንጥሎችን ሰርዝ"
+
+msgid "Move {0} to {1}"
+msgstr "{0}ን ወደ {1} አንቀሳቅስ"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} ንጥሎችን ወደ {1} አንቀሳቅስ"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}ን ወደ {1} ቅዳ"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} ንጥሎችን ወደ {1} ቅዳ"
+
+msgid "Create {0}"
+msgstr "{0}ን ፍጠር"
+
+msgid "Change flag"
+msgstr "ባንዲራ ለውጥ"
+
+msgid "Change categories"
+msgstr "ምድቦችን ለውጥ"
+
+msgid "Change appointment time"
+msgstr "የቀጠሮ ሰዓት ለውጥ"
+
+msgid "another folder"
+msgstr "ሌላ አቃፊ"
+
+msgid "{0}: {1}"
+msgstr "{0}፦ {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}፦ {1} ንጥሎች"
+
+msgid "New mail from {0}"
+msgstr "ከ{0} አዲስ ኢሜይል"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "በ{1} አቃፊ ውስጥ {0} አዲስ መልእክት"
+msgstr[1] "በ{1} አቃፊ ውስጥ {0} አዲስ መልእክቶች"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "የ{2} {1} አቃፊ ውስጥ {0} አዲስ መልእክት"
+msgstr[1] "የ{2} {1} አቃፊ ውስጥ {0} አዲስ መልእክቶች"
+
+msgid "In folder {0}"
+msgstr "በ{0} አቃፊ ውስጥ"
+
+msgid "In folder {0} of {1}"
+msgstr "የ{1} {0} አቃፊ ውስጥ"
+
+msgid "New Mail Notifications"
+msgstr "የአዲስ መልእክት ማሳወቂያዎች"
+
+msgid "Only my own mailbox"
+msgstr "የራሴ የመልእክት ሳጥን ብቻ"
+
+msgid "Only the folders I choose"
+msgstr "የምመርጣቸው አቃፊዎች ብቻ"
+
+msgid "Unknown folder"
+msgstr "ያልታወቀ አቃፊ"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "ምንም አቃፊ አልተመረጠም፣ የአዲስ መልእክት ማሳወቂያ አይታይም።"

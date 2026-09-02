@@ -1,0 +1,355 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2026 grommunio GmbH
+
+import React, { useContext, useState } from 'react';
+import { makeStyles } from 'tss-react/mui';
+import { AppBar, Toolbar, Typography, IconButton,
+  Box, 
+  Menu,
+  MenuItem,
+  Tooltip,
+  Autocomplete,
+  TextField,
+  InputAdornment,
+  useMediaQuery,
+  Theme,
+} from '@mui/material';
+import Burger from '@mui/icons-material/Menu';
+import { setDrawerExpansion, setDrawerOpen } from '../actions/drawer';
+import { useTranslation } from 'react-i18next';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import Duo from '@mui/icons-material/Duo';
+import Chat from '@mui/icons-material/Chat';
+import Files from '@mui/icons-material/Description';
+import Archive from '@mui/icons-material/Archive';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { authLogout } from '../actions/auth';
+import i18n from 'i18next';
+import { changeSettings } from '../actions/settings';
+import { GlobalSearchOption, SYSTEM_ADMIN_READ, SYSTEM_ADMIN_WRITE } from '../constants';
+import { CapabilityContext } from '../CapabilityContext';
+import { getLangs } from '../utils';
+import { FilterAlt as Filter, KeyboardArrowLeft, KeyboardArrowRight, Search, Settings, Translate } from '@mui/icons-material';
+import { globalSearchOptions } from '../constants';
+import { useNavigate } from 'react-router';
+import ColorModeContext from '../ColorContext';
+import { useAppDispatch, useAppSelector } from '../store';
+import { ConfigState } from '@/reducers/config';
+import { MuiIcon } from '@/types/common';
+
+
+const useStyles = makeStyles()((theme: Theme) => ({
+  appbar: {
+    height: 64,
+    border: "none",
+    borderRadius: 0,
+  },
+  toolbarExpanded: {
+    height: 64,
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: 260,
+    },
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    paddingLeft: 12,
+  },
+  toolbarCollapsed: {
+    height: 64,
+    paddingLeft: 12,
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: 75,
+    },
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  title: {
+    flexGrow: 1,
+    fontWeight: 500,
+    marginLeft: 4,
+  },
+  burger: {
+    color: 'white',
+  },
+  iconButton: {
+    color: '#fff',
+    cursor: 'pointer',
+  },
+  add: {
+    margin: theme.spacing(0, 0, 0, 1),
+  },
+  flexEndContainer: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  profileButton: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '2px 4px 2px 8px',
+    borderRadius: 25,
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    },
+  },
+  profileIcon: {
+    fontSize: 40,
+    color: '#aaa',
+    marginLeft: 4,
+  },
+  flag: {
+    cursor: 'pointer',
+  },
+  username: {
+    color: 'white',
+  },
+  langButton: {
+    '&:hover': {
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    },
+  },
+  autoComplete: {
+    maxWidth: 240,
+    marginRight: 8,
+  },
+  search: {
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'rgba(255, 255, 255, 0.6)',
+      },
+      '&:hover fieldset': {
+        borderColor: 'white',
+      },
+    },
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
+  menu: {
+    margin: 10,
+  }
+}));
+
+type Link = {
+  key: keyof ConfigState;
+  title: string;
+  icon: MuiIcon;
+}
+
+const TopBar = () => {
+  const { classes } = useStyles();
+  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const context = useContext(CapabilityContext);
+  const colorContext = useContext(ColorModeContext);
+  const { profile, settings, drawer, config } = useAppSelector(state => state);
+  const [state, setState] = useState({
+    menuAnchorEl: null,
+    langsAnchorEl: null,
+    search: '',
+  });
+  const [toggleClasses, setToggleClasses] = useState(colorContext.mode === "dark" ? ["moon", "tdnn"] : ["moon sun", "tdnn day"]);
+  const navigate = useNavigate();
+
+  const links: Link[] = [
+    { key: 'mailWebAddress', title: 'E-Mail', icon: MailOutlineIcon },
+    { key: 'chatWebAddress', title: 'Chat', icon: Chat },
+    { key: 'videoWebAddress', title: 'Video', icon: Duo },
+    { key: 'fileWebAddress', title: 'Files', icon: Files },
+    { key: 'archiveWebAddress', title: 'Archive', icon: Archive },
+    { key: 'rspamdWebAddress', title: 'Rspamd', icon: Filter },
+  ]
+
+  const handleMenuToggle = () => {
+    dispatch(setDrawerOpen());
+  }
+
+  const handleDrawerExpansion = () => {
+    dispatch(setDrawerExpansion());
+  }
+
+  const handleMenuOpen = (menu: 'menuAnchorEl' | 'langsAnchorEl') =>
+    (e: React.MouseEvent) => setState({
+      ...state, 
+      [menu]: e.currentTarget,
+    });
+
+  const handleMenuClose = (menu: 'menuAnchorEl' | 'langsAnchorEl') => () => setState({
+    ...state, 
+    [menu]: null,
+  });
+
+  const handleNavigation = (path: string | number) => (event: React.MouseEvent) => {
+    event.preventDefault();
+    navigate(`/${path}`);
+  }
+
+  const handleLogout = () => {
+    navigate('/');
+    dispatch(authLogout());
+  }
+
+  const handleLangChange = (lang: string) => () => {
+    i18n.changeLanguage(lang);
+    dispatch(changeSettings('language', lang));
+    window.localStorage.setItem('lang', lang);
+    setState({
+      ...state, 
+      langsAnchorEl: null,
+    });
+  }
+
+  const handleAutocomplete = (_: unknown, newVal: GlobalSearchOption | null) => {
+    if(newVal?.route) navigate(newVal.route);
+  }
+
+  const handleColorMode = () => {
+    colorContext.toggleColorMode();
+    setToggleClasses(toggleClasses[0] === "moon" ? ["moon sun", "tdnn day"] : ["moon", "tdnn"]);
+  }
+
+  const { menuAnchorEl, langsAnchorEl } = state;
+  const licenseVisible = context.includes(SYSTEM_ADMIN_WRITE);
+  const sysAdmRead = context.includes(SYSTEM_ADMIN_READ);
+
+  const lgUpHidden = useMediaQuery(theme => theme.breakpoints.up('lg'));
+  const lgDownHidden = useMediaQuery(theme => theme.breakpoints.down('lg'));
+  const mdDownHidden = useMediaQuery(theme => theme.breakpoints.down('md'));
+  
+  return (
+    (<AppBar color='inherit' position="fixed" className={classes.appbar}>
+      <Toolbar className={drawer.expanded ? classes.toolbarExpanded : classes.toolbarCollapsed}>
+        {!lgUpHidden &&
+          <IconButton sx={{ display: { lg: 'none', md: 'block' } }}  color="inherit" onClick={handleMenuToggle} size="large">
+            <Burger className={classes.burger}/>
+          </IconButton>}
+        {!lgDownHidden &&
+          <IconButton color="inherit" onClick={handleDrawerExpansion} size="large">
+            {drawer.expanded ?
+              <KeyboardArrowLeft className={classes.burger} /> :
+              <KeyboardArrowRight className={classes.burger} />}
+          </IconButton>}
+        {!mdDownHidden && links.map((link, idx) =>
+          <Tooltip
+            placement="bottom"
+            title={t(link.title) + (!config[link.key] ? ` (${t("Not configured")})` : '')} key={idx}
+          >
+            <span>
+              <IconButton
+                href={config[link.key] as string}
+                target="_blank"
+                disabled={!config[link.key]}
+                className={classes.iconButton}
+                size="large">
+                <link.icon />
+              </IconButton>
+            </span>
+          </Tooltip>
+        )}
+        <div className={classes.flexEndContainer}>
+          {sysAdmRead && <Autocomplete
+            onChange={handleAutocomplete}
+            getOptionLabel={o => t(o.label) || ''}
+            className={classes.autoComplete}
+            options={globalSearchOptions}
+            autoHighlight
+            fullWidth
+            filterOptions={(options, state) => {
+              const input = state.inputValue.toLowerCase();
+              return options.filter(o => o.tags.some((tag: string) =>
+                tag.includes(input) || t(tag).includes(input)))
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                className={classes.search}
+                placeholder={t("Search")}
+                variant="standard"
+                slotProps={{
+                  input: {
+                    ...params.InputProps,
+                    style: { color: 'white' },
+                    startAdornment: (
+                      <>
+                        <InputAdornment position="start">
+                          <Search htmlColor='white' />
+                        </InputAdornment>
+                        {params.InputProps.startAdornment}
+                      </>
+                    ),
+                  }
+                }}
+              />
+            )}
+          />}
+          {licenseVisible && <Tooltip title={t("grommunio settings")}>
+            <IconButton className={classes.langButton} onClick={handleNavigation("license")}>
+              <Settings color="inherit" className={classes.username}/>
+            </IconButton>
+          </Tooltip>}
+          <Tooltip title={t("Language")}>
+            <IconButton className={classes.langButton} onClick={handleMenuOpen('langsAnchorEl')}>
+              <Translate color="inherit" className={classes.username}/>
+            </IconButton>
+          </Tooltip>
+          <div className={toggleClasses[1]} onClick={handleColorMode}>
+            <div className={toggleClasses[0]}>
+            </div>
+          </div>
+          <Box className={classes.profileButton} onClick={handleMenuOpen('menuAnchorEl')}>
+            <Typography className={classes.username}>{profile.Profile.user.username}</Typography>
+            <AccountCircleIcon className={classes.profileIcon}></AccountCircleIcon>
+          </Box>
+          <Menu
+            id="lang-menu"
+            anchorEl={langsAnchorEl}
+            keepMounted
+            open={Boolean(langsAnchorEl)}
+            onClose={handleMenuClose('langsAnchorEl')}
+          >
+            {getLangs().map(({key, value}) =>
+              <MenuItem
+                selected={settings.language === key}
+                value={key}
+                key={key}
+                onClick={handleLangChange(key)}
+              >
+                {value}
+              </MenuItem>  
+            )}
+          </Menu>
+          <Menu
+            id="simple-menu"
+            anchorEl={menuAnchorEl}
+            keepMounted
+            open={Boolean(menuAnchorEl)}
+            onClose={handleMenuClose('menuAnchorEl')}
+            slotProps={{
+              paper: {
+                className: classes.menu
+              }
+            }}
+          >
+            <MenuItem onClick={handleNavigation('settings')}>
+              {t('Settings')}
+            </MenuItem>
+            <MenuItem onClick={handleNavigation('changePassword')}>
+              {t('Change password')}
+            </MenuItem>
+            <MenuItem onClick={handleLogout}>
+              {t('Logout')}
+            </MenuItem>
+          </Menu>
+        </div>
+      </Toolbar>
+    </AppBar>)
+  );
+}
+
+
+export default TopBar;
