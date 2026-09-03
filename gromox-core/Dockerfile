@@ -172,8 +172,22 @@ RUN zypper --non-interactive install -y \
 # ----------------------------------------------------------------------
 
 RUN if [ "${ARVERA_USE_GROMOX_FORK}" = "1" ]; then \
-      zypper --non-interactive install -y gcc-c++ make autoconf automake libtool pkg-config && \
-      zypper --non-interactive si -d gromox && \
+      for attempt in 1 2 3; do \
+        zypper clean --all && \
+        rm -rf /var/cache/zypp/* /var/tmp/zypp.* && \
+        zypper --gpg-auto-import-keys --non-interactive refresh -f grommunio && \
+        zypper --non-interactive install -y gcc-c++ make autoconf automake libtool pkg-config && break; \
+        [ "${attempt}" -eq 3 ] && exit 1; \
+        sleep 5; \
+      done && \
+      for attempt in 1 2 3; do \
+        zypper clean --all && \
+        rm -rf /var/cache/zypp/* /var/tmp/zypp.* && \
+        zypper --gpg-auto-import-keys --non-interactive refresh -f grommunio && \
+        zypper --non-interactive si -d gromox && break; \
+        [ "${attempt}" -eq 3 ] && exit 1; \
+        sleep 5; \
+      done && \
       mkdir -p /opt/vendor/gromox && \
       tar -xzf /tmp/gromox.tar.gz -C /opt/vendor/gromox && \
       cd /opt/vendor/gromox && \
