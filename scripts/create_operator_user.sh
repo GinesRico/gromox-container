@@ -23,9 +23,9 @@ Variables:
                        Por defecto: 0
 
 Notas:
-  Este script crea usuarios operadores sin buzon propio (--no-maildir). Sirve
-  para permisos sobre buzones compartidos y envio como esos buzones. El acceso
-  completo al webmail sin buzon propio requiere la adaptacion Arvera de Web/MAPI.
+  Este script crea usuarios operadores con un buzon tecnico ocultable desde
+  Web/MAPI. Sirve para permisos sobre buzones compartidos y envio como esos
+  buzones sin exponer el buzon tecnico en la interfaz.
 EOF
 }
 
@@ -60,11 +60,12 @@ if $COMPOSE exec -T gromox-core grommunio-admin user show "$OPERATOR_EMAIL" >/de
     --privWeb true \
     --privDav true \
     --privEas true
+  echo "Comprobando buzon tecnico."
+  $COMPOSE exec -T gromox-core grommunio-admin user provision "$OPERATOR_EMAIL"
 else
-  echo "Creando usuario sin buzon propio."
+  echo "Creando usuario con buzon tecnico ocultable."
   create_cmd=(
     grommunio-admin user create "$OPERATOR_EMAIL"
-    --no-maildir
     --status 0
     --pop3-imap false
     --smtp false
@@ -104,4 +105,4 @@ for mailbox in $SHARED_MAILBOXES; do
   $COMPOSE exec -T gromox-core grommunio-admin user sendas "$mailbox" list || true
 done
 
-echo "OK: operador preparado. Si este usuario no tiene buzon propio, la entrada directa en Web depende de la adaptacion Arvera de webmail/MAPI."
+echo "OK: operador preparado. El buzon tecnico queda oculto por la configuracion del operador."
