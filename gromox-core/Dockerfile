@@ -192,6 +192,7 @@ RUN if [ "${ARVERA_USE_GROMOX_FORK}" = "1" ]; then \
       tar -xzf /tmp/gromox.tar.gz -C /opt/vendor/gromox && \
       cd /opt/vendor/gromox && \
       sed -i 's/\r$//' qconf && \
+      sed -i '/^ACLOCAL_AMFLAGS[[:space:]]*=[[:space:]]*-I[[:space:]]\+build-aux[[:space:]]*$/d' Makefile.am && \
       sh qconf && \
       make -j"$(nproc)" && \
       make install; \
