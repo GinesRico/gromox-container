@@ -210,6 +210,11 @@ RUN if [ "${ARVERA_USE_GROMMUNIO_WEB_FORK}" = "1" ]; then \
       npm ci && \
       make deploy && \
       cp -a deploy/. /usr/share/grommunio-web/ && \
+      mkdir -p /usr/share/grommunio-web/server/includes/templates && \
+      cp -a server/includes/templates/webclient.php \
+        /usr/share/grommunio-web/server/includes/templates/webclient.php && \
+      grep -q "server-side operator flag" \
+        /usr/share/grommunio-web/server/includes/templates/webclient.php && \
       rm -rf /tmp/arvera-grommunio-web; \
     fi
 
