@@ -1,5 +1,0 @@
-{
-    "require": {
-        "phpfastcache/phpfastcache": "^9.2"
-    }
-}

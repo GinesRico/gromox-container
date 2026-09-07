@@ -25,14 +25,6 @@ ARG ARVERA_USE_GROMOX_FORK=0
 ARG ARVERA_GROMOX_REPO=https://github.com/GinesRico/gromox.git
 ARG ARVERA_GROMOX_REF=arvera-shared-only-mapi
 
-# Source snapshots are supplied by the build context. Keeping them local makes
-# the image build independent of GitHub availability and credentials.
-COPY vendor/gromox.tar.gz /tmp/gromox.tar.gz
-COPY vendor/grommunio-web /opt/vendor/grommunio-web
-COPY vendor/admin-api /opt/vendor/admin-api
-COPY vendor/admin-web /opt/vendor/admin-web
-
-
 # ----------------------------------------------------------------------
 # Base packages
 # ----------------------------------------------------------------------
@@ -172,30 +164,15 @@ RUN zypper --non-interactive install -y \
 # ----------------------------------------------------------------------
 
 RUN if [ "${ARVERA_USE_GROMOX_FORK}" = "1" ]; then \
-      for attempt in 1 2 3; do \
-        zypper clean --all && \
-        rm -rf /var/cache/zypp/* /var/tmp/zypp.* && \
-        zypper --gpg-auto-import-keys --non-interactive refresh -f grommunio && \
-        zypper --non-interactive install -y gcc-c++ make autoconf automake libtool pkg-config && break; \
-        [ "${attempt}" -eq 3 ] && exit 1; \
-        sleep 5; \
-      done && \
-      for attempt in 1 2 3; do \
-        zypper clean --all && \
-        rm -rf /var/cache/zypp/* /var/tmp/zypp.* && \
-        zypper --gpg-auto-import-keys --non-interactive refresh -f grommunio && \
-        zypper --non-interactive si -d gromox && break; \
-        [ "${attempt}" -eq 3 ] && exit 1; \
-        sleep 5; \
-      done && \
-      mkdir -p /opt/vendor/gromox && \
-      tar -xzf /tmp/gromox.tar.gz -C /opt/vendor/gromox && \
-      cd /opt/vendor/gromox && \
-      sed -i 's/\r$//' qconf && \
-      sed -i '/^ACLOCAL_AMFLAGS[[:space:]]*=[[:space:]]*-I[[:space:]]\+build-aux[[:space:]]*$/d' Makefile.am && \
-      sh qconf && \
+      zypper --non-interactive install -y git gcc-c++ make autoconf automake libtool pkg-config && \
+      zypper --non-interactive si -d gromox && \
+      git clone --depth 1 --branch "${ARVERA_GROMOX_REF}" \
+        "${ARVERA_GROMOX_REPO}" /tmp/arvera-gromox && \
+      cd /tmp/arvera-gromox && \
+      ./qconf && \
       make -j"$(nproc)" && \
-      make install; \
+      make install && \
+      rm -rf /tmp/arvera-gromox; \
     fi
 
 
@@ -223,12 +200,17 @@ RUN zypper -n install -y python313-pip && \
 # ----------------------------------------------------------------------
 
 RUN if [ "${ARVERA_USE_GROMMUNIO_WEB_FORK}" = "1" ]; then \
-      zypper --non-interactive install -y nodejs npm make gettext-tools && \
-      cd /opt/vendor/grommunio-web && \
+      zypper --non-interactive install -y git nodejs npm make gettext-tools && \
+      git clone \
+        --depth 1 \
+        --branch "${ARVERA_GROMMUNIO_WEB_REF}" \
+        "${ARVERA_GROMMUNIO_WEB_REPO}" \
+        /tmp/arvera-grommunio-web && \
+      cd /tmp/arvera-grommunio-web && \
       npm ci && \
       make deploy && \
       cp -a deploy/. /usr/share/grommunio-web/ && \
-      rm -rf node_modules; \
+      rm -rf /tmp/arvera-grommunio-web; \
     fi
 
 
@@ -240,7 +222,12 @@ RUN if [ "${ARVERA_USE_GROMMUNIO_WEB_FORK}" = "1" ]; then \
 # ----------------------------------------------------------------------
 
 RUN if [ "${ARVERA_USE_ADMIN_API_FORK}" = "1" ]; then \
-      test -f /opt/vendor/admin-api/main.py && \
+      zypper --non-interactive install -y git && \
+      git clone \
+        --depth 1 \
+        --branch "${ARVERA_ADMIN_API_REF}" \
+        "${ARVERA_ADMIN_API_REPO}" \
+        /tmp/arvera-admin-api && \
       rm -rf \
         /usr/share/grommunio-admin-api/api \
         /usr/share/grommunio-admin-api/cli \
@@ -250,21 +237,21 @@ RUN if [ "${ARVERA_USE_ADMIN_API_FORK}" = "1" ]; then \
         /usr/share/grommunio-admin-api/services \
         /usr/share/grommunio-admin-api/tools && \
       cp -a \
-        /opt/vendor/admin-api/api \
-        /opt/vendor/admin-api/cli \
-        /opt/vendor/admin-api/endpoints \
-        /opt/vendor/admin-api/orm \
-        /opt/vendor/admin-api/res \
-        /opt/vendor/admin-api/services \
-        /opt/vendor/admin-api/tools \
+        /tmp/arvera-admin-api/api \
+        /tmp/arvera-admin-api/cli \
+        /tmp/arvera-admin-api/endpoints \
+        /tmp/arvera-admin-api/orm \
+        /tmp/arvera-admin-api/res \
+        /tmp/arvera-admin-api/services \
+        /tmp/arvera-admin-api/tools \
         /usr/share/grommunio-admin-api/ && \
       cp -a \
-        /opt/vendor/admin-api/main.py \
+        /tmp/arvera-admin-api/main.py \
         /usr/share/grommunio-admin-api/main.py && \
       cp -a \
-        /opt/vendor/admin-api/data/api-config.ini \
+        /tmp/arvera-admin-api/data/api-config.ini \
         /usr/share/grommunio-admin-api/api-config.ini && \
-      true; \
+      rm -rf /tmp/arvera-admin-api; \
     fi
 
 
@@ -289,8 +276,13 @@ COPY gromox-core/custom/config.yaml \
 # ----------------------------------------------------------------------
 
 RUN if [ "${ARVERA_USE_ADMIN_WEB_FORK}" = "1" ]; then \
-      zypper --non-interactive install -y nodejs npm make && \
-      cd /opt/vendor/admin-web && \
+      zypper --non-interactive install -y git nodejs npm make && \
+      git clone \
+        --depth 1 \
+        --branch "${ARVERA_ADMIN_WEB_REF}" \
+        "${ARVERA_ADMIN_WEB_REPO}" \
+        /tmp/arvera-admin-web && \
+      cd /tmp/arvera-admin-web && \
       npm install --global yarn@1.22.22 && \
       yarn install --frozen-lockfile --network-timeout 600000 && \
       DISABLE_ESLINT_PLUGIN=true yarn build && \
@@ -298,7 +290,7 @@ RUN if [ "${ARVERA_USE_ADMIN_WEB_FORK}" = "1" ]; then \
       test -d "${ADMIN_WEB_DIR}" && \
       rm -rf "${ADMIN_WEB_DIR:?}"/* && \
       cp -a build/. "${ADMIN_WEB_DIR}/" && \
-      rm -rf node_modules; \
+      rm -rf /tmp/arvera-admin-web; \
     fi
 
 
